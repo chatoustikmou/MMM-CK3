@@ -32,6 +32,8 @@
 					}
 				}
 			}
+
+			# [StA] Took away min levies
 			# min_levies = {
 			# 	scope:liege = {
 			# 		if = {
@@ -57,6 +59,8 @@
 			# 		}
 			# 	}
 			# }
+			# [/StA]
+			
 			tax = {
 				scope:vassal = {
 					if = {
@@ -87,6 +91,8 @@
 					}
 				}
 			}
+
+			# [StA] Took away min_tax
 			# min_tax = {
 			# 	scope:liege = {
 			# 		if = {
@@ -117,6 +123,7 @@
 			
 			# unclamped_contribution_label = "clan_government_unclamped_contribution_label"
 			# min_contribution_label = "clan_government_min_contribution_label"
+			# [/StA]
 		}
 	}
 }
