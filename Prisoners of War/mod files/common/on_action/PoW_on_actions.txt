@@ -1,0 +1,255 @@
+﻿# called for armies whenever they enter a province
+# root is the owner of the army
+# scope:army is the army
+on_army_enter_province = {
+	on_actions = {
+		PoW_transfer_on_action_bugfix
+		PoW_location_update
+		}
+	}
+
+# called for armies whenever they enter a province
+# root is the owner of the army
+# scope:army is the army
+PoW_location_update = {
+	# checks whether the army is in a story_PoW
+	trigger = { scope:army = { has_variable = story_PoW } }
+
+	# updates story_location to current army.location
+	effect = {
+		debug_log = "dbg_log PoW_location_update"
+		debug_log_scopes = no
+		scope:army.var:story_PoW.var:story_location = { debug_log_scopes = no }
+		scope:army.location = { debug_log_scopes = no }
+		scope:army.var:story_PoW = {
+			debug_log_scopes = no
+			set_variable = {
+				name = story_location
+				value = scope:army.location
+			}
+		}
+		scope:army.var:story_PoW.var:story_location = { debug_log_scopes = no }
+	}
+}
+
+# called for armies whenever they enter a province
+# root is the owner of the army
+# scope:army is the army
+PoW_transfer_on_action_bugfix = { on_actions = { PoW_transfer_on_action }}
+PoW_transfer_on_action = { 
+	trigger = {
+		# Army has PoWs, is in friendly territory, has no enemy/hostile armies in same or neighbouring counties
+		# could be simplified with a can_disband trigger
+		scope:army = {
+			is_in_own_territory = yes
+			has_variable = story_PoW
+		}
+		
+		OR = {
+			AND = { 
+				scope:army.army_owner = { is_at_war = yes }
+				scope:army = { is_enemy_army_nearby = no }
+			}
+			AND = {
+				scope:army = {
+					is_raid_army = yes
+					is_hostile_army_nearby = no
+				}
+			}
+		}
+	}
+	effect = {
+		debug_log = "dbg_log PoW transfer to dungeon triggered"
+		debug_log_scopes = no
+		story_owner = { debug_log_scopes = no }
+		# Transfer PoWs to dungeon
+		# TODO handle dungeon vs house arrest depending on has_character_flag = flag:distinguished_PoW
+		scope:army.var:story_PoW = {
+			every_in_list = {
+				variable = story_PoW_list
+				change_prison_type = dungeon
+				remove_variable = story_PoW
+			}
+			scope:army = { remove_variable = story_PoW }
+			end_story = yes
+		}
+	}
+}
+
+# Root = Winning combat side
+# scope:wipe - Was this a wipe?
+on_combat_end_winner = { on_actions = { PoW_army_transfer_on_action }}
+PoW_army_transfer_on_action = {
+	trigger = {
+		combat.location = { save_temporary_scope_as = combat_loc_temp }
+		OR = {
+			AND = {
+				exists = combat.combat_war
+				side_primary_participant = {
+					any_war_enemy = {
+						has_story_PoW_in_location = { LOCATION = scope:combat_loc_temp }
+					}
+				}
+			}
+			side_primary_participant = {
+				OR = {
+					any_hostile_raider = {
+						has_story_PoW_in_location = { LOCATION = scope:combat_loc_temp }
+					}
+					any_raid_target = {
+						OR = {
+							has_story_PoW_in_location = { LOCATION = scope:combat_loc_temp }
+							any_vassal_or_below = {
+								has_story_PoW_in_location = { LOCATION = scope:combat_loc_temp }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		debug_log = "dbg_log PoW transfer to army triggered"
+		combat.location = { save_scope_as = combat_loc }
+		scope:combat_loc = { debug_log_scopes = no }
+		side_primary_participant = {
+			save_scope_as = new_story_owner
+			if = {
+				limit = {
+					has_story_PoW_in_location = { LOCATION = scope:combat_loc }
+				}
+				random_owned_story = {
+					limit = {
+						story_type = story_PoW
+						var:story_location = scope:combat_loc
+					}
+					save_temporary_scope_as = new_story
+				}
+			}
+			else = {
+				random_army = {
+					limit = { location = scope:combat_loc }
+					save_temporary_scope_as = PoW_army
+				}
+				set_variable = {
+					name = PoW_army
+					value = scope:PoW_army
+				}
+				create_story = {
+					type = story_PoW
+					save_temporary_scope_as = new_story
+				}
+				scope:PoW_army = {
+					set_variable = {
+						name = story_PoW
+						value = scope:new_story
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				exists = combat.combat_war
+				side_primary_participant = {
+					any_war_enemy = {
+						has_story_PoW_in_location = { LOCATION = scope:combat_loc }
+					}
+				}
+			}
+			side_primary_participant = {
+				every_war_enemy = {
+					limit = { has_story_PoW_in_location = { LOCATION = scope:combat_loc } }
+					every_owned_story = {
+						limit = { is_story_PoW_in_location = { LOCATION = scope:combat_loc } }
+						add_to_temporary_list = stories_to_transfer
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				side_primary_participant = {
+					any_hostile_raider = {
+						has_story_PoW_in_location = { LOCATION = scope:combat_loc }
+					}
+				}
+			}
+			side_primary_participant = {
+				every_hostile_raider = {
+					every_owned_story = {
+						limit = { is_story_PoW_in_location = { LOCATION = scope:combat_loc } }
+						add_to_temporary_list = stories_to_transfer
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				side_primary_participant = {
+					any_raid_target = {
+						OR = {
+							has_story_PoW_in_location = { LOCATION = scope:combat_loc }
+							any_vassal_or_below = {
+								has_story_PoW_in_location = { LOCATION = scope:combat_loc }
+							}
+						}
+					}
+				}
+			}
+			side_primary_participant = {
+				every_raid_target = {
+					limit = { has_story_PoW_in_location = { LOCATION = scope:combat_loc } }
+					every_owned_story = {
+						limit = { is_story_PoW_in_location = { LOCATION = scope:combat_loc } }
+						add_to_temporary_list = stories_to_transfer
+					}
+				}
+				every_raid_target = {
+					every_vassal_or_below = {
+						limit = { has_story_PoW_in_location = { LOCATION = scope:combat_loc } }
+						every_owned_story = {
+							limit = { is_story_PoW_in_location = { LOCATION = scope:combat_loc } }
+							add_to_temporary_list = stories_to_transfer
+						}
+					}
+				}
+			}
+		}
+
+		every_in_list = {
+			list = stories_to_transfer
+			var:story_army = { remove_variable = story_PoW }
+			PoW_transfer_to_story_effect = {
+				OLD_STORY = THIS
+				NEW_STORY = scope:new_story
+			}
+		}
+	}
+}
+
+# called for the newborn child
+# scope:child is the new born character
+# scope:mother is the pregnant mother
+# scope:father is the family father (not the biological)
+# scope:real_father is the biological father
+# scope:is_bastard, true if a known bastard	
+on_birth_child = { on_actions = { on_birth_prisoner_of_war }}
+on_birth_prisoner_of_war = {
+	trigger = {
+		scope:mother = { is_in_prison_type = prisoner_of_war }
+	}
+	effect = {
+		set_variable = {
+			name = PoW_story
+			value = scope:mother.var:PoW_story
+		}
+		var:PoW_story = {
+			add_to_variable_list = {
+				name = story_PoW_list
+				target = PREV
+			}
+		}
+	}
+}

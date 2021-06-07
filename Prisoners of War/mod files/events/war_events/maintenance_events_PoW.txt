@@ -1,0 +1,10 @@
+﻿# namespace = PoW_maintenance
+
+# # PoW dead at sea
+# PoW_maintenance.0010 = {}
+
+# # PoW liberated, ruler dead or non ruler
+# PoW_maintenance.0020 = {}
+
+# # PoW liberated, fallback
+# PoW_maintenance.0030 = {}

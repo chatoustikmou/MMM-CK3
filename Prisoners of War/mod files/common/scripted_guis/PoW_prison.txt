@@ -1,0 +1,16 @@
+﻿prison_screen_exclude_PoW = {
+	scope = character
+	
+	is_shown = {
+		NOT = { is_in_prison_type = prisoner_of_war }
+	}
+}
+
+prison_screen_PoW = {
+	scope = character
+	
+	is_shown = {
+		is_in_prison_type = prisoner_of_war
+	}
+}
+
