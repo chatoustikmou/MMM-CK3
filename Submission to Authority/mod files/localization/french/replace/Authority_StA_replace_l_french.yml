@@ -1,0 +1,42 @@
+﻿l_french:
+
+  crown_authority: "[authority|E]"
+  crown_authority_0: "Autorité absente"
+  crown_authority_1: "Autorité limitée"
+  crown_authority_1_effects: ""
+  crown_authority_2: "Autorité élevée"
+  crown_authority_2_effects: ""
+  crown_authority_3: "Autorité absolue"
+  crown_authority_3_effects: ""
+
+  tribal_authority:0 "[authority|E]"
+  tribal_authority_0: "Autorité absente"
+
+  tribal_authority_1: "Autorité limitée"
+  tribal_authority_1_effects: ""
+  tribal_authority_2: "Autorité élevée"
+  tribal_authority_2_effects: ""
+  tribal_authority_3: "Autorité absolue"
+  tribal_authority_3_effects: """
+
+  crown_authority_0_effects_not_in_prev: "#S Gouvernement Féodal ou Clan : #!\n $EFFECT_LIST_BULLET$Les [characters|El] peuvent être [Concept('imprisoned','emprisonnés')|El]\n\n#S Contrat féodal par défaut :#!\n$EFFECT_LIST_BULLET$Exemption d'impôts\n$EFFECT_LIST_BULLET$Aucune contribution en levées"
+
+  crown_authority_1_effects_not_in_prev: "#S Tous les gouvernements: #!\n$EFFECT_LIST_BULLET$Les [characters|El] peuvent être [Concept('imprisoned','emprisonnés')|El]\n\n#S Gouvernement Féodal ou Clan : #!\n$EFFECT_LIST_BULLET$peut changer entre les [succession_laws|El] par partition disponibles\n$EFFECT_LIST_BULLET$peut [retract|El] un vassal à un de ses vassaux\n$EFFECT_LIST_BULLET$peut [revoke|El] des [titles|El]\n\n#S Gouvernement Tribal : #!\n$EFFECT_LIST_BULLET$Un dirigeant [tribal|E] ayant un [liege|E] non-$game_concept_tribal$ peut adopter le [feudalism|El]\n\n#S Contrat féodal par défaut : #!\n$EFFECT_LIST_BULLET$Impôt bas\n$EFFECT_LIST_BULLET$Faible contribution en levées"
+
+  crown_authority_2_effects_not_in_prev: "#S Tous les gouvernements: #!\n$EFFECT_LIST_BULLET$Les [characters|El] peuvent être [Concept('imprisoned','emprisonnés')|El]\n$EFFECT_LIST_BULLET$peut [retract|El] un vassal à un de ses vassaux\n$EFFECT_LIST_BULLET$peut [revoke|El] des [titles|El]\n\n#S Gouvernement Féodal ou Clan: #!\n$EFFECT_LIST_BULLET$peut changer entre les [succession_laws|El] par partition disponibles\n$EFFECT_LIST_BULLET$les [titles|El] des vassaux ne peuvent être hérités par un dirigeant en dehors du [realm|El] du seigneur lige\n$EFFECT_LIST_BULLET$refuser la [revocation|El] de titres ou la [retraction|El] de vassaux est considéré comme un [crime|El] même si le seigneur lige n'a pas de raison suffisante\n\n#S Gouvernement Tribal: #!\n$EFFECT_LIST_BULLET$Un dirigeant [tribal|E] ayant un [liege|E] non-$game_concept_tribal$ peut adopter le [feudalism|El]\n\n#S Contrat féodal par défaut : #!\n$EFFECT_LIST_BULLET$Impôts normaux\n$EFFECT_LIST_BULLET$Contribution normale en levées\n$EFFECT_LIST_BULLET$Révocation de titre protégée\n$EFFECT_LIST_BULLET$Déclaration de guerre autorisée"
+
+  crown_authority_3_effects_not_in_prev: "#S Tous les gouvernements : #!\n$EFFECT_LIST_BULLET$Les [characters|El] peuvent être [Concept('imprisoned','emprisonnés')|El]\n\n#S Gouvernement Féodal ou Clan : #!\n$EFFECT_LIST_BULLET$peut changer entre les [succession_laws|El] par partition disponibles\n$EFFECT_LIST_BULLET$peut [retract|El] un vassal à un de ses vassaux\n$EFFECT_LIST_BULLET$peut [revoke|El] des [titles|El]\n$EFFECT_LIST_BULLET$les [titles|El] des vassaux ne peuvent être hérités par un dirigeant en dehors du [realm|El] du seigneur lige\n$EFFECT_LIST_BULLET$refuser la [revocation|El] de titres ou la [retraction|El] de vassaux est considéré comme un [crime|El] même si le seigneur lige n'a pas de raison suffisante\n$EFFECT_LIST_BULLET$les vassaux ne peuvent pas déclarer la guerre, même à des dirigeants étrangers, à moins d'utiliser un [hook|E] contre leur [liege|E]\n$EFFECT_LIST_BULLET$Rle dirigeant peut choisir un [designated_heir|El] pour un coût en [prestige|El]\n\n#S Gouvernement Tribal: #!\n$EFFECT_LIST_BULLET$Un dirigeant [tribal|E] ayant un [liege|E] non-$game_concept_tribal$ peut adopter le [feudalism|El]\n$EFFECT_LIST_BULLET$Un dirigeant [tribal|E] [independent|E] peut adopter le [feudalism|El].\n\n#S Contrat féodal par défaut : #!\n$EFFECT_LIST_BULLET$Impôts élevés\n$EFFECT_LIST_BULLET$Contribution élevée en levées\n$EFFECT_LIST_BULLET$Révocation de titre protégée\n$EFFECT_LIST_BULLET$Déclaration de guerre autorisée"
+
+  tribal_authority_0_effects_not_in_prev: "#S Gouvernement Féodal ou Clan : #!\n $EFFECT_LIST_BULLET$Les [characters|El] peuvent être [Concept('imprisoned','emprisonnés')|El]\n\n#S Contrat féodal par défaut :#!\n$EFFECT_LIST_BULLET$Exemption d'impôts\n$EFFECT_LIST_BULLET$Aucune contribution en levées"
+
+  tribal_authority_1_effects_not_in_prev: "#S Tous les gouvernements: #!\n$EFFECT_LIST_BULLET$Les [characters|El] peuvent être [Concept('imprisoned','emprisonnés')|El]\n\n#S Gouvernement Féodal ou Clan : #!\n$EFFECT_LIST_BULLET$peut changer entre les [succession_laws|El] par partition disponibles\n$EFFECT_LIST_BULLET$peut [retract|El] un vassal à un de ses vassaux\n$EFFECT_LIST_BULLET$peut [revoke|El] des [titles|El]\n\n#S Gouvernement Tribal : #!\n$EFFECT_LIST_BULLET$Un dirigeant [tribal|E] ayant un [liege|E] non-$game_concept_tribal$ peut adopter le [feudalism|El]\n\n#S Contrat féodal par défaut : #!\n$EFFECT_LIST_BULLET$Impôt bas\n$EFFECT_LIST_BULLET$Faible contribution en levées"
+
+  tribal_authority_2_effects_not_in_prev: "#S Tous les gouvernements: #!\n$EFFECT_LIST_BULLET$Les [characters|El] peuvent être [Concept('imprisoned','emprisonnés')|El]\n$EFFECT_LIST_BULLET$peut [retract|El] un vassal à un de ses vassaux\n$EFFECT_LIST_BULLET$peut [revoke|El] des [titles|El]\n\n#S Gouvernement Féodal ou Clan: #!\n$EFFECT_LIST_BULLET$peut changer entre les [succession_laws|El] par partition disponibles\n$EFFECT_LIST_BULLET$les [titles|El] des vassaux ne peuvent être hérités par un dirigeant en dehors du [realm|El] du seigneur lige\n$EFFECT_LIST_BULLET$refuser la [revocation|El] de titres ou la [retraction|El] de vassaux est considéré comme un [crime|El] même si le seigneur lige n'a pas de raison suffisante\n\n#S Gouvernement Tribal: #!\n$EFFECT_LIST_BULLET$Un dirigeant [tribal|E] ayant un [liege|E] non-$game_concept_tribal$ peut adopter le [feudalism|El]\n\n#S Contrat féodal par défaut : #!\n$EFFECT_LIST_BULLET$Impôts normaux\n$EFFECT_LIST_BULLET$Contribution normale en levées\n$EFFECT_LIST_BULLET$Révocation de titre protégée\n$EFFECT_LIST_BULLET$Déclaration de guerre autorisée"
+
+  tribal_authority_3_effects_not_in_prev: "#S Tous les gouvernements : #!\n$EFFECT_LIST_BULLET$Les [characters|El] peuvent être [Concept('imprisoned','emprisonnés')|El]\n\n#S Gouvernement Féodal ou Clan : #!\n$EFFECT_LIST_BULLET$peut changer entre les [succession_laws|El] par partition disponibles\n$EFFECT_LIST_BULLET$peut [retract|El] un vassal à un de ses vassaux\n$EFFECT_LIST_BULLET$peut [revoke|El] des [titles|El]\n$EFFECT_LIST_BULLET$les [titles|El] des vassaux ne peuvent être hérités par un dirigeant en dehors du [realm|El] du seigneur lige\n$EFFECT_LIST_BULLET$refuser la [revocation|El] de titres ou la [retraction|El] de vassaux est considéré comme un [crime|El] même si le seigneur lige n'a pas de raison suffisante\n$EFFECT_LIST_BULLET$les vassaux ne peuvent pas déclarer la guerre, même à des dirigeants étrangers, à moins d'utiliser un [hook|E] contre leur [liege|E]\n$EFFECT_LIST_BULLET$Rle dirigeant peut choisir un [designated_heir|El] pour un coût en [prestige|El]\n\n#S Gouvernement Tribal: #!\n$EFFECT_LIST_BULLET$Un dirigeant [tribal|E] ayant un [liege|E] non-$game_concept_tribal$ peut adopter le [feudalism|El]\n$EFFECT_LIST_BULLET$Un dirigeant [tribal|E] [independent|E] peut adopter le [feudalism|El].\n\n#S Contrat féodal par défaut : #!\n$EFFECT_LIST_BULLET$Impôts élevés\n$EFFECT_LIST_BULLET$Contribution élevée en levées\n$EFFECT_LIST_BULLET$Révocation de titre protégée\n$EFFECT_LIST_BULLET$Déclaration de guerre autorisée"
+
+  CROWN_AUTHORITY_IS_ON_COOLDOWN:1 ""
+  TRIBAL_AUTHORITY_IS_ON_COOLDOWN:1 ""
+  
+  liberty_war_victory_defender_desc:0 "Le [feudal_contract|E] de vos vassaux féodaux a été modifié conformément au niveau d'[authority|E] du Royaume. Les autres vassaux voient leur [submission|E] réduite de 25 pour 10 ans, et vous devez une [favor|El] à chaque membre de la [liberty_faction|El]"
+  liberty_war_victory_desc:0 "Comme la [submission|E] de ses vassaux va être réduite, il en ira de même de l'[authority|E] du royaume du [defender.GetPrimaryTitle.GetName]. Qui plus est, [defender.GetShortUIName] devra une à chaque membre de la [liberty_faction|El]."

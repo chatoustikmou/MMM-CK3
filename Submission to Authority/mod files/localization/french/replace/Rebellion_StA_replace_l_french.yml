@@ -1,0 +1,4 @@
+﻿l_french:
+
+  refused_liege_demand_war_victory_desc_defender:0 "Vous êtes décapité, et tous vos titres sont usurpés."
+  refused_liege_demand_war_victory_desc:0 "[defender.GetShortUIName|U] est décapité, et tous ses titres sont usurpés."

@@ -1,0 +1,134 @@
+﻿StA_reset_feudal_contract = {
+	debug_log = "dbg_log reset_feudal_contract"
+	debug_log_scopes = no
+	liege = { debug_log_scopes = no }
+	if = {
+		limit = {liege = {has_realm_law = crown_authority_0 }}
+		if = {
+			limit = { vassal_contract_obligation_level:feudal_government_taxes != feudal_tax_exempt_level }
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_taxes
+				level = feudal_tax_exempt_level
+			}
+		}
+		if = {
+			limit = { vassal_contract_obligation_level:feudal_government_levies != feudal_levies_exempt_level }
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_levies
+				level = feudal_levies_exempt_level
+			}
+		}
+	}
+	else_if = {
+		limit = {liege = {has_realm_law = crown_authority_1 }}
+		if = {
+			limit = { vassal_contract_obligation_level:feudal_government_taxes != feudal_tax_low_level }
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_taxes
+				level = feudal_tax_low_level
+			}
+		}
+		if = {
+			limit = { vassal_contract_obligation_level:feudal_government_levies != feudal_levies_low_level }
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_levies
+				level = feudal_levies_low_level
+			}
+		}
+	}
+	else_if = {
+		limit = {liege = {has_realm_law = crown_authority_2 }}
+		if = {
+			limit = { vassal_contract_obligation_level:feudal_government_taxes != feudal_tax_normal_level }
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_taxes
+				level = feudal_tax_normal_level
+			}
+		}
+		if = {
+			limit = { vassal_contract_obligation_level:feudal_government_levies != feudal_levies_normal_level }
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_levies
+				level = feudal_levies_normal_level
+			}
+		}
+	}
+	else_if = {
+		limit = {liege = {has_realm_law = crown_authority_3 }}
+		if = {
+			limit = { vassal_contract_obligation_level:feudal_government_taxes != feudal_tax_high_level }
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_taxes
+				level = feudal_tax_high_level
+			}
+		}
+		if = {
+			limit = { vassal_contract_obligation_level:feudal_government_levies != feudal_levies_high_level }
+			vassal_contract_set_obligation_level = {
+				type = feudal_government_levies
+				level = feudal_levies_high_level
+			}
+		}
+	}
+}
+
+reset_feudal_contract_liberty_faction = {
+
+	if = {
+		limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_extortionate_level }
+		vassal_contract_set_obligation_level = {
+			type = feudal_government_taxes
+			level = feudal_tax_high_level
+		}
+	}
+	else_if = {
+		limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_high_level }
+		vassal_contract_set_obligation_level = {
+			type = feudal_government_taxes
+			level = feudal_tax_normal_level
+		}
+	}
+	else_if = {
+		limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_normal_level }
+		vassal_contract_set_obligation_level = {
+			type = feudal_government_taxes
+			level = feudal_tax_low_level
+		}
+	}
+	else_if = {
+		limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_low_level }
+		vassal_contract_set_obligation_level = {
+			type = feudal_government_taxes
+			level = feudal_tax_exempt_level
+		}
+	}
+
+	if = {
+		limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_levies_extortionate_level }
+		vassal_contract_set_obligation_level = {
+			type = feudal_government_taxes
+			level = feudal_levies_high_level
+		}
+	}
+	else_if = {
+		limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_levies_high_level }
+		vassal_contract_set_obligation_level = {
+			type = feudal_government_taxes
+			level = feudal_levies_normal_level
+		}
+	}
+	else_if = {
+		limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_levies_normal_level }
+		vassal_contract_set_obligation_level = {
+			type = feudal_government_taxes
+			level = feudal_levies_low_level
+		}
+	}
+	else_if = {
+		limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_levies_low_level }
+		vassal_contract_set_obligation_level = {
+			type = feudal_government_taxes
+			level = feudal_levies_exempt_level
+		}
+	}
+}

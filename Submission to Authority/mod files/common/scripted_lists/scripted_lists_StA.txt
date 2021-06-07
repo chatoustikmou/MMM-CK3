@@ -1,0 +1,54 @@
+﻿feudal_ruler = {
+	base = ruler
+	conditions = { has_government = feudal_government }
+}
+
+feudal_vassal = {
+	base = vassal
+	conditions = { has_government = feudal_government }
+}
+
+clan_ruler = {
+	base = ruler
+	conditions = { has_government = clan_government }
+}
+
+clan_vassal = {
+	base = vassal
+	conditions = { has_government = clan_government }
+}
+
+tribal_ruler = {
+	base = ruler
+	conditions = { has_government = tribal_government }
+}
+
+tribal_vassal = {
+	base = vassal
+	conditions = { has_government = tribal_government }
+}
+
+vassal_submission = {
+	base = vassal
+	conditions = {
+		OR = {
+			has_government = feudal_government
+			has_government = clan_government
+			has_government = tribal_government
+		}
+		highest_held_title_tier >= tier_county
+	}
+}
+
+ruler_authority = {
+	base = vassal
+	conditions = {
+		OR = {
+			has_government = feudal_government
+			has_government = clan_government
+			has_government = tribal_government
+		}
+		highest_held_title_tier >= tier_duchy
+		vassal_count > 0
+	}
+}

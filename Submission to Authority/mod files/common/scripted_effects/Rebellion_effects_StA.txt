@@ -1,0 +1,484 @@
+﻿rebellion_lost = {
+	save_temporary_scope_as = dethroned_ruler
+	add_character_flag = excluded
+	if = {
+		limit = { exists = primary_heir }
+		primary_heir = { add_character_flag = excluded }
+	}
+	if = {
+		limit = {
+			exists = primary_heir
+			primary_heir = { is_ruler = no }
+		}
+		random_ruler = {
+			limit = {
+				highest_held_title_tier >= tier_duchy
+				domain_size > 1
+				NOR = {
+					has_character_flag = excluded
+					liege = scope:dethroned_ruler
+					top_liege = scope:dethroned_ruler
+				}
+				any_held_title = {
+					any_this_title_or_de_jure_above = {
+						holder = scope:dethroned_ruler
+						count = 0
+					}
+				}
+			}
+			weight = {
+				base = 0
+				modifier = {
+					add = { add = ai_compassion min = 0 }
+					is_close_family_of = scope:dethroned_ruler.primary_heir
+				}
+				modifier = {
+					add = { add = ai_compassion min = 0 }
+					is_extended_family_of = scope:dethroned_ruler.primary_heir
+				}
+				modifier = {
+					add = { add = ai_compassion min = 0 }
+					dynasty = scope:dethroned_ruler.primary_heir.dynasty
+				}
+				modifier = {
+					add = { add = ai_compassion min = 0 }
+					faith = scope:dethroned_ruler.primary_heir.faith
+				}
+				modifier = {
+					add = { add = ai_compassion min = 0 }
+					culture = scope:dethroned_ruler.primary_heir.culture
+				}
+			}
+			save_temporary_scope_as = compassionate_cousin
+		}
+		scope:compassionate_cousin = {
+			random_held_title = {
+				limit = {
+					tier = tier_county
+					is_leased_out = no
+					NOT = { title_province = scope:compassionate_cousin.capital_province }
+				}
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = flee_realm
+					add_claim_on_loss = no
+				}	
+				change_title_holder = {
+						holder = scope:dethroned_ruler.primary_heir
+						change = scope:flee_realm
+				}
+				resolve_title_and_vassal_change = scope:flee_realm
+			}
+		}
+	}
+	every_vassal = {
+		if = {
+			limit = {
+				any_held_title = {
+					any_this_title_or_de_jure_above = {
+						holder = scope:dethroned_ruler
+						count = 0
+					}
+				}
+			}
+			create_title_and_vassal_change = {
+				type = faction_demand
+				save_scope_as = independence
+				add_claim_on_loss = no
+			}
+			if = {
+				limit = {
+					scope:dethroned_ruler = { is_independent_ruler = yes }
+				}
+				becomes_independent = {
+					change = scope:independence
+				}
+			}
+			else = {
+				change_liege = {
+					liege = scope:dethroned_ruler.liege
+					change = scope:independence
+				}
+			}
+			resolve_title_and_vassal_change = scope:independence
+		}
+	}
+	create_title_and_vassal_change = {
+		type = usurped
+		save_scope_as = usurp_last_holding
+		add_claim_on_loss = yes
+	}
+	every_held_title = {
+		limit = {
+			tier = tier_county
+			duchy = {
+				any_this_title_or_de_jure_above = {
+					holder = scope:dethroned_ruler
+					count = 0
+				}
+			}
+		}
+		save_temporary_scope_as = county_to_usurp
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = usurp_titles
+			add_claim_on_loss = yes
+		}
+		create_character = {
+			location = title_province
+			template = rebellion_usurper
+			save_temporary_scope_as = usurper
+		}
+		if = {
+			limit = { 
+				tier = tier_county
+				title_province = scope:dethroned_ruler.capital_province
+				holder = scope:dethroned_ruler
+			}
+			change_title_holder = {
+				holder = scope:usurper
+				change = scope:usurp_last_holding
+			}
+			scope:dethroned_ruler = {
+				add_character_flag = capital_done
+			}
+			if = {
+				limit = {
+					scope:dethroned_ruler = { is_independent_ruler = yes }
+				}
+				scope:usurper = {
+					becomes_independent = { change = scope:usurp_last_holding }
+				}
+			}
+			else = {
+				scope:usurper = {
+					change_liege = {
+						liege = scope:dethroned_ruler.liege
+						change = scope:usurp_last_holding
+					}
+				}
+			}
+		}
+		else = {
+			change_title_holder = {
+				holder = scope:usurper
+				change = scope:usurp_titles
+			}
+			if = {
+				limit = {
+					scope:dethroned_ruler = { is_independent_ruler = yes }
+				}
+				scope:usurper = {
+					becomes_independent = { change = scope:usurp_titles }
+				}
+			}
+			else = {
+				scope:usurper = {
+					change_liege = {
+						liege = scope:dethroned_ruler.liege
+						change = scope:usurp_titles
+					}
+				}
+			}
+		}
+		if = {
+			limit = { exists = scope:usurp_titles }
+			resolve_title_and_vassal_change = scope:usurp_titles
+		}
+	}
+	every_held_title = {
+		limit = { tier = tier_empire }
+		save_temporary_scope_as = empire_to_usurp
+		ordered_de_jure_county_holder = {
+			limit = {
+				liege = scope:dethroned_ruler
+				NOT = { this = scope:dethroned_ruler }
+			}
+			order_by = highest_held_title_tier
+			position = 0
+			save_temporary_scope_as = usurper
+		}
+		if = {
+			limit = {
+				NOT = { exists = scope:usurper }
+			}
+			create_character = {
+				location = scope:county_to_usurp.title_province
+				template = rebellion_usurper
+				save_temporary_scope_as = usurper
+			}
+		}
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = usurp_titles
+			add_claim_on_loss = yes
+		}
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = transfer_vassals
+			add_claim_on_loss = no
+		}
+		scope:empire_to_usurp = {
+			every_in_de_jure_hierarchy = {
+				limit = {				
+					tier >= tier_county
+					NOT = { holder = scope:usurper }
+				}
+				if = {
+					limit = { 
+						tier = tier_county
+						title_province = scope:dethroned_ruler.capital_province
+						holder = scope:dethroned_ruler
+					}
+					change_title_holder = {
+						holder = scope:usurper
+						change = scope:usurp_last_holding
+					}
+					scope:dethroned_ruler = {
+						add_character_flag = capital_done
+					}
+				}
+				else_if = {
+					limit = { holder = scope:dethroned_ruler }
+					change_title_holder = {
+						holder = scope:usurper
+						change = scope:usurp_titles
+					}
+				}
+				else_if = {
+					limit = { holder.liege = scope:dethroned_ruler }
+					holder = {
+						change_liege = {
+							liege = scope:usurper
+							change = scope:transfer_vassals
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { exists = scope:usurp_titles }
+			resolve_title_and_vassal_change = scope:usurp_titles
+		}
+		if = {
+			limit = { exists = scope:transfer_vassals }
+			resolve_title_and_vassal_change = scope:transfer_vassals
+		}
+	}
+	every_held_title = {
+		limit = { tier = tier_kingdom }
+		save_temporary_scope_as = kingdom_to_usurp
+		ordered_de_jure_county_holder = {
+			limit = {
+				liege = scope:dethroned_ruler
+				NOT = { this = scope:dethroned_ruler }
+			}
+			order_by = highest_held_title_tier
+			position = 0
+			save_temporary_scope_as = usurper
+		}
+		if = {
+			limit = {
+				NOT = { exists = scope:usurper }
+			}
+			create_character = {
+				location = scope:county_to_usurp.title_province
+				template = rebellion_usurper
+				save_temporary_scope_as = usurper
+			}
+		}
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = usurp_titles
+			add_claim_on_loss = yes
+		}
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = transfer_vassals
+			add_claim_on_loss = no
+		}
+		scope:kingdom_to_usurp = {
+			every_in_de_jure_hierarchy = {
+				limit = {				
+					tier >= tier_county
+					{ holder = scope:usurper }
+				}
+				if = {
+					limit = { 
+						tier = tier_county
+						title_province = scope:dethroned_ruler.capital_province
+						holder = scope:dethroned_ruler
+					}
+					change_title_holder = {
+						holder = scope:usurper
+						change = scope:usurp_last_holding
+					}
+					scope:dethroned_ruler = {
+						add_character_flag = capital_done
+					}
+				}
+				else_if = {
+					limit = { holder = scope:dethroned_ruler }
+					change_title_holder = {
+						holder = scope:usurper
+						change = scope:usurp_titles
+					}
+				}
+				else_if = {
+					limit = { holder.liege = scope:dethroned_ruler }
+					holder = {
+						change_liege = {
+							liege = scope:usurper
+							change = scope:transfer_vassals
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { exists = scope:usurp_titles }
+			resolve_title_and_vassal_change = scope:usurp_titles
+		}
+		if = {
+			limit = { exists = scope:transfer_vassals }
+			resolve_title_and_vassal_change = scope:transfer_vassals
+		}
+	}
+
+	every_held_title = {
+		limit = { tier = tier_duchy }
+		save_temporary_scope_as = duchy_to_usurp
+		ordered_de_jure_county_holder = {
+			limit = {
+				liege = scope:dethroned_ruler
+				NOT = { this = scope:dethroned_ruler }
+			}
+			order_by = highest_held_title_tier
+			position = 0
+			save_temporary_scope_as = usurper
+		}
+		if = {
+			limit = {
+				NOT = { exists = scope:usurper }
+			}
+			create_character = {
+				location = scope:county_to_usurp.title_province
+				template = rebellion_usurper
+				save_temporary_scope_as = usurper
+			}
+		}
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = usurp_titles
+			add_claim_on_loss = yes
+		}
+		create_title_and_vassal_change = {
+			type = faction_demand
+			save_scope_as = transfer_vassals
+			add_claim_on_loss = no
+		}
+		scope:duchy_to_usurp = {
+			every_in_de_jure_hierarchy = {
+				limit = {				
+					tier >= tier_county
+					NOT = { holder = scope:usurper }
+				}
+				if = {
+					limit = { 
+						tier = tier_county
+						title_province = scope:dethroned_ruler.capital_province
+						holder = scope:dethroned_ruler
+					}
+					change_title_holder = {
+						holder = scope:usurper
+						change = scope:usurp_last_holding
+					}
+					scope:dethroned_ruler = {
+						add_character_flag = capital_done
+					}
+				}
+				else_if = {
+					limit = { holder = scope:dethroned_ruler }
+					change_title_holder = {
+						holder = scope:usurper
+						change = scope:usurp_titles
+					}
+				}
+				else_if = {
+					limit = { holder.liege = scope:dethroned_ruler }
+					holder = {
+						change_liege = {
+							liege = scope:usurper
+							change = scope:transfer_vassals
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { exists = scope:usurp_titles }
+			resolve_title_and_vassal_change = scope:usurp_titles
+		}
+		if = {
+			limit = { exists = scope:transfer_vassals }
+			resolve_title_and_vassal_change = scope:transfer_vassals
+		}
+	}
+	every_held_title = {
+		limit = { tier = tier_county }
+		save_temporary_scope_as = county_to_usurp
+		create_character = {
+			location = scope:county_to_usurp.title_province
+			template = rebellion_usurper
+			save_temporary_scope_as = usurper
+		}
+		if = {
+			limit = { 
+				tier = tier_county
+				title_province = scope:dethroned_ruler.capital_province
+				holder = scope:dethroned_ruler
+				NOT = { scope:dethroned_ruler = { has_character_flag = capital_done }}
+			}
+			change_title_holder = {
+				holder = scope:usurper
+				change = scope:usurp_last_holding
+			}
+			if = {
+				limit = {
+					scope:dethroned_ruler = { is_independent_ruler = yes }
+				}
+				scope:usurper = {
+					becomes_independent = { change = scope:usurp_last_holding }
+				}
+			}
+			else = {
+				scope:usurper = {
+					change_liege = {
+						liege = scope:dethroned_ruler.liege
+						change = scope:usurp_last_holding
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { NOT = { title_province = scope:dethroned_ruler.capital_province }}
+			create_title_and_vassal_change = {
+				type = faction_demand
+				save_scope_as = usurp_titles
+				add_claim_on_loss = yes
+			}
+			change_title_holder = {
+				holder = scope:usurper
+				change = scope:usurp_titles
+			}
+			if = {
+				limit = { exists = scope:usurp_titles }
+				resolve_title_and_vassal_change = scope:usurp_titles
+			}
+		}
+	}
+	death = {
+		death_reason = death_decapitated
+	}
+	resolve_title_and_vassal_change = scope:usurp_last_holding
+}

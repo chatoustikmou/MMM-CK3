@@ -1,0 +1,8 @@
+﻿vassal_submission_character_screen = {
+	scope = character
+	is_shown = {
+		realm_law_use_realm_authority = yes
+		highest_held_title_tier >= tier_county
+		NOT = { liege = root }
+	}
+}

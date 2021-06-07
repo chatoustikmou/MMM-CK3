@@ -1,0 +1,26 @@
+﻿namespace = StA_error_suppression
+
+StA_error_suppression.0001 = {
+	hidden = yes
+	trigger = {
+		exists = var:tyranny_war_ended
+		exists = var:mod_StA_active
+	}
+
+	immediate = {
+		set_variable = {
+			name = crown_authority_cooldown
+			value = 1
+		}
+	
+		set_variable = {
+			name = authority_cooldown_break_tally
+			value = 1
+		}
+
+		set_variable = {
+			name = tribal_authority_cooldown
+			value = 1
+		}
+	}
+}

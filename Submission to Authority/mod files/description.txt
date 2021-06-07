@@ -1,0 +1,162 @@
+"[b]Submission to Authority[/b]" is an overhaul of the Crown/Tribal Authority mechanic.
+[i]The mod is not Ironman compatible[/i].
+
+Updated for 0.6, changelog below.
+New in 0.6 : "War against Tyranny of liege" reworked !
+
+
+Long gone are the days when rulers could assert their Authority by the flick of a pen for a small Prestige cost !
+
+With "Submission to Authority", Rulers will need to consolidate their Authority overtime by ensuring the Submission of their vassals, with different mechanics depending on the vassals' government type.
+Tyrannical rulers counting on their Dread to keep their vassals in line will need to tread carefully, as even the most fearful ruler can find the strength to rebel if pushed hard enough. And the cost for losing a civil war can be dire...
+
+
+[h1]New "Submission" mechanic[/h1]
+
+Each Vassal has a "Submission" value, representing the extent to which they submit to their liege's rule.
+
+Feudal Vassals' Submission is embodied by their Feudal Contract, so negotiating those early, often, and in a way that is most beneficial to you, will be of the utmost importance if you want to bring your Authority up - or your liege's Authority down !
+
+Clan Vassals' Submission is directly correlated to their opinion of their ruler. It is pretty straightforward, but that doesn't mean it's always easy to achieve.
+
+Tribal Vassals respect power, and will be swayed by their ruler's personnal and dynastic Fame. But they also expect their ruler to be generous, and will hold it against him, should he hoard titles for himself.
+
+All Vassals' Submission is also heavily impacted by their Submissivness, i.e. their natural tendency to Submission, which depends on their traits and personality, irrespective of their current situation or their relationship with their liege.
+
+[h1]Overhauled "Authority" mechanic [/h1]
+
+Authority is now automatically derived from the vassal's personnal Submission, pondered by their Land share (how much of the ruler's realm each vassal personnaly rules). It ticks up or down everyquarter, and can no longer be modified directly - neither by the player nor the AI.
+
+Higher Authority levels still need specific cultural innovations to unlock.
+
+[h1]Reworked "War against the Tyranny of liege" [/h1]
+
+It used to be that if a ruler had high enough Dread, most vassals wouldn't dare opposing them. Those that did could be easily coaxed into a war against the tyranny of their liege, a war that they could not hope to win, after which they'd end up in a dungeon cell.
+
+Now rulers will have to balance their Tyranny much more carefully, as during those civil wars, the more Tyranny surpasses Authority, the more vassals will get a chance to rally with their brethren against their liege. And if the war drags on for lon enough, eventually, the whole realm could very well unite against a tyrannical ruler.
+
+Those wars, if lost, also come with a much higher price : if the oppressed masses manage to take the upper hand, they will strip their liege of all their titles, and redistribute them amongts themselves, leaving the heirs with nothing. Fortunately, an unlanded primary heir will always find a distant relative or compassionate soul to grant them a piece of land, enabling them to regroup, and maybe reclaim their ancestors land.
+
+[h1]Additionnal tweaks[/h1]
+
+Levies and Taxes do not scale up with Authority, as having higher Authority means that the ruler already gets additionnal levies and taxes from well negotiated Feudal Contracts (for Feudal vassals), high opinion (for Clan vassals) or high Prestige (for Tribal vassals). Instead, levies and taxes scale up with Submission, on an individual level.
+
+Liberty faction now either :
+- brings tax and levies obligations levels down 1 level each for Feudal vassals
+- gives Clan and Tribal vassals a -25 Submission modifier, hence lowering their obligations as well
+
+[h1]Credits[/h1]
+
+This mod benefited from the invaluable help of the CK3 Mod Co-op.
+All remaining bugs are my own.
+
+[h1]Changelog[/h1]
+
+version 0.7.3
+
+# Bugs
+- Fixed the bug introduced in 0.7.1 that caused all feudal vassals to have their Feudal Contracts being reset to the current default on the monthly tick
+
+version 0.7.2
+
+# Bugs
+- Fixed the bug that caused Authority to switch back and forth between Limited and High levels each months, for Tribal Authority this time
+
+version 0.7.1
+
+# Bugs
+- Fixed a bug preventing Tribal rulers from ever reaching higher authority levels because of an unintended innovation lock
+- Fixed a design error locking barons with "Title revocation protection", which effectively prevented barony titles from ever being revoked and had their obligations level forever set at Exempt. Workaround is, baron's feudal contracts are now reset monthly to the default contract according to the current authority level.
+
+# Balance
+- Nerfed the "hoarded duchies" penalty for tribal rulers' vassal submission. It now only takes into account held and creatable titles of duchy or above rank, and not all created duchy titles in the realm. This should make it easier to build up Authority as a tribal ruler, and effectively permit feudalization, pending a more thorough rework of the whole mechanic.
+
+version 0.7
+
+# Bugs 
+- Fixed a bug that caused Authority to switch back and forth between Limited and High levels each months
+
+# Gameplay
+- Included a Submission score for Theocracy and Republic vassals. All vanilla vassal types are now covered by the mechanic
+- Included a Submission score for the rulers' domain. The whole realm of the ruler is now covered by the mechanic, and therefore Authority works for all playable rulers, starting at the Count level
+
+# Balance
+- Tweaked Submissivness : added Honor and Vengeance subscores, and tweaked how they relate to Dread. Boldness will only prevent liege Dread from impacting vassal Submission. It will only actively lower Submission if a high sense of Honor or spirit of Vengeance make the vassal want to rebel.
+
+
+version 0.6.5
+
+# Localization
+- French localization available
+
+# Interface
+- Added display of Authority level on the character menu
+- Added display of Submission on the character's menu vassal tab
+
+
+version 0.6.1
+
+# Bug fix
+- Fixed chance chance for vassals to join War agains the Tyranny of liege not working properly
+
+version 0.6
+
+# Bug fix
+- Fixed feudal vassal contracts being reset on inheritance
+
+# Balance
+- Sumbissivness is now modified by dread, so dreadful rulers will have higher vassal submission and authority
+- Rolled back the possibility for player feudal vassals to renegotiate their contract with their liege (but not for AI vassals)
+
+# Gameplay
+- When a ruler triggers a war against his tyranny, if his Tyranny is higher than his Authority, each month the attackers will get a chance to rally other vassals to their cause.
+If they succeed, each vassal that is not yet in the war will get a chance to join the war, inversely proportional to their Submission.
+With this change, high Tyranny will somewhat offset the dissuasive power of Dread : rulers abusing Tyranny run the risk of seeing these civil war snowball out of control quite rapidly.
+- When a ruler loses a war against his tyranny, consequences are now much more drastic, as the ruler is stripped of all his titles, which are redistributed to existing vassals or local nobles, following de Jure whenever possible.
+The ruler is also beheaded by the mob storming their castle. This means that the heirs do not inherit any land.
+If the primary heir was unlanded, they manage to flee, as a distant relative or a compassionate foreign ruler of the same faith will grant them a county.
+
+# Interface
+- Updated the localization of Liberty War and Tyranny war pop-ups
+
+
+version 0.5.4
+
+# Bug fix
+- Fixed barons having their non-existent feudal contract being modified through the Liberty faction
+
+# Balance
+- New feudal vassals now have their contracts set according to their liege's Authority level. This applies to vassals gained through the liege's wars, to sub-vassals usurping their direct liege's lands, to rulers being put on the throne as a result of a faction, and to vassals being granted land for the first time. It should not apply to characters gaining vassal status through inheritance.
+- Feudal vassals can no longer renegotiate their contracts with their liege. The only way for vassals to lower their obligations is through the Liberty faction.
+- Authority is now a ticking value, with a "current" value and a "trending to" value. The target Authority is updated every month, and the current Authority drifts by 0.5pt towards the target each month.
+
+# Interface
+- Authority levels now shown as a progress bar, instead of buttons. Color changes depending on whether Authority is increasing (green), decreasing (red), or stable (grey).
+
+version 0.5.3
+
+# Balance
+- All rulers now have a "Submissivness" +/-100% modifier to their Submission (submissivness = - ai_boldness), representing their natural tendency to submission, irrespective of their current situation or relation to their liege. This makes for more variety in Submission values overall.
+- Changed the Clan levies obligations level formula, as the average had balooned from about 30% to almost 50%. Took away the flat 30% levies obligation, balance at game start should now be on par with vanilla for Clan rulers.
+
+ #Interface
+- Added tooltips for notions related to Submission and Authority on the realm vassals screen + nested tooltips detailing the calculus behind the numbers whenever possible
+
+version 0.5.2
+
+# Balance
+- Tribal rulers' levies and tax obligations now scale with Submission, instead of scaling with level of Fame.
+- Clan rulers' levies and tax obligations now scale with Submission, instead of scaling with opinion of liege.
+- Changed the effects of the Liberty faction. Feudal rulers have their contracts automatically renegotiated, with levies and tax obligations each going down one level. Clan and Tribal rulers get a -25 Submission modifier for 10 years, hence lowering their obligations.
+
+
+version 0.5.1
+
+# Interface
+- Added notifications for Authority going up and down
+
+# Bug fix
+- Solved Authority level switching between Absent and Low every quarter when Authority value was above 50 but Royal Prerogative innovation was not unlocked
+
+# Miscellaneous
+- Replaced ugly thumbnail with slightly better thumbnail

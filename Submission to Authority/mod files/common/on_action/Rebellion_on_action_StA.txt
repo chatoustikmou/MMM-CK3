@@ -1,0 +1,54 @@
+﻿@monthly_auth_var = 0.5
+on_war_started = { on_actions = { delay = { months = 1 } monthly_rebellion_grows }}
+monthly_rebellion_grows = {
+	trigger = {
+		exists = scope:war
+  		scope:war = { using_cb = refused_liege_demand_war } 
+	}
+
+	events = { faction_demand.0202 }
+
+	effect = {
+		scope:defender = {
+			random_list = {
+				0 = {
+					modifier = {
+						always = yes
+						add = rebellion_spread_global
+					}
+					every_vassal = {
+						limit = {
+							NOT = { is_participant_in_war = scope:war }
+						}
+						random_list = {
+							0 = {
+								modifier = {
+									always = yes
+									add = rebellion_spread_vassal
+								}
+								scope:war = {
+									set_called_to = prev
+									add_attacker = prev
+								}
+							}
+							100 = {
+								modifier = {
+									always = yes
+									add = rebellion_spread_vassal.neg
+								}
+							}
+						}
+					}
+				}
+				100 = {
+					modifier = {
+						always = yes
+						add = rebellion_spread_global.neg
+					}
+
+				}
+			}
+		}
+	}
+}
+

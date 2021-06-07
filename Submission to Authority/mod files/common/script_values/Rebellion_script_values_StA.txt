@@ -1,0 +1,20 @@
+﻿rebellion_spread_global = {
+	value = 0
+	add = tyranny
+	subtract = realm_authority
+	divide = 10
+	min = 0
+}
+
+rebellion_spread_vassal = {
+	value = 0
+	add = liege.tyranny
+	subtract = submission
+	divide = 10
+	min = 0
+}
+
+neg = {
+	value = this
+	multiply = -1
+}

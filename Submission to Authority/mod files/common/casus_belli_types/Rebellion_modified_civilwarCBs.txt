@@ -1,0 +1,132 @@
+﻿# modified effects on_victory
+# took away the change of realm law, replaced with reset_feudal_contract_liberty_faction for feudal vassals + won_liberty_war flag for all vassals that lowers Submission by 25 for 10 years for non-feudal vassals
+
+refused_liege_demand_war = {
+	group = civil_war
+	ai_only_against_liege = yes
+	allowed_for_character = {
+		scope:attacker = {
+			is_leading_faction_type = liberty_faction
+		}
+	}
+
+	allowed_against_character = {
+		scope:attacker = {
+			liege = scope:defender
+		}
+	}
+
+	target_de_jure_regions_above = yes
+
+	valid_to_start = {
+	}
+
+	should_invalidate = {
+		scope:attacker = {
+			NOT = {
+				any_liege_or_above = { this = scope:defender }
+			}
+		}
+	}
+
+	on_declaration = {
+	}
+
+	on_victory_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:defender = { is_local_player = yes } }
+				desc = refused_liege_demand_war_victory_desc_defender
+			}
+			desc = refused_liege_demand_war_victory_desc
+		}
+		
+	}
+
+	on_victory = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+		scope:defender = {
+			rebellion_lost = yes
+		}
+
+	}
+
+	on_white_peace_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:defender = { is_local_player = yes } }
+				desc = refused_liege_demand_war_white_peace_desc_defender
+			}
+			desc = refused_liege_demand_war_white_peace_desc
+		}
+		
+	}
+
+	on_white_peace = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+		hidden_effect = {
+			scope:attacker = {
+				add_truce_both_ways = {
+					character = scope:defender
+					days = 1825
+					war = root.war
+					result = white_peace
+				}
+			}
+		}
+		on_white_peace_request_revolt_war = yes
+	}
+
+	on_defeat_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:defender = { is_local_player = yes } }
+				desc = refused_liege_demand_war_defeat_desc_defender
+			}
+			desc = refused_liege_demand_war_defeat_desc
+		}
+		
+	}
+
+	on_defeat = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+		scope:defender = {
+			add_character_flag = {
+				flag = recent_liberty_faction_war
+				years = 10
+			}
+			add_character_flag = {
+				flag = tyranny_war_ended
+				months = 1
+			}
+			add_dread = medium_dread_gain
+		}
+		on_lost_request_revolt_war = yes
+	}
+
+	on_invalidated_desc = msg_invalidate_war_title
+
+	check_attacker_inheritance_validity = no
+
+	on_primary_attacker_death = invalidate
+	on_primary_defender_death = inherit
+
+	transfer_behavior = transfer
+
+	attacker_allies_inherit = yes
+	defender_allies_inherit = yes
+
+	war_name = "DEPOSE_WAR_NAME"
+
+	interface_priority = 80
+
+	use_de_jure_wargoal_only = yes
+
+	attacker_wargoal_percentage = 0.8
+
+	max_attacker_score_from_battles = 100
+	max_defender_score_from_battles = 50
+
+	max_ai_diplo_distance_to_title = 500
+	min_ai_score = 100
+}

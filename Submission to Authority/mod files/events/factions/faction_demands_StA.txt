@@ -1,0 +1,134 @@
+﻿namespace = faction_demand
+
+# Liberty Faction Demand
+# by Henrik Fåhraeus
+faction_demand.0101 = {
+	type = letter_event
+	sender = scope:faction_leader
+	opening = {
+		desc = "FACTION_DEMAND_LIBERTY"
+	}
+	desc = "FACTION_DEMAND_LIBERTY_DESC"
+	
+	trigger = {
+		exists = scope:faction
+	}
+
+	option = {
+		name = "FACTION_DEMAND_ACCEPT"
+
+		add_dread = medium_dread_loss
+		
+		add_prestige = -200
+
+		add_character_flag = {
+			flag = recent_liberty_faction_war
+			years = 10
+		}
+
+		scope:faction_leader = {
+			trigger_event = {
+				id = faction_demand.0102
+			}
+		}
+
+		scope:faction = {
+			every_faction_member = {
+				if = {
+					limit = {
+						has_government = feudal_government
+						highest_held_title_tier >= tier_county
+					}
+					reset_feudal_contract_liberty_faction = yes
+				}
+				add_character_flag = {
+					flag = won_liberty_war
+					years = 10
+				}
+			}
+			destroy_faction = yes
+		}
+
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 90
+				scope:faction = { faction_power >= 100 }
+			}
+			modifier = {
+				add = 50
+				scope:faction = { faction_power >= 125 }
+			}
+			modifier = {
+				add = 50
+				scope:faction = { faction_power >= 150 }
+			}
+			modifier = {
+				add = 50
+				scope:faction = { faction_power >= 200 }
+			}
+			modifier = {
+				add = 50
+				any_character_war = {
+					is_war_leader = root
+					is_defender = root
+				}
+			}
+			modifier = {
+				factor = 0.1
+				any_ally = {
+					NOR = {
+						target_is_liege_or_above = root
+						target_is_vassal_or_below = root
+					}
+					max_military_strength > root.max_military_strength
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "FACTION_DEMAND_REFUSE"
+
+		show_as_tooltip = {
+			scope:faction = {
+				faction_start_war = {}
+			}
+		}
+		
+		scope:faction_leader = {
+			trigger_event = {
+				id = faction_demand.0103
+				days = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_boldness = 4.0
+			}
+			modifier = {
+				add = 50
+				scope:faction = { faction_power < 80 }
+			}
+			modifier = {
+				add = 100
+				scope:faction = { faction_power < 60 }
+			}
+			modifier = {
+				add = 1000
+				scope:faction = { faction_power < 40 }
+			}
+		}
+	}
+}
+
+faction_demand.0202 = {
+	hidden = yes
+    type = empty
+
+	immediate = {
+		trigger_event = { on_action = monthly_rebellion_grows months = 1 }
+	}
+}

@@ -1,0 +1,22 @@
+﻿namespace = contract_event
+
+contract_event.0001 = {
+	hidden = yes
+	trigger = { scope:vassal = { has_government = feudal_government } }
+	immediate = {
+		debug_log = "contract_event.0001"
+		reset_feudal_contract = yes
+	}
+}
+
+contract_event.0002 = {
+	hidden = yes
+	trigger = {
+		has_government = feudal_government
+		NOT = { exists = scope:title }
+	}
+	immediate = {
+		debug_log = "contract_event.0002"
+		reset_feudal_contract = yes
+	}
+}

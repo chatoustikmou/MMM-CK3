@@ -1,0 +1,158 @@
+﻿current_authority = {
+
+	set_variable = {
+		name = current_authority_lvl
+		value = {
+			if = {
+				limit = {
+					OR = {
+						has_realm_law = crown_authority_3
+						has_realm_law = tribal_authority_3
+					}
+				}
+				value = 4
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_realm_law = crown_authority_2
+						has_realm_law = tribal_authority_2
+					}
+				}
+				value = 3
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_realm_law = crown_authority_1
+						has_realm_law = tribal_authority_1
+					}
+				}
+				value = 2
+			}
+			else = { value = 1 }
+		}
+	}
+}
+
+new_authority = {
+	if = {
+		limit = { $LVL$ > var:current_authority_lvl.compare_value }
+		send_interface_message = {
+			type = event_generic_good
+			title = authority_gain_title
+			add_realm_law = $NEW_AUTH$
+		}
+	}
+	else_if = {
+		limit = { $LVL$ < var:current_authority_lvl.compare_value }
+		send_interface_message = {
+			type = event_generic_bad
+			title = authority_loss_title
+			add_realm_law = $NEW_AUTH$
+		}
+	}
+}
+
+update_crown_authority = {
+	current_authority = yes
+	if = {
+		limit = {
+			var:ticking_authority > 75
+			NOT = { has_realm_law = crown_authority_3 }
+			}
+		new_authority = { NEW_AUTH = crown_authority_3 LVL = 4 }
+	}
+	else_if = {
+		limit = {
+			var:ticking_authority > 50
+			var:ticking_authority <= 75
+			NOT = { has_realm_law = crown_authority_2 }
+			}
+		new_authority = { NEW_AUTH = crown_authority_2 LVL = 3 }
+	}
+	else_if = {
+		limit = {
+			var:ticking_authority > 25
+			var:ticking_authority <= 50
+			NOT = { has_realm_law = crown_authority_1 }
+		}
+		new_authority = { NEW_AUTH = crown_authority_1 LVL = 2 }
+	}
+	else_if = {
+		limit = {
+			var:ticking_authority >= 0
+			var:ticking_authority < 25
+			NOT = { has_realm_law = crown_authority_0 }
+		}
+		new_authority = { NEW_AUTH = crown_authority_0 LVL = 1 }
+	}
+}
+
+update_tribal_authority = {
+	current_authority = yes
+	if = {
+		limit = {
+			var:ticking_authority > 75
+			NOT = { has_realm_law = tribal_authority_3 }
+		}
+		new_authority = { NEW_AUTH = tribal_authority_3 LVL = 4 }
+	}
+	else_if = {
+		limit = {
+			var:ticking_authority > 50
+			var:ticking_authority <= 75
+			NOT = { has_realm_law = tribal_authority_2 }
+		}
+		new_authority = { NEW_AUTH = tribal_authority_2 LVL = 3 }
+	}
+	else_if = {
+		limit = {
+			var:ticking_authority > 25
+			var:ticking_authority <= 50
+			NOT = { has_realm_law = tribal_authority_1 }
+		}
+		new_authority = { NEW_AUTH = tribal_authority_1 LVL = 2 }
+	}
+	else_if = {
+		limit = {
+			var:ticking_authority >= 0
+			var:ticking_authority < 25
+			NOT = { has_realm_law = tribal_authority_0 }
+		}
+		new_authority = { NEW_AUTH = tribal_authority_0 LVL = 1 }
+	}
+}
+
+cap_ticking_authority = {
+	if = {
+		limit = {
+			NOT = { culture = { has_innovation = innovation_plenary_assemblies } }
+		}
+		change_variable = {
+			name = ticking_authority
+			max = 25
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { culture = { has_innovation = innovation_royal_prerogative } }
+		}
+		change_variable = {
+			name = ticking_authority
+			max = 50
+		}
+	}
+}
+
+# update_total_rank_income = {
+# 	change_global_variable = {
+# 		name = $RANK$_income
+# 		add = monthly_character_income
+# 	}
+# 	change_global_variable = {
+# 		name = $RANK$_nb
+# 		add = 1
+# 	}
+# }
+

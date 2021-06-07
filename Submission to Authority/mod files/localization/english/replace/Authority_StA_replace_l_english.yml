@@ -1,0 +1,52 @@
+﻿l_english:
+
+  crown_authority: "[authority|E]"
+  crown_authority_0: "Absent Authority"
+  crown_authority_1: "Limited Authority"
+  crown_authority_1_effects: ""
+  crown_authority_2: "High Authority"
+  crown_authority_2_effects: ""
+  crown_authority_3: "Absolute Authority"
+  crown_authority_3_effects: ""
+
+  tribal_authority:0 "[authority|E]"
+  tribal_authority_0: "Absent Authority"
+
+  tribal_authority_1: "Limited Authority"
+  tribal_authority_1_effects: ""
+  tribal_authority_2: "High Authority"
+  tribal_authority_2_effects: ""
+  tribal_authority_3: "Absolute Authority"
+  tribal_authority_3_effects: """
+
+  crown_authority_0_effects_not_in_prev: "#S Feudal and Clan governments: #!\n$EFFECT_LIST_BULLET$[characters|E] can be [imprisoned|El]\n\n#S Default Feudal Contracts for feudal vassals:#!\n$EFFECT_LIST_BULLET$No Tax obligation\n$EFFECT_LIST_BULLET$No Levies obligation"
+
+  crown_authority_1_effects_not_in_prev: "#S All governments: #!\n$EFFECT_LIST_BULLET$[characters|E] can be [imprisoned|El]\n\n#S Feudal and Clan governments: #!\n$EFFECT_LIST_BULLET$can change between available Partition [succession_laws|E]\n$EFFECT_LIST_BULLET$[vassals|E] can be retracted\n$EFFECT_LIST_BULLET$[titles|E] can be revoked\n\n#S Tribal governments: #!\n$EFFECT_LIST_BULLET$[tribal|E] rulers with non-$game_concept_tribal$ [Concept('liege','Lieges')|E] may settle, becoming [feudal|E] or [clan|E]\n\n#S Default Feudal Contracts for feudal vassals: #!\n$EFFECT_LIST_BULLET$Low Tax obligation\n$EFFECT_LIST_BULLET$Low Levies obligation"
+
+  crown_authority_2_effects_not_in_prev: "#S All governments: #!\n$EFFECT_LIST_BULLET$[characters|E] can be [imprisoned|El]\n$EFFECT_LIST_BULLET$[vassals|E] can be retracted\n$EFFECT_LIST_BULLET$[titles|E] can be revoked\n\n#S Feudal and Clan governments: #!\n$EFFECT_LIST_BULLET$can change between all available [succession_laws|E]\n$EFFECT_LIST_BULLET$Vassals' [titles|E] cannot be inherited by Characters outside the [realm|E]\n$EFFECT_LIST_BULLET$All Vassals who refuse Title revocation or Vassal retraction are considered [criminals|E]\n\n#S Tribal governments: #!\n$EFFECT_LIST_BULLET$[tribal|E] rulers with non-$game_concept_tribal$ [Concept('liege','Lieges')|E] may settle, becoming [feudal|E] or [clan|E]\n\n#S Default Feudal Contracts for feudal vassals: #!\n$EFFECT_LIST_BULLET$Normal Tax obligation\n$EFFECT_LIST_BULLET$Normal Levies obligation\n$EFFECT_LIST_BULLET$Title Revocation Protection not granted\n$EFFECT_LIST_BULLET$War Declaration Rights not granted"
+
+  crown_authority_3_effects_not_in_prev: "#S All governments: #!\n$EFFECT_LIST_BULLET$[characters|E] can be [imprisoned|El]\n\n#S Feudal and Clan governments: #!\n$EFFECT_LIST_BULLET$can change between available Partition [succession_laws|E]\n$EFFECT_LIST_BULLET$[vassals|E] can be retracted\n$EFFECT_LIST_BULLET$[titles|E] can be revoked\n$EFFECT_LIST_BULLET$Vassals' [titles|E] cannot be inherited by Characters outside the [realm|E]\n$EFFECT_LIST_BULLET$All Vassals who refuse Title revocation or Vassal retraction are considered [criminals|E]\n$EFFECT_LIST_BULLET$[vassals|E] cannot wage any [war|E] unless they use a [hook|E] on their [liege|E]\n$EFFECT_LIST_BULLET$Rulers can designate their [heir|E]\n\n#S Tribal governments: #!\n$EFFECT_LIST_BULLET$[tribal|E] rulers with non-$game_concept_tribal$ [Concept('liege','Lieges')|E] may settle, becoming [feudal|E] or [clan|E]\n$EFFECT_LIST_BULLET$[independent|E] [tribal|E] rulers may settle, becoming [feudal|E] or [clan|E].\n\n#S Default Feudal Contracts for feudal vassals: #!\n$EFFECT_LIST_BULLET$High Tax obligation\n$EFFECT_LIST_BULLET$High Levies obligation\n$EFFECT_LIST_BULLET$Title Revocation Protection not granted\n$EFFECT_LIST_BULLET$War Declaration Rights not granted"
+
+  tribal_authority_0_effects_not_in_prev: "#S Feudal and Clan governments: #!\n$EFFECT_LIST_BULLET$[characters|E] can be [imprisoned|El]\n\n#S Default Feudal Contracts for feudal vassals: #!\n$EFFECT_LIST_BULLET$No Tax obligation\n$EFFECT_LIST_BULLET$No Levies obligation"
+
+  tribal_authority_1_effects_not_in_prev: "#S All governments: #!\n$EFFECT_LIST_BULLET$[characters|E] can be [imprisoned|El]\n\n#S Feudal and Clan governments: #!\n$EFFECT_LIST_BULLET$can change between available Partition [succession_laws|E]\n$EFFECT_LIST_BULLET$[vassals|E] can be retracted\n$EFFECT_LIST_BULLET$[titles|E] can be revoked\n\n#S Tribal governments: #!\n$EFFECT_LIST_BULLET$[tribal|E] rulers with non-$game_concept_tribal$ [Concept('liege','Lieges')|E] may settle, becoming [feudal|E] or [clan|E]\n\n#S Default Feudal Contracts for feudal vassals: #!\n$EFFECT_LIST_BULLET$Low Tax obligation\n$EFFECT_LIST_BULLET$Low Levies obligation"
+
+  tribal_authority_2_effects_not_in_prev: "#S All governments: #!\n$EFFECT_LIST_BULLET$[characters|E] can be [imprisoned|El]\n$EFFECT_LIST_BULLET$[vassals|E] can be retracted\n$EFFECT_LIST_BULLET$[titles|E] can be revoked\n\n#S Feudal and Clan governments: #!\n$EFFECT_LIST_BULLET$can change between all available [succession_laws|E]\n$EFFECT_LIST_BULLET$Vassals' [titles|E] cannot be inherited by Characters outside the [realm|E]\n$EFFECT_LIST_BULLET$All Vassals who refuse Title revocation or Vassal retraction are considered [criminals|E]\n\n#S Tribal governments: #!\n$EFFECT_LIST_BULLET$[tribal|E] rulers with non-$game_concept_tribal$ [Concept('liege','Lieges')|E] may settle, becoming [feudal|E] or [clan|E]\n\n#S Default Feudal Contracts for feudal vassals: #!\n$EFFECT_LIST_BULLET$Normal Tax obligation\n$EFFECT_LIST_BULLET$Normal Levies obligation\n$EFFECT_LIST_BULLET$Title Revocation Protection not granted\n$EFFECT_LIST_BULLET$War Declaration Rights not granted"
+
+  tribal_authority_3_effects_not_in_prev: "#S All governments: #!\n$EFFECT_LIST_BULLET$[characters|E] can be [imprisoned|El]\n\n#S Feudal and Clan governments: #!\n$EFFECT_LIST_BULLET$can change between available Partition [succession_laws|E]\n$EFFECT_LIST_BULLET$[vassals|E] can be retracted\n$EFFECT_LIST_BULLET$[titles|E] can be revoked\n$EFFECT_LIST_BULLET$Vassals' [titles|E] cannot be inherited by Characters outside the [realm|E]\n$EFFECT_LIST_BULLET$All Vassals who refuse Title revocation or Vassal retraction are considered [criminals|E]\n$EFFECT_LIST_BULLET$[vassals|E] cannot wage any [war|E] unless they use a [hook|E] on their [liege|E]\n$EFFECT_LIST_BULLET$Rulers can designate their [heir|E]\n\n#S Tribal governments: #!\n$EFFECT_LIST_BULLET$[tribal|E] rulers with non-$game_concept_tribal$ [Concept('liege','Lieges')|E] may settle, becoming [feudal|E] or [clan|E]\n$EFFECT_LIST_BULLET$[independent|E] [tribal|E] rulers may settle, becoming [feudal|E] or [clan|E].\n\n#S Default Feudal Contracts for feudal vassals: #!\n$EFFECT_LIST_BULLET$High Tax obligation\n$EFFECT_LIST_BULLET$High Levies obligation\n$EFFECT_LIST_BULLET$Title Revocation Protection not granted\n$EFFECT_LIST_BULLET$War Declaration Rights not granted"
+
+  I_LACK_LAW_ALLOWING_TITLE_REVOCATION_TRIBAL:1 "You do not have High [authority|E] or better"
+  I_LACK_LAW_ALLOWING_VASSAL_RETRACTION_TRIBAL:1 "You do not have High [authority|E] or better"
+  I_LACK_LAW_ALLOWING_TITLE_REVOCATION_CROWN:1 "You do not have Limited [authority|E] or better"
+  I_LACK_LAW_ALLOWING_VASSAL_RETRACTION_CROWN:1 "You do not have Limited [authority|E] or better"
+  I_LACK_LAW_ALLOWING_SUCCESSION_LAW_CHANGE:2 "You do not have High [cauthority|E]"
+  I_LACK_TRIBAL_LAW_ALLOWING_SUCCESSION_LAW_CHANGE:0 "You do not have Limited [authority|E]"
+  I_LACK_LAW_ALLOWING_PARTITION_SUCCESSION_LAW_CHANGE:1 "You do not have Limited [authority|E]"
+  I_LACK_LAW_ALLOWING_DESIGNATE_HEIR:0 "You do not have Absolute [authority|E]"
+ 
+  CROWN_AUTHORITY_IS_ON_COOLDOWN:1 ""
+  TRIBAL_AUTHORITY_IS_ON_COOLDOWN:1 ""
+  
+  liberty_war_victory_defender_desc:0 "Your vassals [feudal_contract|E] have been reset according to your current [authority|E]. Other vassals have their [submission|E] reduced by 25 for 10 years, and every [liberty_faction|E] member will be owed a [favor|E]."
+  liberty_war_victory_desc:0 "As his vassals' [submission|E] will be reduced, so will the [defender.GetPrimaryTitle.GetName]'s overall [authority|E]. Additionnaly, and [defender.GetShortUIName] will owe every [liberty_faction|E] member a [favor|E]."
+  liberty_war_victory_end_desc:2 "The [liberty_faction|E] is disbanded, its members cannot join factions for [SCOPE.ScriptValue('liberty_war_victory_cooldown')|0] years."

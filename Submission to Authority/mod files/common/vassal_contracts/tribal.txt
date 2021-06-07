@@ -1,0 +1,22 @@
+﻿tribal_government_obligations = {
+	obligation_levels = {
+		default = {
+			levies = {
+				value = 0
+				scope:vassal = {
+					add = 0.75
+					multiply = tribal_submission
+					divide = 100
+				}
+			}
+			tax = {
+				value = 0
+				scope:vassal = {
+					add = 0.40
+					multiply = tribal_submission
+					divide = 100
+				}
+			}
+		}
+	}
+}

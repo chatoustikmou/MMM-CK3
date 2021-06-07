@@ -1,0 +1,45 @@
+﻿realm_authority = {
+	texture = "gfx/interface/icons/message_feed/law.dds"
+	#texture = "gfx/interface/icons/laws/realm_authority_0.dds"
+	parent = law
+}
+
+submission = {
+}
+
+land_share = {
+}
+
+authority = {
+}
+
+tribal_submission = {
+}
+
+clan_liege_opinion = {
+}
+
+clan_submission = {
+}
+
+feudal_submission = {
+}
+
+theocracy_submission = {
+}
+
+republic_submission = {
+}
+
+
+submissivness = {
+}
+
+submissivness_honor = {
+}
+
+submissivness_vengefulness = {
+}
+
+submissivness_dread = {
+}

@@ -1,0 +1,168 @@
+﻿namespace = StA_councillor_task
+
+
+##################
+# Side Effects from Domestic Affairs
+# 0001-0002
+##################
+
+#Decrease Vassal Submission
+StA_councillor_task.0001 = {
+	type = character_event
+	title = StA_councillor_task.0001.t
+	desc = StA_councillor_task.0001.desc
+	theme = diplomacy
+	left_portrait = {
+		character = scope:councillor
+		animation = shame
+	}
+	right_portrait = {
+		character = scope:rebellious_vassal
+		animation = personality_bold
+	}
+	
+	trigger = {
+		NOT = {
+			has_character_flag = had_event_StA_councillor_task_0001
+		}
+		exists = cp:councillor_chancellor
+		scope:councillor = cp:councillor_chancellor
+		scope:councillor = {
+			diplomacy < high_skill_rating
+		}
+		any_vassal = {
+			NOT = { this = scope:councillor }
+			realm_law_use_realm_authority = yes
+			submission > 25
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		compare_modifier = {
+			target = scope:councillor
+			value = diplomacy
+			multiplier = -0.2
+			offset = inverted_high_skill_rating
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_StA_councillor_task_0002
+			years = 5
+		}
+		set_variable = {
+			name = had_chancellor_task_side_effect
+			value = yes
+			days = chancellor_task_side_effect_cooldown
+		}
+		random_vassal = {
+			limit = {
+				NOT = { this = scope:councillor }
+				realm_law_use_realm_authority = yes
+				submission > 25
+			}
+			save_scope_as = rebellious_vassal
+		}
+	}
+
+	option = {
+		name = StA_councillor_task.0001.a
+		scope:rebellious_vassal = {
+			add_character_flag = {
+				flag = councillor_task_negative
+				years = 5
+			}
+
+			hidden_effect = {
+				send_interface_message = {
+					type = event_chancellor_task_good
+					title = StA_councillor_task.0001.title_message
+					desc = StA_councillor_task.0001.message
+					left_icon = scope:councillor
+				}
+			}
+		}
+	}
+}
+
+StA_councillor_task.0002 = {
+	type = character_event
+	title = StA_councillor_task.0002.t
+	desc = StA_councillor_task.0002.desc
+	theme = diplomacy
+	left_portrait = {
+		character = scope:councillor
+		animation = personality_content
+	}
+	right_portrait = {
+		character = scope:submissive_vassal
+		animation = personality_coward
+	}
+	
+	trigger = {
+		NOT = {
+			has_character_flag = had_event_StA_councillor_task_0002
+		}
+		exists = cp:councillor_chancellor
+		scope:councillor = cp:councillor_chancellor
+		scope:councillor = {
+			diplomacy > mediocre_skill_rating
+		}
+		any_vassal = {
+			NOT = { this = scope:councillor }
+			realm_law_use_realm_authority = yes
+			submission < 75
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		compare_modifier = {
+			target = scope:councillor
+			value = diplomacy
+			multiplier = 0.2
+			offset = inverted_mediocre_skill_rating
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_StA_councillor_task_0002
+			years = 5
+		}
+		set_variable = {
+			name = had_chancellor_task_side_effect
+			value = yes
+			days = chancellor_task_side_effect_cooldown
+		}
+		random_vassal = {
+			limit = {
+				NOT = { this = scope:councillor }
+				realm_law_use_realm_authority = yes
+				submission < 75
+			}
+			save_scope_as = submissive_vassal
+		}
+	}
+
+	option = {
+		name = StA_councillor_task.0002.a
+		scope:submissive_vassal = {
+			add_character_flag = {
+				flag = councillor_task_positive
+				years = 5
+			}
+
+			hidden_effect = {
+				send_interface_message = {
+					type = event_chancellor_task_bad
+					title = StA_councillor_task.0002.title_message
+					desc = StA_councillor_task.0002.message
+					left_icon = scope:councillor
+				}
+			}
+		}
+	}
+}

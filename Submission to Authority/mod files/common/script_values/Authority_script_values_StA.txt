@@ -1,0 +1,434 @@
+﻿clan_government_levies_opinion_scale_positive = 0.00605
+clan_government_levies_default = 0
+
+realm_authority = {
+	value = 0
+	every_vassal = {
+		limit = { highest_held_title_tier >= tier_county }
+		add = submission_weighted
+	}
+	add = {
+		every_held_title = {
+			limit = { tier = tier_county }
+			add = {
+				add = county_control
+				if = {
+					limit = { prev.highest_held_title_tier = tier_empire }
+					max = 100
+				}
+				else_if = {
+					limit = { prev.highest_held_title_tier = tier_kingdom }
+					max = 75
+				}
+				else_if = {
+					limit = { prev.highest_held_title_tier = tier_duchy }
+					max = 50
+				}
+				else_if = {
+					limit = { prev.highest_held_title_tier = tier_county }
+					max = 25
+				}					
+				add = {
+					add = county_opinion
+					max = 0
+				}
+				min = 0
+			}
+		}
+		if = {
+			limit = {
+				NOT = { sub_realm_size = 0 }
+			}
+			divide = sub_realm_size
+		}
+	}
+	round = yes
+}
+
+character_tyranny = {
+	value = tyranny
+}
+
+land_share = {
+	add = sub_realm_size
+	if = {
+		limit = {
+			NOT = { liege.sub_realm_size = 0 }
+		}
+		divide = liege.sub_realm_size
+	}
+	multiply = 100
+}
+
+submission = {
+	if = {
+		limit = { has_government = feudal_government }
+		value = feudal_submission
+	}
+	else_if = {
+		limit = { has_government = clan_government }
+		value = clan_submission
+	}
+	else_if = {
+		limit = { has_government = tribal_government }
+		value = tribal_submission
+	}
+	else_if = {
+		limit = { has_government = theocracy_government }
+		value = theocracy_submission
+	}
+	else_if = {
+		limit = { has_government = republic_government }
+		value = republic_submission
+	}
+	else = { value = 0 }
+	multiply = {
+		add = 100
+		add = submissivness
+		divide = 100
+	}
+	max = 100
+	min = 0
+	add = submission_liberty
+	add = submission_councillor_task
+	max = 100
+	min = 0
+}
+
+submission_weighted = {
+	value = 0
+	add = submission
+	multiply = land_share
+	divide = 100
+}
+
+submissivness = {
+	value = 0
+	add = submissivness_honor
+	add = submissivness_vengefulness
+	add = submissivness_dread
+	max = 100
+	min = -100
+}
+
+submissivness_dread = {
+	add = liege.dread
+	subtract = ai_boldness
+	min = {
+		if = {
+			limit = { submissivness_honor < submissivness_vengefulness }
+			add = submissivness_honor
+		}
+		else = { add = submissivness_vengefulness }
+	}
+	max = 100
+}
+
+submissivness_honor = {
+	value = 0
+	add = liege.tyranny
+	max = ai_honor
+	min = 0
+	multiply = -1
+}
+
+submissivness_vengefulness = {
+	if = {
+		limit = {
+			save_temporary_opinion_value_as = {
+				name = liege_opinion
+				target = liege
+			}
+		}
+	}
+	value = 0
+	subtract = scope:liege_opinion
+	max = ai_vengefulness
+	min = 0
+	multiply = -1		
+}
+
+submission_liberty = {
+	value = 0
+	if = {
+		limit = { has_character_flag = won_liberty_war }
+		subtract = 25
+	}
+}
+
+submission_councillor_task = {
+	value = 0
+	if = {
+		limit = { has_character_flag = councillor_task_positive }
+		add = 25
+	}
+	else_if = {
+		limit = { has_character_flag = councillor_task_negative }
+		subtract = 25
+	}
+}
+
+feudal_submission = {
+	add = feudal_contract_score
+}
+
+feudal_contract_score = {
+	add = 45
+	if = {
+		limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_exempt_level }
+		subtract = 10
+	}
+	else_if = {
+		limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_low_level }
+		subtract = 5
+	}
+	else_if = {
+		limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_high_level }
+		add = 15
+	}
+	else_if = {
+		limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_extortionate_level }
+		add = 25
+	}
+	if = {
+		limit = { vassal_contract_obligation_level:feudal_government_levies = feudal_levies_exempt_level }
+		subtract = 10
+	}
+	else_if = {
+		limit = { vassal_contract_obligation_level:feudal_government_levies = feudal_levies_low_level }
+		subtract = 5
+		}
+	else_if = {
+		limit = { vassal_contract_obligation_level:feudal_government_levies = feudal_levies_high_level }
+		add = 15
+		}
+	else_if = {
+		limit = { vassal_contract_obligation_level:feudal_government_levies = feudal_levies_extortionate_level }
+		add = 25
+		}
+	if = {
+		limit = { vassal_contract_has_flag = religiously_protected }
+		subtract = 5
+	}
+	if = {
+		limit = { vassal_contract_has_flag = locked_to_partition }
+		add = 5
+	}
+	if = {
+		limit = { vassal_contract_has_flag = vassal_contract_war_override }
+		subtract = 5
+	}
+	if = {
+		limit = { vassal_contract_has_flag = can_demand_council_seat }
+		subtract = 5
+	}
+	if = {
+		limit = { vassal_contract_has_flag = vassal_contract_cannot_revoke_titles }
+		subtract = 5
+	}
+	if = {
+		limit = { vassal_contract_has_flag = vassal_contract_coinage_rights }
+		subtract = 5
+	}
+	if = {
+		limit = { vassal_contract_has_flag = vassal_contract_fortification_rights }
+		subtract = 5
+	}	
+}
+
+clan_submission = {
+	value = 0
+	add = clan_submission_bd_liege_opinion
+}
+
+clan_submission_bd_liege_opinion = {
+	value = 0
+	if = {
+		limit = {
+			save_temporary_opinion_value_as = {
+				name = liege_opinion
+				target = liege
+			}
+		}
+	}
+	add = scope:liege_opinion
+	divide = 2
+	add = 50
+}
+
+tribal_submission = {
+	add = liege.tribal_power
+	multiply = 10
+	if = {
+		limit = {
+			NOT = { tribal_power = 0 }
+			}
+		divide = tribal_power
+	}
+	if = {
+		limit = {
+			NOT = { liege.tribal_hoarded_duchies = 0 }
+		}
+		divide = liege.tribal_hoarded_duchies
+	}
+}
+
+tribal_power_liege = {
+	value = liege.tribal_power
+	multiply = 10
+}
+
+tribal_hoarded_duchies_liege = {
+	add = liege.tribal_hoarded_duchies
+	min = 1
+}
+
+tribal_power = {
+	value = 0
+	add = prestige_level
+	multiply = {
+		if = {
+			limit = { highest_held_title_tier = tier_county }
+			add = 1
+		}
+		else_if = {
+			limit = { highest_held_title_tier = tier_duchy }
+			add = 2
+		}
+		else_if = {
+			limit = { highest_held_title_tier = tier_kingdom }
+			add = 3
+		}
+		else_if = {
+			limit = { highest_held_title_tier = tier_empire }
+			add = 4
+		}
+	}
+	multiply = {
+		add = dynasty.dynasty_prestige_level
+		min = 1
+	}
+	min = 1
+}
+
+tribal_primary_title = {
+	if = {
+		limit = { highest_held_title_tier = tier_county }
+		add = 1
+	}
+	else_if = {
+		limit = { highest_held_title_tier = tier_duchy }
+		add = 2
+	}
+	else_if = {
+		limit = { highest_held_title_tier = tier_kingdom }
+		add = 3
+	}
+	else_if = {
+		limit = { highest_held_title_tier = tier_empire }
+		add = 4
+	}
+}
+
+tribal_hoarded_duchies = {
+	value = 0
+	every_held_title = {
+		limit = { tier >= tier_duchy }
+		add = 1
+	}
+	every_alert_creatable_title = {	add = 1	}
+	min = 1
+}
+
+theocracy_submission = {
+	if = {
+		limit = {
+			exists = faith.religious_head
+			faith.religious_head = {
+				save_temporary_opinion_value_as = {
+					name = HoF_opinion
+					target = prev.liege
+				}
+			}
+		}
+			add = scope:HoF_opinion
+	}
+	else_if = {
+		limit = {
+			save_temporary_opinion_value_as = {
+				name = liege_opinion
+				target = liege
+			}
+		}
+		add = scope:liege_opinion
+	}
+	divide = 2
+	add = 50
+	add = theocracy_submission_faith_hostility
+}
+
+theocracy_submission_faith_hostility = {
+	value = 0
+	if = {
+		limit = {
+			faith = {
+				faith_hostility_level = {
+					target = prev.liege.faith
+					value = 1
+				}
+			}
+		}
+		subtract = 25
+	}
+	else_if = {
+		limit = {
+			faith = {
+				faith_hostility_level = {
+					target = prev.liege.faith
+					value = 2
+				}
+			}
+		}
+		subtract = 50
+	}
+	else_if = {
+		limit = {
+			faith = {
+				faith_hostility_level = {
+					target = prev.liege.faith
+					value = 3
+				}
+			}
+		}
+		subtract = 75
+	}
+}
+
+republic_submission = {
+	add = republic_submission_liege_income
+	multiply = 100
+	divide = republic_submission_liege_rank_avg_income
+	subtract = 50
+	max = 100
+	min = 0
+}
+
+republic_submission_liege_income = {
+	add = liege.monthly_character_income
+}
+
+republic_submission_liege_rank_avg_income = {
+	every_ruler = {
+		limit = { highest_held_title_tier = prev.liege.highest_held_title_tier }
+		add = {
+			add = monthly_character_income
+			min = 0
+		}
+	}
+	divide = {
+		every_ruler = {
+			limit = { highest_held_title_tier = prev.liege.highest_held_title_tier }
+			add = 1
+		}
+	}
+}

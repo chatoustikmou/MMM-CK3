@@ -1,0 +1,101 @@
+﻿l_english:
+
+  game_concept_realm_authority:"Authority"
+  game_concept_realm_authority_desc:"$game_concept_realm_authority$ represents the hold that a [ruler|El] exerts on his [vassals|El]. There are 4 levels of $game_concept_realm_authority$ : Absent, Limited, High and Absolute.\n\n$game_concept_realm_authority$ level is updated every quarter, depending on the $game_concept_realm_authority$ value, which ranges from 0 to 100 according to the vassals' [submission|E] pondered by their respective [land_share|E]"
+  game_concept_authority: "Authority"
+  game_concept_authority_desc: "$game_concept_authority$ represents the hold that a [ruler|El] exerts on his [vassals|El]. There are 4 levels of $game_concept_authority$ : Absent, Limited, High and Absolute.\n\n$game_concept_realm_authority$ level is updated every quarter, depending on the $game_concept_authority$ value, which ranges from 0 to 100 according to the vassals' [submission|E] pondered by their respective [land_share|E]"
+  
+  
+  game_concept_submission: "Submission"
+  game_concept_submission_desc: "$game_concept_submission$ reflects to what extent the [vassal|El] submits to his [liege|El]'s power.\n\nFor [feudal|E] rulers, $game_concept_submission$ is determined by their [feudal_contract|E] : the more advantageous it is to the ruler, the more submissive the vassal ruler is.\n\nFor [clan|E] rulers, good relations are key, and they will naturally yield to the liege if they appreciate him.\n\n[tribal|E] rulers respect Fame, but expect rulers with much power to share it, and will not appreciate their liege hoarding titles.\n\n"
+
+  game_concept_tribal_submission: "Tribal Submission"
+  game_concept_tribal_submission_desc: "$game_concept_submission$ reflects to what extent the [vassal|El] submits to his [liege|El]'s power.\n\n[tribal|E] vassals respect rulers that have more Fame and Renown than them, but expect rulers with much power to share it, and will not appreciate their liege hoarding titles."
+
+  game_concept_clan_submission: "Clan Submission"
+  game_concept_clan_submission_desc: "$game_concept_submission$ reflects to what extent the [vassal|El] submits to his [liege|El]'s power.\n\nFor [clan|E] rulers, good relations are key, and they will naturally yield to the liege if they appreciate him."
+
+  game_concept_feudal_submission: "Feudal Submission"
+  game_concept_feudal_submission_desc: "$game_concept_submission$ reflects to what extent the [vassal|El] submits to his [liege|El]'s power.\n\nFor [feudal|E] rulers, $game_concept_submission$ is determined by their [feudal_contract|E] : the more advantageous it is to the ruler, the more submissive the vassal ruler is. Feudal Contracts should be aggressively negociated for all parties involved."
+
+  game_concept_theocracy_submission: "Theocracy Submission"
+  game_concept_theocracy_submission_desc: "$game_concept_submission$ reflects to what extent the [vassal|El] submits to his [liege|El]'s power.\n\n For [theocracy|E] rulers, $game_concept_submission$ is determined by their Head of Faith's opinion of their liege, if such a Head of Faith exists. Otherwise, their own opinion is used instead. Furthermore, if the vassal is of a different faith than the ruler, the former's faith hostility towards the latter's faith will also lower submission."
+
+  game_concept_republic_submission: "Republic Submission"
+  game_concept_republic_submission_desc: "$game_concept_submission$ reflects to what extent the [vassal|El] submits to his [liege|El]'s power.\n\n For [republic|E] rulers, $game_concept_submission$ is determined by their liege's monthly income, compared to the average monthly income of all rulers of the same rank."
+
+  game_concept_land_share: "Land Share"
+  game_concept_land_share_desc: "$game_concept_land_share$ is how much of the ruler's realm is held by this particular [vassal|El]. $Submission$ of vassals with a higher $game_concept_land_share$ will weigh more in the overall [authority|E] of the ruler."
+  
+  realm_authority: "Authority"
+  land_share: "Land Share"
+  submission: "Submission"
+  clan_submission: "Submission"
+
+  game_concept_clan_liege_opinion: "vassal's opinion of liege"
+  game_concept_clan_liege_opinion_desc: "Opinion of liege, which ranges from -100 to +100, is simply recalibrated to fit a scale from 0 to 100."
+
+  game_concept_submissivness: "Submissivness"
+  game_concept_submissivness_desc: "Submissivness is the character's natural tendency to submission, depending on his traits and general personnality, and not from his particular current situation and relation to his liege.\n\nIt ranges from 0 to 100%."
+
+  game_concept_feudal_contract: "Feudal Contract Score"
+  game_concept_feudal_contract_desc: "The Feudal Contract Score, on a scale from 0 to 100, represents the balance of the Feudal Contract between the Vassal and his Liege. Higher obligations level will increase the score, while every rights granted to the vassal will lower it, by the same amount they impact vassal opinion of his liege."
+
+#GUI
+  MY_REALM_WINDOW_VASSAL_SUBMISSION: "$submission$: [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]\n$land_share$: [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('land_share')|0]%"
+  MY_REALM_WINDOW_VASSAL_OBLIGATION: "$VASSAL_CONTRACT_OBLIGATIONS_TITLE$: [VassalContract.GetShortObligationLevelNameWithHighlightFor( 'feudal_government_taxes' )]\n$VASSAL_CONTRACT_OBLIGATIONS_TITLE_LEVIES$: [VassalContract.GetShortObligationLevelNameWithHighlightFor( 'feudal_government_levies' )]"
+  MY_REALM_WINDOW_AUTHORITY: "[realm_authority|E]: [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|0]"
+  MY_REALM_WINDOW_TEST:"Test\n\nTest"
+  CLAN_SUBMISSION_TITLE: "Clan vassal Submission breakdown"
+  CLAN_SUBMISSION_BD_LIBERTY: "From Liberty faction demands enforced"
+  CLAN_SUBMISSION_BD_OPINION: "From [clan_liege_opinion|E]"
+
+  TRIBAL_SUBMISSION_TITLE: "Tribal vassal Submission breakdown"
+  TRIBAL_SUBMISSION_VALUE: "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]""
+  TRIBAL_SUBMISSION_BD_LIEGE_TRIBAL_POWER: "From liege's Rank, Fame & Renown"
+  TRIBAL_SUBMISSION_BD_TRIBAL_POWER: "From vassal's Rank, Fame & Renown"
+  TRIBAL_SUBMISSION_BD_LIEGE_HOARDING: "From Duchy titles hoarded by the liege"
+
+  TRIBAL_SUBMISSION_LIEGE_POWER: "Liege Rank, Fame & Renown breakdown"
+  TRIBAL_SUBMISSION_BD_LIEGE_RANK: "Liege Title rank"
+  TRIBAL_SUBMISSION_BD_LIEGE_FAME: "Liege Fame level"
+  TRIBAL_SUBMISSION_BD_LIEGE_RENOWN: "Liege's Dynasty Renown Level"
+  TRIBAL_SUBMISSION_BD_LIEGE_MULT: "Liege multiplier for balance"
+
+  TRIBAL_SUBMISSION_POWER: "Vassal Rank, Fame & Renown breakdown"
+  TRIBAL_SUBMISSION_BD_RANK: "Vassal Title rank"
+  TRIBAL_SUBMISSION_BD_FAME: "Vassal Fame level"
+  TRIBAL_SUBMISSION_BD_RENOWN: "Vassal's Dynasty Renown Level"
+
+  FEUDAL_SUBMISSION_TITLE: "Feudal vassal Submission breakdown"
+  FEUDAL_SUBMISSION_BD_CONTRACT: "Feudal Contract"
+
+  THEOCRACY_SUBMISSION_TITLE: "Theocracy vassal Submission breakdown"
+  THEOCRACY_SUBMISSION_BD: "THEOCRACY_SUBMISSION_BD"
+  THEOCRACY_SUBMISSION_BD_HOF_OPINION: "Head of Faith opinion of Liege"
+  THEOCRACY_SUBMISSION_BD_VASSAL_OPINION: "Vassal opinion of Liege"
+  THEOCRACY_SUBMISSION_BD_FAITH_HOSTILITY: "Vassal's faith hostility towards liege's faith"
+
+  REPUBLIC_SUBMISSION_TITLE: "Republic vassal Submission breakdown"
+  REPUBLIC_SUBMISSION_BD: "REPUBLIC_SUBMISSION_BD"
+  REPUBLIC_SUBMISSION_BD_LIEGE_INCOME: "Liege monthly Income"
+  REPUBLIC_SUBMISSION_BD_LIEGE_RANK_AVG_INCOME: "Average income of all [Character.GetLiege.GetTitleTierName]-rank rulers"
+  REPUBLIC_SUBMISSION_BD_OFFSET: ""
+
+  SUBMISSION_TITLE: "Submission breakdown"
+
+  SUBMISSIVNESS_TITLE: "Submissivness breakdown"
+  game_concept_submissivness_honor: "Honor"
+  game_concept_submissivness_honor_desc: "If the liege's Tyranny is greater than the vassal's sense of Honor, the vassal will push back"
+  game_concept_submissivness_vengefulness: "Vengeance"
+  game_concept_submissivness_vengefulness_desc: "If the vassal's opinion of his liege is lower than his tendancy to Vengeance, the vassal will push back"
+  game_concept_submissivness_dread: "Reaction to dread"
+  game_concept_submissivness_dread_desc: "Liege Dread will increase vassal Submission, except if the vassal is Brave enough to resist. And if the vassal is motivated by either Honor or Vengeance, and the vassal is Brave enough, the liege Dread might backfire on him as well..."
+
+#Notification
+
+  authority_gain_title: "Your Authority increased"
+  authority_loss_title: "Your Authority decreased"
+
+  liege_authority_gain_title: "Your liege's Authority increased"
+  liege_authority_loss_title: "Your liege's Authority decreased"
