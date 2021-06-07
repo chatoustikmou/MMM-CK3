@@ -35,8 +35,8 @@
   game_concept_clan_liege_opinion: "vassal's opinion of liege"
   game_concept_clan_liege_opinion_desc: "Opinion of liege, which ranges from -100 to +100, is simply recalibrated to fit a scale from 0 to 100."
 
-  game_concept_submissivness: "Submissivness"
-  game_concept_submissivness_desc: "Submissivness is the character's natural tendency to submission, depending on his traits and general personnality, and not from his particular current situation and relation to his liege.\n\nIt ranges from 0 to 100%."
+  game_concept_submissiveness: "submissiveness"
+  game_concept_submissiveness_desc: "submissiveness is the character's natural tendency to submission, depending on his traits and general personnality, and not from his particular current situation and relation to his liege.\n\nIt ranges from 0 to 100%."
 
   game_concept_feudal_contract: "Feudal Contract Score"
   game_concept_feudal_contract_desc: "The Feudal Contract Score, on a scale from 0 to 100, represents the balance of the Feudal Contract between the Vassal and his Liege. Higher obligations level will increase the score, while every rights granted to the vassal will lower it, by the same amount they impact vassal opinion of his liege."
@@ -84,13 +84,13 @@
 
   SUBMISSION_TITLE: "Submission breakdown"
 
-  SUBMISSIVNESS_TITLE: "Submissivness breakdown"
-  game_concept_submissivness_honor: "Honor"
-  game_concept_submissivness_honor_desc: "If the liege's Tyranny is greater than the vassal's sense of Honor, the vassal will push back"
-  game_concept_submissivness_vengefulness: "Vengeance"
-  game_concept_submissivness_vengefulness_desc: "If the vassal's opinion of his liege is lower than his tendancy to Vengeance, the vassal will push back"
-  game_concept_submissivness_dread: "Reaction to dread"
-  game_concept_submissivness_dread_desc: "Liege Dread will increase vassal Submission, except if the vassal is Brave enough to resist. And if the vassal is motivated by either Honor or Vengeance, and the vassal is Brave enough, the liege Dread might backfire on him as well..."
+  submissiveness_TITLE: "submissiveness breakdown"
+  game_concept_submissiveness_honor: "Honor"
+  game_concept_submissiveness_honor_desc: "If the liege's Tyranny is greater than the vassal's sense of Honor, the vassal will push back"
+  game_concept_submissiveness_vengefulness: "Vengeance"
+  game_concept_submissiveness_vengefulness_desc: "If the vassal's opinion of his liege is lower than his tendancy to Vengeance, the vassal will push back"
+  game_concept_submissiveness_dread: "Reaction to dread"
+  game_concept_submissiveness_dread_desc: "Liege Dread will increase vassal Submission, except if the vassal is Brave enough to resist. And if the vassal is motivated by either Honor or Vengeance, and the vassal is Brave enough, the liege Dread might backfire on him as well..."
 
 #Notification
 

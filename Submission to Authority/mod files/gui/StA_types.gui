@@ -734,6 +734,7 @@ types StA {
 							align = right
 							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('clan_submission')|1]"
 							tooltipwidget = { clan_submission_breakdown_box = {} }
+							using = tooltip_sw
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 					}
@@ -797,14 +798,15 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = expanding
 							align = left
-							text = "[submissivness|E]"
+							text = "[submissiveness|E]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 						text_single = {
 							layoutpolicy_horizontal = fixed
 							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissivness')|=+0]%"
-							tooltipwidget = {submissivness_breakdown_box = {} }
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissiveness')|=+0]%"
+							using = tooltip_ws
+							tooltipwidget = { submissiveness_breakdown_box = {} }
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 					}
@@ -1413,7 +1415,7 @@ types StA {
 		}
 	}
 
-	type submissivness_breakdown_box = widget {
+	type submissiveness_breakdown_box = widget {
 		size = { 400 200 }
 		using = Background_Tooltip
 		alwaystransparent = no
@@ -1422,7 +1424,7 @@ types StA {
 			margin_left = 15
 			text_single = {
 				layoutpolicy_horizontal = expanding
-				text = "[submissivness|E]"
+				text = "[submissiveness|E]"
 				align = top
 			}
 			hbox = {
@@ -1436,13 +1438,13 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = expanding
 							align = left
-							text = "[submissivness_honor|E]"
+							text = "[submissiveness_honor|E]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 						text_single = {
 							layoutpolicy_horizontal = fixed
 							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissivness_honor')|=+0]"
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissiveness_honor')|=+0]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 					}
@@ -1452,13 +1454,13 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = expanding
 							align = left
-							text = "[submissivness_vengefulness|E]"
+							text = "[submissiveness_vengefulness|E]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 						text_single = {
 							layoutpolicy_horizontal = fixed
 							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissivness_vengefulness')|=+0]"
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissiveness_vengefulness')|=+0]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 					}
@@ -1468,13 +1470,13 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = expanding
 							align = left
-							text = "[submissivness_dread|E]"
+							text = "[submissiveness_dread|E]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 						text_single = {
 							layoutpolicy_horizontal = fixed
 							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissivness_dread')|=+0]"
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissiveness_dread')|=+0]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 					}
@@ -1484,7 +1486,7 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = expanding
 							align = right
-							text = "= [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissivness')|=+1]"
+							text = "= [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissiveness')|=+1]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 					}

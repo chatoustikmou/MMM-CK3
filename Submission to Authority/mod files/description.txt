@@ -21,7 +21,7 @@ Clan Vassals' Submission is directly correlated to their opinion of their ruler.
 
 Tribal Vassals respect power, and will be swayed by their ruler's personnal and dynastic Fame. But they also expect their ruler to be generous, and will hold it against him, should he hoard titles for himself.
 
-All Vassals' Submission is also heavily impacted by their Submissivness, i.e. their natural tendency to Submission, which depends on their traits and personality, irrespective of their current situation or their relationship with their liege.
+All Vassals' Submission is also heavily impacted by their submissiveness, i.e. their natural tendency to Submission, which depends on their traits and personality, irrespective of their current situation or their relationship with their liege.
 
 [h1]Overhauled "Authority" mechanic [/h1]
 
@@ -81,7 +81,7 @@ version 0.7
 - Included a Submission score for the rulers' domain. The whole realm of the ruler is now covered by the mechanic, and therefore Authority works for all playable rulers, starting at the Count level
 
 # Balance
-- Tweaked Submissivness : added Honor and Vengeance subscores, and tweaked how they relate to Dread. Boldness will only prevent liege Dread from impacting vassal Submission. It will only actively lower Submission if a high sense of Honor or spirit of Vengeance make the vassal want to rebel.
+- Tweaked submissiveness : added Honor and Vengeance subscores, and tweaked how they relate to Dread. Boldness will only prevent liege Dread from impacting vassal Submission. It will only actively lower Submission if a high sense of Honor or spirit of Vengeance make the vassal want to rebel.
 
 
 version 0.6.5
@@ -136,7 +136,7 @@ version 0.5.4
 version 0.5.3
 
 # Balance
-- All rulers now have a "Submissivness" +/-100% modifier to their Submission (submissivness = - ai_boldness), representing their natural tendency to submission, irrespective of their current situation or relation to their liege. This makes for more variety in Submission values overall.
+- All rulers now have a "submissiveness" +/-100% modifier to their Submission (submissiveness = - ai_boldness), representing their natural tendency to submission, irrespective of their current situation or relation to their liege. This makes for more variety in Submission values overall.
 - Changed the Clan levies obligations level formula, as the average had balooned from about 30% to almost 50%. Took away the flat 30% levies obligation, balance at game start should now be on par with vanilla for Clan rulers.
 
  #Interface
