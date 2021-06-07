@@ -84,7 +84,7 @@ submission = {
 	else = { value = 0 }
 	multiply = {
 		add = 100
-		add = submissivness
+		add = submissiveness
 		divide = 100
 	}
 	max = 100
@@ -102,29 +102,29 @@ submission_weighted = {
 	divide = 100
 }
 
-submissivness = {
+submissiveness = {
 	value = 0
-	add = submissivness_honor
-	add = submissivness_vengefulness
-	add = submissivness_dread
+	add = submissiveness_honor
+	add = submissiveness_vengefulness
+	add = submissiveness_dread
 	max = 100
 	min = -100
 }
 
-submissivness_dread = {
+submissiveness_dread = {
 	add = liege.dread
 	subtract = ai_boldness
 	min = {
 		if = {
-			limit = { submissivness_honor < submissivness_vengefulness }
-			add = submissivness_honor
+			limit = { submissiveness_honor < submissiveness_vengefulness }
+			add = submissiveness_honor
 		}
-		else = { add = submissivness_vengefulness }
+		else = { add = submissiveness_vengefulness }
 	}
 	max = 100
 }
 
-submissivness_honor = {
+submissiveness_honor = {
 	value = 0
 	add = liege.tyranny
 	max = ai_honor
@@ -132,7 +132,7 @@ submissivness_honor = {
 	multiply = -1
 }
 
-submissivness_vengefulness = {
+submissiveness_vengefulness = {
 	if = {
 		limit = {
 			save_temporary_opinion_value_as = {

@@ -34,8 +34,8 @@
   game_concept_clan_liege_opinion: "opinion du vassal envers son souverain"
   game_concept_clan_liege_opinion_desc: "L'opinion que le vassal a de son souverain, qui va de -100 to +100, est simplement recalibrée sur une échelle de 0 à 100."
 
-  game_concept_submissivness: "Docilité"
-  game_concept_submissivness_desc: "La docilité est la tendance naturelle du personnage à la soumission, en fonction de ses traits de personnalité, et pas spécifiquement de sa relation à son souverain.\n\nElle va de 0 à 100%."
+  game_concept_submissiveness: "Docilité"
+  game_concept_submissiveness_desc: "La docilité est la tendance naturelle du personnage à la soumission, en fonction de ses traits de personnalité, et pas spécifiquement de sa relation à son souverain.\n\nElle va de 0 à 100%."
 
   game_concept_feudal_contract: "Score du contrat féodal"
   game_concept_feudal_contract_desc: "Le score du contrat féodal, sur une échelle de 0 to 100, représente l'équilibre du contrat entre un vassal et son souverain. Des niveaux d'obligation plus élevés augmentent le score, tandis que chaque droit garanti au vassal le diminuent, de la même valeur qu'ils impactent l'opinion du souverain."
@@ -81,13 +81,13 @@
   REPUBLIC_SUBMISSION_BD_LIEGE_RANK_AVG_INCOME: "Revenu moyen de tous les [Character.GetLiege.GetTitleTierName]"
   REPUBLIC_SUBMISSION_BD_OFFSET: ""
 
-  SUBMISSIVNESS_TITLE: "Détail de la docilité"
-  game_concept_submissivness_honor: "Sens de l'honneur"
-  game_concept_submissivness_honor_desc: "Si la Tyrannie du souverain est plus grande que le sens de l'honneur du vassal, le vassal se rebellera contre l'autorité du souverain"
-  game_concept_submissivness_vengefulness: "Esprit de vengeance"
-  game_concept_submissivness_vengefulness_desc: "Si le vassal a une opinion de son souverain plus basse que son esprit de vengeance, le vassal se rebellera contre l'autorité du souverain"
-  game_concept_submissivness_dread: "Réaction à la terreur"
-  game_concept_submissivness_dread_desc: "La terreur inspirée par le souverain augmentera la Soumission du vassal, à moins que celui-ci ne soit suffisament courageux pour y resister. Cette bravoure peut également décupler le sens de l'honneur ou l'esprit de vengeance du souverain, et la terreur reveillerait alors le lion qui dort."
+  submissiveness_TITLE: "Détail de la docilité"
+  game_concept_submissiveness_honor: "Sens de l'honneur"
+  game_concept_submissiveness_honor_desc: "Si la Tyrannie du souverain est plus grande que le sens de l'honneur du vassal, le vassal se rebellera contre l'autorité du souverain"
+  game_concept_submissiveness_vengefulness: "Esprit de vengeance"
+  game_concept_submissiveness_vengefulness_desc: "Si le vassal a une opinion de son souverain plus basse que son esprit de vengeance, le vassal se rebellera contre l'autorité du souverain"
+  game_concept_submissiveness_dread: "Réaction à la terreur"
+  game_concept_submissiveness_dread_desc: "La terreur inspirée par le souverain augmentera la Soumission du vassal, à moins que celui-ci ne soit suffisament courageux pour y resister. Cette bravoure peut également décupler le sens de l'honneur ou l'esprit de vengeance du souverain, et la terreur reveillerait alors le lion qui dort."
 
 #Notification
 

@@ -32,14 +32,14 @@ republic_submission = {
 }
 
 
-submissivness = {
+submissiveness = {
 }
 
-submissivness_honor = {
+submissiveness_honor = {
 }
 
-submissivness_vengefulness = {
+submissiveness_vengefulness = {
 }
 
-submissivness_dread = {
+submissiveness_dread = {
 }
