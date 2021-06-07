@@ -1,0 +1,1498 @@
+﻿
+types StA {
+
+	type authority_progressbar = widget {
+		name = "authority"
+		size = { 300 30 }	
+
+		background = {
+			using = Background_Area
+			margin = { 3 2 }
+		}
+
+		hbox = {
+			visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority'))]"
+			progressbar_green = {
+				# size = 7500
+				minimumsize = { 75 30 }
+				min = 0
+				max = 2500
+				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			}
+			progressbar_green = {
+				# size = 7500
+				minimumsize = { 75 30 }
+				min = 2500
+				max = 5000
+				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			}
+			progressbar_green = {
+				# size = 7500
+				minimumsize = { 75 30 }
+				min = 5000
+				max = 7500
+				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			}
+			progressbar_green = {
+				# size = 7500
+				minimumsize = { 75 30 }
+				min = 7500
+				max = 10000
+				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			}
+		}
+		hbox = {
+			visible = "[GreaterThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority'))]"
+			progressbar_red = {
+				# size = 7500
+				minimumsize = { 75 30 }
+				min = 0
+				max = 2500
+				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			}
+			progressbar_red = {
+				# size = 7500
+				minimumsize = { 75 30 }
+				min = 2500
+				max = 5000
+				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			}
+			progressbar_red = {
+				# size = 7500
+				minimumsize = { 75 30 }
+				min = 5000
+				max = 7500
+				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			}
+			progressbar_red = {
+				# size = 7500
+				minimumsize = { 75 30 }
+				min = 7500
+				max = 10000
+				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			}
+		}
+		hbox = {
+			visible = "[EqualTo_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority'))]"
+			progressbar_frozen = {
+				# size = 7500
+				minimumsize = { 75 30 }
+				min = 0
+				max = 2500
+				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			}
+			progressbar_frozen = {
+				# size = 7500
+				minimumsize = { 75 30 }
+				min = 2500
+				max = 5000
+				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			}
+			progressbar_frozen = {
+				# size = 7500
+				minimumsize = { 75 30 }
+				min = 5000
+				max = 7500
+				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			}
+			progressbar_frozen = {
+				# size = 7500
+				minimumsize = { 75 30 }
+				min = 7500
+				max = 10000
+				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			}
+		}
+		hbox = {
+			text_single = {
+				# margin = { 10 5 }
+				align = center
+				layoutpolicy_horizontal = expanding
+				text = "Absent"
+				autoresize = no
+				tooltip = "crown_authority_0_effects_not_in_prev"
+			}
+			text_single = {
+				align = center
+				layoutpolicy_horizontal = expanding
+				text = "Low"
+				autoresize = no
+				tooltip = "crown_authority_1_effects_not_in_prev"
+			}
+			text_single = {
+				align = center
+				layoutpolicy_horizontal = expanding
+				text = "Normal"
+				autoresize = no
+				tooltip = "crown_authority_2_effects_not_in_prev"
+			}
+			text_single = {
+				align = center
+				layoutpolicy_horizontal = expanding
+				text = "High"
+				autoresize = no
+				tooltip = "crown_authority_3_effects_not_in_prev"
+			}
+		}
+	}
+
+	type authority_header = vbox {						
+		layoutpolicy_vertical = expanding
+		datacontext = "[GuiLawGroup.GetLawGroup]"
+		visible = "[And( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law' ), GuiLawGroup.IsAvailable )]"
+		ignoreinvisible = yes
+
+		text_label_center = {
+			visible = "[Not(GetPlayer.HasLiege)]"
+			text = "[authority|E] : [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1] trending to [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|0]"
+		}
+
+		text_label_center = {
+			visible = "[Not(GetPlayer.HasLiege)]"
+			text = "[tyranny|E] : [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('character_tyranny')|0]"
+		}
+
+		hbox = {
+			margin_left = 5
+			layoutpolicy_horizontal = expanding
+
+			text_label_left = {
+				visible = "[GetPlayer.HasLiege]"
+				layoutpolicy_horizontal = expanding
+				text = "[authority|E] : [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1] trending to [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|0]"
+			}
+		}
+
+		hbox = {
+			margin_left = 5
+			layoutpolicy_horizontal = expanding
+
+			text_label_left = {
+				visible = "[GetPlayer.HasLiege]"
+				layoutpolicy_horizontal = expanding
+				text = "[tyranny|E] : [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('character_tyranny')|0]"
+			}
+		}
+
+		spacer = {
+			visible = "[GetPlayer.HasLiege]"
+			size = { 5 8 }
+		}
+
+		# [StA]
+		authority_progressbar = {}
+		# [/StA]
+
+		expand = {
+			visible = "[GetPlayer.HasLiege]"
+			layoutpolicy_horizontal = expanding
+		}
+	}
+
+	type widget_vassal_list_item = widget {
+		datacontext = "[CharacterListItem.GetCharacter]"
+		size = { 200 180 }
+
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			margin = { 10 5 }
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				spacing = 10
+
+				background = {
+					using = Background_Area
+				}
+
+				portrait_head_small = {}
+
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					margin_right = 10
+
+					hbox = {
+						layoutpolicy_horizontal = expanding
+
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							spacing = 5
+
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								minimumsize = { 0 30 }
+
+								background = {
+									using = Background_Area_Characterlist
+									margin = { 8 0 }
+									margin_left = 15
+
+									using = Mask_Rough_Edges
+								}
+
+								text_single = {
+									layoutpolicy_horizontal = expanding
+									text = "[Character.GetUINameNoTooltip]"
+									using = Font_Size_Medium
+									autoresize = no
+									fontsize_min = 13
+									align = nobaseline
+								}
+							}
+
+							text_single = {
+								name = "character_relation"
+								visible = "[Character.GetLiege.IsLocalPlayer]"
+								layoutpolicy_horizontal = expanding
+								text = "[Character.GetRelationToString(GetPlayer)]"
+								default_format = "#low"
+								autoresize = no
+								fontsize_min = 13
+								align = nobaseline
+							}
+						}
+
+						block "own_vassal" {
+							vbox = {
+								layoutpolicy_vertical = expanding
+								margin_left = 10
+								visible = "[Character.GetLiege.IsLocalPlayer]"
+
+								hbox = {
+									coa_title_tiny_crown = {
+										name = "allegiance_flag"
+										datacontext = "[VassalContract.GetTitleAllegiance]"
+										visible = "[Title.IsValid]"
+										tooltip = "MRW_TITLE_ALLEGIANCE"
+										blockoverride "coa_tooltip" {}
+									}
+
+									vbox = {
+										layoutpolicy_vertical = expanding
+										margin_top = 5
+
+										hbox = {
+
+											icon = {
+												name = "hook"
+												visible = "[Character.PlayerHasHooksOrHookableSecrets]"
+												size = { 25 25 }
+												framesize = { 40 40 }
+												texture = "gfx/interface/icons/portraits/hook_secret.dds"
+
+												frame = "[Character.GetHookOrHookableSecretsFrame]"
+												tooltip = "[Character.HookTooltip]"
+											}
+
+											icon = {
+												name = "icon_non_dejure"
+												visible = "[Not( VassalContract.IsRightfulLiege )]"
+												size = { 30 30 }
+												texture = "gfx/interface/icons/levy_tax_reduction.dds"
+
+												using = tooltip_ws
+												tooltip = "MRW_TT_NOT_RIGHTFUL_LIEGE"
+											}
+										}
+										expand = {}
+									}
+								}
+								expand = {}
+							}
+						}
+					}
+
+					expand = {}
+
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							spacing = 5
+
+							text_single = {
+								text = "REALM_WINDOW_SIZE"
+								tooltip = "REALM_WINDOW_SIZE_TT"
+								align = nobaseline
+								visible = "[NotEqualTo_int32(Character.GetPrimaryTitle.GetTierFrame, '(int32)2')]" #nonbaron
+
+							}
+
+							hbox = {
+								spacing = 3
+								margin = { 5 0 }
+
+								block "own_vassal"
+								{
+									visible = no
+								}
+
+								icon = {
+									size = { 22 22 }
+									texture = "gfx/interface/icons/icon_soldier.dds"
+								}
+
+								text_single = {
+									layoutpolicy_horizontal = expanding
+									text = "[Character.GetMilitaryStrengthText]"
+									align = nobaseline
+									default_format = "#high"
+								}
+							}
+
+							text_single = {
+								visible = "[Character.IsPowerfulVassal]"
+								text = "MY_REALM_WINDOW_POWERFUL_VASSAL"
+								layoutpolicy_horizontal = expanding
+								align = nobaseline
+								autoresize = no
+							}
+
+							expand = {}
+
+							hbox_skills_grid = {}
+						}
+
+						hbox = {
+							visible = "[And(Not(Character.GetLiege.IsPlayer),And(Not( Character.GetPrimaryTitle.IsBarony),Or(Character.GetGovernment.IsType('feudal_government'),Or(Character.GetGovernment.IsType('clan_government'),Character.GetGovernment.IsType('tribal_government')))))]"
+							layoutpolicy_horizontal = expanding
+							text_single = {
+								text = "[submission|E] : "
+								default_format = "#low"
+								align = right
+							}
+							text_single = {
+								layoutpolicy_horizontal = expanding
+								text = " [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]"
+								default_format = "#low"
+								align = left
+								tooltipwidget = { submission_breakdown_box = {} }
+							}
+							expand = {}
+						}
+					}
+					expand = {}
+				}
+			}
+
+			block "own_vassal"
+			{
+				block "feudal_contract"
+				{
+					vbox = {
+						name = "feudal_info"
+						layoutpolicy_horizontal = expanding
+						margin = { 10 5 }
+						spacing = 10
+
+						background = {
+							using = Background_Area
+						}
+
+
+						hbox = {
+							visible = "[Not( Character.GetPrimaryTitle.IsBarony))]"
+							layoutpolicy_horizontal = expanding
+							spacing = 10
+							button_round = {
+								visible = "[Character.GetGovernment.IsType('feudal_government')]"
+								enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction')]"
+								onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction')]"
+								tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
+
+								button_feudal_contract = {
+									alwaystransparent = yes
+									parentanchor = center
+								}
+							}
+							text_single = {
+								visible = "[Character.GetGovernment.IsType('feudal_government')]"
+								layoutpolicy_horizontal = expanding
+								text = "MY_REALM_WINDOW_VASSAL_OBLIGATION"
+								default_format = "#low"
+								align = nobaseline
+							}
+							icon = {
+								visible = "[Not(Character.GetGovernment.IsType('feudal_government'))]"
+								size = { 42 42 }
+								texture = "gfx/interface/icons/symbols/icon_cross.dds"
+								tooltip = MY_REALM_WINDOW_NO_FEUDAL_CONTRACT_TT
+								enabled = no
+							}
+							text_single = {
+								visible = "[Not(Character.GetGovernment.IsType('feudal_government'))]"
+								layoutpolicy_horizontal = expanding
+								text = "[Character.GetGovernment.GetName]"
+								align = nobaseline
+							}
+							vassal_contract_not_default_icon = {}
+							vbox = {
+								text_single = {
+									layoutpolicy_horizontal = expanding
+									text = "[submission|E] :"
+									default_format = "#low"
+									align = right
+								}
+								text_single = {
+									layoutpolicy_horizontal = expanding
+									text = "[land_share|E] :"
+									default_format = "#low"
+									align = right
+								}
+							}
+							vbox = {
+								minimumsize = {25}
+								text_single = {
+									layoutpolicy_horizontal = expanding
+									text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]"
+									default_format = "#low"
+									align = right
+									tooltipwidget = { submission_breakdown_box = {} }
+								}
+								text_single = {
+									layoutpolicy_horizontal = expanding
+									text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('land_share')|0]%"
+									default_format = "#low"
+									align = right
+								}
+							}
+							expand = {}
+						}
+
+						# hbox = {
+						# 	layoutpolicy_horizontal = expanding
+						# 	visible = "[And(Character.GetGovernment.IsType('clan_government'), Not( Character.GetPrimaryTitle.IsBarony))]"
+						# 	spacing = 10
+						# 	icon = {
+						# 		size = { 42 42 }
+						# 		texture = "gfx/interface/icons/symbols/icon_cross.dds"
+						# 		tooltip = MY_REALM_WINDOW_NO_FEUDAL_CONTRACT_TT
+						# 		enabled = no
+						# 	}
+						# 	text_single = {
+						# 		layoutpolicy_horizontal = expanding
+						# 		text = "[Character.GetGovernment.GetName]"
+						# 		align = nobaseline
+						# 	}
+						# 	vbox = {
+						# 		text_single = {
+						# 			layoutpolicy_horizontal = expanding
+						# 			text = "[clan_submission|E] :"
+						# 			default_format = "#low"
+						# 			align = right
+						# 		}
+						# 		text_single = {
+						# 			layoutpolicy_horizontal = expanding
+						# 			text = "[land_share|E] :"
+						# 			default_format = "#low"
+						# 			align = right
+						# 		}
+						# 	}
+						# 	vbox = {
+						# 		minimumsize = {25}
+						# 		text_single = {
+						# 			layoutpolicy_horizontal = expanding
+						# 			text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]"
+						# 			default_format = "#low"
+						# 			align = right
+						# 			tooltipwidget = { clan_submission_breakdown_box = {} }
+						# 		}
+						# 		text_single = {
+						# 			layoutpolicy_horizontal = expanding
+						# 			text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('land_share')|0]%"
+						# 			default_format = "#low"
+						# 			align = right
+						# 		}
+						# 	}
+						# 	expand = {}
+						# }
+
+						# hbox = {
+						# 	layoutpolicy_horizontal = expanding
+						# 	visible = "[And(Character.GetGovernment.IsType('tribal_government'), Not( Character.GetPrimaryTitle.IsBarony))]"
+						# 	spacing = 10
+						# 	icon = {
+						# 		size = { 42 42 }
+						# 		texture = "gfx/interface/icons/symbols/icon_cross.dds"
+						# 		tooltip = MY_REALM_WINDOW_NO_FEUDAL_CONTRACT_TT
+						# 		enabled = no
+						# 	}
+						# 	text_single = {
+						# 		layoutpolicy_horizontal = expanding
+						# 		text = "[Character.GetGovernment.GetName]"
+						# 		align = nobaseline
+						# 	}
+						# 	vbox = {
+						# 		text_single = {
+						# 			layoutpolicy_horizontal = expanding
+						# 			text = "[tribal_submission|E] :"
+						# 			default_format = "#low"
+						# 			align = right
+						# 		}
+						# 		text_single = {
+						# 			layoutpolicy_horizontal = expanding
+						# 			text = "[land_share|E] :"
+						# 			default_format = "#low"
+						# 			align = right
+						# 		}
+						# 	}
+						# 	vbox = {
+						# 		minimumsize = {25}
+						# 		text_single = {
+						# 			layoutpolicy_horizontal = expanding
+						# 			text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]"
+						# 			default_format = "#low"
+						# 			align = right
+						# 			tooltipwidget = { tribal_submission_breakdown_box = {} }
+						# 		}
+						# 		text_single = {
+						# 			layoutpolicy_horizontal = expanding
+						# 			text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('land_share')|0]%"
+						# 			default_format = "#low"
+						# 			align = right
+						# 		}
+						# 	}
+						# 	expand = {}
+						# }
+
+
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							spacing = 10
+
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								spacing = 3
+
+								icon = {
+									size = { 25 25 }
+									texture = "gfx/interface/icons/icon_gold.dds"
+								}
+
+								widget = {
+									layoutpolicy_horizontal = expanding
+
+									background = {
+										using = Background_Area
+										margin = { 3 2 }
+									}
+
+									progressbar_standard_transparent = {
+										size = "[MyRealmWindowVassalItem.GetRelativeSizeForTax]"
+										minimumsize = { 10 0 }
+										value = "[FixedPointToProgressbarValue(VassalContract.GetTaxRatioForLiege)]"
+									}
+
+									flowcontainer = {
+										parentanchor = center
+										position = { 0 -2 }
+										spacing = 4
+
+										text_single = {
+											text = "[MyRealmWindowVassalItem.GetCachedTax|=1]"
+										}
+									}
+								}
+
+								tooltipwidget = {
+									my_realm_window_contribution_tooltip = {
+										datacontext = "[MyRealmWindowVassalItem.GetTaxBreakdown]"
+										blockoverride "levy_info_visible" { visible = no }
+										blockoverride "contribution_tooltip_header"
+										{
+											text = "MRW_TT_TAXES_TO_ME"
+										}
+
+										blockoverride "levy_info"
+										{
+											text_single = {
+												multiline = yes
+												maximumsize = { 250 -1 }
+												text = "[MyRealmWindowVassalItem.GetLevyTooltip]"
+											}
+										}
+									}
+								}
+								using = tooltip_ws
+							}
+
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								spacing = 3
+
+								icon = {
+									size = { 25 25 }
+									texture = "gfx/interface/icons/icon_soldier.dds"
+								}
+
+								widget = {
+									layoutpolicy_horizontal = expanding
+									#	size = { 150 22 }
+
+									background = {
+										using = Background_Area
+										margin = { 3 2 }
+									}
+
+									progressbar_standard_transparent = {
+										size = "[MyRealmWindowVassalItem.GetRelativeSizeForLevies]"
+										minimumsize = { 10 0 }
+										value = "[FixedPointToProgressbarValue(VassalContract.GetLevyRatioForLiege)]"
+									}
+
+									flowcontainer = {
+										parentanchor = center
+										position = { 0 -2 }
+										spacing = 4
+
+										text_single = {
+											text =  "[MyRealmWindowVassalItem.GetCachedLeviesFormatted]"
+										}
+									}
+								}
+
+								tooltipwidget = {
+									my_realm_window_contribution_tooltip = {
+										datacontext = "[MyRealmWindowVassalItem.GetLeviesBreakdown]"
+										blockoverride "tax_info_visible" { visible = no }
+										blockoverride "contribution_tooltip_header"
+										{
+											text = "MRW_TT_LEVIES_TO_ME"
+										}
+										blockoverride "tax_info"
+										{
+											text_single = {
+												multiline = yes
+												maximumsize = { 250 -1 }
+												text = "[MyRealmWindowVassalItem.GetTaxTooltip]"
+											}
+										}
+									}
+								}
+								using = tooltip_ws
+							}
+						}
+						expand = {}
+					}
+				}
+			}
+
+			expand = {}
+		}
+	}
+	
+	type submission_breakdown_box = widget {
+		size = { 400 150 }
+		using = Background_Tooltip
+		alwaystransparent = no
+		vbox = {
+			margin_top = 20
+			margin_left = 15
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				text = "SUBMISSION_TITLE"
+				align = top
+			}
+			hbox = {
+				margin_top = 10
+				layoutpolicy_horizontal = expanding
+				ignoreinvisible = yes
+				vbox = {
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						visible = "[Character.GetGovernment.IsType('feudal_government')]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "[feudal_submission|E]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('feudal_submission')|1]"
+							# tooltipwidget = { feudal_submission_breakdown_box = {} }
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						visible = "[Character.GetGovernment.IsType('clan_government')]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "[clan_submission|E]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('clan_submission')|1]"
+							tooltipwidget = { clan_submission_breakdown_box = {} }
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						visible = "[Character.GetGovernment.IsType('tribal_government')]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "[tribal_submission|E]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('tribal_submission')|1]"
+							tooltipwidget = { tribal_submission_breakdown_box = {} }
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						visible = "[Character.GetGovernment.IsType('theocracy_government')]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "[theocracy_submission|E]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('theocracy_submission')|1]"
+							tooltipwidget = { theocracy_submission_breakdown_box = {} }
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						visible = "[Character.GetGovernment.IsType('republic_government')]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "[republic_submission|E]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('republic_submission')|1]"
+							tooltipwidget = { republic_submission_breakdown_box = {} }
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}					
+					hbox = {
+					layoutpolicy_horizontal = expanding
+					minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "[submissivness|E]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissivness')|=+0]%"
+							tooltipwidget = {submissivness_breakdown_box = {} }
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						visible = "[Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission_liberty'),'(CFixedPoint)0'))]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "CLAN_SUBMISSION_BD_LIBERTY"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission_liberty')|0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						visible = "[Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission_councillor_task'),'(CFixedPoint)0'))]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "CLAN_SUBMISSION_BD_LIBERTY"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission_councillor_task')|0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = right
+							text = "= [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|1]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					expand = {}
+				}
+				expand = {}
+			}
+			expand = {}
+		}
+	}
+
+	type clan_submission_breakdown_box = widget {
+		size = { 400 200 }
+		using = Background_Tooltip
+		alwaystransparent = no
+		vbox = {
+			margin_top = 20
+			margin_left = 15
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				text = "CLAN_SUBMISSION_TITLE"
+				align = top
+			}
+			hbox = {
+				margin_top = 10
+				layoutpolicy_horizontal = expanding
+				ignoreinvisible = yes
+				vbox = {
+					hbox = {
+					layoutpolicy_horizontal = expanding
+					minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "CLAN_SUBMISSION_BD_LIEGE_OPINION"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[Character.GetOpinionOf(GetPlayer)]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+							tooltipwidget = { tribal_liege_power_breakdown_box = {} }
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = ""
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "/ 2"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+							tooltipwidget = { tribal_power_breakdown_box = {} }
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = ""
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "+ 50"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = right
+							text = "= [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('clan_submission')|1]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					expand = {}
+				}
+				expand = {}
+			}
+			expand = {}
+		}
+	}
+	
+	type tribal_submission_breakdown_box = widget {
+		size = { 400 200 }
+		using = Background_Tooltip
+		alwaystransparent = no
+		vbox = {
+			margin_top = 20
+			margin_left = 15
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				text = "TRIBAL_SUBMISSION_TITLE"
+				align = top
+			}
+			hbox = {
+				margin_top = 10
+				layoutpolicy_horizontal = expanding
+				ignoreinvisible = yes
+				vbox = {
+					hbox = {
+					layoutpolicy_horizontal = expanding
+					minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "TRIBAL_SUBMISSION_BD_LIEGE_TRIBAL_POWER"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.GetLiege.MakeScope ).ScriptValue('tribal_power_liege')|0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+							tooltipwidget = { tribal_liege_power_breakdown_box = {} }
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "TRIBAL_SUBMISSION_BD_TRIBAL_POWER"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "/ [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('tribal_power')|0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+							tooltipwidget = { tribal_power_breakdown_box = {} }
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "TRIBAL_SUBMISSION_BD_LIEGE_HOARDING"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "/ [GuiScope.SetRoot(Character.GetLiege.MakeScope ).ScriptValue('tribal_hoarded_duchies')|0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = right
+							text = "= [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('tribal_submission')|1]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					expand = {}
+				}
+				expand = {}
+			}
+			expand = {}
+		}
+	}
+
+	type tribal_liege_power_breakdown_box = widget {
+		size = { 400 200 }
+		using = Background_Tooltip
+		alwaystransparent = no
+		vbox = {
+			margin_top = 20
+			margin_left = 15
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				text = "TRIBAL_SUBMISSION_LIEGE_POWER"
+				align = top
+			}
+			hbox = {
+				margin_top = 10
+				layoutpolicy_horizontal = expanding
+				ignoreinvisible = yes
+				vbox = {
+					hbox = {
+					layoutpolicy_horizontal = expanding
+					minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "TRIBAL_SUBMISSION_BD_LIEGE_RANK"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.GetLiege.MakeScope ).ScriptValue('tribal_primary_title')|0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "TRIBAL_SUBMISSION_BD_LIEGE_FAME"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "* [Character.GetLiege.GetPrestigeLevel]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "TRIBAL_SUBMISSION_BD_LIEGE_RENOWN"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "* [Character.GetLiege.GetDynasty.GetPrestigeLevel]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "TRIBAL_SUBMISSION_BD_LIEGE_MULT"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = right
+							text = "* 10"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = right
+							text = "= [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('tribal_power_liege')|0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					expand = {}
+				}
+				expand = {}
+			}
+			expand = {}
+		}
+	}
+
+	type tribal_power_breakdown_box = widget {
+		size = { 400 150 }
+		using = Background_Tooltip
+		alwaystransparent = no
+		vbox = {
+			margin_top = 20
+			margin_left = 15
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				text = "TRIBAL_SUBMISSION_POWER"
+				align = top
+			}
+			hbox = {
+				margin_top = 10
+				layoutpolicy_horizontal = expanding
+				ignoreinvisible = yes
+				vbox = {
+					hbox = {
+					layoutpolicy_horizontal = expanding
+					minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "TRIBAL_SUBMISSION_BD_RANK"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('tribal_primary_title')|0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "TRIBAL_SUBMISSION_BD_FAME"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "* [Character.GetPrestigeLevel]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "TRIBAL_SUBMISSION_BD_RENOWN"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "* [Character.GetDynasty.GetPrestigeLevel]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = right
+							text = "= [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('tribal_power')|0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					expand = {}
+				}
+				expand = {}
+			}
+			expand = {}
+		}
+	}
+
+	type theocracy_submission_breakdown_box = widget {
+		size = { 400 200 }
+		using = Background_Tooltip
+		alwaystransparent = no
+		vbox = {
+			margin_top = 20
+			margin_left = 15
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				text = "THEOCRACY_SUBMISSION_TITLE"
+				align = top
+			}
+			hbox = {
+				margin_top = 10
+				layoutpolicy_horizontal = expanding
+				ignoreinvisible = yes
+				vbox = {
+					hbox = {
+					layoutpolicy_horizontal = expanding
+					minimumsize = {350}
+						visible = "[Not(Character.GetFaith.GetReligiousHead.IsValid)]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "THEOCRACY_SUBMISSION_BD_HOF_OPINION"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[Character.GetOpinionOf(GetPlayer)]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						visible = "[Character.GetFaith.GetReligiousHead.IsValid]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "THEOCRACY_SUBMISSION_BD_VASSAL_OPINION"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[Character.GetFaith.GetReligiousHead.GetOpinionOf(GetPlayer)]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}					
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "REPUBLIC_SUBMISSION_BD_OFFSET"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "/ 2"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "REPUBLIC_SUBMISSION_BD_OFFSET"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "+ 50"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						visible = "[Not(EqualTo_CFixedPoint(GuiScope.SetRoot(Character.MakeScope ).ScriptValue('theocracy_submission_faith_hostility'),'(CFixedPoint)0'))]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "THEOCRACY_SUBMISSION_BD_FAITH_HOSTILITY"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('theocracy_submission_faith_hostility')|1]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}	
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = right
+							text = "= [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('theocracy_submission')|1]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					expand = {}
+				}
+				expand = {}
+			}
+			expand = {}
+		}
+	}
+
+	type republic_submission_breakdown_box = widget {
+		size = { 400 200 }
+		using = Background_Tooltip
+		alwaystransparent = no
+		vbox = {
+			margin_top = 20
+			margin_left = 15
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				text = "REPUBLIC_SUBMISSION_TITLE"
+				align = top
+			}
+			hbox = {
+				margin_top = 10
+				layoutpolicy_horizontal = expanding
+				ignoreinvisible = yes
+				vbox = {
+					hbox = {
+					layoutpolicy_horizontal = expanding
+					minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "REPUBLIC_SUBMISSION_BD_LIEGE_INCOME"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('republic_submission_liege_income')|1]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "REPUBLIC_SUBMISSION_BD_LIEGE_RANK_AVG_INCOME"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "/ [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('republic_submission_liege_rank_avg_income')|1]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "REPUBLIC_SUBMISSION_BD_OFFSET"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "- 50"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = right
+							text = "= [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('republic_submission')|1]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					expand = {}
+				}
+				expand = {}
+			}
+			expand = {}
+		}
+	}
+
+	type submissivness_breakdown_box = widget {
+		size = { 400 200 }
+		using = Background_Tooltip
+		alwaystransparent = no
+		vbox = {
+			margin_top = 20
+			margin_left = 15
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				text = "[submissivness|E]"
+				align = top
+			}
+			hbox = {
+				margin_top = 10
+				layoutpolicy_horizontal = expanding
+				ignoreinvisible = yes
+				vbox = {
+					hbox = {
+					layoutpolicy_horizontal = expanding
+					minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "[submissivness_honor|E]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissivness_honor')|=+0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "[submissivness_vengefulness|E]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissivness_vengefulness')|=+0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "[submissivness_dread|E]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissivness_dread')|=+0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = right
+							text = "= [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissivness')|=+1]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					expand = {}
+				}
+				expand = {}
+			}
+			expand = {}
+		}
+	}
+}
