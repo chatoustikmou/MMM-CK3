@@ -6,6 +6,7 @@ on_game_start_after_lobby = {
 		on_game_start_StA
 	}
 }
+
 on_vassal_gained = { on_actions = { contract_reset_on_vassal_gained }}
 on_rank_up = { on_actions = { contract_reset_rank_up }}
 
