@@ -305,75 +305,79 @@ types StA {
 					}
 
 					expand = {}
-
+					
+					# [StA]
 					vbox = {
 						layoutpolicy_horizontal = expanding
+					# [/StA]
 						
-						hbox = {
-							layoutpolicy_horizontal = expanding
-							spacing = 5
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						spacing = 5
 
-							text_single = {
-								text = "REALM_WINDOW_SIZE"
-								tooltip = "REALM_WINDOW_SIZE_TT"
-								align = nobaseline
-								visible = "[NotEqualTo_int32(Character.GetPrimaryTitle.GetTierFrame, '(int32)2')]" #nonbaron
+						text_single = {
+							text = "REALM_WINDOW_SIZE"
+							tooltip = "REALM_WINDOW_SIZE_TT"
+							align = nobaseline
+							visible = "[NotEqualTo_int32(Character.GetPrimaryTitle.GetTierFrame, '(int32)2')]" #nonbaron
 
-							}
-
-							hbox = {
-								spacing = 3
-								margin = { 5 0 }
-
-								block "own_vassal"
-								{
-									visible = no
-								}
-
-								icon = {
-									size = { 22 22 }
-									texture = "gfx/interface/icons/icon_soldier.dds"
-								}
-
-								text_single = {
-									layoutpolicy_horizontal = expanding
-									text = "[Character.GetMilitaryStrengthText]"
-									align = nobaseline
-									default_format = "#high"
-								}
-							}
-
-							text_single = {
-								visible = "[Character.IsPowerfulVassal]"
-								text = "MY_REALM_WINDOW_POWERFUL_VASSAL"
-								layoutpolicy_horizontal = expanding
-								align = nobaseline
-								autoresize = no
-							}
-
-							expand = {}
-
-							hbox_skills_grid = {}
 						}
 
 						hbox = {
-							visible = "[And(Not(Character.GetLiege.IsPlayer),And(Not( Character.GetPrimaryTitle.IsBarony),Or(Character.GetGovernment.IsType('feudal_government'),Or(Character.GetGovernment.IsType('clan_government'),Character.GetGovernment.IsType('tribal_government')))))]"
-							layoutpolicy_horizontal = expanding
-							text_single = {
-								text = "[submission|E] : "
-								default_format = "#low"
-								align = right
+							spacing = 3
+							margin = { 5 0 }
+
+							block "own_vassal"
+							{
+								visible = no
 							}
+
+							icon = {
+								size = { 22 22 }
+								texture = "gfx/interface/icons/icon_soldier.dds"
+							}
+
 							text_single = {
 								layoutpolicy_horizontal = expanding
-								text = " [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]"
-								default_format = "#low"
-								align = left
-								tooltipwidget = { submission_breakdown_box = {} }
+								text = "[Character.GetMilitaryStrengthText]"
+								align = nobaseline
+								default_format = "#high"
 							}
-							expand = {}
 						}
+
+						text_single = {
+							visible = "[Character.IsPowerfulVassal]"
+							text = "MY_REALM_WINDOW_POWERFUL_VASSAL"
+							layoutpolicy_horizontal = expanding
+							align = nobaseline
+							autoresize = no
+						}
+
+						expand = {}
+
+						hbox_skills_grid = {}
 					}
+
+					# [StA]
+					hbox = {
+						visible = "[And(Not(Character.GetLiege.IsPlayer),And(Not( Character.GetPrimaryTitle.IsBarony),Or(Character.GetGovernment.IsType('feudal_government'),Or(Character.GetGovernment.IsType('clan_government'),Character.GetGovernment.IsType('tribal_government')))))]"
+						layoutpolicy_horizontal = expanding
+						text_single = {
+							text = "[submission|E] : "
+							default_format = "#low"
+							align = right
+						}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							text = " [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]"
+							default_format = "#low"
+							align = left
+							tooltipwidget = { submission_breakdown_box = {} }
+						}
+						expand = {}
+					}
+					}
+					# [/StA]
 					expand = {}
 				}
 			}
@@ -394,11 +398,16 @@ types StA {
 
 
 						hbox = {
-							visible = "[Not( Character.GetPrimaryTitle.IsBarony))]"
+
 							layoutpolicy_horizontal = expanding
+							# [StA]
+							visible = "[Not( Character.GetPrimaryTitle.IsBarony))]"
+							# [/StA]
 							spacing = 10
 							button_round = {
+								# [StA]
 								visible = "[Character.GetGovernment.IsType('feudal_government')]"
+								# [/StA]
 								enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction')]"
 								onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction')]"
 								tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
@@ -409,12 +418,15 @@ types StA {
 								}
 							}
 							text_single = {
+								# [StA]
 								visible = "[Character.GetGovernment.IsType('feudal_government')]"
+								# [/StA]
 								layoutpolicy_horizontal = expanding
 								text = "MY_REALM_WINDOW_VASSAL_OBLIGATION"
 								default_format = "#low"
 								align = nobaseline
 							}
+							# [StA]
 							icon = {
 								visible = "[Not(Character.GetGovernment.IsType('feudal_government'))]"
 								size = { 42 42 }
@@ -428,7 +440,9 @@ types StA {
 								text = "[Character.GetGovernment.GetName]"
 								align = nobaseline
 							}
+					
 							vassal_contract_not_default_icon = {}
+							
 							vbox = {
 								text_single = {
 									layoutpolicy_horizontal = expanding
@@ -459,6 +473,7 @@ types StA {
 									align = right
 								}
 							}
+							# [/StA]
 							expand = {}
 						}
 

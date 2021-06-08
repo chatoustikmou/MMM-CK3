@@ -52,6 +52,14 @@ All remaining bugs are my own.
 
 [h1]Changelog[/h1]
 
+version 1.0
+
+# Features
+- Removed contentious "War against Tyranny" mechanics from the mod, to be revisited in its own mod later on, both in order to let players pick and chose which feature to activate or not, and to do the feature justice
+
+# Balance
+- Granted back the ability for vassals to renegotiate their contracts. I still feel like it puts the AI at a disadvantage, but instead of nerfing vassals, I'll be taking a look at making the AI more aggressive in its negotiations.
+
 version 0.7.3
 
 # Bugs

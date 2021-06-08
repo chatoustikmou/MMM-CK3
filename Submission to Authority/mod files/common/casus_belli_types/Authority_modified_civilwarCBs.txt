@@ -150,7 +150,13 @@ liberty_faction_war = {
 	}
 
 	on_white_peace = {
-		scope:attacker = { show_pow_release_message_effect = yes }
+		scope:attacker = {
+			show_pow_release_message_effect = yes
+			stress_impact = {
+ 				ambitious = medium_stress_impact_gain
+ 				arrogant = medium_stress_impact_gain
+ 			}
+		}
 		hidden_effect = {
 			scope:attacker = {
 				add_truce_both_ways = {
@@ -165,6 +171,10 @@ liberty_faction_war = {
 			}
 		}
 		scope:defender = {
+			stress_impact = {
+ 				ambitious = medium_stress_impact_gain
+ 				arrogant = medium_stress_impact_gain
+ 			}
 			add_character_flag = {
 				flag = recent_liberty_faction_war
 				years = faction_war_white_peace_cooldown

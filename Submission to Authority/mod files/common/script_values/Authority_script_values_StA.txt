@@ -333,7 +333,7 @@ tribal_primary_title = {
 tribal_hoarded_duchies = {
 	value = 0
 	every_held_title = {
-		limit = { tier >= tier_duchy }
+		limit = { tier = tier_duchy }
 		add = 1
 	}
 	every_alert_creatable_title = {	add = 1	}

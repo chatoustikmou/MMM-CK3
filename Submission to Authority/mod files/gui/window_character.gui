@@ -163,12 +163,12 @@ window = {
 
 				widget = {
 					parentanchor = bottom|hcenter
-					size = { 145 40 }
+					size = { 250 40 }
 
 					flowcontainer = {
 						parentanchor = bottom|hcenter
 						widgetanchor = bottom|left
-						position = { -20 -3 }
+						position = { -25 -3 }
 						ignoreinvisible = yes
 
 						text_label_center = {
@@ -203,7 +203,7 @@ window = {
 					icon = {
 						name = "marriage_type_icon"
 						visible = "[CharacterWindow.ShowMarriageIcon]"
-						position = { 20 7 }
+						position = { 68 7 }
 
 						size = { 30 30 }
 						framesize = { 60 60 }
@@ -1506,7 +1506,8 @@ window = {
 								margin_bottom = 6
 								margin_top = 3
 								visible = "[Character.IsAlive]"
-
+								
+								# [StA] Add Authority level icon
 								vbox = {
 									visible = "[Character.HasLandedTitles]"
 									spacing = -2
@@ -1525,6 +1526,7 @@ window = {
 										}
 									}
 								}
+								# [/StA]
 								
 								vbox = {
 									visible = "[Character.HasLandedTitles]"
