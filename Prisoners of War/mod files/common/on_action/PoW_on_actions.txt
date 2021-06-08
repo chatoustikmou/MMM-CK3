@@ -257,14 +257,10 @@ on_birth_prisoner_of_war = {
 	}
 }
 
-<<<<<<< Updated upstream
-on_death = { on_actions = { on_death_prisoner_of_war }}
-=======
 # character just about to die in root scope
 # if a killer is know, it's set as scope:killer
 #Triggered by code
 on_death = { on_actions = { on_death_prisoner_of_war }
->>>>>>> Stashed changes
 on_death_prisoner_of_war = {
 	trigger = { has_variable = story_PoW }
 	effect = {
@@ -274,14 +270,6 @@ on_death_prisoner_of_war = {
 				target = PREV
 			}
 		}
-<<<<<<< Updated upstream
 		remove_variable = story_PoW
-=======
-		send_interface_message = {
-			type = event_generic_bad
-			title = authority_loss_title
-			remove_variable = story_PoW
-		}
->>>>>>> Stashed changes
 	}
 }
