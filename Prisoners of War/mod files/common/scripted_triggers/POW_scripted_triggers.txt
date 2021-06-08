@@ -1,9 +1,11 @@
 ﻿# from scope:army
 is_enemy_army_nearby = {
 	save_temporary_scope_as = local_army
+	is_at_sea = no
 	army_owner = {
 		any_war_enemy = {
 			any_army = {
+				is_at_sea = no
 				OR = {
 					location.county = scope:local_army.location.county
 					location.county = {
@@ -20,31 +22,37 @@ is_enemy_army_nearby = {
 # from scope:army
 is_enemy_army_in_province = {
 	save_temporary_scope_as = local_army
+	is_at_sea = no
 	army_owner = {
 		any_war_enemy = {
-			any_army = { location.county = scope:local_army.location.county }
+			any_army = {
+				is_at_sea = no
+				location.county = scope:local_army.location.county }
 		}
 	}
 }
 
 # from scope:army
 is_hostile_army_nearby = {
+	is_at_sea = no
 	location.county = { save_temporary_scope_as = army_loc }
 	army_owner = {
 		any_raid_target = {
 			OR = {
 				any_army = {
+					is_at_sea = no
 					OR = {
 						location.county = scope:army_loc
 						location.county = {
 							any_neighboring_county = {
-								this = scope:army_loc
+								THIS = scope:army_loc
 							}
 						}
 					}
 				}
 				any_vassal_or_below = {
 					any_army = {
+						is_at_sea = no
 						OR = {
 							location.county = scope:army_loc
 							location.county = {
@@ -62,13 +70,20 @@ is_hostile_army_nearby = {
 
 # from scope:army
 is_hostile_army_in_province = {
+	is_at_sea = no
 	location.county = { save_temporary_scope_as = army_loc }
 	army_owner = {
 		any_raid_target = {
 			OR = {
-				any_army = { location.county = scope:army_loc }
+				any_army = {
+					is_at_sea = no
+					location.county = scope:army_loc
+				}
 				any_vassal_or_below = {
-					any_army = { location.county = scope:army_loc }
+					any_army = {
+						is_at_sea = no
+						location.county = scope:army_loc
+					}
 				}
 			}
 		}
@@ -77,6 +92,7 @@ is_hostile_army_in_province = {
 
 # from scope:army
 is_in_own_territory = {
+	is_at_sea = no
 	location.county_controller.top_liege = army_owner.top_liege
 	location.county.holder.top_liege = army_owner.top_liege
 	location.barony_controller.top_liege = army_owner.top_liege
@@ -84,6 +100,7 @@ is_in_own_territory = {
 
 # from scope:army
 is_in_friendly_territory = {
+	is_at_sea = no
 	location.county = { save_temporary_scope_as = army_loc }
 	army_owner = {
 		any_war_ally = {
@@ -122,4 +139,9 @@ is_story_PoW_in_location = {
 	}
 	story_type = story_PoW
 	var:story_location = scope:check_location
+}
+
+# from scope:army
+is_at_sea = {
+	NOT = { exists = location.barony }
 }

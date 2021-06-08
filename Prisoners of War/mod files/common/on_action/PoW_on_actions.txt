@@ -61,11 +61,14 @@ PoW_transfer_on_action = {
 	effect = {
 		debug_log = "dbg_log PoW transfer to dungeon triggered"
 		debug_log_scopes = no
-		story_owner = { debug_log_scopes = no }
 		# Transfer PoWs to dungeon
 		# TODO handle dungeon vs house arrest depending on has_character_flag = flag:distinguished_PoW
 		scope:army.var:story_PoW = {
 			every_in_list = {
+				if = {
+					limit = { is_imprisoned = no }
+					debug_log_scopes = no
+				}
 				variable = story_PoW_list
 				change_prison_type = dungeon
 				remove_variable = story_PoW
@@ -242,14 +245,28 @@ on_birth_prisoner_of_war = {
 	}
 	effect = {
 		set_variable = {
-			name = PoW_story
-			value = scope:mother.var:PoW_story
+			name = story_PoW
+			value = scope:mother.var:story_PoW
 		}
-		var:PoW_story = {
+		var:story_PoW = {
 			add_to_variable_list = {
 				name = story_PoW_list
 				target = PREV
 			}
 		}
+	}
+}
+
+on_death = { on_actions = { on_death_prisoner_of_war }}
+on_death_prisoner_of_war = {
+	trigger = { has_variable = story_PoW }
+	effect = {
+		var:story_PoW = {
+			remove_list_variable = {
+				name = story_PoW_list
+				target = PREV
+			}
+		}
+		remove_variable = story_PoW
 	}
 }

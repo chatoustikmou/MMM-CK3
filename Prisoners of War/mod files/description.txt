@@ -1,0 +1,43 @@
+"[b]Prisoners of War[/b]" is a Mostly Mechanical Mod.
+[i]The mod is not Ironman compatible[/i], but is savegame compatible.
+
+Updated to 0.1, changelog below.
+
+
+Long gone are the days when prisoners teleported from a siege location deep in enemy territory to your own dungeons !
+
+With "Prisoners of War", characters imprisoned in battle, raids and sieges will be tied to the army that captured them, until that army reached friendly territory. Only then will the prisoners be transfered to the dungeons, and until that happens, should the army be defeated in battle, prisoners will be either liberated, or transfered to the army of their new jailor.
+
+This adds a new layer of tactical choices : should you siege back your holding to negate the warscore from its occupation, or should your chase down the army that's taking away your heir, in the hope of liberating it before his capture can be leveraged in a call for peace ?
+
+An icon has been added to units transporting prisoners, and the army tooltip shows the number of prisoners currently present in the army, as well as the list in a nested tooltip.
+The Prison screen also shows by which army prisoners have been taken, and the background now reflects the current status of the army transporting each prisoner (moving, sieging, embarked, etc)
+
+[b]Disclaimer - this mod is playable, but is still very much a work in progress[/b]
+
+The base mechanic is functionnal enough that I feel the mod can be released in the current state.
+However, as modders currently do not have a lot of means to react in real time to army events, there are some workarounds that are a bit precarious, and could cause issues.
+
+As to not be disappointed, I would encourage you to expect to encounter bugs !
+If you do, please consider reporting them on discord !
+
+[h1]Credits[/h1]
+
+This mod benefited from the invaluable help of the CK3 Mod Co-op.
+All remaining bugs are my own.
+
+[h1]Changelog[/h1]
+
+version 0.1
+
+# Features
+- On capture, prisoners are held by the army that captured them, until such a time as either :
+the prisoner dies
+the army is defeated in battle, in which case prisoners are either liberated, or transfered to the new army
+the army gets back to friendly territory, in which case prisoners are transfered to the dungeons
+the army disappears for a number of reasons, in which case the mod tries to guess from context if it was merged, disbanded, died from attrition, or removed from the game for other reasons, and reacts as appropriately as it can
+
+# UI
+- Adapted the Prison screen to reflect the status of PoWs being transported in an army, with the army name, its current location, and a background that reflects the army status
+- Added icons to the Unit models on the map, to show which armies are currently holding prisoners
+- Added the number of PoWs held by an army in the army tooltip, as well as a nested tooltip with the list of PoWs
