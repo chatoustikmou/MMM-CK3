@@ -11,7 +11,7 @@ types StA {
 		}
 
 		hbox = {
-			visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority'))]"
+			visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
 			progressbar_green = {
 				# size = 7500
 				minimumsize = { 75 30 }
@@ -42,7 +42,7 @@ types StA {
 			}
 		}
 		hbox = {
-			visible = "[GreaterThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority'))]"
+			visible = "[GreaterThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
 			progressbar_red = {
 				# size = 7500
 				minimumsize = { 75 30 }
@@ -73,7 +73,7 @@ types StA {
 			}
 		}
 		hbox = {
-			visible = "[EqualTo_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority'))]"
+			visible = "[EqualTo_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
 			progressbar_frozen = {
 				# size = 7500
 				minimumsize = { 75 30 }
@@ -144,12 +144,12 @@ types StA {
 
 		text_label_center = {
 			visible = "[Not(GetPlayer.HasLiege)]"
-			text = "[authority|E] : [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1] trending to [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|0]"
+			text = "[authority|E] : [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1] trending to [GetPlayer.MakeScope.ScriptValue('realm_authority')|0]"
 		}
 
 		text_label_center = {
 			visible = "[Not(GetPlayer.HasLiege)]"
-			text = "[tyranny|E] : [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('character_tyranny')|0]"
+			text = "[tyranny|E] : [GetPlayer.MakeScope.ScriptValue('character_tyranny')|0]"
 		}
 
 		hbox = {
@@ -159,7 +159,7 @@ types StA {
 			text_label_left = {
 				visible = "[GetPlayer.HasLiege]"
 				layoutpolicy_horizontal = expanding
-				text = "[authority|E] : [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1] trending to [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|0]"
+				text = "[authority|E] : [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1] trending to [GetPlayer.MakeScope.ScriptValue('realm_authority')|0]"
 			}
 		}
 
@@ -170,7 +170,7 @@ types StA {
 			text_label_left = {
 				visible = "[GetPlayer.HasLiege]"
 				layoutpolicy_horizontal = expanding
-				text = "[tyranny|E] : [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('character_tyranny')|0]"
+				text = "[tyranny|E] : [GetPlayer.MakeScope.ScriptValue('character_tyranny')|0]"
 			}
 		}
 
@@ -749,7 +749,7 @@ types StA {
 							align = right
 							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('clan_submission')|1]"
 							tooltipwidget = { clan_submission_breakdown_box = {} }
-							using = tooltip_sw
+							using = tooltip_ws
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 					}
