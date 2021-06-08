@@ -27,15 +27,7 @@ All Vassals' Submission is also heavily impacted by their submissiveness, i.e. t
 
 Authority is now automatically derived from the vassal's personnal Submission, pondered by their Land share (how much of the ruler's realm each vassal personnaly rules). It ticks up or down everyquarter, and can no longer be modified directly - neither by the player nor the AI.
 
-Higher Authority levels still need specific cultural innovations to unlock.
-
-[h1]Reworked "War against the Tyranny of liege" [/h1]
-
-It used to be that if a ruler had high enough Dread, most vassals wouldn't dare opposing them. Those that did could be easily coaxed into a war against the tyranny of their liege, a war that they could not hope to win, after which they'd end up in a dungeon cell.
-
-Now rulers will have to balance their Tyranny much more carefully, as during those civil wars, the more Tyranny surpasses Authority, the more vassals will get a chance to rally with their brethren against their liege. And if the war drags on for lon enough, eventually, the whole realm could very well unite against a tyrannical ruler.
-
-Those wars, if lost, also come with a much higher price : if the oppressed masses manage to take the upper hand, they will strip their liege of all their titles, and redistribute them amongts themselves, leaving the heirs with nothing. Fortunately, an unlanded primary heir will always find a distant relative or compassionate soul to grant them a piece of land, enabling them to regroup, and maybe reclaim their ancestors land.
+Higher Authority levels still need specific cultural innovations to unlock for non-tribal rulers.
 
 [h1]Additionnal tweaks[/h1]
 
