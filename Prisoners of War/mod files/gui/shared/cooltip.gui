@@ -1865,7 +1865,6 @@ template unit_icon_item_tooltip {
 			# [POW]
 			# Get the number of prisoners stored in story_PoW_list
 			vbox = {
-				visible = "[Not(Army.IsNeutralToPlayer)]"
 				layoutpolicy_horizontal = expanding
 				spacing = 4
 				hbox = {

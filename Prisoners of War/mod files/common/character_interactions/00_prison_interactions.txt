@@ -910,6 +910,9 @@ move_to_dungeon_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
+		# [PoW]
+		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		# [PoW]
 	}
 	
 	on_accept = {
@@ -998,6 +1001,9 @@ move_to_house_arrest_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
+		# [PoW]
+		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		# [PoW]
 	}
 	
 	on_accept = {
@@ -1102,6 +1108,9 @@ ransom_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
+		# [PoW]
+		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		# [PoW]	
 	}
 	
 	on_accept = {
@@ -1568,6 +1577,9 @@ pay_ransom_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
+		# [PoW]
+		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		# [PoW]
 	}
 	
 	on_accept = {
@@ -2074,6 +2086,9 @@ ransom_me_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
+		# [PoW]
+		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		# [PoW]
 	}
 	
 	on_accept = {
@@ -2511,6 +2526,9 @@ release_from_prison_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
+		# [PoW]
+		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		# [PoW]
 	}
 	
 	on_accept = {
@@ -3508,6 +3526,9 @@ execute_prisoner_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
+		# [PoW]
+		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		# [PoW]
 	}
 	
 	on_accept = {
@@ -3754,6 +3775,9 @@ torture_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
+		# [PoW]
+		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		# [PoW]
 	}
 
 	is_highlighted = {
@@ -3903,6 +3927,9 @@ castrate_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
+		# [PoW]
+		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		# [PoW]
 	}
 
 	is_highlighted = {
@@ -3998,6 +4025,9 @@ blind_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
+		# [PoW]
+		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		# [PoW]
 	}
 
 	is_highlighted = {

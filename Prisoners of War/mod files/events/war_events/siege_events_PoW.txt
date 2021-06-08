@@ -62,7 +62,10 @@ siege.0001 = {
 
 			debug_log_scopes = no
 			random_army = {
-				limit = { location.barony = scope:barony }
+				limit = {
+					exists = location.barony
+					location.barony = scope:barony
+				}
 				debug_log_scopes = no
 				location = { debug_log_scopes = no }
 				location.barony = { debug_log_scopes = no }
