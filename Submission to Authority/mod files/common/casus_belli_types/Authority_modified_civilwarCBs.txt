@@ -40,8 +40,8 @@ liberty_faction_war = {
 		scope:attacker = { show_pow_release_message_effect = yes }
 		scope:defender = {
 			# if = {
-			# 	limit = { has_realm_law = crown_authority_1 }
-			# 	add_realm_law = crown_authority_0
+				# 	limit = { has_realm_law = crown_authority_1 }
+				# 	add_realm_law = crown_authority_0
 			# }
 			# if = {
 			# 	limit = { has_realm_law = crown_authority_2 }
@@ -201,7 +201,7 @@ liberty_faction_war = {
 				years = faction_war_defeat_cooldown
 			}
 			add_dread = medium_dread_gain
-			add_achievement_flag = { FLAG = achievement_know_your_place_flag }
+			add_achievement_flag_effect = { FLAG = achievement_know_your_place_flag }
 		}
 		on_lost_faction_revolt_war = yes
 	}
@@ -230,5 +230,4 @@ liberty_faction_war = {
 	max_defender_score_from_battles = 50
 
 	max_ai_diplo_distance_to_title = 500
-	min_ai_score = 100
 }

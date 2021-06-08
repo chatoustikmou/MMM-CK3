@@ -5,7 +5,7 @@ contract_event.0001 = {
 	trigger = { scope:vassal = { has_government = feudal_government } }
 	immediate = {
 		debug_log = "contract_event.0001"
-		reset_feudal_contract = yes
+		StA_reset_feudal_contract = yes
 	}
 }
 
@@ -17,6 +17,6 @@ contract_event.0002 = {
 	}
 	immediate = {
 		debug_log = "contract_event.0002"
-		reset_feudal_contract = yes
+		StA_reset_feudal_contract = yes
 	}
 }

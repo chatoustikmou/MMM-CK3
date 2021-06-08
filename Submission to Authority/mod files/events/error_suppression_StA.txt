@@ -3,7 +3,6 @@
 StA_error_suppression.0001 = {
 	hidden = yes
 	trigger = {
-		exists = var:tyranny_war_ended
 		exists = var:mod_StA_active
 	}
 

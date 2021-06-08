@@ -123,12 +123,3 @@ faction_demand.0101 = {
 		}
 	}
 }
-
-faction_demand.0202 = {
-	hidden = yes
-    type = empty
-
-	immediate = {
-		trigger_event = { on_action = monthly_rebellion_grows months = 1 }
-	}
-}
