@@ -157,7 +157,7 @@
 						debug_log = "dbg_log existing story_PoW selected"
 						story_owner = {
 							random_owned_story = {
-								is_story_PoW_in_location = { LOCATION = scope:story.var:story_location }
+								limit = { is_story_PoW_in_location = { LOCATION = scope:story.var:story_location }}
 								save_temporary_scope_as = new_story
 							}
 						}

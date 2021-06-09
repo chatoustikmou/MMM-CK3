@@ -208,25 +208,25 @@ window = {
 											visible = "[Not(CharacterSelectionList.IsBuildingList)]"
 											layoutpolicy_horizontal = expanding
 
-											item = {
-												widget_courtier_item = {
-													visible = "[GetScriptedGui('prison_screen_exclude_PoW').IsShown(GuiScope.SetRoot( Character.MakeScope ).End)]"
-													layoutpolicy_horizontal = expanding
-													datacontext = "[CharacterListItem.GetCharacter]"
+											# item = {
+											# 	widget_courtier_item = {
+											# 		visible = "[GetScriptedGui('prison_screen_exclude_PoW').IsShown(GuiScope.SetRoot( Character.MakeScope ).End)]"
+											# 		layoutpolicy_horizontal = expanding
+											# 		datacontext = "[CharacterListItem.GetCharacter]"
 
-													blockoverride "relation_text" {
-														text = "[Character.GetRelationToString( GetPlayer.Self )]"
-													}
+											# 		blockoverride "relation_text" {
+											# 			text = "[Character.GetRelationToString( GetPlayer.Self )]"
+											# 		}
 
-													blockoverride "description_relation_text" {
-														text = "[Character.GetRelationToString( GetPlayer.Self )]"
-													}
-												}
-											}
+											# 		blockoverride "description_relation_text" {
+											# 			text = "[Character.GetRelationToString( GetPlayer.Self )]"
+											# 		}
+											# 	}
+											# }
 
 											item = {
 												widget_courtier_PoW_item = {
-													visible = "[GetScriptedGui('prison_screen_PoW').IsShown(GuiScope.SetRoot( Character.MakeScope ).End)]"
+													# visible = "[GetScriptedGui('prison_screen_PoW').IsShown(GuiScope.SetRoot( Character.MakeScope ).End)]"
 													layoutpolicy_horizontal = expanding
 													datacontext = "[CharacterListItem.GetCharacter]"
 
