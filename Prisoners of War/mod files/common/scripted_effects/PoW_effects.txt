@@ -145,8 +145,8 @@ PoW_capture_effect = {
 	$IMPRISONER$ = { save_temporary_scope_as = PoW_imprisoner }
 	$LOCATION$ = { save_temporary_scope_as = PoW_battle_loc }
 	debug_log = "dbg_log PoW_capture_effect"
-	scope:PoW_target = { debug_log_scopes = no }
 	scope:PoW_imprisoner = { debug_log_scopes = no }
+	scope:PoW_target = { debug_log_scopes = no }
 	scope:PoW_battle_loc = { debug_log_scopes = no }
 
 	scope:PoW_imprisoner = {
