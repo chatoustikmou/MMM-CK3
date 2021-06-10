@@ -90,9 +90,9 @@ PoW_dungeon_transfer_on_action = {
 				if = {
 					limit = { is_imprisoned = no }
 					debug_log = "PoW not imprisoned"
-					debug_log_scopes = no
 				}
 				variable = story_PoW_list
+				debug_log_scopes = no
 				change_prison_type = dungeon
 				remove_variable = story_PoW
 			}
@@ -396,4 +396,20 @@ on_defeat_raid_army_PoW = {
 	# 	}
 	# }
 	}
+}
+
+on_war_won_attacker = { on_actions = { on_war_won_PoW }}
+on_war_won_defender = { on_actions = { on_war_won_PoW }}
+on_war_white_peace = { on_actions = { on_war_won_PoW }}
+on_war_invalidated = { on_actions = { on_war_won_PoW }}
+on_war_won_PoW = {
+	trigger = {
+		war = { any_war_participant = { owns_story_of_type = story_PoW }}
+	}
+	effect = {
+		debug_log = "PoW war over"
+		war = { debug_log_scopes = no }
+		debug_log_scopes = yes
+	}
+	events = PoW_events.0001
 }

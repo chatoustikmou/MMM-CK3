@@ -32,7 +32,19 @@ All remaining bugs are my own.
 
 [h1]Changelog[/h1]
 
-version 0.1
+hotfix 0.1.2
+
+# Bugs
+- fixed a minor bug that did not actually break anything, but that printed *a lot* of errors, making tracking actual bugs that much more difficult. If you must know, it had to do with mutliple on_actions being fired at the same time, and their triggers being assessed simultaneously, but their effects being executed after both triggers' assessment. So if the effect of one modifies the trigger conditions of the other... yeah, *I know*
+- added a check on war end for cleaning up of PoWs liberated when war ends, and for transferring PoWs to the dungeon
+- Fixed the bug that made the launcher warn against mod not being compatible with 1.4.0, because the descriptor.mod said 'supported_version="1.4"'. Literally unplayable.
+
+hotfix 0.1.1
+
+# Bug
+- Hopefully resolved the bug that caused random crashes when launching the game, before it reached the main menu
+
+version 0.1.0
 
 # Features
 - On capture, prisoners are held by the army that captured them, until such a time as either :
