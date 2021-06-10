@@ -502,7 +502,7 @@ title_revocation_rights = {
 
 			position = { 0 0 }
 			
-			ai_liege_desire = 1
+			ai_liege_desire = @ai_standard_liege_desire
 			ai_vassal_desire = 0
 		}
 		title_revocation_rights_protected = {

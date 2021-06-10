@@ -72,7 +72,7 @@ monthly_tick_authority = {
 		monthly_tick_authority
 	}
 	effect = {
-
+		debug_log = "dbg_log monthly tick"
 		every_ruler = {
 			limit = {
 				OR = {
@@ -140,12 +140,15 @@ monthly_tick_authority = {
 			}
 		}
 
-		every_ruler = {
+		every_barony = {
 			limit = {
-				has_government = feudal_government
-				highest_held_title_tier = tier_barony
+				exists = holder
+				holder = {
+					has_government = feudal_government
+					highest_held_title_tier = tier_barony
+				}
 			}
-			trigger_event = contract_event.0002
+			holder = { StA_reset_feudal_contract = yes }
 		}
 	}
 }

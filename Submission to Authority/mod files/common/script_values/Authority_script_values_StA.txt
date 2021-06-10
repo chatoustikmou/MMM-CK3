@@ -336,7 +336,10 @@ tribal_hoarded_duchies = {
 		limit = { tier = tier_duchy }
 		add = 1
 	}
-	every_alert_creatable_title = {	add = 1	}
+	every_alert_creatable_title = {
+		limit = { tier = tier_duchy }
+		add = 1
+	}
 	min = 1
 }
 

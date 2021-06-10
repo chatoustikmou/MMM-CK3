@@ -18,6 +18,20 @@
 				level = feudal_levies_exempt_level
 			}
 		}
+		if = {
+			limit = { NOT = { vassal_contract_has_flag = vassal_contract_cannot_revoke_titles }}
+			vassal_contract_set_obligation_level = {
+				type = title_revocation_rights
+				level = 1
+			}
+		}
+		if = {
+			limit = { NOT = { vassal_contract_has_flag = vassal_contract_war_override }}
+			vassal_contract_set_obligation_level = {
+				type = war_declaration_rights
+				level = 1
+			}
+		}
 	}
 	else_if = {
 		limit = {liege = {has_realm_law = crown_authority_1 }}
@@ -33,6 +47,20 @@
 			vassal_contract_set_obligation_level = {
 				type = feudal_government_levies
 				level = feudal_levies_low_level
+			}
+		}
+		if = {
+			limit = { vassal_contract_has_flag = vassal_contract_cannot_revoke_titles }
+			vassal_contract_set_obligation_level = {
+				type = title_revocation_rights
+				level = 0
+			}
+		}
+		if = {
+			limit = { vassal_contract_has_flag = vassal_contract_war_override }
+			vassal_contract_set_obligation_level = {
+				type = war_declaration_rights
+				level = 0
 			}
 		}
 	}
@@ -52,6 +80,20 @@
 				level = feudal_levies_normal_level
 			}
 		}
+		if = {
+			limit = { vassal_contract_has_flag = vassal_contract_cannot_revoke_titles }
+			vassal_contract_set_obligation_level = {
+				type = title_revocation_rights
+				level = 0
+			}
+		}
+		if = {
+			limit = { vassal_contract_has_flag = vassal_contract_war_override }
+			vassal_contract_set_obligation_level = {
+				type = war_declaration_rights
+				level = 0
+			}
+		}
 	}
 	else_if = {
 		limit = {liege = {has_realm_law = crown_authority_3 }}
@@ -67,6 +109,20 @@
 			vassal_contract_set_obligation_level = {
 				type = feudal_government_levies
 				level = feudal_levies_high_level
+			}
+		}
+		if = {
+			limit = { vassal_contract_has_flag = vassal_contract_cannot_revoke_titles }
+			vassal_contract_set_obligation_level = {
+				type = title_revocation_rights
+				level = 0
+			}
+		}
+		if = {
+			limit = { vassal_contract_has_flag = vassal_contract_war_override }
+			vassal_contract_set_obligation_level = {
+				type = war_declaration_rights
+				level = 0
 			}
 		}
 	}
