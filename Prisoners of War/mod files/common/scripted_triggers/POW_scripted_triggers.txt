@@ -106,7 +106,7 @@ is_in_friendly_territory = {
 		any_war_ally = {
 			primary_title = {
 				any_in_de_facto_hierarchy = {
-					limit = { title_tier = tier_county }
+					tier = tier_county
 					this = scope:army_loc
 				}
 			}

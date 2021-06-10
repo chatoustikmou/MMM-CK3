@@ -44,6 +44,12 @@ All remaining bugs are my own.
 
 [h1]Changelog[/h1]
 
+hotfix 1.0.1
+
+# Bugs
+- Tribal submission "hoarded duchies" penalty now only counts actual Duchy titles, and neither Kingdom and Empire titles
+- That baron bug I said I'd fixed in v0.7.1 ? It's really fixed now. For real. Promise.
+
 version 1.0
 
 # Features

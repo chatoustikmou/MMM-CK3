@@ -1,0 +1,12 @@
+﻿namespace = StA_error_suppression
+
+StA_error_suppression.0001 = {
+	hidden = yes
+	trigger = {
+		exists = var:distinguished_PoW
+		exists = var:mod_PoW_loaded
+	}
+
+	immediate = {
+	}
+}

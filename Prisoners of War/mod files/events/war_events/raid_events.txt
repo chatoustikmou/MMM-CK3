@@ -720,23 +720,31 @@ raiding.0013 = {
 		}
 
 		#IMPRISON & KILL EFFECTS
-		every_in_list = {
-			list = captured_targets_effects
-
-			hidden_effect = {
-				add_character_flag = {
-					flag = block_imprisonment_event
-					days = 1
+		# [PoW]
+		if = {
+			limit = { 
+				list_size = {
+					name = captured_targets_effects
+					value > 0
 				}
 			}
-			# [PoW]
-			PoW_capture_effect = {
-				TARGET = this
-				IMPRISONER = scope:raider
-				LOCATION = scope:battle_loc
+			every_in_list = {
+				list = captured_targets_effects
+
+				hidden_effect = {
+					add_character_flag = {
+						flag = block_imprisonment_event
+						days = 1
+					}
+				}
+				PoW_capture_effect = {
+					TARGET = this
+					IMPRISONER = scope:raider
+					LOCATION = scope:battle_loc
+				}
 			}
-			# [/PoW]
 		}
+		# [/PoW]
 		every_in_list = {
 			list = killed_targets
 
