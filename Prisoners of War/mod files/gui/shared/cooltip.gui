@@ -1870,7 +1870,7 @@ template unit_icon_item_tooltip {
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					visible = "[UnitItem.GetArmy.MakeScope.Var('story_PoW').IsSet]"
-					tooltipwidget = { PoW_in_army_tooltip = {} }
+					tooltipwidget = { PoW_in_unit_tooltip = {} }
 					margin_left = 4
 
 					icon = {
@@ -1881,7 +1881,7 @@ template unit_icon_item_tooltip {
 					text_single = {
 						layoutpolicy_horizontal = expanding
 						name = "attrition"
-						text = "POW_NB_IN_ARMY"
+						text = "POW_NB_IN_UNIT"
 						align = nobaseline
 					}
 				}
@@ -3596,7 +3596,7 @@ container = {
 # [PoW]
 types Prisoners_of_War
 {
-	type PoW_in_army_tooltip = widget
+	type PoW_in_unit_tooltip = widget
 	{
 		size = { 400 200 }
 		using = Background_Tooltip
@@ -3638,8 +3638,6 @@ types Prisoners_of_War
 				}
 			}
 		}
-
-
 	}
 }
 # [/PoW]
