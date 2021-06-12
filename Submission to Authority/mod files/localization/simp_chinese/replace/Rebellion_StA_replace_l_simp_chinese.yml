@@ -1,0 +1,3 @@
+﻿l_simp_chinese:
+ refused_liege_demand_war_victory_desc_defender:0 "你将被斩首，并被剥夺所有头衔。"
+ refused_liege_demand_war_victory_desc:0 "[defender.GetShortUIName|U]被斩首，并被剥夺所有头衔。"
