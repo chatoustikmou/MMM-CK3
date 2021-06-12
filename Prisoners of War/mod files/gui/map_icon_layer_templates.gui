@@ -335,17 +335,7 @@ types MapIcons {
 
 					# [PoW]
 					# Shows the prison icon when the army has var:story_PoW
-					widget = {
-						visible = "[UnitItem.GetArmy.MakeScope.Var('story_PoW').IsSet]"
-						size = { 20 20 }
-
-						icon = {
-							name = "PoW"
-							texture = "gfx/interface/icons/portraits/punishment.dds"
-							size = { 20 20 }
-							position = { 0 5 }
-						}
-					}
+					PoW_in_unit_icon = {}
 					# [/PoW]
 
 					block "unit_items" {
@@ -538,17 +528,7 @@ types MapIcons {
 
 				# [PoW]
 				# Shows the prison icon when the army has var:story_PoW
-				widget = {
-					visible = "[UnitItem.GetArmy.MakeScope.Var('story_PoW').IsSet]"
-					size = { 20 20 }
-
-					icon = {
-						name = "PoW"
-						texture = "gfx/interface/icons/portraits/punishment.dds"
-						size = { 20 20 }
-						position = { 0 5 }
-					}
-				}
+				PoW_in_unit_icon = {}
 				# [/PoW]
 			}
 

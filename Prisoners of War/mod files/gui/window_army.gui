@@ -205,6 +205,9 @@ window = {
 
 				hbox = {
 
+					# # [PoW]
+					# PoW_transfer_button = {}
+					# # [/PoW]
 
 					widget = {
 						size = { 42 45 }
@@ -237,6 +240,10 @@ window = {
 
 							button_army_merge = {
 								parentanchor = center
+								# # [PoW]
+								# datacontext = "[GetScriptedGui('PoW_army_merge')]"
+								# onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Army.MakeScope ).End )]"
+								# # [/PoW]
 								onclick = "[ArmyWindow.MergeSelected]"
 								shortcut = "army_merge"
 							}
@@ -253,7 +260,7 @@ window = {
 						{
 							onclick = "[ArmyWindow.CloseAndDeselect]"
 						}
-					}
+					}					
 				}
 
 				expand = {
@@ -292,21 +299,7 @@ window = {
 			expand = {}
 
 			# [PoW]
-			hbox = {
-				name = "PoW"
-				visible = "[Army.MakeScope.Var('story_PoW').IsSet]"
-				icon = {
-					name = "PoW"
-					texture = "gfx/interface/icons/portraits/punishment.dds"
-					size = { 35 35 }
-				}
-				text_single = {
-					name = "attrition"
-					text = "[GetDataModelSize(Army.MakeScope.Var('story_PoW').GetList('story_PoW_list'))|#V]"
-				}
-				tooltipwidget = { PoW_in_army_tooltip = {} }
-				using = tooltip_ne
-			}
+			PoW_in_army = {}
 			# [/PoW]
 
 			hbox = {
@@ -1234,6 +1227,10 @@ window = {
 					button_army_disband = {
 						parentanchor = center
 						onclick = [ArmyWindow.DisbandSelected]
+						# [PoW]
+						datacontext = "[GetScriptedGui('PoW_army_disband')]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( Army.MakeScope ).End)]"
+						# [/PoW]
 						shortcut = army_disband
 					}
 				}
@@ -1241,6 +1238,8 @@ window = {
 		}
 	}
 }
+
+
 
 window = {
 	name = "army_reorganization_window"
@@ -1668,6 +1667,8 @@ window = {
 	}
 }
 
+
+
 ######################################################
 ################ TYPES AND TEMPLATES #################
 ######################################################
@@ -1970,66 +1971,6 @@ types ArmyWindow
 				min = 0
 				max = "[IntToFloat(RegimentReorgEntry.GetMaxSoldierCount)]"
 				value = "[IntToFloat(RegimentReorgEntry.GetSoldierCount)]"
-			}
-		}
-	}
-}
-# [PoW]
-
-types Prisoners_of_War
-{
-
-	type PoW_in_army_tooltip = widget
-	{
-		size = { 400 200 }
-		using = Background_Tooltip
-		alwaystransparent = no
-		vbox = {
-			# margin_top = 5
-			scrollbox = {
-				size = { 380 180 }
-				scrollwidget = {
-					dynamicgridbox = {
-						datamodel = "[Army.MakeScope.Var('story_PoW').GetList('story_PoW_list')]"
-						item = {
-							flowcontainer = {
-								datacontext = "[Scope.GetCharacter]"
-								hbox = {
-									portrait_head_small = {}
-									spacer = { size = { 5 0 }}
-									vbox = {
-										hbox = {
-											layoutpolicy_horizontal = expanding
-											text_single = {
-												text = "[Character.GetName]"
-											}
-											expand = {}
-										}
-										hbox = {
-											layoutpolicy_horizontal = expanding
-											text_single = {
-												visible = "[And(Character.GetLiege.IsValid,Not(Character.IsRuler))]"
-												text = "Captured from [Character.GetLiege.GetName]"
-											}
-											expand = {}
-										}
-										hbox = {
-											layoutpolicy_horizontal = expanding
-											text_single = {
-												name = "imprisoned_time"
-												layoutpolicy_horizontal = expanding
-												text = "CAPTURED_FOR"
-												autoresize = no
-											}
-											expand = {}
-										}
-										
-									}
-								}
-							}
-						}
-					}
-				}
 			}
 		}
 	}

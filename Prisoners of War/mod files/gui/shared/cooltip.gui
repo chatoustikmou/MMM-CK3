@@ -1864,29 +1864,7 @@ template unit_icon_item_tooltip {
 
 			# [POW]
 			# Get the number of prisoners stored in story_PoW_list
-			vbox = {
-				layoutpolicy_horizontal = expanding
-				spacing = 4
-				hbox = {
-					layoutpolicy_horizontal = expanding
-					visible = "[UnitItem.GetArmy.MakeScope.Var('story_PoW').IsSet]"
-					tooltipwidget = { PoW_in_unit_tooltip = {} }
-					margin_left = 4
-
-					icon = {
-						name = "PoW"
-						texture = "gfx/interface/icons/portraits/punishment.dds"
-						size = { 24 24 }
-					}
-					text_single = {
-						layoutpolicy_horizontal = expanding
-						name = "attrition"
-						text = "POW_NB_IN_UNIT"
-						align = nobaseline
-					}
-				}
-			}
-
+			PoW_in_unit_text = {}
 			# [/POW]
 
 
@@ -3592,52 +3570,3 @@ container = {
 		}
 	}
 }
-
-# [PoW]
-types Prisoners_of_War
-{
-	type PoW_in_unit_tooltip = widget
-	{
-		size = { 400 200 }
-		using = Background_Tooltip
-		alwaystransparent = no
-		vbox = {
-			# margin_top = 5
-			scrollbox = {
-				size = { 380 180 }
-				scrollwidget = {
-					dynamicgridbox = {
-						datamodel = "[UnitItem.GetArmy.MakeScope.Var('story_PoW').GetList('story_PoW_list')]"
-						item = {
-							flowcontainer = {
-								datacontext = "[Scope.GetCharacter]"
-								hbox = {
-									portrait_head_small = {}
-									spacer = { size = { 5 0 }}
-									vbox = {
-										hbox = {
-											layoutpolicy_horizontal = expanding
-											text_single = {
-												text = "[Character.GetName]"
-											}
-											expand = {}
-										}
-										hbox = {
-											layoutpolicy_horizontal = expanding
-											text_single = {
-												visible = "[And(Character.GetLiege.IsValid,Not(Character.IsRuler))]"
-												text = "Captured from [Character.GetLiege.GetName]"
-											}
-											expand = {}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-# [/PoW]
