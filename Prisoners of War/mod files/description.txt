@@ -32,6 +32,23 @@ All remaining bugs are my own.
 
 [h1]Changelog[/h1]
 
+hotfix 0.1.3
+
+# Languages
+- now available in Chinese thanks to Juijote !
+
+# Bugs
+- corrected a bug preventing the fallback on armies merged to trigger correctly. Now when an army disappears, if other armies of the same owner are present on the same province, prisoners are picked up on the next day.
+- corrected a bug showing in the army prisoners that were captured on war end by the winner as part of the war resolution, when the character that captured them in the first place were not the primary participant in the war
+- somehow seemingly unintentionnaly corrected the bug that made prisoners go to dungeon on raiding party stackwipe, but I still count that as a win
+
+# Features
+- clicking the Disband button on the army window now instantly sends all prisoners to the dungeon, even if the disband is not confirmed in the dialog window
+- clicking the Merge button on the army window now sends all prisoners of all armies in the province to the selected army, even prisoners that were in armies not being merged - that's the only way I can handle this for the time being
+
+# Interface
+- new PoW icon on the army window, showing the number of prisoners in the army, with the list in tooltip, and the number of days since capture (by the 1st army that captured them)
+
 hotfix 0.1.2
 
 # Bugs
