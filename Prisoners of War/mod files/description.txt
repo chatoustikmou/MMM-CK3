@@ -6,9 +6,6 @@ With [b]Prisoners of War[/b], characters imprisoned in battle, raids and sieges 
 [b]Prisoners of War[/b] is a [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2511250933][b]Mostly Mechanical Mod[/b][/url]
 [i]The mod is not Ironman compatible[/i], but is savegame compatible.
 
-Updated to 0.1, changelog below.
-
-
 
 [b]Prisoners of War[/b] adds a new layer of tactical choices : should you siege back your holding to negate the warscore from its occupation, or should your chase down the army that's taking away your heir, in the hope of liberating it before his capture can be leveraged in a call for peace ?
 
