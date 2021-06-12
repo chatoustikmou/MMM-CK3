@@ -87,12 +87,12 @@ PoW_dungeon_transfer_on_action = {
 		# TODO handle dungeon vs house arrest depending on has_character_flag = flag:distinguished_PoW
 		scope:army.var:story_PoW = {
 			every_in_list = {
+				variable = story_PoW_list
 				if = {
 					limit = { is_imprisoned = no }
-					debug_log = "PoW not imprisoned"
+					debug_log = "dbg_log changing prison type of prisoner that's not imprisoned"
+					debug_log_scopes = no
 				}
-				variable = story_PoW_list
-				debug_log_scopes = no
 				change_prison_type = dungeon
 				remove_variable = story_PoW
 			}

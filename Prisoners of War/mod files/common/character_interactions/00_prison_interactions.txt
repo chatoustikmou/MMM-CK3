@@ -1109,7 +1109,7 @@ ransom_interaction = {
 			}
 		}
 		# [PoW]
-		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		scope:secondary_recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
 		# [PoW]	
 	}
 	
@@ -1578,7 +1578,7 @@ pay_ransom_interaction = {
 			}
 		}
 		# [PoW]
-		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		scope:secondary_recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
 		# [PoW]
 	}
 	
@@ -2087,7 +2087,7 @@ ransom_me_interaction = {
 			}
 		}
 		# [PoW]
-		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
+		scope:actor = { NOT = { is_in_prison_type = prisoner_of_war } }
 		# [PoW]
 	}
 	

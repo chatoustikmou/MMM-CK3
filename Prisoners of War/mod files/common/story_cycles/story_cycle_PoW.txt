@@ -25,15 +25,21 @@
 		if = {
 			limit = { exists = var:story_army }
 			make_story_owner = var:story_army.army_owner
+			debug_log = "story transmitted"
 			story_owner = { debug_log_scopes = no }
 		}
 		else = {
-			debug_log = "dbg_log story_PoW PoWs released"
+			debug_log = "story NOT transmitted, prisoners released"
 			every_in_list = {
 				variable = story_PoW_list
+				if = {
+					limit = { is_imprisoned = no }
+					debug_log = "dbg_log liberating prisoner that's not imprisoned"
+				}
+				debug_log_scopes = no
 				release_from_prison = yes
+				end_story = yes
 			}
-			end_story = yes
 		}
 	}
 	effect_group = {
@@ -55,6 +61,8 @@
 				}
 				# Update story owner if PoWs haven't been inherited by new owner
 				effect = {
+					story_owner = { debug_log_scopes = no }
+					var:story_army.army_owner = { debug_log_scopes = no }
 					debug_log = "dbg_log Army changed owner"
 					if = {
 						limit = { var:story_army.army_owner = { has_story_PoW_in_location = { LOCATION = scope:story.var:story_location }}}
@@ -64,16 +72,25 @@
 								save_temporary_scope_as = new_story
 							}
 						}
-						scope:new_story.var:story_army = { debug_log_scopes = no  }
+						scope:new_story.var:story_army = {
+							debug_log = "prisoners transfered to existing story"
+							debug_log_scopes = no 
+						}
 						PoW_transfer_to_story_same_character_effect = {
 							OLD_STORY = this
 							NEW_STORY = scope:new_story
 						}
 					}
 					else = {
+						debug_log = "story transfered to new owner"
 						every_in_list = {
 							variable = story_PoW_list
 							limit = { NOT = { is_imprisoned_by = var:story_army.army_owner } }
+							if = {
+								limit = { is_imprisoned = no }
+								debug_log = "dbg_log liberating prisoner that's not imprisoned"
+							}
+							debug_log_scopes = no
 							release_from_prison = yes
 							scope:new_story.story_owner = {
 								imprison = {
@@ -117,6 +134,11 @@
 					debug_log = "dbg_log story_PoW Owner not at war"
 					every_in_list = {
 						variable = story_PoW_list
+						if = {
+							limit = { is_imprisoned = no }
+							debug_log = "dbg_log changing prison type of prisoner that's not imprisoned"
+							debug_log_scopes = no
+						}
 						change_prison_type = dungeon
 						remove_variable = story_PoW
 					}
@@ -131,9 +153,14 @@
 				}
 				# TODO scripted effect Liberate PoWs
 				effect = {
-					debug_log = "dbg_log story_PoW Owner doesn't rule"
+					debug_log = "dbg_log story_PoW Owner doesn't rule, prisoners liberated"
 					every_in_list = {
 						variable = story_PoW_list
+						if = {
+							limit = { is_imprisoned = no }
+							debug_log = "dbg_log liberating prisoner that's not imprisoned"
+							debug_log_scopes = no
+						}						
 						release_from_prison = yes
 						remove_variable = story_PoW
 					}
@@ -222,6 +249,11 @@
 					var:story_location = { debug_log_scopes = no }
 					every_in_list = {
 						variable = story_PoW_list
+						if = {
+							limit = { is_imprisoned = no }
+							debug_log = "dbg_log liberating prisoner that's not imprisoned"
+							debug_log_scopes = no
+						}
 						release_from_prison = yes
 						remove_variable = story_PoW
 					}
