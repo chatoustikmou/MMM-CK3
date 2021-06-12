@@ -285,7 +285,7 @@ PoW_army_transfer_on_action = {
 		every_in_list = {
 			list = stories_to_transfer
 			var:story_army = { remove_variable = story_PoW }
-			PoW_transfer_to_story_effect = {
+			PoW_transfer_to_story_different_character_effect = {
 				OLD_STORY = THIS
 				NEW_STORY = scope:new_story
 			}
@@ -390,7 +390,7 @@ on_defeat_raid_army_PoW = {
 	# 			}
 	# 		}
 	# 	}
-	# 	PoW_transfer_to_story_effect = {
+	# 	PoW_transfer_to_story_different_character_effect = {
 	# 		OLD_STORY = var:story_PoW
 	# 		NEW_STORY = scope:new_story
 	# 	}

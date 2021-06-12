@@ -82,7 +82,8 @@
 # 	}
 # }
 
-PoW_transfer_to_story_effect = {
+# Supported scopes : none
+PoW_transfer_to_story_different_character_effect = {
 	$OLD_STORY$ = { save_temporary_scope_as = old_story }
 	$NEW_STORY$ = { save_temporary_scope_as = new_story }
 
@@ -136,6 +137,37 @@ PoW_transfer_to_story_effect = {
 	}
 }
 
+PoW_transfer_to_story_same_character_effect = {
+	$OLD_STORY$ = { save_temporary_scope_as = old_story }
+	$NEW_STORY$ = { save_temporary_scope_as = new_story }
+
+	scope:old_story = {
+		if = {
+			limit = { exists = var:story_army }
+			var:story_army = { remove_variable = story_PoW }
+		}
+		every_in_list = {
+			variable = story_PoW_list
+			debug_log_scopes = no
+			if = {
+				limit = { is_imprisoned = no }
+				debug_log = "dbg_log transfering prisoner that's not imprisoned"
+			}
+			remove_variable = story_PoW
+			scope:new_story = {
+				add_to_variable_list = {
+					name = story_PoW_list
+					target = PREV
+				}
+			}
+			set_variable = {
+				name = story_PoW
+				value = scope:new_story
+			}
+		}
+		end_story = yes
+	}
+}
 
 # A lite version of imprison_character_effect without opinion penalties or other consequences (as they were captured in war, not at your command)
 # [PoW]

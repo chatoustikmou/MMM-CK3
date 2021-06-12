@@ -4,4 +4,6 @@
   POW_CAPTUREDBY: "Captured by [Character.MakeScope.Var('story_PoW').Var('story_army').Army.GetName]\nLocation : [Character.MakeScope.Var('story_PoW').Var('story_location').Province.GetName]"
   POW_CAPTUREDBY_SHORT: "Captured by [Character.MakeScope.Var('story_PoW').Var('story_army').Army.GetName]"
   POW_LOCATION: "Location : [Character.MakeScope.Var('story_PoW').Var('story_location').Province.GetName]"
-  POW_NB_IN_ARMY: "Prisoners of War in army : [GetDataModelSize(UnitItem.GetArmy.MakeScope.Var('story_PoW').GetList('story_PoW_list'))]"
+  POW_NB_IN_UNIT: "Prisoners of War in army : [GetDataModelSize(UnitItem.GetArmy.MakeScope.Var('story_PoW').GetList('story_PoW_list'))]"
+  POW_NB_IN_ARMY: "Prisoners of War in army : [GetDataModelSize(Army.MakeScope.Var('story_PoW').GetList('story_PoW_list'))]"
+  CAPTURED_FOR: "[Character.MakeScope.ScriptValue('get_days_in_prison')|0] days ago"

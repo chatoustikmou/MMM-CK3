@@ -1,14 +1,13 @@
-"[b]Submission to Authority[/b]" is an overhaul of the Crown/Tribal Authority mechanic.
-[i]The mod is not Ironman compatible[/i].
-
-Updated for 0.6, changelog below.
-New in 0.6 : "War against Tyranny of liege" reworked !
-
-
 Long gone are the days when rulers could assert their Authority by the flick of a pen for a small Prestige cost !
 
 With "Submission to Authority", Rulers will need to consolidate their Authority overtime by ensuring the Submission of their vassals, with different mechanics depending on the vassals' government type.
-Tyrannical rulers counting on their Dread to keep their vassals in line will need to tread carefully, as even the most fearful ruler can find the strength to rebel if pushed hard enough. And the cost for losing a civil war can be dire...
+Tyrannical rulers counting on their Dread to keep their vassals in line will need to tread carefully, as even the most fearful ruler can find the strength to rebel if pushed hard enough.
+
+
+"[b]Submission to Authority[/b]" is a [url=https://steamcommunity.com/linkfilter/?url=https://discord.gg/pY9vRssJ][b]Mostly Mechanical Mod[/b][/url] that focuses on enhancing the Crown/Tribal Authority mechanic.
+Updated for 1.4. [i]The mod is not Ironman compatible, and not savegame compatible[/i].
+Available in English and in French.
+Updated to 1.0, changelog below.
 
 
 [h1]New "Submission" mechanic[/h1]
@@ -21,7 +20,7 @@ Clan Vassals' Submission is directly correlated to their opinion of their ruler.
 
 Tribal Vassals respect power, and will be swayed by their ruler's personnal and dynastic Fame. But they also expect their ruler to be generous, and will hold it against him, should he hoard titles for himself.
 
-All Vassals' Submission is also heavily impacted by their submissiveness, i.e. their natural tendency to Submission, which depends on their traits and personality, irrespective of their current situation or their relationship with their liege.
+All Vassals' Submission is also heavily impacted by their Submissivness, i.e. their natural tendency to Submission, which depends on their traits and personality.
 
 [h1]Overhauled "Authority" mechanic [/h1]
 
@@ -49,6 +48,7 @@ hotfix 1.0.1
 # Bugs
 - Tribal submission "hoarded duchies" penalty now only counts actual Duchy titles, and neither Kingdom and Empire titles
 - That baron bug I said I'd fixed in v0.7.1 ? It's really fixed now. For real. Promise.
+- Fixed the bug that made the launcher warn against mod not being compatible with 1.4.0, because the descriptor.mod said 'supported_version="1.4"'. Literally unplayable.
 
 version 1.0
 
