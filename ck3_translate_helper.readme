@@ -1,0 +1,16 @@
+How to use
+
+Examples:
+
+    This will create a translation if it is missing from the base localization:
+
+    python ck3_translate_helper.py create -r 'localization/' -tl russian
+
+
+    This will update a translation from source:
+
+    python ck3_translate_helper.py update -r 'localization/' -tl russian
+
+
+
+    Use --help for more options
