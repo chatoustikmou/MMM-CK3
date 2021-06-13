@@ -1,4 +1,4 @@
-﻿﻿
+﻿
 types StA {
 
 	type authority_progressbar = widget {
