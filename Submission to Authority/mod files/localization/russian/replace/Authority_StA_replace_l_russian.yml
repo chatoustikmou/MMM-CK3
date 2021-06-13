@@ -70,7 +70,7 @@
 
     #!checksum db4ef231578c8517e1816ee32fb515ed-41684019e78b4e333c76fb74c133e2c2
     tribal_authority_3_effects_not_in_prev: "$EFFECT_LIST_BULLET$ [Concept( 'characters', 'Персонажей' )|E] можно [Concept( 'imprison', 'заключать в тюрьму' )|El]\n$EFFECT_LIST_BULLET$ Можно отнимать [Concept( 'vassals', 'вассалов' )|El].\n$EFFECT_LIST_BULLET$ Можно отнимать [titles|El].\n$EFFECT_LIST_BULLET$ [Concept( 'tribal', 'Племенной' )|E] правитель с [Concept( 'tribal', 'неплеменными' )|E] [Concept('liege','сюзеренами')|El] может перейти к оседлому образу жизни, став [Concept( 'feudal', 'феодалом' )|El] или основав [Concept( 'clan', 'клан' )|El]\n$EFFECT_LIST_BULLET$ [Concept( 'independent', 'Независимый' )|E] [Concept( 'tribal', 'племенной' )|E] правитель может перейти к оседлому образу жизни, став [Concept( 'feudal', 'феодалом' )|E] или основав [Concept( 'clan', 'клан' )|E]"
- 
+
     #!checksum 7e061090a31eaf7a6d90c16aaffc74a7-f83d181de46dceba2642a115655c5828
     I_LACK_LAW_ALLOWING_TITLE_REVOCATION_TRIBAL:1 "Ваш [Concept( 'tribal_authority', 'авторитет вождя' )|E] ниже, чем «высокий»"
 
@@ -95,6 +95,9 @@
     #!checksum f30d382ecc09bb2acdc91f17a17ff730-e68878fcd3eb2ac3c660cbe19003ee73
     I_LACK_LAW_ALLOWING_DESIGNATE_HEIR:0 "У вас нет абсолютной [Concept( 'crown_authority', 'власти короны' )|E]"
 
+    #!checksum 75d34e40edecdbf5455fd0c34ac253b6-f7234125f4dd3a1e4d283b572d691332
+    PASS_LAW_TOOLTIP_TITLE:3 "[Law.GetNameNoTooltip]"
+
     #!checksum cf98f6c3b8866f7c84c9172aae0c836f-d41d8cd98f00b204e9800998ecf8427e
     CROWN_AUTHORITY_IS_ON_COOLDOWN:1 ""
 
@@ -103,9 +106,10 @@
 
     #!checksum 257b485053ec32ca1d45ee5ca6580c54-1967f793e982a43d76f7f7b6fd42fd16
     liberty_war_victory_defender_desc:0 "[Concept( 'feudal_contract', 'Феодальные контракты' )|E] ваших вассалов были установлены в соответствии с тем, что предоставляется ваш [crown_authority|El]. Остальные вассалы снизят свою [submission|E] на 25 в течении 10 лет, и вы обещаете [Concept( 'favor', 'услугу' )|El] каждому члену [Concept( 'liberty_faction', 'фракции свободы' )|El]."
- 
+
     #!checksum 2439e8403ead692b911daa3580b6c0a6-539167566056fccd0575e6327dbbd2fa
     liberty_war_victory_desc:0 "У каждого вассала будет снижено [submission|E], а [crown_authority|E] персонажа [defender.GetPrimaryTitle.GetName] снижен на одну ступень. Кроме этого [defender.GetShortUIName] обещает [Concept( 'favor', 'услугу' )|E] каждому члену [Concept( 'liberty_faction', 'фракции свободы' )|E]."
- 
+
     #!checksum cb37f6a5bba069aa19233f4fabd1693e-bfa34362d586561b67130db372889051
     liberty_war_victory_end_desc:2 "[liberty_faction|E] распущена, и ее участники не могут вступать во фракции на протяжении [SCOPE.ScriptValue('liberty_war_victory_cooldown')|0] лет."
+
