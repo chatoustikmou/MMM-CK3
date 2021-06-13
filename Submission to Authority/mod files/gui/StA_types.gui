@@ -1,137 +1,79 @@
-﻿
+﻿﻿
 types StA {
 
 	type authority_progressbar = widget {
 		name = "authority"
-		size = { 300 30 }	
-
-		background = {
-			using = Background_Area
-			margin = { 3 2 }
-		}
+		size = { 300 30 }
 
 		hbox = {
-			visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
+			
 			progressbar_green = {
-				# size = 7500
-				minimumsize = { 75 30 }
+				visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
+
+				size = { 300 30 }
 				min = 0
-				max = 2500
+				max = 10000
 				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
 			}
-			progressbar_green = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 2500
-				max = 5000
+			
+			progressbar_red = {
+				visible = "[GreaterThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
+				
+				size = { 300 30 }
+				min = 0
+				max = 10000
 				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
 			}
-			progressbar_green = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 5000
-				max = 7500
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
-			}
-			progressbar_green = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 7500
+			
+			progressbar_frozen = {
+				visible = "[EqualTo_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
+
+				size = { 300 30 }
+				min = 0
 				max = 10000
 				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
 			}
 		}
+		
 		hbox = {
-			visible = "[GreaterThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
-			progressbar_red = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 0
-				max = 2500
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			position = { 3 -4 }
+		
+			text_single = {
+				text = "I"
 			}
-			progressbar_red = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 2500
-				max = 5000
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			text_single = {
+				text = "II"
 			}
-			progressbar_red = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 5000
-				max = 7500
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			text_single = {
+				text = "III"
 			}
-			progressbar_red = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 7500
-				max = 10000
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			text_single = {
+				text = "IV"
 			}
 		}
+
 		hbox = {
-			visible = "[EqualTo_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
-			progressbar_frozen = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 0
-				max = 2500
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
-			}
-			progressbar_frozen = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 2500
-				max = 5000
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
-			}
-			progressbar_frozen = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 5000
-				max = 7500
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
-			}
-			progressbar_frozen = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 7500
-				max = 10000
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
-			}
-		}
-		hbox = {
-			text_single = {
-				# margin = { 10 5 }
-				align = center
-				layoutpolicy_horizontal = expanding
-				text = "Absent"
-				autoresize = no
-				tooltip = "crown_authority_0_effects_not_in_prev"
-			}
-			text_single = {
-				align = center
-				layoutpolicy_horizontal = expanding
-				text = "Low"
-				autoresize = no
-				tooltip = "crown_authority_1_effects_not_in_prev"
-			}
-			text_single = {
-				align = center
-				layoutpolicy_horizontal = expanding
-				text = "Normal"
-				autoresize = no
-				tooltip = "crown_authority_2_effects_not_in_prev"
-			}
-			text_single = {
-				align = center
-				layoutpolicy_horizontal = expanding
-				text = "High"
-				autoresize = no
-				tooltip = "crown_authority_3_effects_not_in_prev"
+			datamodel = "[GuiLawGroup.GetLaws]"
+											
+			item = {
+				text_single = {
+					datacontext = "[GuiLaw.GetLaw]"
+					
+					align = center
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					autoresize = no
+					tooltipwidget = { pass_law_tooltip = {} }
+					using = tooltip_below
+					
+					background = {
+						texture = "gfx/interface/component_tiles/tile_frame_subwindow_01.dds"
+						spriteType = corneredstretched
+							
+						spriteborder = { 14 14 }
+						margin = { 7 7 }
+					}
+				}
 			}
 		}
 	}
