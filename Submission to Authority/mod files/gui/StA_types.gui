@@ -79,56 +79,28 @@ types StA {
 	}
 
 	type authority_header = vbox {						
-		layoutpolicy_vertical = expanding
 		datacontext = "[GuiLawGroup.GetLawGroup]"
 		visible = "[And( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law' ), GuiLawGroup.IsAvailable )]"
 		ignoreinvisible = yes
+		
+		margin_bottom = 5
 
-		text_label_center = {
-			visible = "[Not(GetPlayer.HasLiege)]"
-			text = "[authority|E] : [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1] trending to [GetPlayer.MakeScope.ScriptValue('realm_authority')|0]"
-		}
+		vbox = {
+			spacing = 7
+			margin_bottom = 15
 
-		text_label_center = {
-			visible = "[Not(GetPlayer.HasLiege)]"
-			text = "[tyranny|E] : [GetPlayer.MakeScope.ScriptValue('character_tyranny')|0]"
-		}
+			text_single = {
+				text = "[authority|E]: [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1]"
+			}
 
-		hbox = {
-			margin_left = 5
-			layoutpolicy_horizontal = expanding
-
-			text_label_left = {
-				visible = "[GetPlayer.HasLiege]"
-				layoutpolicy_horizontal = expanding
-				text = "[authority|E] : [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1] trending to [GetPlayer.MakeScope.ScriptValue('realm_authority')|0]"
+			text_single = {
+				text = "[tyranny|E]: [GetPlayer.MakeScope.ScriptValue('character_tyranny')|0]"
 			}
 		}
-
-		hbox = {
-			margin_left = 5
-			layoutpolicy_horizontal = expanding
-
-			text_label_left = {
-				visible = "[GetPlayer.HasLiege]"
-				layoutpolicy_horizontal = expanding
-				text = "[tyranny|E] : [GetPlayer.MakeScope.ScriptValue('character_tyranny')|0]"
-			}
-		}
-
-		spacer = {
-			visible = "[GetPlayer.HasLiege]"
-			size = { 5 8 }
-		}
-
+		
 		# [StA]
 		authority_progressbar = {}
 		# [/StA]
-
-		expand = {
-			visible = "[GetPlayer.HasLiege]"
-			layoutpolicy_horizontal = expanding
-		}
 	}
 
 	type widget_vassal_list_item = widget {
