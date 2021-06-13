@@ -96,39 +96,53 @@ PoW_transfer_to_story_different_character_effect = {
 			variable = story_PoW_list
 			if = {
 				limit = { NOT = { is_imprisoned_by = scope:new_story.story_owner } }
-				debug_log_scopes = no
 				if = {
 					limit = { is_imprisoned = no }
 					debug_log = "dbg_log liberating prisoner that's not imprisoned"
-				}
-				release_from_prison = yes
-				remove_variable = story_PoW
-				if = {
-					limit = {
-						NOR = {
-							THIS = scope:new_story.story_owner
-							is_allied_in_war = scope:new_story.story_owner
-							is_allied_to = scope:new_story.story_owner
-							is_vassal_of = scope:new_story.story_owner
-							is_courtier_of = scope:new_story.story_owner
-							is_close_or_extended_family_of = scope:new_story.story_owner
-						}
-					}
-					scope:new_story.story_owner = {
-						imprison = {
-							target = PREV
-							type = prisoner_of_war
-						}
-					}
-					scope:new_story = {
-						add_to_variable_list = {
+					PREV = {
+						remove_list_variable = {
 							name = story_PoW_list
 							target = PREV
 						}
 					}
-					set_variable = {
-						name = story_PoW
-						value = scope:new_story
+				}
+				else = {
+					debug_log_scopes = no
+					PREV = {
+						remove_list_variable = {
+							name = story_PoW_list
+							target = PREV
+						}
+					}
+					release_from_prison = yes
+					remove_variable = story_PoW
+					if = {
+						limit = {
+							NOR = {
+								THIS = scope:new_story.story_owner
+								is_allied_in_war = scope:new_story.story_owner
+								is_allied_to = scope:new_story.story_owner
+								is_vassal_of = scope:new_story.story_owner
+								is_courtier_of = scope:new_story.story_owner
+								is_close_or_extended_family_of = scope:new_story.story_owner
+							}
+						}
+						scope:new_story.story_owner = {
+							imprison = {
+								target = PREV
+								type = prisoner_of_war
+							}
+						}
+						scope:new_story = {
+							add_to_variable_list = {
+								name = story_PoW_list
+								target = PREV
+							}
+						}
+						set_variable = {
+							name = story_PoW
+							value = scope:new_story
+						}
 					}
 				}
 			}
