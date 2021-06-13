@@ -1,0 +1,7 @@
+﻿l_russian:
+    #!checksum 979ad4326bad1ea7d6669ca49cd3338a-281b51ff97f534e857ca27326917174d
+    refused_liege_demand_war_victory_desc_defender:0 "You are decapitated, and stripped of all your titles."
+
+    #!checksum 6cbbe042e33b839bd63dfe7473cabecd-4150633f15ceffe4ba1e6a9fb8cbf111
+    refused_liege_demand_war_victory_desc:0 "[defender.GetShortUIName|U] is decapitated, and stripped of all titles."
+
