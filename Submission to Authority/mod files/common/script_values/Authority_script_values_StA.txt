@@ -113,15 +113,8 @@ submissiveness = {
 
 submissiveness_dread = {
 	add = liege.dread
-	subtract = ai_boldness
-	min = {
-		if = {
-			limit = { submissiveness_honor < submissiveness_vengefulness }
-			add = submissiveness_honor
-		}
-		else = { add = submissiveness_vengefulness }
-	}
-	max = 100
+	max = { subtract = ai_boldness }
+	min = 0
 }
 
 submissiveness_honor = {
