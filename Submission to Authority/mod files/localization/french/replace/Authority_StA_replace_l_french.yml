@@ -37,6 +37,7 @@
 
   CROWN_AUTHORITY_IS_ON_COOLDOWN:1 ""
   TRIBAL_AUTHORITY_IS_ON_COOLDOWN:1 ""
+  PASS_LAW_TOOLTIP_TITLE:3 "[Law.GetNameNoTooltip]"
   
   liberty_war_victory_defender_desc:0 "Le [feudal_contract|E] de vos vassaux féodaux a été modifié conformément au niveau d'[authority|E] du Royaume. Les autres vassaux voient leur [submission|E] réduite de 25 pour 10 ans, et vous devez une [favor|El] à chaque membre de la [liberty_faction|El]"
   liberty_war_victory_desc:0 "Comme la [submission|E] de ses vassaux va être réduite, il en ira de même de l'[authority|E] du royaume du [defender.GetPrimaryTitle.GetName]. Qui plus est, [defender.GetShortUIName] devra une à chaque membre de la [liberty_faction|El]."

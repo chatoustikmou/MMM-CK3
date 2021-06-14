@@ -231,9 +231,8 @@ def update_localization(args):
             if hash_xkey not in trg['localization'][key]['checksum']:
                 print_ext(levels.WARNING, 'Key {xkey} in file {rel} doesn\'t exist', rel=trg['paths'][key], xkey=xkey)
                 key_missing = True
-
-            if hash_xvalue != trg['localization'][key]['checksum'][hash_xkey]:
-                print_ext(levels.ERROR, 'Key {xkey} in file {rel} was modified', rel=trg['paths'][key], xkey=xkey)
+            elif hash_xvalue != trg['localization'][key]['checksum'][hash_xkey]:
+                print_ext(levels.WARNING, 'Key {xkey} in file {rel} was modified', rel=trg['paths'][key], xkey=xkey)
                 value_modified = True
 
             trgu['localization'][key]['checksum'][hash_xkey] = hash_xvalue

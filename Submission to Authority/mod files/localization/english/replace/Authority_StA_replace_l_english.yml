@@ -43,6 +43,7 @@
   I_LACK_TRIBAL_LAW_ALLOWING_SUCCESSION_LAW_CHANGE:0 "You do not have Limited [authority|E]"
   I_LACK_LAW_ALLOWING_PARTITION_SUCCESSION_LAW_CHANGE:1 "You do not have Limited [authority|E]"
   I_LACK_LAW_ALLOWING_DESIGNATE_HEIR:0 "You do not have Absolute [authority|E]"
+  PASS_LAW_TOOLTIP_TITLE:3 "[Law.GetNameNoTooltip]"
  
   CROWN_AUTHORITY_IS_ON_COOLDOWN:1 ""
   TRIBAL_AUTHORITY_IS_ON_COOLDOWN:1 ""

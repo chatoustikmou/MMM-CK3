@@ -1,0 +1,13 @@
+﻿l_russian:
+    #!checksum 0da9f0892dac090a04fbe266bb7dab51-2d78baaacc3a3f02a708967327bec541
+    StA_councillor_task.0001.desc: "EZvent desc"
+
+    #!checksum 506db4889527d3edce676847d0fc7832-dae1d650124c209e4fe5abaef26c1567
+    StA_councillor_task.0001.a: "Плохая работа, канцлер!"
+
+    #!checksum 18f99518892b3c8c31ee5e36acf1cfd3-814843844c5a5bc0a38d814c53c2cf83
+    StA_councillor_task.0002.desc: "Описание события"
+
+    #!checksum b8b5b73c0ef00fb10d5debe3529272cd-608c180de1e09196d5be1b9732d7aa4b
+    StA_councillor_task.0002.a: "Хорошая работа, канцлер!"
+

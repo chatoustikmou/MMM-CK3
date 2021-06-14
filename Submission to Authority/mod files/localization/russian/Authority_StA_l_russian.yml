@@ -1,0 +1,220 @@
+﻿l_russian:
+    #!checksum e5c78d397d153514a1185d7efd2d1a56-60f1a22c0e577712dfd7ff055183e4ad
+    game_concept_realm_authority: "Авторитет"
+
+    #!checksum e00bfc408e104e5a05f3febf0288b811-35db23db65f7f9653bb14ba1a797e9ab
+    game_concept_realm_authority_desc: "$game_concept_realm_authority$ представляет собой власть, которую [ruler|El] оказывает на своих [Concept( 'vassals', 'вассалов' )|El]. Существует четыре уровня $game_concept_realm_authority$а : Отсутствующий, Ограниченный, Высокий и Абсолютный.\n\nУровень $game_concept_realm_authority$а обновляется каждый квартал в диапазоне от 0 до 100 в зависимости от [submission|E] и [land_share|E]"
+
+    #!checksum 87c5ee7d594646fb1fb73899bf49e094-60f1a22c0e577712dfd7ff055183e4ad
+    game_concept_authority: "Авторитет"
+
+    #!checksum ad8be0d876383fa0e2bc558c8d1efb58-bb1bdd1d63f56324edc590aebea66909
+    game_concept_authority_desc: "$game_concept_authority$ представляет собой власть, которую [ruler|El] оказывает на своих [Concept( 'vassals', 'вассалов' )|El]. Существует четыре уровня $game_concept_realm_authority$а : Отсутствующий, Ограниченный, Высокий и Абсолютный.\n\nУровень $game_concept_realm_authority$ обновляется каждый квартал в диапазоне от 0 до 100 в зависимости от [submission|E] и [land_share|E]"
+
+    #!checksum a4376b0b052092d1d501c6e8344a90db-d79b6cd01b0b63ce32cb7fbf088484fd
+    game_concept_submission: "Покорность"
+
+    #!checksum cf43441510cc111241cd770dfd545855-70e69e0eb36e3bb46c5cccf7cb04cebe
+    game_concept_submission_desc: "$game_concept_submission$ отражает в какой степени [vassal|El] подиняется власти [liege|El]а."
+
+    #!checksum 6d2a67fe6d0d74c81e799643d6c49995-92ad3139dc5e579af0ec879aeed81715
+    game_concept_tribal_submission: "Племенная покорность"
+
+    #!checksum 2803dec2b52aff811a89bbbcff3dea22-5bf53be92ded7f723f5c3e1978f2a73e
+    game_concept_tribal_submission_desc: "$game_concept_submission$ отражает в какой степени [vassal|El] подиняется власти [liege|El]а.\n\n [tribal|E] вассалы уважают правителей, у которых Славы и Величия больше, чем у них. Но также они ожидают, что правители, обладающие большой властью, поделятся с ними ей, и не станут ценить сеньора, собирающего титулы."
+
+    #!checksum 3de34bb26d711cd3198bf163344aad8f-c06c57cdeeff971a9c701dc086163040
+    game_concept_clan_submission: "Клановая покорность"
+
+    #!checksum b7ab4688b278208ad7668ebdd035f268-c2ad7620947e7b9d8ee54744896c1850
+    game_concept_clan_submission_desc: "$game_concept_submission$ отражает в какой степени [vassal|El] подиняется власти [liege|El]а.\n\n Для правителей [clan|E] $game_concept_submission$ определяется личным отношением, они без сомнения уступят сюзерену, если будут его ценить."
+
+    #!checksum cfdcf7d14dad0dc451c4279494675363-4c5a072cd077ce6325cb2f3d525ca31a
+    game_concept_feudal_submission: "Феодальная покорность"
+
+    #!checksum 18624db0a83c8c643a092fdbe3a7e853-b6b0f123e3abb88fafb5c90fb95f5ac3
+    game_concept_feudal_submission_desc: "$game_concept_submission$ отражает в какой степени [vassal|El] подиняется власти [liege|El]а.\n\n Для правителей [feudal|E] $game_concept_submission$ определяется тем, насколько выгодный [feudal_contract|E] имеет вассал. Феодальные договора должны активно заключаться для всех вовлеченных сторон."
+
+    #!checksum be8ce3c4bbde9875b99e73a09e5f6f9c-51312577219c77a52b6f45adac9e8c15
+    game_concept_theocracy_submission: "Теократическая покорность"
+
+    #!checksum a9ea7e1e011bf169d8c8183ed7425326-a78376762e89b5b5bfb170874767c241
+    game_concept_theocracy_submission_desc: "$game_concept_submission$ отражает в какой степени [vassal|El] подиняется власти [liege|El]а.\n\n  Для правителей [theocracy|E] $game_concept_submission$ определяется мнением главы веры о сюзерене, если такой существует, иначе - собственным мнением. Кроме того враждебность веры вассала по отношению к сюзерену также снизит покорность."
+
+    #!checksum cacd7d8938b2d971918e2535f6945288-7ac2cfe2ab04a4fa1e3aeee40dab829e
+    game_concept_republic_submission: "Республиканская покорность"
+
+    #!checksum 0b59080a52844baf5bc214db096acfc7-4ece76771f8886acae486d42a6025660
+    game_concept_republic_submission_desc: "$game_concept_submission$ отражает в какой степени [vassal|El] подиняется власти [liege|El]а.\n\n Для правителей [republic|E] $game_concept_submission$ определяется доходом сюзерена в сравнении со средним доходом всех правителей того же ранга."
+
+    #!checksum b9dfe4580196bd0bdb6f575e4192b5ee-c6b5d9d2add6987ebef9462aa9ca0ed2
+    game_concept_land_share: "Доля земли"
+
+    #!checksum e5c199253b56b729a44c3596f9f3ae1e-4a7efab6bc2ef7d3c17849ec24eb6c4c
+    game_concept_land_share_desc: "$game_concept_land_share$ определяет, какой частью царства правителя владеет [vassal|El]. $Submission$ вассалов с более высоким $game_concept_land_share$ окажет большее влияние на [authority|E] правителя."
+
+    #!checksum 2bbd7273daf00686a74f663b3899c90c-60f1a22c0e577712dfd7ff055183e4ad
+    realm_authority: "Авторитет"
+
+    #!checksum 26d054a01e30d8200f8bbb3fcac96b30-c6b5d9d2add6987ebef9462aa9ca0ed2
+    land_share: "Доля земли"
+
+    #!checksum 8460bba729cc37ed9a1c1fc3ed518d1c-d79b6cd01b0b63ce32cb7fbf088484fd
+    submission: "Покорность"
+
+    #!checksum 83f4486cc2a72f59f12ff39f6002a154-d79b6cd01b0b63ce32cb7fbf088484fd
+    clan_submission: "Покорность"
+
+    #!checksum 738769073ff8760cfcdd3c0ad3846012-89da5384deb47b10416dd910752e742f
+    game_concept_clan_liege_opinion: "мнение вассала о сеньоре"
+
+    #!checksum 362174a31960d09841af5d9c9f9a55d5-b01de27aac1af6e75b8db3689158b0b9
+    game_concept_clan_liege_opinion_desc: "Мнение о сеньоре, которое колеблется от -100 до +100, просто перенастраивается по шкале от 0 до 100."
+
+    #!checksum 1770cf1e7e9839eaeb3eb62bbec1c71e-958520c94ba834945e40f01f2f7f97a2
+    game_concept_submissiveness: "покорность"
+
+    #!checksum 30352f9beb7b752dad8bd4b48d252584-257ab56ae4f353216e1391121bbc2096
+    game_concept_submissiveness_desc: "покорность - это естественная склонность персонажа к подчинению, зависящая от его черт и общей личности, а не от его текущих обязательств и отношения к своему сюзерену. \n\n Она колеблется от 0 до 100%."
+
+    #!checksum 6e15bbc64db44361ca465bc9320f12d1-13cccb8980127c2ca043768d22084a8d
+    game_concept_feudal_contract: "Счет феодального договора"
+
+    #!checksum f5b865670f92ab9f93de56e41cdb1ccd-fdf01874b671a111df50f5bec0459045
+    game_concept_feudal_contract_desc: "Счет феодального договора по шкале от 0 до 100 представляет собой баланс обязательств между вассалом и его сеньором. Более высокий уровень обязательств увеличит счет, в то время как все права, предоставленные вассалу, уменьшат его на ту же величину мнения, предоставляемого правом."
+
+    #!checksum a46e1d38581a957707d1909825fe5109-30a8b639f13b5c3939401226ec87dc2c
+    MY_REALM_WINDOW_VASSAL_SUBMISSION: "$submission$: [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]\n$land_share$: [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('land_share')|0]%"
+
+    #!checksum f8d7c182036aea7ea1d746363107d4b1-13c3a5c8a4fa29fb2323ce2baef1832a
+    MY_REALM_WINDOW_VASSAL_OBLIGATION: "$VASSAL_CONTRACT_OBLIGATIONS_TITLE$: [VassalContract.GetShortObligationLevelNameWithHighlightFor( 'feudal_government_taxes' )]\n$VASSAL_CONTRACT_OBLIGATIONS_TITLE_LEVIES$: [VassalContract.GetShortObligationLevelNameWithHighlightFor( 'feudal_government_levies' )]"
+
+    #!checksum 00e731858fb1a3e348552dc6be1a3455-bab4144994f0be9b04c187f0536eeecb
+    MY_REALM_WINDOW_AUTHORITY: "[realm_authority|E]: [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|0]"
+
+    #!checksum 6190535dcd44fdb05196c72c0f7e407a-9d4a13b5522310ebc2510f286c55df1b
+    MY_REALM_WINDOW_TEST: "Тест\n\nТест"
+
+    #!checksum 3ca83ec85a0e34901e8911c1849eb9f9-f88ec57b0898425e57bebec53465f703
+    CLAN_SUBMISSION_TITLE: "Снижение покорности кланового вассала"
+
+    #!checksum 3157c7906e36b7925c74ba22f2b683ac-00d61fb181c754838e3350958e67d5fa
+    CLAN_SUBMISSION_BD_LIBERTY: "От выполения требований фракции свободы"
+
+    #!checksum f5403b72a69b4063525d51fb3bde9b9b-9aadc0d14dad93da869c6f8334ae2575
+    CLAN_SUBMISSION_BD_OPINION: "От [clan_liege_opinion|E]"
+
+    #!checksum eec2cdd518b569de22708a24ea9ccef7-94931ce1a1f6e84a48212cdfd103180c
+    TRIBAL_SUBMISSION_TITLE: "Снижение покорности племенного вассала"
+
+    #!checksum 9175fff6badf49c2ad1b612737baf172-4ed51e536c69e4222b16dfe1c5666e60
+    TRIBAL_SUBMISSION_VALUE: "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]""
+
+    #!checksum c18cfd1ee32f21832703ae99d12aa38e-552a1a69da1224d934c9390f1f174055
+    TRIBAL_SUBMISSION_BD_LIEGE_TRIBAL_POWER: "От ранга, славы и велия сеньора"
+
+    #!checksum ee90303c08492339d7847ffb465e6508-5da8c786930cd7dc4c2cd626726b812f
+    TRIBAL_SUBMISSION_BD_TRIBAL_POWER: "От ранга, славы и величия вассалов"
+
+    #!checksum 4f48b34c42a2130d80c5c005eb860157-cf08a0e9cf649b27e10507a4584ed78a
+    TRIBAL_SUBMISSION_BD_LIEGE_HOARDING: "От графств во владении"
+
+    #!checksum 29f030ce57a5a8fbd66f05e1d5f4e334-2ae8a593e3256f203afdab1389294132
+    TRIBAL_SUBMISSION_LIEGE_POWER: "Ранг, слава и величие сеньора"
+
+    #!checksum 67aa5171a33cd9a0edc347edaa9c83ff-1904b286b396553655cec2fcab246427
+    TRIBAL_SUBMISSION_BD_LIEGE_RANK: "Ранг титула сеньора"
+
+    #!checksum 556e605120cb75cb82ab14f6f1cdcf5c-c1067e2f379e93cb15025121b67c1c50
+    TRIBAL_SUBMISSION_BD_LIEGE_FAME: "Уровень славы сеньора"
+
+    #!checksum 6b39dd883f1bc85f5c83015277a718f4-e23dae5c968e595ddc7fee5e46b8d335
+    TRIBAL_SUBMISSION_BD_LIEGE_RENOWN: "Уровень величия династии сеньора"
+
+    #!checksum 4a034509ad6187c7e909cdb9e0d88dd2-93eb2db9d13bbef53ce3d74ca2e75769
+    TRIBAL_SUBMISSION_BD_LIEGE_MULT: "Множитель баланса"
+
+    #!checksum 973106c07b9de7f99eb2a735037d03d5-66aac270be173a05bc6aac51f90ea28b
+    TRIBAL_SUBMISSION_POWER: "Ранг, слава и величие вассала"
+
+    #!checksum f36c205d72310eddc1e4bb9351cd1d5a-882589c1817f857bcafdeafd61985c81
+    TRIBAL_SUBMISSION_BD_RANK: "Ранг титула вассала"
+
+    #!checksum 26137fd37b77ba0cc339b357cccb03f8-4b72086f58035937ce3880d68bcdbb1e
+    TRIBAL_SUBMISSION_BD_FAME: "Уровень славы вассала"
+
+    #!checksum 438061fbd14b8b588f0318909b9855bd-70a3b2f6b6b640932cf60a15e075a6fc
+    TRIBAL_SUBMISSION_BD_RENOWN: "Уровень величия династии вассала"
+
+    #!checksum 9a075ae4ec4baa2cd31785c74c1b2843-449dac94fded8192e1ecf61d9b448b80
+    FEUDAL_SUBMISSION_TITLE: "Снижение покорности феодального вассала"
+
+    #!checksum aa54e3a3b80aae20ca76bc2bdbe4718c-f6ce2fc8d86c69cdde342e65798b8afc
+    FEUDAL_SUBMISSION_BD_CONTRACT: "Феодальный договор"
+
+    #!checksum 0c9f67be1e6e204fc6627047d588c1f7-564a21628eb166418d95f8b3de8bfcca
+    THEOCRACY_SUBMISSION_TITLE: "Снижение покорности теократического вассала"
+
+    #!checksum a09dbd4f639775e67bf7d4feeb09f69d-29a7066439783f6700750fad31cb9f42
+    THEOCRACY_SUBMISSION_BD: "THEOCRACY_SUBMISSION_BD"
+
+    #!checksum d1ac924fba3655a7e2ce510ae9d11662-73eba44d13cf6823d45a2c2875fd40f9
+    THEOCRACY_SUBMISSION_BD_HOF_OPINION: "Мнение главы веры о сюзерене"
+
+    #!checksum fb196d9c10e15c02d2a4da1e3e582cd7-acfe42e41dbdc5a1116f38681b36ef8a
+    THEOCRACY_SUBMISSION_BD_VASSAL_OPINION: "Мнение вассала о сюзерене"
+
+    #!checksum 1d61fac39663587842c578265677ebe7-6c432acb988a900d3dccef15db5cc8c6
+    THEOCRACY_SUBMISSION_BD_FAITH_HOSTILITY: "Вера вассала враждебна по отношению к вере сюзерена"
+
+    #!checksum 32cbea0921652a4925b8e475ae5e4e11-1c98038ab84b87917c928c386610580b
+    REPUBLIC_SUBMISSION_TITLE: "Снижение покорности вассала республики"
+
+    #!checksum 6e7a414d16b7fd24ef0b00e489cc3985-e8c0676b80ebc4d12dd64aaa09595264
+    REPUBLIC_SUBMISSION_BD: "REPUBLIC_SUBMISSION_BD"
+
+    #!checksum 2cf99d74af5e275f671457695b7be8d2-8245b22009d9ece6c341bea54ebf1cba
+    REPUBLIC_SUBMISSION_BD_LIEGE_INCOME: "Ежемесячный доход сюзерена"
+
+    #!checksum 67dd84935db9d8bf71d994992ecc635b-756c105e7ee8282041adcc9e36cad587
+    REPUBLIC_SUBMISSION_BD_LIEGE_RANK_AVG_INCOME: "Средний доход всех правителей ранга [Character.GetLiege.GetTitleTierName]"
+
+    #!checksum 036b02cd9f2c210d7643678671a3d68f-d41d8cd98f00b204e9800998ecf8427e
+    REPUBLIC_SUBMISSION_BD_OFFSET: ""
+
+    #!checksum 6eb89115a92ab51597f4fae95ac4d307-3234b7e4804f43a2fffa953bfecbdaf5
+    SUBMISSION_TITLE: "Снижение покорности"
+
+    #!checksum bb3d4a806aa3e3c293e2779cd16ec82e-e79c5b3e55b939352f90726071b288e4
+    submissiveness_TITLE: "снижение покорности"
+
+    #!checksum e574cb77f15daac83ef4ceab9f6cd3fc-5d48f5a3c25779f03aef6697cf5352b5
+    game_concept_submissiveness_honor: "Честь"
+
+    #!checksum 266d72781857ede56eb410e5f27a5fb6-1839b7184935f0c10169cd2c39ef0eb5
+    game_concept_submissiveness_honor_desc: "Вассал отступит, если тирания сюзерена сильнее, чем его чувство справедливости."
+
+    #!checksum 54b43697020932e732b05bd3a56e70f1-5f2f01d9c8e02d271ad9f762604b9155
+    game_concept_submissiveness_vengefulness: "Месть"
+
+    #!checksum 04186ce34bf14d2105745c920a8c9400-ed021c96e130dc17408d220284b5016f
+    game_concept_submissiveness_vengefulness_desc: "Вассал отступит, если его мнение о своем сюзерене ниже, чем его желание мести."
+
+    #!checksum 448988ad98b15ef0f7a03016605cc2a2-23105de37e6a8dab4036b32dce32a915
+    game_concept_submissiveness_dread: "Реакция на ужас"
+
+    #!checksum 22cd4631de6cd3570611e1b81f97eaff-e37f48fc967650d64c52141dba50321d
+    game_concept_submissiveness_dread_desc: "Ужас сюзерена увеличивает покорность вассала, кроме случаев, когда вассал достаточно храбр, чтобы сопротивляться. И если вассалом движет Честь или Месть, а вассал достаточно Храбрый, Ужас сюзерена может нанести ответный удар и по нему ..."
+
+    #!checksum 9afcc27df586f7486248b43fd87c247f-b4fd153e7207417d3aa53f8d0feb3a9b
+    authority_gain_title: "Ваш авторитет увеличился"
+
+    #!checksum 480c073b4808e384bdf763f5fc32a93b-e05335cd696516e638946f80d1fb075b
+    authority_loss_title: "Ваш авторитет уменьшился"
+
+    #!checksum fd50acba577b90734772d5886025bf10-2182fe1bdda7f502b0fce145b9118913
+    liege_authority_gain_title: "Авторитет вашего сюзерена увеличился"
+
+    #!checksum 79b1f7611aad74d25c5f740dea855ecb-b61cfa9d5670d20ae1150a16eabd78a4
+    liege_authority_loss_title: "Авторитет вашего сюзерена уменьшился"
+

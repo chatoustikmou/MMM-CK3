@@ -1,0 +1,115 @@
+﻿l_russian:
+    #!checksum abb6a8b1e9a98b661d89d1477cf4f145-b12f105540bf98f76348c34e9328ff0d
+    crown_authority: "[authority|E]"
+
+    #!checksum 72bc1894b340f573820db4e8f9027f9c-5d639de5e8c46c41006485f16c9b454c
+    crown_authority_0: "Свободные вассалы"
+
+    #!checksum c349f1e0a0e12fe839e1000934cfc728-c98eb7b2c90921cdb5e6fb4c619bb73b
+    crown_authority_1: "Ограниченная власть короны"
+
+    #!checksum 5984ab0f28867994a5716997d8bee4e4-d41d8cd98f00b204e9800998ecf8427e
+    crown_authority_1_effects: ""
+
+    #!checksum 14aaf6d55a80136f672225cc92662b0e-1ea1aef97a4783d86b6ca404379e53a0
+    crown_authority_2: "Высокая власть короны"
+
+    #!checksum bc11daff737c25bfe8ee770f47b9a61b-d41d8cd98f00b204e9800998ecf8427e
+    crown_authority_2_effects: ""
+
+    #!checksum 8d9ec400ef3a6a7b96f90c6eadef3bed-682ce4e3d959f36f378f648623649ede
+    crown_authority_3: "Абсолютная власть короны"
+
+    #!checksum bb034570939af0720e704f38209ad08b-d41d8cd98f00b204e9800998ecf8427e
+    crown_authority_3_effects: ""
+
+    #!checksum 099d27860f88fb1b31494ef172c89b6b-b12f105540bf98f76348c34e9328ff0d
+    tribal_authority:0 "[authority|E]"
+
+    #!checksum e2d5bc701e2221acf08df81189048f16-5d639de5e8c46c41006485f16c9b454c
+    tribal_authority_0: "Разобщенные племена"
+
+    #!checksum b321b355a8a719940af8a523b30256fa-c98eb7b2c90921cdb5e6fb4c619bb73b
+    tribal_authority_1: "Ограниченный авторитет вождя"
+
+    #!checksum 5b0deaeeb3ae7b6392a8f99d6112df5a-d41d8cd98f00b204e9800998ecf8427e
+    tribal_authority_1_effects: ""
+
+    #!checksum 9298ea95a506fff83e8140f30c9210ff-1ea1aef97a4783d86b6ca404379e53a0
+    tribal_authority_2: "Высокий авторитет вождя"
+
+    #!checksum dc89a270f7ca565388f763b770449569-d41d8cd98f00b204e9800998ecf8427e
+    tribal_authority_2_effects: ""
+
+    #!checksum 6766c05ff9c7aec93b40be564e748f01-682ce4e3d959f36f378f648623649ede
+    tribal_authority_3: "Абсолютный авторитет вождя"
+
+    #!checksum dc37e1841bc66fe00232cc6d564e7be4-b15835f133ff2e27c7cb28117bfae8f4
+    tribal_authority_3_effects: ""
+
+    #!checksum 07fc1cd7f3e6605e2e5b9062145f33d0-bcd69033c5fcdc0241e841a12ff8bab2
+    crown_authority_0_effects_not_in_prev: "$EFFECT_LIST_BULLET$ [Concept( 'characters', 'Персонажей' )|E] можно [Concept( 'imprison', 'заключать в тюрьму' )|El]\n\n#S Стандартные федальные [Concept( 'obligations', 'обязательства' )|E]:#!\n$EFFECT_LIST_BULLET$ Налоговые льготы\n$EFFECT_LIST_BULLET$ Ополчение не приходит"
+
+    #!checksum c717bf50d79c0b13119bb71c6c2a45c5-6d058009c63dffd9d6ae0c7ff6975052
+    crown_authority_1_effects_not_in_prev: "$EFFECT_LIST_BULLET$ [Concept( 'characters', 'Персонажей' )|E] можно [Concept( 'imprison', 'заключать в тюрьму' )|El]\n$EFFECT_LIST_BULLET$ Правители могут менять текущие [succession_laws|El], касающиеся разделения земель.\n$EFFECT_LIST_BULLET$ [vassals|E] могут быть отняты\n$EFFECT_LIST_BULLET$ [titles|E] могут быть отняты\n\n#S Стандартные федальные [Concept( 'obligations', 'обязательства' )|E]:#!\n$EFFECT_LIST_BULLET$ Низкие налоги\n$EFFECT_LIST_BULLET$ Слабое ополчение"
+
+    #!checksum 55bd0f47b7d8925aca893cdc15bad1e6-576527c73f9b3dcde1eaf05fe63767c3
+    crown_authority_2_effects_not_in_prev: "$EFFECT_LIST_BULLET$ [Concept( 'characters', 'Персонажей' )|E] можно [Concept( 'imprison', 'заключать в тюрьму' )|El]\n$EFFECT_LIST_BULLET$ [vassals|E] могут быть отняты\n$EFFECT_LIST_BULLET$ [titles|E] могут быть отняты\n$EFFECT_LIST_BULLET$ Правители могут выбирать из доступных [Concept( 'succession_law', 'законов наследования' )|El]\n$EFFECT_LIST_BULLET$ Персонажи вне [Concept( 'realm', 'державы' )|El] не могут наследовать [titles|El] вассалов.\n$EFFECT_LIST_BULLET$ Всех вассалов, которые противятся отъему титулов или вассалов, объявляют [Concept( 'criminals', 'преступниками' )|El].\n\n#S Стандартные федальные [Concept( 'obligations', 'обязательства' )|E]:#!\n$EFFECT_LIST_BULLET$ Обычные налоги\n$EFFECT_LIST_BULLET$ Обычное ополчение\n$EFFECT_LIST_BULLET$ Защита от лишения титула не предоставляется\n$EFFECT_LIST_BULLET$ Объявление войны не предоставляется"
+
+    #!checksum b45bdea7f764233ade06b92bb5d12c6f-41684019e78b4e333c76fb74c133e2c2
+    crown_authority_3_effects_not_in_prev: "#$EFFECT_LIST_BULLET$ [Concept( 'characters', 'Персонажей' )|E] можно [Concept( 'imprison', 'заключать в тюрьму' )|El]\n$EFFECT_LIST_BULLET$ [vassals|E] могут быть отняты\n$EFFECT_LIST_BULLET$ [titles|E] могут быть отняты\n$EFFECT_LIST_BULLET$ Правители могут выбирать из доступных [Concept( 'succession_law', 'законов наследования' )|El]\n$EFFECT_LIST_BULLET$ Персонажи вне [Concept( 'realm', 'державы' )|El] не могут наследовать [titles|El] вассалов.\n$EFFECT_LIST_BULLET$ Всех вассалов, которые противятся отъему титулов или вассалов, объявляют [Concept( 'criminals', 'преступниками' )|El].\n$EFFECT_LIST_BULLET$ [vassals|E] не могут начинать [Concept( 'war', 'войну' )|El] против других вассалов, если [liege|El] у них не [hook|El].\n$EFFECT_LIST_BULLET$ Правитель назначает [heir|El]а\n\n#S Стандартные федальные [Concept( 'obligations', 'обязательства' )|E]:#!\n$EFFECT_LIST_BULLET$ Высокие налоги\n$EFFECT_LIST_BULLET$ Большое ополчение\n$EFFECT_LIST_BULLET$ Защита от лишения титула не предоставляется\n$EFFECT_LIST_BULLET$ Объявление войны не предоставляется"
+
+    #!checksum dd6d47b312e68b566690813b7f365699-a60b16762bff2fbc7f9f75008c1bed67
+    tribal_authority_0_effects_not_in_prev: "$EFFECT_LIST_BULLET$[Concept( 'characters', 'Персонажей' )|E] #N нельзя#! заключать [Concept( 'imprisoned', 'в тюрьму' )|E]"
+
+    #!checksum 6ec796ed4bbf125ae316883d9680df50-6d058009c63dffd9d6ae0c7ff6975052
+    tribal_authority_1_effects_not_in_prev: "$EFFECT_LIST_BULLET$ [Concept( 'characters', 'Персонажей' )|E] можно [Concept( 'imprison', 'заключать в тюрьму' )|El]\n$EFFECT_LIST_BULLET$ [Concept( 'tribal', 'Племенной' )|E] правитель с [Concept( 'tribal', 'неплеменными' )|E] [Concept('liege','сюзеренами')|El] может перейти к оседлому образу жизни, став [Concept( 'feudal', 'феодалом' )|El] или основав [Concept( 'clan', 'клан' )|El]"
+
+    #!checksum b32d95f42c20d671ec49b9a89b91cc4a-576527c73f9b3dcde1eaf05fe63767c3
+    tribal_authority_2_effects_not_in_prev: "$EFFECT_LIST_BULLET$ [Concept( 'characters', 'Персонажей' )|E] можно [Concept( 'imprison', 'заключать в тюрьму' )|El]\n$EFFECT_LIST_BULLET$ Можно отнимать [Concept( 'vassals', 'вассалов' )|El].\n$EFFECT_LIST_BULLET$ Можно отнимать [titles|El].\n$EFFECT_LIST_BULLET$ [Concept( 'tribal', 'Племенной' )|E] правитель с [Concept( 'tribal', 'неплеменными' )|E] [Concept('liege','сюзеренами')|El] может перейти к оседлому образу жизни, став [Concept( 'feudal', 'феодалом' )|El] или основав [Concept( 'clan', 'клан' )|El]"
+
+    #!checksum db4ef231578c8517e1816ee32fb515ed-41684019e78b4e333c76fb74c133e2c2
+    tribal_authority_3_effects_not_in_prev: "$EFFECT_LIST_BULLET$ [Concept( 'characters', 'Персонажей' )|E] можно [Concept( 'imprison', 'заключать в тюрьму' )|El]\n$EFFECT_LIST_BULLET$ Можно отнимать [Concept( 'vassals', 'вассалов' )|El].\n$EFFECT_LIST_BULLET$ Можно отнимать [titles|El].\n$EFFECT_LIST_BULLET$ [Concept( 'tribal', 'Племенной' )|E] правитель с [Concept( 'tribal', 'неплеменными' )|E] [Concept('liege','сюзеренами')|El] может перейти к оседлому образу жизни, став [Concept( 'feudal', 'феодалом' )|El] или основав [Concept( 'clan', 'клан' )|El]\n$EFFECT_LIST_BULLET$ [Concept( 'independent', 'Независимый' )|E] [Concept( 'tribal', 'племенной' )|E] правитель может перейти к оседлому образу жизни, став [Concept( 'feudal', 'феодалом' )|E] или основав [Concept( 'clan', 'клан' )|E]"
+
+    #!checksum 7e061090a31eaf7a6d90c16aaffc74a7-f83d181de46dceba2642a115655c5828
+    I_LACK_LAW_ALLOWING_TITLE_REVOCATION_TRIBAL:1 "Ваш [Concept( 'tribal_authority', 'авторитет вождя' )|E] ниже, чем «высокий»"
+
+    #!checksum 0a02c097471628f63d6ae6377eae1df9-f83d181de46dceba2642a115655c5828
+    I_LACK_LAW_ALLOWING_VASSAL_RETRACTION_TRIBAL:1 "Ваш [Concept( 'tribal_authority', 'авторитет вождя' )|E] ниже, чем «высокий»"
+
+    #!checksum 449d5bf82746058196ede60e5c86fc8d-4cc63aa0e4b1e3076f1b09118d3d8876
+    I_LACK_LAW_ALLOWING_TITLE_REVOCATION_CROWN:1 "Ваша [crown_authority|El] ниже, чем «ограниченная»"
+
+    #!checksum 2b3e71601d8acbd686ce561ebf7112e7-4cc63aa0e4b1e3076f1b09118d3d8876
+    I_LACK_LAW_ALLOWING_VASSAL_RETRACTION_CROWN:1 "Ваша [crown_authority|El] ниже, чем «ограниченная»"
+
+    #!checksum f9da96404a427b9c0a2591f781d3b0b3-588dfdc8736acd88b850cb620e397c9e
+    I_LACK_LAW_ALLOWING_SUCCESSION_LAW_CHANGE:2 "Ваша [crown_authority|El] ниже, чем «высокая»"
+
+    #!checksum cfce64e686ce288bf67627ca1ffa5c47-32dea1ac1557850e3def7c434c2e2274
+    I_LACK_TRIBAL_LAW_ALLOWING_SUCCESSION_LAW_CHANGE:0 "У вас нет ограниченного [Concept( 'tribal_authority', 'авторитета вождя' )|E]"
+
+    #!checksum acfb9edede03b56f9b77ef9098abb1b5-32dea1ac1557850e3def7c434c2e2274
+    I_LACK_LAW_ALLOWING_PARTITION_SUCCESSION_LAW_CHANGE:1 "У вас нет ограниченной [Concept( 'crown_authority', 'власти короны' )|E]"
+
+    #!checksum f30d382ecc09bb2acdc91f17a17ff730-e68878fcd3eb2ac3c660cbe19003ee73
+    I_LACK_LAW_ALLOWING_DESIGNATE_HEIR:0 "У вас нет абсолютной [Concept( 'crown_authority', 'власти короны' )|E]"
+
+    #!checksum 75d34e40edecdbf5455fd0c34ac253b6-f7234125f4dd3a1e4d283b572d691332
+    PASS_LAW_TOOLTIP_TITLE:3 "[Law.GetNameNoTooltip]"
+
+    #!checksum cf98f6c3b8866f7c84c9172aae0c836f-d41d8cd98f00b204e9800998ecf8427e
+    CROWN_AUTHORITY_IS_ON_COOLDOWN:1 ""
+
+    #!checksum 45548ab92df2f7ee96cee490769f8d03-d41d8cd98f00b204e9800998ecf8427e
+    TRIBAL_AUTHORITY_IS_ON_COOLDOWN:1 ""
+
+    #!checksum 257b485053ec32ca1d45ee5ca6580c54-1967f793e982a43d76f7f7b6fd42fd16
+    liberty_war_victory_defender_desc:0 "[Concept( 'feudal_contract', 'Феодальные контракты' )|E] ваших вассалов были установлены в соответствии с тем, что предоставляется ваш [crown_authority|El]. Остальные вассалы снизят свою [submission|E] на 25 в течении 10 лет, и вы обещаете [Concept( 'favor', 'услугу' )|El] каждому члену [Concept( 'liberty_faction', 'фракции свободы' )|El]."
+
+    #!checksum 2439e8403ead692b911daa3580b6c0a6-539167566056fccd0575e6327dbbd2fa
+    liberty_war_victory_desc:0 "У каждого вассала будет снижено [submission|E], а [crown_authority|E] персонажа [defender.GetPrimaryTitle.GetName] снижен на одну ступень. Кроме этого [defender.GetShortUIName] обещает [Concept( 'favor', 'услугу' )|E] каждому члену [Concept( 'liberty_faction', 'фракции свободы' )|E]."
+
+    #!checksum cb37f6a5bba069aa19233f4fabd1693e-bfa34362d586561b67130db372889051
+    liberty_war_victory_end_desc:2 "[liberty_faction|E] распущена, и ее участники не могут вступать во фракции на протяжении [SCOPE.ScriptValue('liberty_war_victory_cooldown')|0] лет."
+

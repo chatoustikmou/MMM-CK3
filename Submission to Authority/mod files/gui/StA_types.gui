@@ -3,190 +3,104 @@ types StA {
 
 	type authority_progressbar = widget {
 		name = "authority"
-		size = { 300 30 }	
-
-		background = {
-			using = Background_Area
-			margin = { 3 2 }
-		}
+		size = { 300 30 }
 
 		hbox = {
-			visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
+			
 			progressbar_green = {
-				# size = 7500
-				minimumsize = { 75 30 }
+				visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
+
+				size = { 300 30 }
 				min = 0
-				max = 2500
+				max = 10000
 				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
 			}
-			progressbar_green = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 2500
-				max = 5000
+			
+			progressbar_red = {
+				visible = "[GreaterThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
+				
+				size = { 300 30 }
+				min = 0
+				max = 10000
 				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
 			}
-			progressbar_green = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 5000
-				max = 7500
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
-			}
-			progressbar_green = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 7500
+			
+			progressbar_frozen = {
+				visible = "[EqualTo_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
+
+				size = { 300 30 }
+				min = 0
 				max = 10000
 				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
 			}
 		}
+		
 		hbox = {
-			visible = "[GreaterThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
-			progressbar_red = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 0
-				max = 2500
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			position = { 3 -2 }
+		
+			text_single = {
+				text = "I"
 			}
-			progressbar_red = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 2500
-				max = 5000
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			text_single = {
+				text = "II"
 			}
-			progressbar_red = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 5000
-				max = 7500
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			text_single = {
+				text = "III"
 			}
-			progressbar_red = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 7500
-				max = 10000
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
+			text_single = {
+				text = "IV"
 			}
 		}
+
 		hbox = {
-			visible = "[EqualTo_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
-			progressbar_frozen = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 0
-				max = 2500
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
-			}
-			progressbar_frozen = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 2500
-				max = 5000
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
-			}
-			progressbar_frozen = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 5000
-				max = 7500
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
-			}
-			progressbar_frozen = {
-				# size = 7500
-				minimumsize = { 75 30 }
-				min = 7500
-				max = 10000
-				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
-			}
-		}
-		hbox = {
-			text_single = {
-				# margin = { 10 5 }
-				align = center
-				layoutpolicy_horizontal = expanding
-				text = "Absent"
-				autoresize = no
-				tooltip = "crown_authority_0_effects_not_in_prev"
-			}
-			text_single = {
-				align = center
-				layoutpolicy_horizontal = expanding
-				text = "Low"
-				autoresize = no
-				tooltip = "crown_authority_1_effects_not_in_prev"
-			}
-			text_single = {
-				align = center
-				layoutpolicy_horizontal = expanding
-				text = "Normal"
-				autoresize = no
-				tooltip = "crown_authority_2_effects_not_in_prev"
-			}
-			text_single = {
-				align = center
-				layoutpolicy_horizontal = expanding
-				text = "High"
-				autoresize = no
-				tooltip = "crown_authority_3_effects_not_in_prev"
+			datamodel = "[GuiLawGroup.GetLaws]"
+											
+			item = {
+				text_single = {
+					datacontext = "[GuiLaw.GetLaw]"
+					
+					align = center
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					autoresize = no
+					tooltipwidget = { pass_law_tooltip = {} }
+					using = tooltip_below
+					
+					background = {
+						texture = "gfx/interface/component_tiles/tile_frame_subwindow_01.dds"
+						spriteType = corneredstretched
+							
+						spriteborder = { 14 14 }
+						margin = { 4 4 }
+					}
+				}
 			}
 		}
 	}
 
 	type authority_header = vbox {						
-		layoutpolicy_vertical = expanding
 		datacontext = "[GuiLawGroup.GetLawGroup]"
 		visible = "[And( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law' ), GuiLawGroup.IsAvailable )]"
 		ignoreinvisible = yes
+		
+		margin_bottom = 5
 
-		text_label_center = {
-			visible = "[Not(GetPlayer.HasLiege)]"
-			text = "[authority|E] : [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1] trending to [GetPlayer.MakeScope.ScriptValue('realm_authority')|0]"
-		}
+		vbox = {
+			spacing = 7
+			margin_bottom = 15
 
-		text_label_center = {
-			visible = "[Not(GetPlayer.HasLiege)]"
-			text = "[tyranny|E] : [GetPlayer.MakeScope.ScriptValue('character_tyranny')|0]"
-		}
+			text_single = {
+				text = "[authority|E]: [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1]"
+			}
 
-		hbox = {
-			margin_left = 5
-			layoutpolicy_horizontal = expanding
-
-			text_label_left = {
-				visible = "[GetPlayer.HasLiege]"
-				layoutpolicy_horizontal = expanding
-				text = "[authority|E] : [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1] trending to [GetPlayer.MakeScope.ScriptValue('realm_authority')|0]"
+			text_single = {
+				text = "[tyranny|E]: [GetPlayer.MakeScope.ScriptValue('character_tyranny')|0]"
 			}
 		}
-
-		hbox = {
-			margin_left = 5
-			layoutpolicy_horizontal = expanding
-
-			text_label_left = {
-				visible = "[GetPlayer.HasLiege]"
-				layoutpolicy_horizontal = expanding
-				text = "[tyranny|E] : [GetPlayer.MakeScope.ScriptValue('character_tyranny')|0]"
-			}
-		}
-
-		spacer = {
-			visible = "[GetPlayer.HasLiege]"
-			size = { 5 8 }
-		}
-
+		
 		# [StA]
 		authority_progressbar = {}
 		# [/StA]
-
-		expand = {
-			visible = "[GetPlayer.HasLiege]"
-			layoutpolicy_horizontal = expanding
-		}
 	}
 
 	type widget_vassal_list_item = widget {
@@ -476,103 +390,6 @@ types StA {
 							# [/StA]
 							expand = {}
 						}
-
-						# hbox = {
-						# 	layoutpolicy_horizontal = expanding
-						# 	visible = "[And(Character.GetGovernment.IsType('clan_government'), Not( Character.GetPrimaryTitle.IsBarony))]"
-						# 	spacing = 10
-						# 	icon = {
-						# 		size = { 42 42 }
-						# 		texture = "gfx/interface/icons/symbols/icon_cross.dds"
-						# 		tooltip = MY_REALM_WINDOW_NO_FEUDAL_CONTRACT_TT
-						# 		enabled = no
-						# 	}
-						# 	text_single = {
-						# 		layoutpolicy_horizontal = expanding
-						# 		text = "[Character.GetGovernment.GetName]"
-						# 		align = nobaseline
-						# 	}
-						# 	vbox = {
-						# 		text_single = {
-						# 			layoutpolicy_horizontal = expanding
-						# 			text = "[clan_submission|E] :"
-						# 			default_format = "#low"
-						# 			align = right
-						# 		}
-						# 		text_single = {
-						# 			layoutpolicy_horizontal = expanding
-						# 			text = "[land_share|E] :"
-						# 			default_format = "#low"
-						# 			align = right
-						# 		}
-						# 	}
-						# 	vbox = {
-						# 		minimumsize = {25}
-						# 		text_single = {
-						# 			layoutpolicy_horizontal = expanding
-						# 			text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]"
-						# 			default_format = "#low"
-						# 			align = right
-						# 			tooltipwidget = { clan_submission_breakdown_box = {} }
-						# 		}
-						# 		text_single = {
-						# 			layoutpolicy_horizontal = expanding
-						# 			text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('land_share')|0]%"
-						# 			default_format = "#low"
-						# 			align = right
-						# 		}
-						# 	}
-						# 	expand = {}
-						# }
-
-						# hbox = {
-						# 	layoutpolicy_horizontal = expanding
-						# 	visible = "[And(Character.GetGovernment.IsType('tribal_government'), Not( Character.GetPrimaryTitle.IsBarony))]"
-						# 	spacing = 10
-						# 	icon = {
-						# 		size = { 42 42 }
-						# 		texture = "gfx/interface/icons/symbols/icon_cross.dds"
-						# 		tooltip = MY_REALM_WINDOW_NO_FEUDAL_CONTRACT_TT
-						# 		enabled = no
-						# 	}
-						# 	text_single = {
-						# 		layoutpolicy_horizontal = expanding
-						# 		text = "[Character.GetGovernment.GetName]"
-						# 		align = nobaseline
-						# 	}
-						# 	vbox = {
-						# 		text_single = {
-						# 			layoutpolicy_horizontal = expanding
-						# 			text = "[tribal_submission|E] :"
-						# 			default_format = "#low"
-						# 			align = right
-						# 		}
-						# 		text_single = {
-						# 			layoutpolicy_horizontal = expanding
-						# 			text = "[land_share|E] :"
-						# 			default_format = "#low"
-						# 			align = right
-						# 		}
-						# 	}
-						# 	vbox = {
-						# 		minimumsize = {25}
-						# 		text_single = {
-						# 			layoutpolicy_horizontal = expanding
-						# 			text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]"
-						# 			default_format = "#low"
-						# 			align = right
-						# 			tooltipwidget = { tribal_submission_breakdown_box = {} }
-						# 		}
-						# 		text_single = {
-						# 			layoutpolicy_horizontal = expanding
-						# 			text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('land_share')|0]%"
-						# 			default_format = "#low"
-						# 			align = right
-						# 		}
-						# 	}
-						# 	expand = {}
-						# }
-
 
 						hbox = {
 							layoutpolicy_horizontal = expanding
