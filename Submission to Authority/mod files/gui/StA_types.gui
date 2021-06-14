@@ -90,7 +90,8 @@ types StA {
 			margin_bottom = 15
 
 			text_single = {
-				text = "[authority|E]: [GetPlayer.MakeScope.Var('ticking_authority').GetValue|1]"
+				text = "[authority|E]: [GetPlayer.MakeScope.Var('ticking_authority').GetValue|#V1]"
+				tooltip = "MY_REALM_WINDOW_AUTHORITY"
 			}
 
 			text_single = {
@@ -283,7 +284,7 @@ types StA {
 						}
 						text_single = {
 							layoutpolicy_horizontal = expanding
-							text = " [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]"
+							text = " [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|#V0]"
 							default_format = "#low"
 							align = left
 							tooltipwidget = { submission_breakdown_box = {} }
@@ -375,10 +376,11 @@ types StA {
 								minimumsize = {25}
 								text_single = {
 									layoutpolicy_horizontal = expanding
-									text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]"
+									text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|#V0]"
 									default_format = "#low"
 									align = right
 									tooltipwidget = { submission_breakdown_box = {} }
+									using = tooltip_nw
 								}
 								text_single = {
 									layoutpolicy_horizontal = expanding
@@ -546,7 +548,7 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = fixed
 							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('feudal_submission')|1]"
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('feudal_submission')|#V1]"
 							# tooltipwidget = { feudal_submission_breakdown_box = {} }
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
@@ -564,9 +566,9 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = fixed
 							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('clan_submission')|1]"
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('clan_submission')|#V1]"
 							tooltipwidget = { clan_submission_breakdown_box = {} }
-							using = tooltip_ws
+							using = tooltip_nw
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 					}
@@ -583,7 +585,8 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = fixed
 							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('tribal_submission')|1]"
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('tribal_submission')|#V1]"
+							using = tooltip_nw
 							tooltipwidget = { tribal_submission_breakdown_box = {} }
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
@@ -601,7 +604,8 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = fixed
 							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('theocracy_submission')|1]"
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('theocracy_submission')|#V1]"
+							using = tooltip_nw
 							tooltipwidget = { theocracy_submission_breakdown_box = {} }
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
@@ -619,7 +623,8 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = fixed
 							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('republic_submission')|1]"
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('republic_submission')|#V1]"
+							using = tooltip_nw
 							tooltipwidget = { republic_submission_breakdown_box = {} }
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
@@ -636,7 +641,7 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = fixed
 							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissiveness')|=+0]%"
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissiveness')|#V=+0]%"
 							using = tooltip_ws
 							tooltipwidget = { submissiveness_breakdown_box = {} }
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
@@ -725,7 +730,6 @@ types StA {
 							align = right
 							text = "[Character.GetOpinionOf(GetPlayer)]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
-							tooltipwidget = { tribal_liege_power_breakdown_box = {} }
 						}
 					}
 					hbox = {
@@ -742,7 +746,6 @@ types StA {
 							align = right
 							text = "/ 2"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
-							tooltipwidget = { tribal_power_breakdown_box = {} }
 						}
 					}
 					hbox = {
@@ -808,9 +811,10 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = fixed
 							align = right
-							text = "[GuiScope.SetRoot(Character.GetLiege.MakeScope ).ScriptValue('tribal_power_liege')|0]"
+							text = "[GuiScope.SetRoot(Character.GetLiege.MakeScope ).ScriptValue('tribal_power_liege')|#V0]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 							tooltipwidget = { tribal_liege_power_breakdown_box = {} }
+							using = tooltip_nw
 						}
 					}
 					hbox = {
@@ -825,9 +829,10 @@ types StA {
 						text_single = {
 							layoutpolicy_horizontal = fixed
 							align = right
-							text = "/ [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('tribal_power')|0]"
+							text = "/ [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('tribal_power')|#V0]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 							tooltipwidget = { tribal_power_breakdown_box = {} }
+							using = tooltip_ws
 						}
 					}
 					hbox = {

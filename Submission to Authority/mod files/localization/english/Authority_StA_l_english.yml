@@ -44,7 +44,8 @@
 #GUI
   MY_REALM_WINDOW_VASSAL_SUBMISSION: "$submission$: [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]\n$land_share$: [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('land_share')|0]%"
   MY_REALM_WINDOW_VASSAL_OBLIGATION: "$VASSAL_CONTRACT_OBLIGATIONS_TITLE$: [VassalContract.GetShortObligationLevelNameWithHighlightFor( 'feudal_government_taxes' )]\n$VASSAL_CONTRACT_OBLIGATIONS_TITLE_LEVIES$: [VassalContract.GetShortObligationLevelNameWithHighlightFor( 'feudal_government_levies' )]"
-  MY_REALM_WINDOW_AUTHORITY: "[realm_authority|E]: [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|0]"
+  MY_REALM_WINDOW_AUTHORITY: "[realm_authority|E] is trending to [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|0]"
+  
   MY_REALM_WINDOW_TEST:"Test\n\nTest"
   CLAN_SUBMISSION_TITLE: "Clan vassal Submission breakdown"
   CLAN_SUBMISSION_BD_LIBERTY: "From Liberty faction demands enforced"
