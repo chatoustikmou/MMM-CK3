@@ -1,5 +1,5 @@
 ﻿@monthly_auth_var = 0.5
-@monthly_auth_all_things_mult = 1.1
+@monthly_auth_all_things_mult_bonus = 0.1
 
 on_game_start_after_lobby = {
 	on_actions = {
@@ -117,7 +117,7 @@ monthly_tick_authority = {
 					name = ticking_authority
 					add = {
 						value = @monthly_auth_var
-						multiply = @monthly_auth_all_things_mult
+						multiply = @monthly_auth_all_things_mult_bonus
 					}
 				}
 			}
