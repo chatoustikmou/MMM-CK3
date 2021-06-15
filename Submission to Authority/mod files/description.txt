@@ -43,6 +43,20 @@ All remaining bugs are my own.
 
 [h1]Changelog[/h1]
 
+
+hotfix 1.1
+
+# Languages
+- Now available in Chinese thanks to Juijote !
+- Now available in Russian thanks to ds.saa !
+
+# Interface
+- Cleaned up the realm window header for better lisibility
+- Applied the correct format to numbers with tooltips, so it's more evident that those tooltips exist
+
+# Balance
+- Took off the "hoarded duchies" from Tribal submission, as it lacks both sufficient information and means to offset it for Tribal gameplay to be satisfying. But this will likely be revisited at a later date.
+
 hotfix 1.0.1
 
 # Bugs
