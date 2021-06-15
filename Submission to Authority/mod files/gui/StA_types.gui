@@ -917,6 +917,13 @@ types StA {
 							text = "* [Character.GetLiege.GetPrestigeLevel]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
+						text_single = {
+							visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(Character.GetLiege.MakeScope ).ScriptValue('has_a_life_of_glory_perk'),'(CFixedPoint)1')]"
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = " + 100%"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
 					}
 					hbox = {
 						layoutpolicy_horizontal = expanding
@@ -1014,6 +1021,13 @@ types StA {
 							layoutpolicy_horizontal = fixed
 							align = right
 							text = "* [Character.GetPrestigeLevel]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							visible = "[EqualTo_CFixedPoint(GuiScope.SetRoot(Character.MakeScope ).ScriptValue('has_a_life_of_glory_perk'),'(CFixedPoint)1')]"
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = " + 100%"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 					}

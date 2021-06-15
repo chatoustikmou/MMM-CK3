@@ -278,7 +278,13 @@ tribal_hoarded_duchies_liege = {
 
 tribal_power = {
 	value = 0
-	add = prestige_level
+	add = {
+		add = prestige_level
+		if = {
+			limit = { has_perk = a_life_of_glory_perk }
+			multiply = 2
+		}
+	}
 	multiply = {
 		if = {
 			limit = { highest_held_title_tier = tier_county }
@@ -426,5 +432,13 @@ republic_submission_liege_rank_avg_income = {
 			limit = { highest_held_title_tier = prev.liege.highest_held_title_tier }
 			add = 1
 		}
+	}
+}
+
+has_a_life_of_glory_perk = {
+	value = 0
+	if = {
+		limit = { has_perk = a_life_of_glory_perk }
+		add = 1
 	}
 }
