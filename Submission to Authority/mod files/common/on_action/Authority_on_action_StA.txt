@@ -115,7 +115,10 @@ monthly_tick_authority = {
 				}
 				change_variable = {
 					name = ticking_authority
-					multiply = @monthly_auth_all_things_mult
+					add = {
+						value = @monthly_auth_var
+						multiply = @monthly_auth_all_things_mult
+					}
 				}
 			}
 			if = {
