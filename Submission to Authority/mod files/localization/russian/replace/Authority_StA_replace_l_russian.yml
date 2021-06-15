@@ -113,3 +113,6 @@
     #!checksum cb37f6a5bba069aa19233f4fabd1693e-bfa34362d586561b67130db372889051
     liberty_war_victory_end_desc:2 "[liberty_faction|E] распущена, и ее участники не могут вступать во фракции на протяжении [SCOPE.ScriptValue('liberty_war_victory_cooldown')|0] лет."
 
+    #!checksum 66fecfed21ce302963ca9f27f4c3cc09-12a0b8a6add651306cd78208efcd0276
+    unlocks_authority_cooldown_breaking:0 "Потеря [Concept( 'authority', 'авторитета' )|E] происходит медленнее, а его рост быстрее."
+

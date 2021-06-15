@@ -51,3 +51,5 @@
   liberty_war_victory_defender_desc:0 "Your vassals [feudal_contract|E] have been reset according to your current [authority|E]. Other vassals have their [submission|E] reduced by 25 for 10 years, and every [liberty_faction|E] member will be owed a [favor|E]."
   liberty_war_victory_desc:0 "As his vassals' [submission|E] will be reduced, so will the [defender.GetPrimaryTitle.GetName]'s overall [authority|E]. Additionnaly, and [defender.GetShortUIName] will owe every [liberty_faction|E] member a [favor|E]."
   liberty_war_victory_end_desc:2 "The [liberty_faction|E] is disbanded, its members cannot join factions for [SCOPE.ScriptValue('liberty_war_victory_cooldown')|0] years."
+
+  unlocks_authority_cooldown_breaking:0 "The loss of [authority|E] is slower, and its growth is faster"

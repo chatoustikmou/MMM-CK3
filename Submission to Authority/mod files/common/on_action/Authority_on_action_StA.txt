@@ -1,4 +1,5 @@
 ﻿@monthly_auth_var = 0.5
+@monthly_auth_all_things_mult = 1.1
 
 on_game_start_after_lobby = {
 	on_actions = {
@@ -106,6 +107,15 @@ monthly_tick_authority = {
 				change_variable = {
 					name = ticking_authority
 					subtract = @monthly_auth_var
+				}
+			}
+			if = {
+				limit = {
+					culture = { has_innovation = innovation_all_things }
+				}
+				change_variable = {
+					name = ticking_authority
+					multiply = @monthly_auth_all_things_mult
 				}
 			}
 			if = {

@@ -89,8 +89,8 @@
     #!checksum f8d7c182036aea7ea1d746363107d4b1-13c3a5c8a4fa29fb2323ce2baef1832a
     MY_REALM_WINDOW_VASSAL_OBLIGATION: "$VASSAL_CONTRACT_OBLIGATIONS_TITLE$: [VassalContract.GetShortObligationLevelNameWithHighlightFor( 'feudal_government_taxes' )]\n$VASSAL_CONTRACT_OBLIGATIONS_TITLE_LEVIES$: [VassalContract.GetShortObligationLevelNameWithHighlightFor( 'feudal_government_levies' )]"
 
-    #!checksum 00e731858fb1a3e348552dc6be1a3455-bab4144994f0be9b04c187f0536eeecb
-    MY_REALM_WINDOW_AUTHORITY: "[realm_authority|E]: [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|0]"
+    #!checksum 00e731858fb1a3e348552dc6be1a3455-f93b6ebaeda64bd22f83db8144fce117
+    MY_REALM_WINDOW_AUTHORITY: "[realm_authority|E] изменяется к [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|0]"
 
     #!checksum 6190535dcd44fdb05196c72c0f7e407a-9d4a13b5522310ebc2510f286c55df1b
     MY_REALM_WINDOW_TEST: "Тест\n\nТест"
