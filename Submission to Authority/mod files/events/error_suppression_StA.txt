@@ -21,5 +21,6 @@ StA_error_suppression.0001 = {
 			name = tribal_authority_cooldown
 			value = 1
 		}
+		add_character_flag = had_event_StA_councillor_task_0001
 	}
 }

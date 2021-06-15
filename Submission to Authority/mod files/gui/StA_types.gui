@@ -835,22 +835,22 @@ types StA {
 							using = tooltip_ws
 						}
 					}
-					hbox = {
-						layoutpolicy_horizontal = expanding
-						minimumsize = {350}
-						text_single = {
-							layoutpolicy_horizontal = expanding
-							align = left
-							text = "TRIBAL_SUBMISSION_BD_LIEGE_HOARDING"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-						text_single = {
-							layoutpolicy_horizontal = fixed
-							align = right
-							text = "/ [GuiScope.SetRoot(Character.GetLiege.MakeScope ).ScriptValue('tribal_hoarded_duchies')|0]"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-					}
+					# hbox = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	minimumsize = {350}
+					# 	text_single = {
+					# 		layoutpolicy_horizontal = expanding
+					# 		align = left
+					# 		text = "TRIBAL_SUBMISSION_BD_LIEGE_HOARDING"
+					# 		fonttintcolor = "[TooltipInfo.GetTintColor]"
+					# 	}
+					# 	text_single = {
+					# 		layoutpolicy_horizontal = fixed
+					# 		align = right
+					# 		text = "/ [GuiScope.SetRoot(Character.GetLiege.MakeScope ).ScriptValue('tribal_hoarded_duchies')|0]"
+					# 		fonttintcolor = "[TooltipInfo.GetTintColor]"
+					# 	}
+					# }
 					hbox = {
 						layoutpolicy_horizontal = expanding
 						minimumsize = {350}

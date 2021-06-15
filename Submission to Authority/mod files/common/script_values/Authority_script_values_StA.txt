@@ -258,12 +258,12 @@ tribal_submission = {
 			}
 		divide = tribal_power
 	}
-	if = {
-		limit = {
-			NOT = { liege.tribal_hoarded_duchies = 0 }
-		}
-		divide = liege.tribal_hoarded_duchies
-	}
+	# if = {
+	# 	limit = {
+	# 		NOT = { liege.tribal_hoarded_duchies = 0 }
+	# 	}
+	# 	divide = liege.tribal_hoarded_duchies
+	# }
 }
 
 tribal_power_liege = {
