@@ -98,6 +98,7 @@ PoW_dungeon_transfer_on_action = {
 							target = PREV
 						}
 					}
+					remove_variable = story_PoW
 				}
 				else = {
 					change_prison_type = dungeon
@@ -433,6 +434,7 @@ escape_from_prison_success_PoW = {
 				target = PREV
 			}
 		}
+		remove_variable = story_PoW
 	}
 }
 
@@ -457,5 +459,6 @@ on_release_from_prison_PoW = {
 				target = PREV
 			}
 		}
+		remove_variable = story_PoW
 	}
 }

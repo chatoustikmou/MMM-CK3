@@ -105,6 +105,7 @@ PoW_transfer_to_story_different_character_effect = {
 							target = PREV
 						}
 					}
+					remove_variable = story_PoW
 				}
 				else = {
 					debug_log_scopes = no

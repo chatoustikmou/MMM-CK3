@@ -43,8 +43,8 @@
 						target = PREV
 					}
 				}
-				release_from_prison = yes
 				remove_variable = story_PoW
+				release_from_prison = yes
 			}
 			end_story = yes
 		}
@@ -105,8 +105,8 @@
 									target = PREV
 								}
 							}
-							release_from_prison = yes
 							remove_variable = story_PoW
+							release_from_prison = yes
 							PREV = {
 								add_to_variable_list = {
 									name = story_PoW_list
@@ -192,8 +192,8 @@
 								target = PREV
 							}
 						}
-						release_from_prison = yes
 						remove_variable = story_PoW
+						release_from_prison = yes
 					}
 					end_story = yes
 				}
@@ -291,8 +291,8 @@
 								target = PREV
 							}
 						}
-						release_from_prison = yes
 						remove_variable = story_PoW
+						release_from_prison = yes
 					}
 					end_story = yes
 				}

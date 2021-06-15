@@ -31,6 +31,7 @@ PoW_event.0001 = {
 								target = PREV
 							}
 						}
+						remove_variable = story_PoW
 					}
 					if = {
 						limit = {
