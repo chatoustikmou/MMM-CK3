@@ -6,3 +6,67 @@
 		NOT = { liege = root }
 	}
 }
+
+sgui_authority_ticks_up = {
+	scope = character
+	is_shown = {
+		var:ticking_authority <= ticking_cap_under_authority
+		OR = {
+			realm_law_use_crown_authority = no
+			AND = {
+				realm_law_use_crown_authority = yes
+				OR = {
+					AND = {							
+						NOT = { culture = { has_innovation = innovation_plenary_assemblies }}
+						var:ticking_authority <= ticking_cap_plenary_assemblies
+					}
+					AND = {
+						culture = { has_innovation = innovation_plenary_assemblies }
+						NOT = { culture = { has_innovation = innovation_royal_prerogative }}
+						var:ticking_authority <= ticking_cap_royal_prerogative
+					}
+					AND = {
+						culture = { has_innovation = innovation_royal_prerogative }
+						culture = { has_innovation = innovation_plenary_assemblies }
+					}
+				}
+			}
+		}
+	}
+}
+
+sgui_authority_ticks_down = {
+	scope = character
+	is_shown = {
+		var:ticking_authority > ticking_cap_over_authority
+	}
+}
+
+sgui_has_all_things_innovation = {
+	scope = character
+	is_shown = {
+		has_fp1_dlc_trigger = yes
+		culture = { has_innovation = innovation_all_things }
+	}
+}
+
+sgui_has_august_perk = {
+	scope = character
+	is_shown = {
+		has_perk = august_perk
+	}
+}
+
+sgui_has_overseer_perk = {
+	scope = character
+	is_shown = {
+		has_perk = overseer_perk
+	}
+}
+
+sgui_has_administrator_perk = {
+	scope = character
+	is_shown = {
+		has_perk = administrator_perk
+	}
+}

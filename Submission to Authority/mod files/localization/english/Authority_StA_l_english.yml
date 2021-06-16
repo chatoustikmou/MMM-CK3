@@ -44,8 +44,13 @@
 #GUI
   MY_REALM_WINDOW_VASSAL_SUBMISSION: "$submission$: [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]\n$land_share$: [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('land_share')|0]%"
   MY_REALM_WINDOW_VASSAL_OBLIGATION: "$VASSAL_CONTRACT_OBLIGATIONS_TITLE$: [VassalContract.GetShortObligationLevelNameWithHighlightFor( 'feudal_government_taxes' )]\n$VASSAL_CONTRACT_OBLIGATIONS_TITLE_LEVIES$: [VassalContract.GetShortObligationLevelNameWithHighlightFor( 'feudal_government_levies' )]"
-  MY_REALM_WINDOW_AUTHORITY: "[realm_authority|E] is trending to [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|0]"
-  
+
+  AUTHORITY_TICK: "Monthly Authority change"
+  AUTHORITY_TICK_UP: "[realm_authority|E] is moving up towards [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|1] by [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('monthly_auth_var_increase')|+2] each month"
+  AUTHORITY_TICK_DOWN: "[realm_authority|E] is moving down towards [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|1] by [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('monthly_auth_var_decrease')|+2] each month"
+  AUTHORITY_TICK_BASE: "Base"
+  AUTHORITY_TICK_DOWN_PENALTY: "Over target penalty"
+
   MY_REALM_WINDOW_TEST:"Test\n\nTest"
   CLAN_SUBMISSION_TITLE: "Clan vassal Submission breakdown"
   CLAN_SUBMISSION_BD_LIBERTY: "From Liberty faction demands enforced"

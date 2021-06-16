@@ -1,4 +1,4 @@
 ﻿l_english:
 
-  refused_liege_demand_war_victory_desc_defender:0 "You are decapitated, and stripped of all your titles."
-  refused_liege_demand_war_victory_desc:0 "[defender.GetShortUIName|U] is decapitated, and stripped of all titles."
+  # refused_liege_demand_war_victory_desc_defender:0 "You are decapitated, and stripped of all your titles."
+  # refused_liege_demand_war_victory_desc:0 "[defender.GetShortUIName|U] is decapitated, and stripped of all titles."
