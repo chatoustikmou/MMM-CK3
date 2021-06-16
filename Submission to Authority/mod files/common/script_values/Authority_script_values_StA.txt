@@ -113,7 +113,10 @@ submissiveness = {
 
 submissiveness_dread = {
 	add = liege.dread
-	max = { subtract = ai_boldness }
+	if = {
+		limit = { ai_boldness > 0 }
+		subtract = ai_boldness
+	}
 	min = 0
 }
 
@@ -440,5 +443,89 @@ has_a_life_of_glory_perk = {
 	if = {
 		limit = { has_perk = a_life_of_glory_perk }
 		add = 1
+	}
+}
+
+
+
+monthly_auth_var_base = 0.1
+monthly_auth_var_all_things_mult = 0.5
+monthly_auth_var_perk_mult = 0.2
+monthly_auth_var_down = -2
+
+# Used to lock Authority levels behind Plenary Assemblies innovation
+ticking_cap_under_authority = {
+	value = realm_authority
+	subtract = monthly_auth_var_increase
+}
+
+ticking_cap_over_authority = {
+	value = realm_authority
+	add = monthly_auth_var_increase
+}
+
+# Used to lock Authority levels behind Plenary Assemblies innovation
+ticking_cap_plenary_assemblies = {
+	value = 25
+	subtract = monthly_auth_var_increase
+}
+
+# Used to lock Authority levels behind Royal Prerogative innovation
+ticking_cap_royal_prerogative = {
+	value = 50
+	subtract = monthly_auth_var_increase
+}
+
+# Calculated ahead for GUI + simpler clamping
+monthly_auth_var_increase = {
+	add = monthly_auth_var_base
+	multiply = {
+		add = 1
+		if = {
+			limit = {
+				has_fp1_dlc_trigger = yes
+				culture = { has_innovation = innovation_all_things }
+			}
+			add = monthly_auth_var_all_things_mult
+		}	
+		if = {
+			limit = { has_perk = august_perk }
+			add = monthly_auth_var_perk_mult
+		}
+		if = {
+			limit = { has_perk = overseer_perk }
+			add = monthly_auth_var_perk_mult
+		}
+		if = {
+			limit = { has_perk = administrator_perk }
+			add = monthly_auth_var_perk_mult
+		}
+	}
+}
+
+# Calculated ahead for GUI + simpler clamping
+monthly_auth_var_decrease = {
+	add = monthly_auth_var_base
+	multiply = {
+		add = monthly_auth_var_down
+		if = {
+			limit = {
+				has_fp1_dlc_trigger = yes
+				culture = { has_innovation = innovation_all_things }
+			}
+			add = monthly_auth_var_all_things_mult
+		}
+		if = {
+			limit = { has_perk = august_perk }
+			add = monthly_auth_var_perk_mult
+		}
+		if = {
+			limit = { has_perk = overseer_perk }
+			add = monthly_auth_var_perk_mult
+		}
+		if = {
+			limit = { has_perk = administrator_perk }
+			add = monthly_auth_var_perk_mult
+		}
 	}
 }

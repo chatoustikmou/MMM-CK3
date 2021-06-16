@@ -30,8 +30,39 @@ realm_law_use_crown_authority = {
 		has_government = feudal_government
 		has_government = clan_government
 	}
+	highest_held_title_tier >= tier_county
 }
 
 realm_law_use_tribal_authority = {
 	has_government = tribal_government
+	highest_held_title_tier >= tier_county
+}
+
+authority_ticks_up = {
+	var:ticking_authority <= ticking_cap_under_authority
+	OR = {
+		realm_law_use_crown_authority = no
+		AND = {
+			realm_law_use_crown_authority = yes
+			OR = {
+				AND = {							
+					NOT = { culture = { has_innovation = innovation_plenary_assemblies }}
+					var:ticking_authority <= ticking_cap_plenary_assemblies
+				}
+				AND = {
+					culture = { has_innovation = innovation_plenary_assemblies }
+					NOT = { culture = { has_innovation = innovation_royal_prerogative }}
+					var:ticking_authority <= ticking_cap_royal_prerogative
+				}
+				AND = {
+					culture = { has_innovation = innovation_royal_prerogative }
+					culture = { has_innovation = innovation_plenary_assemblies }
+				}
+			}
+		}
+	}
+}
+
+authority_ticks_down = {
+	var:ticking_authority >= ticking_cap_over_authority
 }

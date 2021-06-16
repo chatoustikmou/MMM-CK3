@@ -1,15 +1,11 @@
-﻿@monthly_auth_var = 0.5
-
-on_game_start_after_lobby = {
+﻿on_game_start_after_lobby = {
 	on_actions = {
-		monthly_tick_authority
 		on_game_start_StA
+		monthly_tick_authority_init
 	}
 }
 
-on_vassal_gained = { on_actions = { contract_reset_on_vassal_gained }}
-on_rank_up = { on_actions = { contract_reset_rank_up }}
-
+# Set global variable that tracks if mod is active, useful for compatibility
 on_game_start_StA = {
 	effect = {
 		set_global_variable = {
@@ -18,6 +14,80 @@ on_game_start_StA = {
 		}
 	}
 }
+
+# 3 monthy ticks with increasing delay triggered every quarter
+quarterly_playable_pulse = {
+	on_actions = {
+		monthly_tick_authority
+		delay = { months = 1 }
+		monthly_tick_authority
+		delay = { months = 2 }
+		monthly_tick_authority
+	}
+}
+
+# initialization on game start to avoid GUI errors
+monthly_tick_authority_init = {
+	effect = {
+		every_ruler = {
+			trigger_event = { on_action = monthly_tick_authority }
+		}
+	}
+}
+
+monthly_tick_authority = {
+	effect = {
+		limit = { realm_law_use_realm_authority = yes }
+		# starting authority = target / 4, to be sure that starting authority is below the innovation lock values (resp. 25 and 50)
+		if = {
+			limit = { NOT = { exists = var:ticking_authority }}
+			set_variable = {
+				name = ticking_authority
+				value = {
+					add = realm_authority
+					divide = 4
+				}
+			}
+		}
+		else_if = {
+			limit = { authority_ticks_up = yes }
+			change_variable = {
+				name = ticking_authority
+				add = monthly_auth_var_increase
+			}
+		}
+		else_if = {
+			limit = { authority_ticks_down = yes }
+			change_variable = {
+				name = ticking_authority
+				add = monthly_auth_var_decrease
+			}
+		}
+		if = {
+			limit = { realm_law_use_crown_authority = yes }
+			update_crown_authority = yes
+		}
+		else_if = {
+			limit = { realm_law_use_crown_authority = no }
+			update_tribal_authority = yes
+		}
+
+		# reset barons contract to current defaults authority to prevent locking them with Title Revocation Protection rights
+		every_vassal = {
+			limit = {
+				has_government = feudal_government
+				highest_held_title_tier = tier_barony
+			}
+			StA_reset_feudal_contract = yes
+		}
+	}
+}
+
+# Contract reset triggered when a liege gets a new vassal, except if by inheritance
+# contract_reset_rank_up necessary because on_vassal_gained does not seem to trigger with scope:transfer_type = flag:granted
+
+on_vassal_gained = { on_actions = { contract_reset_on_vassal_gained }}
+on_rank_up = { on_actions = { contract_reset_rank_up }}
 
 contract_reset_on_vassal_gained = {
 	trigger = {
@@ -65,91 +135,3 @@ contract_reset_rank_up = {
 		}
 	}
 }
-
-monthly_tick_authority = {
-	on_actions = {
-		delay = { months = 1 }
-		monthly_tick_authority
-	}
-	effect = {
-		debug_log = "dbg_log monthly tick"
-		every_ruler = {
-			limit = {
-				OR = {
-					has_government = feudal_government
-					has_government = clan_government
-					has_government = tribal_government
-				}
-				highest_held_title_tier >= tier_county
-			}
-			if = {
-				limit = {
-					NOT = { exists = var:ticking_authority }
-				}
-				set_variable = {
-					name = ticking_authority
-					value = {
-						add = realm_authority
-						divide = 2
-					}
-				}
-			}
-			else_if = {
-				limit = { var:ticking_authority < realm_authority }
-				change_variable = {
-					name = ticking_authority
-					add = @monthly_auth_var
-				}
-			}
-			else_if = {
-				limit = { var:ticking_authority > realm_authority }
-				change_variable = {
-					name = ticking_authority
-					subtract = @monthly_auth_var
-				}
-			}
-			if = {
-				limit = {
-					NOT = { culture = { has_innovation = innovation_plenary_assemblies } }
-					realm_law_use_crown_authority = yes
-				}
-				clamp_variable = {
-					name = ticking_authority
-					max = 25
-					min = 0
-				}
-			}
-			else_if = {
-				limit = {
-					NOT = { culture = { has_innovation = innovation_royal_prerogative } }
-					realm_law_use_crown_authority = yes
-				}
-				clamp_variable = {
-					name = ticking_authority
-					max = 50
-					min = 0
-				}
-			}
-			if = {
-				limit = { realm_law_use_crown_authority = yes }
-				update_crown_authority = yes
-			}
-			else_if = {
-				limit = { realm_law_use_crown_authority = no }
-				update_tribal_authority = yes
-			}
-		}
-
-		every_barony = {
-			limit = {
-				exists = holder
-				holder = {
-					has_government = feudal_government
-					highest_held_title_tier = tier_barony
-				}
-			}
-			holder = { StA_reset_feudal_contract = yes }
-		}
-	}
-}
-
