@@ -37,9 +37,16 @@
 					debug_log = "dbg_log liberating prisoner that's not imprisoned"
 				}
 				debug_log_scopes = no
+				PREV = {
+					remove_list_variable = {
+						name = story_PoW_list
+						target = PREV
+					}
+				}
+				remove_variable = story_PoW
 				release_from_prison = yes
-				end_story = yes
 			}
+			end_story = yes
 		}
 	}
 	effect_group = {
@@ -80,6 +87,7 @@
 							OLD_STORY = this
 							NEW_STORY = scope:new_story
 						}
+						end_story = yes
 					}
 					else = {
 						debug_log = "story transfered to new owner"
@@ -91,12 +99,29 @@
 								debug_log = "dbg_log liberating prisoner that's not imprisoned"
 							}
 							debug_log_scopes = no
+							PREV = {
+								remove_list_variable = {
+									name = story_PoW_list
+									target = PREV
+								}
+							}
+							remove_variable = story_PoW
 							release_from_prison = yes
+							PREV = {
+								add_to_variable_list = {
+									name = story_PoW_list
+									target = PREV
+								}
+							}
 							scope:new_story.story_owner = {
 								imprison = {
 									target = PREV
 									type = prisoner_of_war
 								}
+							}
+							set_variable = {
+								name = story_PoW
+								value = scope:new_story
 							}
 						}
 						make_story_owner = var:story_army.army_owner
@@ -161,8 +186,14 @@
 							debug_log = "dbg_log liberating prisoner that's not imprisoned"
 							debug_log_scopes = no
 						}						
-						release_from_prison = yes
+						PREV = {
+							remove_list_variable = {
+								name = story_PoW_list
+								target = PREV
+							}
+						}
 						remove_variable = story_PoW
+						release_from_prison = yes
 					}
 					end_story = yes
 				}
@@ -254,8 +285,14 @@
 							debug_log = "dbg_log liberating prisoner that's not imprisoned"
 							debug_log_scopes = no
 						}
-						release_from_prison = yes
+						PREV = {
+							remove_list_variable = {
+								name = story_PoW_list
+								target = PREV
+							}
+						}
 						remove_variable = story_PoW
+						release_from_prison = yes
 					}
 					end_story = yes
 				}
