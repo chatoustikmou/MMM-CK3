@@ -114,7 +114,6 @@ independence_faction_war = {
 			}
 			# [StA]
 			decrease_crown_authority_effect = yes
-			update_crown_authority = yes
 			# [/StA]
 		}
 		resolve_title_and_vassal_change = scope:change
@@ -284,7 +283,6 @@ liberty_faction_war = {
 		scope:defender = {
 			# [StA]
 			decrease_crown_authority_effect = yes
-			update_crown_authority = yes
 			# [/StA]
 			add_prestige = -500
 
@@ -1000,7 +998,6 @@ refused_liege_demand_war = {
 		scope:defender = {
 			# [StA]
 			decrease_crown_authority_effect = yes
-			update_crown_authority = yes
 			# [/StA]
 
 			add_character_flag = {

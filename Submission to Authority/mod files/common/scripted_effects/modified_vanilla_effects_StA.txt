@@ -1,3 +1,5 @@
+# [check on version update]
+
 unite_the_spanish_thrones_decision_effects = {
 	#Prestige
 	add_prestige = massive_prestige_gain
@@ -265,7 +267,7 @@ empower_sicilian_parliament_decision_scripted_effect = {
 }
 
 promote_gothic_innovations_decision_scripted_effect = {
-	# [StA] [check on version update]
+	# [StA]
 	increase_crown_authority_effect = yes
 	# [/StA]
 	culture = {
