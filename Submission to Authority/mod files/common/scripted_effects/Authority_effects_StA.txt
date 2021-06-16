@@ -41,7 +41,7 @@ new_authority = {
 		send_interface_message = {
 			type = event_generic_good
 			title = authority_gain_title
-			add_realm_law = $NEW_AUTH$
+			add_realm_law_skip_effects = $NEW_AUTH$
 		}
 	}
 	else_if = {
@@ -49,7 +49,7 @@ new_authority = {
 		send_interface_message = {
 			type = event_generic_bad
 			title = authority_loss_title
-			add_realm_law = $NEW_AUTH$
+			add_realm_law_skip_effects = $NEW_AUTH$
 		}
 	}
 }
@@ -156,3 +156,26 @@ cap_ticking_authority = {
 # 	}
 # }
 
+increase_crown_authority_effect = {
+	#Laws
+	# [StA]
+	change_variable = {
+		name = ticking_authority
+		add = 25
+		max = 100
+	}
+	update_crown_authority = yes
+	# [/StA]
+}
+
+decrease_crown_authority_effect = {
+	#Laws
+	# [StA]
+	change_variable = {
+		name = ticking_authority
+		subtract = 25
+		min = 0
+	}
+	update_crown_authority = yes
+	# [/StA]
+}
