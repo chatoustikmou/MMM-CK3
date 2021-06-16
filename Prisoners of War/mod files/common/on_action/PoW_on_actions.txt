@@ -15,9 +15,9 @@ on_army_enter_province = {
 	on_actions = {
 		PoW_location_update
 		# PoW_transfer_on_action_bugfix
-		}
 	}
-
+}
+	
 # called for armies whenever they enter a province
 # root is the owner of the army
 # scope:army is the army
@@ -92,9 +92,18 @@ PoW_dungeon_transfer_on_action = {
 					limit = { is_imprisoned = no }
 					debug_log = "dbg_log changing prison type of prisoner that's not imprisoned"
 					debug_log_scopes = no
+					PREV = {
+						remove_list_variable = {
+							name = story_PoW_list
+							target = PREV
+						}
+					}
+					remove_variable = story_PoW
 				}
-				change_prison_type = dungeon
-				remove_variable = story_PoW
+				else = {
+					change_prison_type = dungeon
+					remove_variable = story_PoW
+				}
 			}
 			scope:army = { remove_variable = story_PoW }
 			end_story = yes
@@ -235,13 +244,13 @@ PoW_army_transfer_on_action = {
 					}
 				}
 			}
-			debug_log = "PoW raid target with prisoners - debug only, no transfer"
+			debug_log = "PoW hostile raider"
 			side_primary_participant = {
 				every_hostile_raider = {
 					every_owned_story = {
 						limit = { is_story_PoW_in_location = { LOCATION = scope:combat_loc } }
 						add_to_temporary_list = stories_to_transfer
-						debug_log_scopes = no
+						var:story_army = { debug_log_scopes = no }
 					}
 				}
 			}
@@ -259,15 +268,15 @@ PoW_army_transfer_on_action = {
 					}
 				}
 			}
-			debug_log = "PoW raid target with prisoners - debug only, no transfer"
+			debug_log = "PoW raid target"
 			side_primary_participant = {
 				every_raid_target = {
 					limit = { has_story_PoW_in_location = { LOCATION = scope:combat_loc } }
 					every_owned_story = {
 						limit = { is_story_PoW_in_location = { LOCATION = scope:combat_loc } }
 						add_to_temporary_list = stories_to_transfer
+						var:story_army = { debug_log_scopes = no }
 					}
-					debug_log_scopes = no
 				}
 				every_raid_target = {
 					every_vassal_or_below = {
@@ -402,6 +411,7 @@ on_war_won_attacker = { on_actions = { on_war_won_PoW }}
 on_war_won_defender = { on_actions = { on_war_won_PoW }}
 on_war_white_peace = { on_actions = { on_war_won_PoW }}
 on_war_invalidated = { on_actions = { on_war_won_PoW }}
+
 on_war_won_PoW = {
 	trigger = {
 		war = { any_war_participant = { owns_story_of_type = story_PoW }}
@@ -411,5 +421,44 @@ on_war_won_PoW = {
 		war = { debug_log_scopes = no }
 		debug_log_scopes = yes
 	}
-	events = PoW_events.0001
+	events = { PoW_event.0001 }
+}
+
+escape_from_prison_success = { on_actions = { escape_from_prison_success_PoW }}
+escape_from_prison_success_PoW = {
+	trigger = { exists = var:story_PoW }
+	effect = {
+		var:story_PoW = {
+			remove_list_variable = {
+				name = story_PoW_list
+				target = PREV
+			}
+		}
+		remove_variable = story_PoW
+	}
+}
+
+on_release_from_prison = { on_actions = on_release_from_prison_PoW }}
+on_release_from_prison_PoW = {
+	trigger = {
+		exists = var:story_PoW
+		var:story_PoW = {
+			is_target_in_variable_list = {
+				name = story_PoW_list
+				target = PREV
+			}
+		}
+	}
+	effect = {
+		debug_log = "dbg_log realeased from prison, still in story_PoW"
+		debug_log_scopes = no
+		scope:imprisoner = { debug_log_scopes = no }
+		var:story_PoW = {
+			remove_list_variable = {
+				name = story_PoW_list
+				target = PREV
+			}
+		}
+		remove_variable = story_PoW
+	}
 }
