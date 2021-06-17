@@ -1,4 +1,4 @@
-# [check on version update]
+﻿# [check on version update]
 
 unite_the_spanish_thrones_decision_effects = {
 	#Prestige

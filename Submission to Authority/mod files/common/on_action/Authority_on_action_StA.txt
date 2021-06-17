@@ -30,14 +30,15 @@ quarterly_playable_pulse = {
 monthly_tick_authority_init = {
 	effect = {
 		every_ruler = {
+			limit = { realm_law_use_realm_authority = yes }
 			trigger_event = { on_action = monthly_tick_authority }
 		}
 	}
 }
 
 monthly_tick_authority = {
+	trigger = { realm_law_use_realm_authority = yes }
 	effect = {
-		limit = { realm_law_use_realm_authority = yes }
 		# starting authority = target / 4, to be sure that starting authority is below the innovation lock values (resp. 25 and 50)
 		if = {
 			limit = { NOT = { exists = var:ticking_authority }}

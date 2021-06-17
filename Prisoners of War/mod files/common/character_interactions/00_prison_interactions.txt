@@ -910,9 +910,6 @@ move_to_dungeon_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
-		# [PoW]
-		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
-		# [PoW]
 	}
 	
 	on_accept = {
@@ -1001,9 +998,6 @@ move_to_house_arrest_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
-		# [PoW]
-		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
-		# [PoW]
 	}
 	
 	on_accept = {
@@ -1099,6 +1093,43 @@ ransom_interaction = {
 			}
 			always = no
 		}
+		# [PoW]
+		trigger_if = {
+			limit = { scope:secondary_recipient = { is_in_prison_type = prisoner_of_war }}
+			trigger_if = {
+				limit = { scope:secondary_recipient.var:story_PoW.var:story_army = { is_raid_army = yes }}
+				custom_description = {
+					text = "PoW_army_is_raiding"
+					subject = scope:secondary_recipient
+					scope:secondary_recipient.var:story_PoW.var:story_army = { is_raid_army = no }
+				}
+			}
+			trigger_else_if = {
+				limit = { scope:actor = { is_at_war = yes }}
+				trigger_if = {
+					limit = { scope:actor = { is_at_war_with = scope:recipient }}
+					custom_description = {
+						text = "PoW_is_not_bargaining_chip"
+						subject = scope:secondary_recipient
+						object = scope:recipient
+						NOR = {
+							scope:secondary_recipient = { is_heir_of = scope:recipient }
+							scope:secondary_recipient = { is_close_family_of = scope:recipient }
+							scope:secondary_recipient = { is_spouse_of = scope:recipient }
+							scope:secondary_recipient = scope:recipient
+						}
+					}
+				}
+				custom_description = {
+					text = "army_location_owner_is"
+					subject = scope:recipient
+					object = scope:secondary_recipient
+					scope:secondary_recipient.var:story_PoW.var:story_location.county.holder = scope:recipient
+				}
+			}
+			trigger_else = {}
+		}
+		# [/PoW]
 
 		scope:recipient = { is_diplomatically_available = yes } #Payer
 		scope:secondary_recipient = { is_diplomatically_available = yes } #Prisoner
@@ -1108,9 +1139,6 @@ ransom_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
-		# [PoW]
-		scope:secondary_recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
-		# [PoW]	
 	}
 	
 	on_accept = {
@@ -1274,14 +1302,6 @@ ransom_interaction = {
 		}
 		flag = favor
 		localization = "RANSOM_FAVOR_OPTION"
-	}
-	
-	send_option = {
-		is_shown = { # When doing the mass ransom, its possible for no option to be valid for the gold costs, so instead of defaulting wrong we explitly fail it
-			exists = scope:mass_action
-			scope:mass_action = yes
-		}
-		flag = invalid
 	}
 	
 	localization_values = {
@@ -1527,6 +1547,15 @@ ransom_interaction = {
 			}
 		}		
 	}
+
+	# Needs to be after all other send options so we only default to it if everything else is blocked
+	send_option = {
+		is_shown = { # When doing the mass ransom, its possible for no option to be valid for the gold costs, so instead of defaulting wrong we explitly fail it
+			exists = scope:mass_action
+			scope:mass_action = yes
+		}
+		flag = invalid
+	}
 }
 
 #For lieges to ransom their courtiers
@@ -1569,6 +1598,43 @@ pay_ransom_interaction = {
 	}
 
 	is_valid_showing_failures_only = {
+		# [PoW]
+		trigger_if = {
+			limit = { scope:secondary_recipient = { is_in_prison_type = prisoner_of_war }}
+			trigger_if = {
+				limit = { scope:secondary_recipient.var:story_PoW.var:story_army = { is_raid_army = yes }}
+				custom_description = {
+					text = "PoW_army_is_raiding"
+					subject = scope:secondary_recipient
+					scope:secondary_recipient.var:story_PoW.var:story_army = { is_raid_army = no }
+				}
+			}
+			trigger_else_if = {
+				limit = { scope:recipient = { is_at_war = yes }}
+				trigger_if = {
+					limit = { scope:recipient = { is_at_war_with = scope:actor }}
+					custom_description = {
+						text = "PoW_is_not_bargaining_chip"
+						subject = scope:secondary_recipient
+						object = scope:recipient
+						NOR = {
+							scope:secondary_recipient = { is_heir_of = scope:actor }
+							scope:secondary_recipient = { is_close_family_of = scope:actor }
+							scope:secondary_recipient = { is_spouse_of = scope:actor }
+							scope:secondary_recipient = scope:actor
+						}
+					}
+				}
+				custom_description = {
+					text = "army_location_owner_is"
+					subject = scope:actor
+					object = scope:secondary_recipient
+					scope:secondary_recipient.var:story_PoW.var:story_location.county.holder = scope:actor
+				}
+			}
+			trigger_else = {}
+		}
+		# [/PoW]
 		scope:recipient = { is_diplomatically_available = yes } #Imprisoner
 		scope:secondary_recipient = { is_diplomatically_available = yes } #Prisoner
 		scope:recipient = {
@@ -1577,9 +1643,6 @@ pay_ransom_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
-		# [PoW]
-		scope:secondary_recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
-		# [PoW]
 	}
 	
 	on_accept = {
@@ -2078,6 +2141,43 @@ ransom_me_interaction = {
 	}
 
 	is_valid_showing_failures_only = {
+		# [PoW]
+		trigger_if = {
+			limit = { scope:actor = { is_in_prison_type = prisoner_of_war }}
+			trigger_if = {
+				limit = { scope:actor.var:story_PoW.var:story_army = { is_raid_army = yes }}
+				custom_description = {
+					text = "PoW_army_is_raiding"
+					subject = scope:secondary_recipient
+					scope:actor.var:story_PoW.var:story_army = { is_raid_army = no }
+				}
+			}
+			trigger_else_if = {
+				limit = { scope:recipient = { is_at_war = yes }}
+				trigger_if = {
+					limit = { scope:recipient = { is_at_war_with = scope:actor }}
+					custom_description = {
+						text = "PoW_is_not_bargaining_chip"
+						subject = scope:secondary_recipient
+						object = scope:recipient
+						NOR = {
+							scope:actor = { is_heir_of = scope:actor }
+							scope:actor = { is_close_family_of = scope:actor }
+							scope:actor = { is_spouse_of = scope:actor }
+							scope:actor = scope:actor
+						}
+					}
+				}
+				custom_description = {
+					text = "army_location_owner_is"
+					subject = scope:actor
+					object = scope:actor
+					scope:actor.var:story_PoW.var:story_location.county.holder = scope:actor
+				}
+			}
+			trigger_else = {}
+		}
+		# [/PoW]
 		scope:recipient = { is_diplomatically_available = yes } #Imprisoner
 		scope:actor = { is_diplomatically_available = yes } #Prisoner
 		scope:recipient = {
@@ -2086,9 +2186,6 @@ ransom_me_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
-		# [PoW]
-		scope:actor = { NOT = { is_in_prison_type = prisoner_of_war } }
-		# [PoW]
 	}
 	
 	on_accept = {
@@ -2526,9 +2623,6 @@ release_from_prison_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
-		# [PoW]
-		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
-		# [PoW]
 	}
 	
 	on_accept = {
@@ -2777,6 +2871,9 @@ release_from_prison_interaction = {
 		localization = "RELEASE_DEMAND_CONVERSION"
 		is_shown = {
 			NOT = { scope:recipient.faith = scope:actor.faith }
+			# [PoW]
+			scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war }}
+			# [/PoW]
 		}
 		is_valid = {
 			trigger_if = {
@@ -2821,6 +2918,9 @@ release_from_prison_interaction = {
 		flag = renounce_claims
 		localization = RELEASE_RENOUNCE_CLAIMS
 		is_shown = {
+			# [PoW]
+			scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war }}
+			# [/PoW]
 			custom_description = {
 				text = "release_renounce_claims"
 				subject = scope:recipient
@@ -2858,6 +2958,9 @@ release_from_prison_interaction = {
 		flag = banish
 		localization = "RELEASE_BANISH"
 		is_shown = {
+			# [PoW]
+			scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war }}
+			# [/PoW]
 			trigger_if = {
 				limit = {
 					scope:actor = { is_ai = yes }
@@ -2938,6 +3041,11 @@ release_from_prison_interaction = {
 	send_option = {
 		flag = gain_hook
 		localization = "RELEASE_GAIN_HOOK"
+		# [PoW]
+		is_shown = {	
+			scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war }}
+		}
+		# [/PoW]
 		is_valid = {
 			trigger_if = {
 				limit = {
@@ -2967,6 +3075,9 @@ release_from_prison_interaction = {
 		flag = take_vows
 		localization = "RELEASE_TAKE_VOWS"
 		is_shown = {
+			# [PoW]
+			scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war }}
+			# [/PoW]
 			scope:actor.faith = {
 				has_doctrine_parameter = take_vows_active
 			}
@@ -3060,6 +3171,9 @@ release_from_prison_interaction = {
 		flag = recruit
 		localization = "RELEASE_RECRUIT"
 		is_shown = {
+			# [PoW]
+			scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war }}
+			# [/PoW]
 			trigger_if = {
 				limit = {
 					scope:actor = { is_ai = yes }
@@ -3081,8 +3195,15 @@ release_from_prison_interaction = {
 				OR = {
 					is_adult = yes
 					AND = {
-						exists = liege
-						NOT = { is_heir_of = liege }
+						is_adult = no
+						OR = {
+							AND = {
+								exists = liege
+								NOT = { is_heir_of = liege }
+							}
+							NOT = { exists = liege } 
+						}
+						
 					}				
 				}					
 			}
@@ -3526,9 +3647,6 @@ execute_prisoner_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
-		# [PoW]
-		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
-		# [PoW]
 	}
 	
 	on_accept = {
@@ -3712,37 +3830,11 @@ debug_imprison_simple_interaction = {
 		scope:actor = {
 			imprison = {
 				target = scope:recipient
-				type = prisoner_of_war
+				type = house_arrest
 			}
-			# random_army = {
-			# 	limit = { army_owner = scope:actor }
-			# 	save_scope_as = PoW_army
-			# }
 		}
-		# scope:recipient = {
-		# 	set_variable = {
-		# 		name = PoW_army
-		# 		value = scope:PoW_army
-		# 	}
-		# 	set_variable = {
-		# 		name = PoW_army_location
-		# 		value = scope:PoW_army.location
-		# 	}
-		# }
-		# scope:PoW_army = {
-		# 	add_to_variable_list = {
-		# 		name = PoW_in_army
-		# 		value = scope:recipient
-		# 	}
-		# 	location = {
-		# 		spawn_activity = {
-		# 			owner = scope:recipient
-		# 			type = PoW_location_update
-		# 			days = 100
-		# 		}
-		# 	}	
-		# }
 	}
+
 	auto_accept = yes
 }
 
@@ -3775,9 +3867,6 @@ torture_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
-		# [PoW]
-		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
-		# [PoW]
 	}
 
 	is_highlighted = {
@@ -3927,9 +4016,6 @@ castrate_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
-		# [PoW]
-		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
-		# [PoW]
 	}
 
 	is_highlighted = {
@@ -4025,9 +4111,6 @@ blind_interaction = {
 				NOT = { has_character_flag = is_being_tortured }
 			}
 		}
-		# [PoW]
-		scope:recipient = { NOT = { is_in_prison_type = prisoner_of_war } }
-		# [PoW]
 	}
 
 	is_highlighted = {
