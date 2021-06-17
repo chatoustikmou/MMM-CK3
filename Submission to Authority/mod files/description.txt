@@ -43,8 +43,33 @@ All remaining bugs are my own.
 
 [h1]Changelog[/h1]
 
+Version 1.1.0
 
-hotfix 1.1
+# Languages
+- Now available in Chinese thanks to Juijote !
+- Now available in Russian thanks to ds.saa !
+
+# Bugs
+- fixed a localization annoucing loser's decapitation on liberty faction war
+- fixed the Dread impact on Submissiveness incorrectly factoring in Boldness
+
+# Features
+- The mod no longer requires to be loaded on game start. The first time the mod is loaded, all systems should trigger properly in the first 3 months
+
+# Interface
+- Cleaned up the realm window header for better lisibility
+- Applied the correct format to numbers with tooltips, so it's more evident that those tooltips exist
+
+# Balance
+- Took off the "hoarded duchies" from Tribal submission, as it lacks both sufficient information and means to offset it for Tribal gameplay to be satisfying. But this will likely be revisited at a later date
+- "A LIfe of Glory" diplo lifestyle perk effect applied to Tribal vassal submission - both for the liege and for the vassal
+- All CBs / factions that used to decrease realm law now cause an instant -25 drop in Authority. The target isn't modified, so Authority will start ticking back up if under the target
+- Similarly, all decisions / events that used to increase realm law by one or two levels will now increase Authority by 25/50, possibly raising it to levels theoretically locked behind innovations, in which case it will stop ticking up further, and remain at that level until it drops down on its own - if ever
+- Dropped the base Authority ticking speed to 0,1/month (from 0,5). Going up/down a full Authority level (25 pts) now takes 21 years at base speed, which is coherent with the vanilla 20 years cooldown on changing realm laws
+- Repurposed the All-Things innovation to make Authority tick up faster and tick down slower by 50%
+- Lifestyle perks August, Overseer and Administrator now make Authority tick up faster and tick down slower by 25% each
+
+Hotfix 1.0.1
 
 # Languages
 - Now available in Chinese thanks to Juijote !
@@ -57,14 +82,14 @@ hotfix 1.1
 # Balance
 - Took off the "hoarded duchies" from Tribal submission, as it lacks both sufficient information and means to offset it for Tribal gameplay to be satisfying. But this will likely be revisited at a later date.
 
-hotfix 1.0.1
+Hotfix 1.0.1
 
 # Bugs
 - Tribal submission "hoarded duchies" penalty now only counts actual Duchy titles, and neither Kingdom and Empire titles
 - That baron bug I said I'd fixed in v0.7.1 ? It's really fixed now. For real. Promise.
 - Fixed the bug that made the launcher warn against mod not being compatible with 1.4.0, because the descriptor.mod said 'supported_version="1.4"'. Literally unplayable.
 
-version 1.0
+Version 1.0
 
 # Features
 - Removed contentious "War against Tyranny" mechanics from the mod, to be revisited in its own mod later on, both in order to let players pick and chose which feature to activate or not, and to do the feature justice
@@ -72,17 +97,17 @@ version 1.0
 # Balance
 - Granted back the ability for vassals to renegotiate their contracts. I still feel like it puts the AI at a disadvantage, but instead of nerfing vassals, I'll be taking a look at making the AI more aggressive in its negotiations.
 
-version 0.7.3
+Version 0.7.3
 
 # Bugs
 - Fixed the bug introduced in 0.7.1 that caused all feudal vassals to have their Feudal Contracts being reset to the current default on the monthly tick
 
-version 0.7.2
+Version 0.7.2
 
 # Bugs
 - Fixed the bug that caused Authority to switch back and forth between Limited and High levels each months, for Tribal Authority this time
 
-version 0.7.1
+Version 0.7.1
 
 # Bugs
 - Fixed a bug preventing Tribal rulers from ever reaching higher authority levels because of an unintended innovation lock
@@ -91,7 +116,7 @@ version 0.7.1
 # Balance
 - Nerfed the "hoarded duchies" penalty for tribal rulers' vassal submission. It now only takes into account held and creatable titles of duchy or above rank, and not all created duchy titles in the realm. This should make it easier to build up Authority as a tribal ruler, and effectively permit feudalization, pending a more thorough rework of the whole mechanic.
 
-version 0.7
+Version 0.7
 
 # Bugs 
 - Fixed a bug that caused Authority to switch back and forth between Limited and High levels each months
@@ -104,7 +129,7 @@ version 0.7
 - Tweaked submissiveness : added Honor and Vengeance subscores, and tweaked how they relate to Dread. Boldness will only prevent liege Dread from impacting vassal Submission. It will only actively lower Submission if a high sense of Honor or spirit of Vengeance make the vassal want to rebel.
 
 
-version 0.6.5
+Version 0.6.5
 
 # Localization
 - French localization available
@@ -114,12 +139,12 @@ version 0.6.5
 - Added display of Submission on the character's menu vassal tab
 
 
-version 0.6.1
+Version 0.6.1
 
 # Bug fix
 - Fixed chance chance for vassals to join War agains the Tyranny of liege not working properly
 
-version 0.6
+Version 0.6
 
 # Bug fix
 - Fixed feudal vassal contracts being reset on inheritance
@@ -140,7 +165,7 @@ If the primary heir was unlanded, they manage to flee, as a distant relative or 
 - Updated the localization of Liberty War and Tyranny war pop-ups
 
 
-version 0.5.4
+Version 0.5.4
 
 # Bug fix
 - Fixed barons having their non-existent feudal contract being modified through the Liberty faction
@@ -153,7 +178,7 @@ version 0.5.4
 # Interface
 - Authority levels now shown as a progress bar, instead of buttons. Color changes depending on whether Authority is increasing (green), decreasing (red), or stable (grey).
 
-version 0.5.3
+Version 0.5.3
 
 # Balance
 - All rulers now have a "submissiveness" +/-100% modifier to their Submission (submissiveness = - ai_boldness), representing their natural tendency to submission, irrespective of their current situation or relation to their liege. This makes for more variety in Submission values overall.
@@ -162,7 +187,7 @@ version 0.5.3
  #Interface
 - Added tooltips for notions related to Submission and Authority on the realm vassals screen + nested tooltips detailing the calculus behind the numbers whenever possible
 
-version 0.5.2
+Version 0.5.2
 
 # Balance
 - Tribal rulers' levies and tax obligations now scale with Submission, instead of scaling with level of Fame.
@@ -170,7 +195,7 @@ version 0.5.2
 - Changed the effects of the Liberty faction. Feudal rulers have their contracts automatically renegotiated, with levies and tax obligations each going down one level. Clan and Tribal rulers get a -25 Submission modifier for 10 years, hence lowering their obligations.
 
 
-version 0.5.1
+Version 0.5.1
 
 # Interface
 - Added notifications for Authority going up and down

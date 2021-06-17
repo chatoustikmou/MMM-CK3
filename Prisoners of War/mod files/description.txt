@@ -29,7 +29,17 @@ All remaining bugs are my own.
 
 [h1]Changelog[/h1]
 
-hotfix 0.1.3
+Hotfix 0.1.4
+
+# Languages
+- now available in German thanks to mxlte !
+
+# Features
+- PoWs can now be released, but with no counterpart (no hook, conversion, recruitment, etc)
+- PoWs can now be ransomed if the army holding them is not raiding, and if the army is in a county held by the recipient willing to pay the ransom offer, as long as the prisoner isn't a bargaining chip in an on-going war
+- PoWs can now be executed whenever
+
+Hotfix 0.1.3
 
 # Languages
 - now available in Chinese thanks to Juijote !
@@ -46,14 +56,14 @@ hotfix 0.1.3
 # Interface
 - new PoW icon on the army window, showing the number of prisoners in the army, with the list in tooltip, and the number of days since capture (by the 1st army that captured them)
 
-hotfix 0.1.2
+Hotfix 0.1.2
 
 # Bugs
 - fixed a minor bug that did not actually break anything, but that printed *a lot* of errors, making tracking actual bugs that much more difficult. If you must know, it had to do with mutliple on_actions being fired at the same time, and their triggers being assessed simultaneously, but their effects being executed after both triggers' assessment. So if the effect of one modifies the trigger conditions of the other... yeah, *I know*
 - added a check on war end for cleaning up of PoWs liberated when war ends, and for transferring PoWs to the dungeon
 - Fixed the bug that made the launcher warn against mod not being compatible with 1.4.0, because the descriptor.mod said 'supported_version="1.4"'. Literally unplayable.
 
-hotfix 0.1.1
+Hotfix 0.1.1
 
 # Bug
 - Hopefully resolved the bug that caused random crashes when launching the game, before it reached the main menu
