@@ -147,6 +147,6 @@ is_at_sea = {
 }
 
 # from scope:army
-army_location_owner_is = {
+PoW_army_location_owner_is = {
 	location.county.holder = $RECIPIENT$
 }
