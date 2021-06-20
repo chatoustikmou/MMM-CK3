@@ -105,3 +105,13 @@
 
   liege_authority_gain_title: "Your liege's Authority increased"
   liege_authority_loss_title: "Your liege's Authority decreased"
+
+# Game rules
+
+  rule_StA_AI_authority_crutch: "Authority increase over time"
+  setting_off_authority_crutch: "Off"
+  setting_off_authority_crutch_desc: "No bonus to Authority over time"
+  setting_AI_authority_crutch: "On (AI only)"
+  setting_AI_authority_crutch_desc: "AI gets a bonus to Authority depending on cultural era, capped depending on rank"
+  setting_full_authority_crutch: "On (AI and Player)"
+  setting_full_authority_crutch_desc: "AI and player get a bonus to Authority depending on cultural era, cappend depending on rank"

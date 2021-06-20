@@ -42,7 +42,60 @@ realm_authority = {
 			divide = sub_realm_size
 		}
 	}
+	if = {
+		limit = {
+			has_game_rule = AI_authority_crutch
+			is_ai = yes
+		}
+		add = authority_crutch
+	}
+	else_if = {
+		limit = { has_game_rule = full_authority_crutch }
+		add = authority_crutch
+	}
+	max = 100
+	min = 0
+}
+
+authority_crutch = {
+	add = {
+		if = {
+			limit = { culture = { has_cultural_era_or_later = culture_era_late_medieval }}
+			add = 75
+		}
+		else_if = {
+			limit = { culture = { has_cultural_era_or_later = culture_era_high_medieval }}
+			add = 50
+		}
+		else = {
+			limit = { culture = { has_cultural_era_or_later = culture_era_early_medieval }}
+			add = 25
+		}
+		max = {
+			if = {
+				limit = { highest_held_title_tier = tier_county }
+				add = 0
+			}
+			else_if = {
+				limit = { highest_held_title_tier = tier_duchy }
+				add = 25
+			}
+			else_if = {
+				limit = { highest_held_title_tier = tier_kingdom }
+				add = 50
+			}
+			else_if = {
+				limit = { highest_held_title_tier = tier_empire }
+				add = 75
+			}
+		}
+	}
 	round = yes
+}
+
+GUI_authority_target = {
+	value = realm_authority
+	multiply = 3
 }
 
 character_tyranny = {
@@ -231,6 +284,86 @@ feudal_contract_score = {
 		subtract = 5
 	}	
 }
+
+# feudal_new_contract_score = {
+# 	add = 45
+# 	if = {
+# 		limit = { local_var:feudal_government_taxes = feudal_tax_exempt_level }
+# 		subtract = 10
+# 	}
+# 	else_if = {
+# 		limit = { local_var:feudal_government_taxes = feudal_tax_low_level }
+# 		subtract = 5
+# 	}
+# 	else_if = {
+# 		limit = { local_var:feudal_government_taxes = feudal_tax_high_level }
+# 		add = 15
+# 	}
+# 	else_if = {
+# 		limit = { local_var:feudal_government_taxes = feudal_tax_extortionate_level }
+# 		add = 25
+# 	}
+# 	if = {
+# 		limit = { local_var:feudal_government_levies = feudal_levies_exempt_level }
+# 		subtract = 10
+# 	}
+# 	else_if = {
+# 		limit = { local_var:feudal_government_levies = feudal_levies_low_level }
+# 		subtract = 5
+# 		}
+# 	else_if = {
+# 		limit = { local_var:feudal_government_levies = feudal_levies_high_level }
+# 		add = 15
+# 		}
+# 	else_if = {
+# 		limit = { local_var:feudal_government_levies = feudal_levies_extortionate_level }
+# 		add = 25
+# 		}
+# 	if = {
+# 		limit = { local_var:religious_rights = religious_rights_protected }
+# 		subtract = 5
+# 	}
+# 	if = {
+# 		limit = { local_var:succession_rights = succession_rights_forced_partition }
+# 		add = 5
+# 	}
+# 	if = {
+# 		limit = { local_var:war_declaration_rights = war_declaration_rights_allowed }
+# 		subtract = 5
+# 	}
+# 	if = {
+# 		limit = { local_var:council_rights = council_rights_guaranteed }
+# 		subtract = 5
+# 	}
+# 	if = {
+# 		limit = { local_var:title_revocation_rights = title_revocation_rights_protected }
+# 		subtract = 5
+# 	}
+# 	if = {
+# 		limit = { local_var:coinage_rights = coinage_rights_granted }
+# 		subtract = 5
+# 	}
+# 	if = {
+# 		limit = { local_var:fortification_rights = fortification_rights_granted }
+# 		subtract = 5
+# 	}	
+# }
+# 
+# feudal_contract_negotiation_submission_impact = {
+# 	value = feudal_new_contract_score
+# 	if = {
+# 		limit = {
+# 			scope:recipient = {
+# 				exists = liege
+# 				scope:recipient.liege = scope:actor
+# 			}
+# 		}
+# 		subtract = scope:recipient.feudal_contract_score
+# 	}
+# 	else = {
+# 		subtract = scope:actor.feudal_contract_score
+# 	}
+# }
 
 clan_submission = {
 	value = 0
