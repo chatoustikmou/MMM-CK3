@@ -5,8 +5,7 @@ types StA {
 		name = "authority"
 		size = { 300 30 }
 
-		hbox = {
-			
+		widget = {
 			progressbar_green = {
 				visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
 
@@ -15,7 +14,6 @@ types StA {
 				max = 10000
 				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
 			}
-			
 			progressbar_red = {
 				visible = "[GreaterThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
 				
@@ -24,7 +22,6 @@ types StA {
 				max = 10000
 				value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.Var('ticking_authority').GetValue)]"
 			}
-			
 			progressbar_frozen = {
 				visible = "[EqualTo_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
 
@@ -76,9 +73,27 @@ types StA {
 				}
 			}
 		}
+		widget = {
+			position = { -3 1 }
+			container = {
+				state = {
+					name = "target"
+					next = "target"
+					trigger_on_create = yes
+					position_x = "[FixedPointToFloat(GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('GUI_authority_target'))]"
+					duration = 0
+				}
+				alwaystransparent = yes
+				icon = {
+					parentanchor = top
+					alwaystransparent = yes
+					texture = "gfx/interface/window_factions/faction_progress_threshold.dds"
+				}
+			}
+		}
 	}
 
-	type authority_header = vbox {						
+	type authority_header = vbox {
 		datacontext = "[GuiLawGroup.GetLawGroup]"
 		visible = "[And( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law' ), GuiLawGroup.IsAvailable )]"
 		ignoreinvisible = yes
@@ -89,12 +104,12 @@ types StA {
 			spacing = 7
 			margin_bottom = 15
 
-			text_single = {
+			text_label_center = {
 				text = "[authority|E]: [GetPlayer.MakeScope.Var('ticking_authority').GetValue|#V1]"
 				tooltip = "MY_REALM_WINDOW_AUTHORITY"
 			}
 
-			text_single = {
+			text_label_center = {
 				text = "[tyranny|E]: [GetPlayer.MakeScope.ScriptValue('character_tyranny')|0]"
 			}
 		}
