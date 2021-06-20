@@ -43,6 +43,19 @@ All remaining bugs are my own.
 
 [h1]Changelog[/h1]
 
+Hotfix 1.1.1
+
+# Interface
+- When modifying vassal contrats, it will now show by how much vassal submission will vary as a result
+- Authority progressbar now visually shows the value Authority is ticking to
+
+# Balance
+- New rules for Authority when inheriting on ruler death :
+* if heir was unlanded, they inherit ruler Authority - 25
+* if heir was landed with lower rank than any title they inherit, they get ruler Authority - 25, but no lower than their own Authority
+* if heir was landed with higher or equal rank than titles they inherit, they keep their Authority
+- Added a game-rule to enable making base Authority go up over time for either the AI only, or both AI and player. Gives +25 Authority for each cultural era, capped by rank. This will enable AI rulers to reach higher Authority levels as the game goes on, which is a problem currently due to the way the AI rulers don't really negotiate their feudal contracts that well
+
 Version 1.1.0
 
 # Languages
