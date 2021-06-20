@@ -1,0 +1,123 @@
+﻿yearly_playable_pulse = { on_actions = { StA_debug }}
+
+StA_debug = {
+	trigger = {
+		is_landed = yes
+		is_independent_ruler = no
+		has_government = feudal_government
+	}
+	effect = {
+		debug_log = "dbg_log annual_check"
+		debug_log = "Year"
+		debug_log = "[GetCurrentDate.GetYear]"
+		debug_log = "Character ID"
+		debug_log = "[Scope.Char.GetID]"
+		debug_log = "Character rank"
+		debug_log = "[Scope.Char.GetPrimaryTitle.GetTierAsNameNoTooltip]"
+		debug_log = "Liege ID"
+		debug_log = "[Scope.Char.GetLiege.GetID]"
+		debug_log = "Liege rank"
+		debug_log = "[Scope.Char.GetLiege.GetPrimaryTitle.GetTierAsNameNoTooltip]"		
+		debug_log = "Contract Score"
+		debug_log = "" #"[Scope.Char.MakeScope.ScriptValue('feudal_contract_score')]"
+		debug_log = "Taxes"
+		if = {
+			limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_exempt_level }
+			debug_log = "0"
+		}
+		else_if = {
+			limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_low_level }
+			debug_log = "1"
+		}
+		else_if = {
+			limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_normal_level }
+			debug_log = "2"
+		}
+		else_if = {
+			limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_high_level }
+			debug_log = "3"
+		}
+		else_if = {
+			limit = { vassal_contract_obligation_level:feudal_government_taxes = feudal_tax_extortionate_level }
+			debug_log = "4"
+		}
+		debug_log = "Levies"
+		if = {
+			limit = { vassal_contract_obligation_level:feudal_government_levies = feudal_levies_exempt_level }
+			debug_log = "0"
+		}
+		else_if = {
+			limit = { vassal_contract_obligation_level:feudal_government_levies = feudal_levies_low_level }
+			debug_log = "1"
+		}
+		else_if = {
+			limit = { vassal_contract_obligation_level:feudal_government_levies = feudal_levies_normal_level }
+			debug_log = "2"
+		}
+		else_if = {
+			limit = { vassal_contract_obligation_level:feudal_government_levies = feudal_levies_high_level }
+			debug_log = "3"
+		}
+		else_if = {
+			limit = { vassal_contract_obligation_level:feudal_government_levies = feudal_levies_extortionate_level }
+			debug_log = "4"
+		}
+		debug_log = "Religious Protection Rights"
+		if = {
+			limit = { vassal_contract_has_flag = religiously_protected }
+			debug_log = "1"
+		}
+		else = {
+			debug_log = "0"
+		}
+		debug_log = "Succession Rights"
+		if = {
+			limit = { vassal_contract_has_flag = locked_to_partition }
+			debug_log = "0"
+		}
+		else = {
+			debug_log = "1"
+		}
+		debug_log = "War Declaration Rights"
+		if = {
+			limit = { vassal_contract_has_flag = vassal_contract_war_override }
+			debug_log = "1"
+		}
+		else = {
+			debug_log = "0"
+		}
+		debug_log = "Council Rights"
+		if = {
+			limit = { vassal_contract_has_flag = can_demand_council_seat }
+			debug_log = "1"
+		}
+		else = {
+			debug_log = "0"
+		}
+		debug_log = "Title Revocation Protection"
+		if = {
+			limit = { vassal_contract_has_flag = vassal_contract_cannot_revoke_titles }
+			debug_log = "1"
+		}
+		else = {
+			debug_log = "0"
+		}
+		debug_log = "Coinage Rights"
+		if = {
+			limit = { vassal_contract_has_flag = vassal_contract_coinage_rights }
+			debug_log = "1"
+		}
+		else = {
+			debug_log = "0"
+		}
+		debug_log = "Fortification Rights"
+		if = {
+			limit = { vassal_contract_has_flag = vassal_contract_coinage_rights }
+			debug_log = "1"
+		}
+		else = {
+			debug_log = "0"
+		}
+		debug_log = "dbg_log end annual_check"
+	}
+}

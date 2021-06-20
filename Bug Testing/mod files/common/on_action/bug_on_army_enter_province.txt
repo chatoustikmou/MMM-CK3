@@ -1,0 +1,64 @@
+﻿# # When using on_army_enter_province, scope:army.location doesn't work properly when the player's army crosses into his realm from a foreign province, or out of his realm into a foreign province.
+
+# # Intended behaviour is :
+# # Own -> Own : pos, if
+# # Own -> Foreign : neg
+# # Foreign -> Foreign : neg
+# # Foreign -> Own : pos, if
+
+# # How to read : if army moves from Own province to Own province, on_test_pos and on_test_if should trigger, so the player should get both gold and piety
+# # Problem is : when the player crosses into his realm from a foreign province, or out of his realm into a foreign province, in thoses 2 instances player doesn't get what he should.
+
+# # Recorded behaviour is :
+# # Own -> Own : pos, if
+# # Own -> Foreign : null
+# # Foreign -> Foreign : neg
+# # Foreign -> Own : if
+
+# # commented out block :
+# # when commented back in, it adds an additionnal on_action layer, which somehow solves the issue.
+
+
+# on_army_enter_province = {
+#     on_actions = {
+# #         army_tests
+# #     }
+# # }
+# # army_tests = {
+# #     trigger = {
+# #         # debug_only = yes
+# #     }
+# #     on_actions = {
+#         on_test_pos
+#         on_test_neg
+#         on_test_if
+#     }
+
+# 	effect = { add_gold = 500 }
+# }
+# on_test_pos = {
+#     trigger = {
+#         scope:army.location.county_controller.top_liege = scope:army.army_owner.top_liege
+#     }
+#     effect = {
+#         add_gold = 10000
+#     }
+# }
+# on_test_neg = {
+#     trigger = {
+#         NOT = {scope:army.location.county_controller.top_liege = scope:army.army_owner.top_liege}
+#     }
+#     effect = {
+#         add_prestige = 10000
+#     }
+# }
+# on_test_if = {
+#     effect = {
+#         if = {
+#             limit = {
+#                 scope:army.location.county_controller.top_liege = scope:army.army_owner.top_liege
+#             }
+#             add_piety = 10000
+#         }
+#     }
+# }
