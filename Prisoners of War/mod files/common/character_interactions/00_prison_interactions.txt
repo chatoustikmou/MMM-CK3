@@ -1094,43 +1094,12 @@ ransom_interaction = {
 			always = no
 		}
 		# [PoW]
-		trigger_if = {
-			limit = { scope:secondary_recipient = { is_in_prison_type = prisoner_of_war }}
-			trigger_if = {
-				limit = { scope:secondary_recipient.var:story_PoW.var:story_army = { is_raid_army = yes }}
-				custom_description = {
-					text = "PoW_army_is_raiding"
-					subject = scope:secondary_recipient
-					scope:secondary_recipient.var:story_PoW.var:story_army = { is_raid_army = no }
-				}
-			}
-			trigger_else_if = {
-				limit = { scope:actor = { is_at_war = yes }}
-				trigger_if = {
-					limit = { scope:actor = { is_at_war_with = scope:recipient }}
-					custom_description = {
-						text = "PoW_is_not_bargaining_chip"
-						subject = scope:secondary_recipient
-						object = scope:recipient
-						NOR = {
-							scope:secondary_recipient = { is_heir_of = scope:recipient }
-							scope:secondary_recipient = { is_close_family_of = scope:recipient }
-							scope:secondary_recipient = { is_spouse_of = scope:recipient }
-							scope:secondary_recipient = scope:recipient
-						}
-					}
-				}
-				custom_description = {
-					text = "army_location_owner_is"
-					subject = scope:recipient
-					object = scope:secondary_recipient
-					scope:secondary_recipient.var:story_PoW.var:story_location.county.holder = scope:recipient
-				}
-			}
-			trigger_else = {}
+		PoW_can_be_ransomed = {
+			PRISONER = scope:secondary_recipient
+			JAILOR = scope:actor
+			PAYER = scope:recipient
 		}
 		# [/PoW]
-
 		scope:recipient = { is_diplomatically_available = yes } #Payer
 		scope:secondary_recipient = { is_diplomatically_available = yes } #Prisoner
 		scope:secondary_recipient = {
@@ -1599,40 +1568,10 @@ pay_ransom_interaction = {
 
 	is_valid_showing_failures_only = {
 		# [PoW]
-		trigger_if = {
-			limit = { scope:secondary_recipient = { is_in_prison_type = prisoner_of_war }}
-			trigger_if = {
-				limit = { scope:secondary_recipient.var:story_PoW.var:story_army = { is_raid_army = yes }}
-				custom_description = {
-					text = "PoW_army_is_raiding"
-					subject = scope:secondary_recipient
-					scope:secondary_recipient.var:story_PoW.var:story_army = { is_raid_army = no }
-				}
-			}
-			trigger_else_if = {
-				limit = { scope:recipient = { is_at_war = yes }}
-				trigger_if = {
-					limit = { scope:recipient = { is_at_war_with = scope:actor }}
-					custom_description = {
-						text = "PoW_is_not_bargaining_chip"
-						subject = scope:secondary_recipient
-						object = scope:recipient
-						NOR = {
-							scope:secondary_recipient = { is_heir_of = scope:actor }
-							scope:secondary_recipient = { is_close_family_of = scope:actor }
-							scope:secondary_recipient = { is_spouse_of = scope:actor }
-							scope:secondary_recipient = scope:actor
-						}
-					}
-				}
-				custom_description = {
-					text = "army_location_owner_is"
-					subject = scope:actor
-					object = scope:secondary_recipient
-					scope:secondary_recipient.var:story_PoW.var:story_location.county.holder = scope:actor
-				}
-			}
-			trigger_else = {}
+		PoW_can_be_ransomed = {
+			PRISONER = scope:secondary_recipient
+			JAILOR = scope:recipient
+			PAYER = scope:actor
 		}
 		# [/PoW]
 		scope:recipient = { is_diplomatically_available = yes } #Imprisoner
@@ -2142,40 +2081,10 @@ ransom_me_interaction = {
 
 	is_valid_showing_failures_only = {
 		# [PoW]
-		trigger_if = {
-			limit = { scope:actor = { is_in_prison_type = prisoner_of_war }}
-			trigger_if = {
-				limit = { scope:actor.var:story_PoW.var:story_army = { is_raid_army = yes }}
-				custom_description = {
-					text = "PoW_army_is_raiding"
-					subject = scope:secondary_recipient
-					scope:actor.var:story_PoW.var:story_army = { is_raid_army = no }
-				}
-			}
-			trigger_else_if = {
-				limit = { scope:recipient = { is_at_war = yes }}
-				trigger_if = {
-					limit = { scope:recipient = { is_at_war_with = scope:actor }}
-					custom_description = {
-						text = "PoW_is_not_bargaining_chip"
-						subject = scope:secondary_recipient
-						object = scope:recipient
-						NOR = {
-							scope:actor = { is_heir_of = scope:actor }
-							scope:actor = { is_close_family_of = scope:actor }
-							scope:actor = { is_spouse_of = scope:actor }
-							scope:actor = scope:actor
-						}
-					}
-				}
-				custom_description = {
-					text = "army_location_owner_is"
-					subject = scope:actor
-					object = scope:actor
-					scope:actor.var:story_PoW.var:story_location.county.holder = scope:actor
-				}
-			}
-			trigger_else = {}
+		PoW_can_be_ransomed = {
+			PRISONER = scope:actor
+			JAILOR = scope:recipient
+			PAYER = scope:actor
 		}
 		# [/PoW]
 		scope:recipient = { is_diplomatically_available = yes } #Imprisoner
