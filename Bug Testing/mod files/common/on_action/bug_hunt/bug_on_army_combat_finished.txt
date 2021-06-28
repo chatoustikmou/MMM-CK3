@@ -1,0 +1,33 @@
+﻿# # The following does nothing
+# # this has been tested with and without knights and commanders in the army, and in observer mode over a 50 years period, and searching for "dbg_log" in the debug.log returns nothing
+# # triggering the on_action via the console with `effect trigger_event = { on_action = on_army_combat_finished }` does work though
+# # and returns dbg_log test1 and test3 (test2 doesn't fire because 
+
+
+# on_army_combat_finished = { on_actions = { test1 test2 test3 }}
+# test1 = {
+#     effect = {
+#         debug_log = "dbg_log test1"
+#         debug_log_scopes = no
+#         debug_log_scopes = yes
+#     }
+# }
+# test2 = {
+#     effect = {
+#         every_in_list = {
+#             list = knights
+#             debug_log = "dbg_log test2"
+#             debug_log_scopes = no
+#             debug_log_scopes = yes
+#         }
+#     }
+# }
+# test3 = {
+#     effect = {
+#         scope:combat_side.combat.location = {
+#             debug_log = "dbg_log test3"
+#             debug_log_scopes = no
+#             debug_log_scopes = yes
+#         }
+#     }
+# }

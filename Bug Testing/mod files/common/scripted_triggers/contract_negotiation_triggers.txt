@@ -1,0 +1,68 @@
+﻿negotiation_can_advance = {
+	has_variable_list = negotiable_obligations
+	variable_list_size = {
+		name = negotiable_obligations
+		value > 0
+	}
+	any_in_list = {
+		variable = negotiable_obligations
+		var:$SENDER$_desire > 0
+		var:$RECEIVER$_refusal > 0
+		var:$RECEIVER$_refusal = { compare_value < scope:story.var:$RECEIVER$_max_balance }
+	}
+}
+
+obligation_feudal_government_taxes_0_can_be_negotiated = { always = yes }
+obligation_feudal_government_taxes_1_can_be_negotiated = { always = yes }
+obligation_feudal_government_taxes_2_can_be_negotiated = { always = yes }
+obligation_feudal_government_taxes_3_can_be_negotiated = { always = yes }
+obligation_feudal_government_taxes_4_can_be_negotiated = { always = yes }
+obligation_feudal_government_levies_0_can_be_negotiated = { always = yes }
+obligation_feudal_government_levies_1_can_be_negotiated = { always = yes }
+obligation_feudal_government_levies_2_can_be_negotiated = { always = yes }
+obligation_feudal_government_levies_3_can_be_negotiated = { always = yes }
+obligation_feudal_government_levies_4_can_be_negotiated = { always = yes }
+obligation_special_contract_0_can_be_negotiated = {
+	scope:story.var:vassal.primary_title.tier >= tier_duchy
+}
+obligation_special_contract_1_can_be_negotiated = {
+	scope:story.var:vassal.primary_title.tier >= tier_duchy
+	scope:story.var:ruler.culture = { has_innovation = innovation_scutage }
+}
+obligation_special_contract_2_can_be_negotiated = {
+	scope:story.var:vassal.primary_title.tier >= tier_duchy
+	scope:story.var:ruler.culture = { has_innovation = innovation_burhs }
+}
+obligation_special_contract_3_can_be_negotiated = {
+	scope:story.var:vassal.primary_title.tier >= tier_duchy
+	scope:story.var:ruler.culture = { has_innovation = innovation_divine_right }
+}
+obligation_religious_rights_0_can_be_negotiated = { always = yes }
+obligation_religious_rights_1_can_be_negotiated = {
+	NOT = { scope:story.var:vassal.faith = scope:story.var:ruler.faith }
+}
+obligation_fortification_rights_0_can_be_negotiated = {
+	scope:story.var:ruler.culture = { has_innovation = innovation_battlements }
+}
+obligation_fortification_rights_1_can_be_negotiated = {
+	scope:story.var:ruler.culture = { has_innovation = innovation_battlements }
+}
+obligation_coinage_rights_0_can_be_negotiated = {
+	scope:story.var:ruler.culture = { has_innovation = innovation_currency_02 }
+}
+obligation_coinage_rights_1_can_be_negotiated = {
+	scope:story.var:ruler.culture = { has_innovation = innovation_currency_02 }
+}
+obligation_succession_rights_0_can_be_negotiated = {
+	scope:story.var:vassal = { can_have_confederate_partition_succession_law_trigger = yes }
+}
+obligation_succession_rights_1_can_be_negotiated = {
+	scope:story.var:vassal = { can_have_confederate_partition_succession_law_trigger = yes }
+}
+obligation_war_declaration_rights_0_can_be_negotiated = { always = yes }
+obligation_war_declaration_rights_1_can_be_negotiated = { always = yes }
+obligation_council_rights_0_can_be_negotiated = { always = yes }
+obligation_council_rights_1_can_be_negotiated = { always = yes }
+obligation_title_revocation_rights_0_can_be_negotiated = { always = yes }
+obligation_title_revocation_rights_1_can_be_negotiated = { always = yes }
+

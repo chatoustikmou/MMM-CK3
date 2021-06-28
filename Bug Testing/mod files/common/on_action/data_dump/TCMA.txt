@@ -1,0 +1,21 @@
+﻿on_game_start = { on_actions = { TCMA_datadump_start }}
+yearly_global_pulse = { on_actions = { TCMA_datadump }}
+
+StA_debug_start = {
+	effect = {
+		debug_log = "data_dump;Character_ID;Liege_ID;Boldness;Compassion;Energy;Greed;Honor;Rationality;Sociability;Vengefulness;Zeal"
+	}
+}
+
+StA_debug = {
+	effect = {
+		every_ruler = {
+			limit = {
+				is_landed = yes
+				is_independent_ruler = no
+				has_government = feudal_government
+			}
+			debug_log = "data_dump;[Scope.Char.GetID];[Scope.Char.GetLiege.GetID];[Scope.Char.GetAIBoldness];[Scope.Char.GetAICompassion];[Scope.Char.GetAIEnergy];[Scope.Char.GetAIGreed];[Scope.Char.GetAIHonor];[Scope.Char.GetAIRationality];[Scope.Char.GetAISociability];[Scope.Char.GetAIVengefulness];[Scope.Char.GetAIZeal];"
+		}
+	}
+}

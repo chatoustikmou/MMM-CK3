@@ -1,0 +1,47 @@
+﻿# namespace = contract_negotiation
+
+# contract_negotiation.0001 = {
+# 	type = empty
+# 	hidden = yes
+# 	immediate = {
+# 		if = {
+# 			limit = { var:initiator = var:liege }
+# 			ordered_owned_story = {
+# 				story_type = obligation_level_desire
+# 				order_by = var:liege_desire
+# 				save_temporary_scope = checked_obligation_level
+# 			}
+# 			add_to_list = checked_obligations
+# 			change_variable = {
+# 				name = liege_acceptance
+# 				add = scope:checked_obligation_level.var:liege_desire
+# 			}
+# 			change_variable = {
+# 				name = vassal_acceptance
+# 				subtract = scope:checked_obligation_level.var:vassal_refusal
+# 			}
+# 		}
+# 		else = {
+# 			ordered_owned_story = {
+# 				story_type = obligation_level_desire
+# 				order_by = var:vassal_desire
+# 				save_temporary_scope = checked_obligation_level
+# 			}
+# 			add_to_list = checked_obligations
+# 			change_variable = {
+# 				name = vassal_acceptance
+# 				add = scope:checked_obligation_level.var:vassal_desire
+# 			}
+# 			change_variable = {
+# 				name = liege_acceptance
+# 				subtract = scope:checked_obligation_level.var:liege_refusal
+# 			}
+# 		}
+# 		scope:checked_obligation_level = {
+# 			set_variable = {
+# 				name = obligation_checked
+# 				value = yes
+# 			}
+# 		}
+# 	}
+# }
