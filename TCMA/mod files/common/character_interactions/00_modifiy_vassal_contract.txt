@@ -259,12 +259,12 @@ ai_only_liege_modify_vassal_contract_interaction = {
 	is_shown = {
 		scope:actor = {
 			is_ai = yes
-			has_usable_hook = scope:recipient
+			# has_usable_hook = scope:recipient
 		}
 		scope:recipient = {
 			NOT = { this = scope:actor }
 			NOT = {
-				has_strong_hook = scope:actor
+				# has_strong_hook = scope:actor
 			}
 			exists = liege
 			liege = scope:actor
@@ -285,8 +285,9 @@ ai_only_liege_modify_vassal_contract_interaction = {
 		
 		scope:recipient = {
 			set_vassal_contract_modification_blocked = yes
-			trigger_event = char_interaction.0250
+			# trigger_event = char_interaction.0250
 		}
+		start_feudal_contract_negotiation = { VASSAL = scope:recipient }
 	}
 
 	ai_potential = {
@@ -331,7 +332,7 @@ ai_only_vassal_modify_vassal_contract_interaction = {
 		scope:actor = {
 			is_ai = yes
 			is_independent_ruler = no
-			has_usable_hook = scope:recipient
+			# has_usable_hook = scope:recipient
 			vassal_contract_can_be_modified_trigger = yes
 			does_ai_vassal_in_vassal_contract_desire_obligation_change = yes
 		}
@@ -339,7 +340,7 @@ ai_only_vassal_modify_vassal_contract_interaction = {
 			NOT = { this = scope:actor }
 			is_ruler = yes
 			NOT = {
-				has_strong_hook = scope:actor
+				# has_strong_hook = scope:actor
 			}
 		}
 		scope:recipient = { is_diplomatically_available = yes }
@@ -348,8 +349,9 @@ ai_only_vassal_modify_vassal_contract_interaction = {
 		
 	on_accept = {
 		scope:recipient = {
-			trigger_event = char_interaction.0251
+			# trigger_event = char_interaction.0251
 		}
+		start_feudal_contract_negotiation = { VASSAL = scope:actor }
 	}
 
 	ai_potential = {
