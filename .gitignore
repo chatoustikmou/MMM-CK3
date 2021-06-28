@@ -10,3 +10,12 @@ data_dump/Vanilla/debug.txt
 data_dump/Vanilla/Debug_1.txt
 data_dump/Vanilla/Feudal_Contracts.accdb
 data_dump/Vanilla/~$Classeur1.xlsx
+data_dump/TCMA/Contract_end_req.txt
+*.xlsx
+data_dump/TCMA/contract_end.txt
+data_dump/TCMA/Contract_start_req.txt
+data_dump/TCMA/contract_start.txt
+data_dump/TCMA/debug.txt
+data_dump/TCMA/TCMA.accdb
+data_dump/TCMA/Debug_1.txt
+data_dump/TCMA/TCMA.laccdb
