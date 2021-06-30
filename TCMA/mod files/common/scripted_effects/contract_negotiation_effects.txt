@@ -1,4 +1,27 @@
-﻿global_test = {
+﻿testing = {
+	 set_local_variable = {
+		 name = test
+		 value = 999
+	}
+	 add_gold = local_var:test
+	 add_prestige = localtest
+}
+
+testing2 = {
+	set_variable = {
+		 name = test2
+		 value = 999
+	}
+	add_gold = var:test2
+	add_prestige = localtest2
+}
+
+testing3 = {
+	add_gold = var:test2
+	add_prestige = localtest2
+}
+
+global_test = {
 	every_ruler = {
 		limit = {
 			is_independent_ruler = no
@@ -28,27 +51,27 @@ ongoing_negotiations = {
 }
 
 test = { 
-	start_feudal_contract_negotiation = { VASSAL = THIS }
+	start_feudal_contract_negotiation = { VASSAL = THIS INITIATOR = THIS }
 }
 
 start_feudal_contract_negotiation = {
 	$VASSAL$ = { save_scope_as = vassal }
-	scope:vassal = {
-		if = {
-			limit = { PREV = scope:vassal }
-			set_variable = {
-				name = initiator
-				value = scope:vassal
-			}
-		}
-		else = {
-			set_variable = {
-				name = initiator
-				value = scope:vassal.liege
-			}
-		}
+	if = {
+		limit = { $VASSAL$ = $INITIATOR$ }
+		scope:vassal.liege = { save_scope_as = receiver }
+	}
+	else = {
+		scope:vassal = { save_scope_as = receiver }
 	}
 	scope:vassal = {
+		set_variable = {
+			name = initiator
+			value = $INITIATOR$
+		}
+		set_variable = {
+			name = receiver
+			value = scope:receiver
+		}
 		create_story = {
 			type = feudal_contract_negotiation
 			save_temporary_scope_as = contract_negotiation
@@ -59,48 +82,54 @@ start_feudal_contract_negotiation = {
 
 set_obligation_level_desire = {
 	debug_log = "set_obligation_level_desire"
+	set_variable = {
+		name = obligation
+		value = flag:$OBLIGATION$
+	}
+	set_variable = {
+		name = level
+		value = $LEVEL$
+	}
+	set_variable = {
+		name = ruler_desire
+		value = $OBLIGATION$_$LEVEL$_ruler_desire
+	}
+	set_variable = {
+		name = ruler_refusal
+		value = $OBLIGATION$_$LEVEL$_ruler_refusal
+	}
+	set_variable = {
+		name = vassal_desire
+		value = $OBLIGATION$_$LEVEL$_vassal_desire
+	}
+	set_variable = {
+		name = vassal_refusal
+		value = $OBLIGATION$_$LEVEL$_vassal_refusal
+	}
+	create_story = {
+		type = obligation_level_desire
+		save_temporary_scope_as = negotiable_obligation_level
+	}
 	if = {
 		limit = {
-			obligation_$OBLIGATION$_$LEVEL$_can_be_negotiated = yes
-			NOT = { vassal_contract_obligation_level:$OBLIGATION$ = $LEVEL$ }
 			OR = {
+				# var:contract_negotiation = { var:ruler = { is_ai = yes }}
+				# var:contract_negotiation = { var:vassal = { is_ai = yes }}
 				AND = {
-					$OBLIGATION$_$LEVEL$_ruler_desire > 0
-					$OBLIGATION$_$LEVEL$_ruler_desire > $OBLIGATION$_$LEVEL$_vassal_refusal
-				}
-				AND = {
-					$OBLIGATION$_$LEVEL$_vassal_desire > 0
-					$OBLIGATION$_$LEVEL$_vassal_desire > $OBLIGATION$_$LEVEL$_ruler_refusal
+					obligation_$OBLIGATION$_$LEVEL$_can_be_negotiated = yes
+					NOT = { vassal_contract_obligation_level:$OBLIGATION$ = $LEVEL$ }
+					OR = {
+						AND = {
+							$OBLIGATION$_$LEVEL$_ruler_desire > 0
+							$OBLIGATION$_$LEVEL$_ruler_desire > $OBLIGATION$_$LEVEL$_vassal_refusal
+						}
+						AND = {
+							$OBLIGATION$_$LEVEL$_vassal_desire > 0
+							$OBLIGATION$_$LEVEL$_vassal_desire > $OBLIGATION$_$LEVEL$_ruler_refusal
+						}
+					}
 				}
 			}
-		}
-		set_variable = {
-			name = obligation
-			value = flag:$OBLIGATION$
-		}
-		set_variable = {
-			name = level
-			value = $LEVEL$
-		}
-		set_variable = {
-			name = ruler_desire
-			value = $OBLIGATION$_$LEVEL$_ruler_desire
-		}
-		set_variable = {
-			name = ruler_refusal
-			value = $OBLIGATION$_$LEVEL$_ruler_refusal
-		}
-		set_variable = {
-			name = vassal_desire
-			value = $OBLIGATION$_$LEVEL$_vassal_desire
-		}
-		set_variable = {
-			name = vassal_refusal
-			value = $OBLIGATION$_$LEVEL$_vassal_refusal
-		}
-		create_story = {
-			type = obligation_level_desire
-			save_temporary_scope_as = negotiable_obligation_level
 		}
 		scope:story = {
 			add_to_variable_list = {
@@ -110,6 +139,15 @@ set_obligation_level_desire = {
 		}
 	}
 }
+
+# set_story_as_variable_obligation_level = {
+# 	set_variable = {
+# 		name = $OBLIGATION$_$LEVEL$
+# 		value = scope:story
+# 	}
+# }
+
+
 
 move_negotiation_along = {
 	ordered_in_list = {

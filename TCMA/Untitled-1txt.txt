@@ -1,0 +1,27 @@
+enabled = "
+[Or(
+    And(
+        EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'feudal_government_taxes' ).GetName)
+        ,
+        And(
+            EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'feudal_government_taxes' ).GetObligationNameShortNoTooltip('feudal_tax_low' ))
+            ,
+            GetScriptedGui('feudal_tax_low_enabled').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )
+            )
+        )
+    ,
+    EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'feudal_government_levies' ).GetName)
+    )]"
+
+
+ 
+
+
+
+
+
+
+"[Or(And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'feudal_government_taxes' ).GetName),And(EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'feudal_government_taxes' ).GetObligationNameShortNoTooltip('feudal_tax_low' )),GetScriptedGui('feudal_tax_low_enabled').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))),EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'feudal_government_levies' ).GetName))]"
+
+
+ 

@@ -1,0 +1,56 @@
+types TCMA {
+	type TCMA_contract_tree_button = button_letter
+	{
+
+		block "Visible"
+		{
+			visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'feudal_government_taxes' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'feudal_government_taxes' ).GetObligationNameShortNoTooltip('feudal_tax_low' )))]"
+		}	
+		size = { 100 80 }
+
+		text_single = {
+			text = "[ModifyVassalContractInteractionWindowObligationLevelOption.GetName]"
+			visible = "[Not(ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected)]"
+			default_format = "#light_background"
+			parentanchor = center
+			position = {0 -3 }
+		}
+
+		text_single = {
+			text = "[ModifyVassalContractInteractionWindowObligationLevelOption.GetName]"
+			visible = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
+			default_format = "#high"
+			parentanchor = center
+			position = {0 -3 }
+		}
+
+		tooltip = "[ModifyVassalContractInteractionWindowObligationLevelOption.GetTooltip]"
+
+		onclick = "[ModifyVassalContractInteractionWindowObligationLevelOption.Select]"
+		block "OnClick"
+		{
+			onclick = "[GetScriptedGui('custom_sgui').IsShown(GuiScope.SetRoot( Character.MakeScope ).AddScope( 'obligation', ObligationContainerData.GetName ).AddScope( 'level', ModifyVassalContractInteractionWindowObligationLevelOption.GetName ).End)]"
+		}
+		down = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
+		# enabled = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled]"
+		using = tooltip_above
+
+		background = {
+			using = Background_Area_Dark
+			visible = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
+		}
+
+		icon = {
+			parentanchor = top|hcenter
+			position = { 0 -5 }
+			texture = "gfx/interface/buttons/button_tree_expand.dds"
+			framesize = { 36 36 }
+			size = { 24 24 }
+			frame = 2
+			tintcolor = { 0.4 0.4 0.5 0.7 }
+			visible = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsCurrent]"
+
+			using = Mask_Rough_Edges
+		}
+	}
+}

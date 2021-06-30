@@ -23,8 +23,8 @@
 	is_valid_showing_failures_only = {
 		scope:recipient = { 
 			is_diplomatically_available = yes
-		} 
-		NOT = { scope:actor = { is_at_war_with = scope:recipient } } 
+		}
+		NOT = { scope:actor = { is_at_war_with = scope:recipient } }
 	}
 
 	can_send = {
@@ -39,48 +39,10 @@
 			}
 		}
 		trigger_else = {
-			scope:actor = {
-				has_changed_contract_obligation_trigger = { WHO = scope:recipient }
-				
-				custom_description = {
-					text = "liege_modify_vassal_contract_cannot_exceed_tyranny_cap"
-					object = scope:actor
-					NOT = {
-						vassal_obligation_increase_tyranny_gain_multiplier > 1
-					}
-				}
+			# [TCMA]
 
-				# If the trade without the hook usage is already in the vassal's favour or fair then don't waste your hook
-				save_temporary_scope_value_as = {
-					name = obligations_favoring_vassal
-					value = scope:recipient.count_obligation_improvements_for_vassal
-				}
-				trigger_if = {
-					limit = { scope:obligations_favoring_vassal > 0 }
-					custom_description = {
-						text = "vassal_modify_vassal_contract_unnecessary_hook_usage_vassal_favor"
-						object = scope:recipient
-						value = scope:obligations_favoring_vassal
-						NOT = { always = scope:hook }
-					}
-				}
-				trigger_else_if = {
-					limit = { scope:obligations_favoring_vassal = 0 }
-					custom_description = {
-						text = "vassal_modify_vassal_contract_unnecessary_hook_usage_equal"
-						object = scope:recipient
-						NOT = { always = scope:hook }
-					}
-				}
-				trigger_else = {} # Otherwise we're fine!
-			}
-				
-			# Cannot change more than three things at once
-			custom_description = {
-				text = "vassal_modify_vassal_contract_obligation_change_limit"
-				value = scope:recipient.count_total_obligation_changes
-				scope:recipient.count_total_obligation_changes <= max_contract_changes
-			}
+			vassal_contract_negotiation_acceptance = yes
+			# [/TCMA]
 		}
 	}
 
@@ -182,25 +144,35 @@ vassal_modify_vassal_contract_interaction = {
 			}
 		}
 		trigger_else = {
-			scope:actor = {
-				has_changed_contract_obligation_trigger = { WHO = scope:actor }
+			# [TCMA]
+			# scope:actor = {
+			# 	has_changed_contract_obligation_trigger = { WHO = scope:actor }
 				
-				# Must be an even trade overall
-				custom_description = {
-					text = "vassal_modify_vassal_contract_cannot_increase_obligation_level"
-					object = scope:recipient
-					value = count_obligation_improvements_for_vassal_include_hook
-					count_obligation_improvements_for_vassal_include_hook = 0
-				}
+			# 	# Must be an even trade overall
+			# 	custom_description = {
+			# 		text = "vassal_modify_vassal_contract_cannot_increase_obligation_level"
+			# 		object = scope:recipient
+			# 		value = count_obligation_improvements_for_vassal_include_hook
+			# 		count_obligation_improvements_for_vassal_include_hook = 0
+			# 	}
 				
-				# Cannot change more than three things at once
-				custom_description = {
-					text = "vassal_modify_vassal_contract_obligation_change_limit"
-					value = count_total_obligation_changes
-					count_total_obligation_changes <= max_contract_changes
-				}
+			# 	# Cannot change more than three things at once
+			# 	custom_description = {
+			# 		text = "vassal_modify_vassal_contract_obligation_change_limit"
+			# 		value = count_total_obligation_changes
+			# 		count_total_obligation_changes <= max_contract_changes
+			# 	}
+			# }
+			# liege_accepts_negotiations = yes
+			scope:actor = { 
+				liege_contract_negotiation_acceptance > 0
+			# [/TCMA]
 			}
 		}
+	}
+
+	on_send = {
+		start_feudal_contract_negotiation = { VASSAL = scope:actor INITIATOR = scope:actor }
 	}
 
 	auto_accept = yes
@@ -287,7 +259,7 @@ ai_only_liege_modify_vassal_contract_interaction = {
 			set_vassal_contract_modification_blocked = yes
 			# trigger_event = char_interaction.0250
 		}
-		start_feudal_contract_negotiation = { VASSAL = scope:recipient }
+		start_feudal_contract_negotiation = { VASSAL = scope:recipient INITIATOR = scope:actor }
 	}
 
 	ai_potential = {
@@ -351,7 +323,7 @@ ai_only_vassal_modify_vassal_contract_interaction = {
 		scope:recipient = {
 			# trigger_event = char_interaction.0251
 		}
-		start_feudal_contract_negotiation = { VASSAL = scope:actor }
+		start_feudal_contract_negotiation = { VASSAL = scope:actor INITIATOR = scope:actor }
 	}
 
 	ai_potential = {

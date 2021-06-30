@@ -19,3 +19,12 @@ StA_debug = {
 		}
 	}
 }
+
+clean_up_negotiation = {
+	effect = {
+		every_owned_story = {
+			limit = { story_type = feudal_contract_negotiation }
+			end_story = yes
+		}
+	}
+}

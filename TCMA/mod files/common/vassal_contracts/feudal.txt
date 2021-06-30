@@ -45,6 +45,7 @@ feudal_government_taxes = {
 			ai_vassal_desire = 2
 		}
 		feudal_tax_extortionate = {
+			default = yes
 			parent = feudal_tax_high
 			position = { 4 0 }
 			

@@ -8,10 +8,14 @@
 		set_variable = {
 			name = ruler
 			value = story_owner.liege
-		}
+		}		
 		set_variable = {
 			name = initiator
 			value = story_owner.var:initiator
+		}
+		set_variable = {
+			name = receiver
+			value = story_owner.var:receiver
 		}
 		var:vassal = {
 			set_variable = {
@@ -62,13 +66,14 @@
 			set_obligation_level_desire = { OBLIGATION = council_rights LEVEL = 1 }
 			set_obligation_level_desire = { OBLIGATION = title_revocation_rights LEVEL = 0 }
 			set_obligation_level_desire = { OBLIGATION = title_revocation_rights LEVEL = 1 }
-			remove_variable = obligation
-			remove_variable = level
-			remove_variable = ruler_desire
-			remove_variable = vassal_desire
-			remove_variable = ruler_refusal
-			remove_variable = vassal_refusal
+			if = { limit = { has_variable = obligation } remove_variable = obligation }
+			if = { limit = { has_variable = level } remove_variable = level }
+			if = { limit = { has_variable = ruler_desire } remove_variable = ruler_desire }
+			if = { limit = { has_variable = vassal_desire } remove_variable = vassal_desire }
+			if = { limit = { has_variable = ruler_refusal } remove_variable = ruler_refusal }
+			if = { limit = { has_variable = vassal_refusal } remove_variable = vassal_refusal }
 			remove_variable = initiator
+			remove_variable = receiver
 		}
 		set_variable = {
 			name = vassal_max_acceptance
@@ -342,8 +347,13 @@ obligation_level_desire = {
 			name = vassal_refusal
 			value = story_owner.var:vassal_refusal
 		}
+		# story_owner = {
+		# 	set_story_as_variable_obligation_level = { OBLIGATION = var:obligation LEVEL = var:level }
+		# }
 	}
-	on_end = {}
+	on_end = {
+
+	}
 	on_owner_death = {
 		end_story = yes
 	}
