@@ -74,38 +74,42 @@ update_contract_acceptance = {
 				}
 			}
 		}
-		var:contract_negotiation = {
-			set_variable = {
-				name = contract_acceptance
-				value = 0
-			}
-			if = {
-				limit = { var:vassal = PREV }
-				every_in_list = {
-					variable = negotiated_obligations
-					PREV = {
-						change_variable = {
-							name = contract_acceptance
-							add = PREV.var:ruler_desire
-							subtract = PREV.var:ruler_refusal
-						}
-					}
-				}
-			}
-			else_if = {
-				limit = { var:ruler = PREV }
-				every_in_list = {
-					variable = negotiated_obligations
-					PREV = {
-						change_variable = {
-							name = contract_acceptance
-							add = PREV.var:vassal_desire
-							subtract = PREV.var:vassal_refusal
-						}
-					}
-				}
-			}
-		}
+		# var:contract_negotiation = {
+		# 	set_variable = {
+		# 		name = contract_acceptance
+		# 		value = 0
+		# 	}
+		# 	if = {
+		# 		limit = { var:vassal = PREV }
+		# 		every_in_list = {
+		# 			variable = negotiated_obligations
+		# 			PREV = {
+		# 				change_variable = {
+		# 					name = contract_acceptance
+		# 					add = {
+		# 						add = PREV.var:ruler_desire
+		# 						subtract = PREV.var:ruler_refusal
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	else_if = {
+		# 		limit = { var:ruler = PREV }
+		# 		every_in_list = {
+		# 			variable = negotiated_obligations
+		# 			PREV = {
+		# 				change_variable = {
+		# 					name = contract_acceptance
+		# 					add = {
+		# 						add = PREV.var:vassal_desire
+		# 						subtract = PREV.var:vassal_refusal
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# }
 	}
 }
 

@@ -76,7 +76,6 @@ window = {
 					using = Background_Letter
 					margin = { 20 20 }
 					spacing = 5
-					# visible = "[EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'feudal_government_taxes' ).GetName)]"
 
 					vbox = {
 						name = "major_line_tree_levels"
@@ -271,21 +270,33 @@ window = {
 
 										hbox = {
 
-											button_radio_label = {
-												onclick = "[ModifyVassalContractInteractionWindowObligationLevelOption.Select]"
-												enabled = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled]"
-
-												blockoverride "radio" 
-												{ 
-												    frame = "[BoolTo1And2( ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected )]"
-												}
-												blockoverride "text"
+											TCMA_contract_radio_button = {
+												blockoverride "OnClick"
 												{
-												    text = "[ModifyVassalContractInteractionWindowObligationLevelOption.GetName]"
-												    default_format = "#light_background"
+													visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'special_contract' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'special_contract' ).GetObligationNameShortNoTooltip('special_contract_none' )))]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 												}
-
-												tooltip = "[ModifyVassalContractInteractionWindowObligationLevelOption.GetTooltip]"
+											}
+											TCMA_contract_radio_button = {
+												blockoverride "OnClick"
+												{
+													visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'special_contract' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'special_contract' ).GetObligationNameShortNoTooltip('special_contract_scutage' )))]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+												}
+											}
+											TCMA_contract_radio_button = {
+												blockoverride "OnClick"
+												{
+													visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'special_contract' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'special_contract' ).GetObligationNameShortNoTooltip('special_contract_march' )))]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
+												}
+											}
+											TCMA_contract_radio_button = {
+												blockoverride "OnClick"
+												{
+													visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'special_contract' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'special_contract' ).GetObligationNameShortNoTooltip('special_contract_palatinate' )))]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
+												}
 											}
 
 											expand = {}
@@ -329,27 +340,29 @@ window = {
 									}
 
 									hbox = {
+										allow_outside = yes
 										layoutpolicy_horizontal = expanding
 										alwaystransparent = no
 										spacing = 5
 
 										datacontext = "[ObligationLevelCheckbox.GetLevel( '(int32)1' )]" # First one is always no effect/disabled option
 
-										button_checkbox_label = {
-											# Order dependent, first select the unselected level then set it as the new selected one
-											onclick = "[ObligationLevelCheckbox.AccessLevel( ObligationLevelCheckbox.GetUnselectedLevelIndex ).Select]"
-											onclick = "[ObligationLevelCheckbox.ToggleSelection]"
-
-											blockoverride "checkbox"
-											{
-												checked = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
-												enabled = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled]" 
+										widget = {
+											
+											allow_outside = yes
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{
+													visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'religious_rights' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'religious_rights' ).GetObligationNameShortNoTooltip('religious_rights_none' )))]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('religious_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+												}
 											}
-
-											blockoverride "text"
-											{
-												text = "[ModifyVassalContractInteractionWindowObligationLevelOption.GetName]"
-												default_format = "#light_background"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{
+													visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'religious_rights' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'religious_rights' ).GetObligationNameShortNoTooltip('religious_rights_protected' )))]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('religious_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+												}
 											}
 										}
 
@@ -533,13 +546,17 @@ window = {
 				}
 
 				vbox_character_interaction_effects_simple = {
+					# [TCMA]
+					# maximumsize = { 550 240 }
 					visible = "[CharacterInteractionConfirmationWindow.GetEffectsDescription.HasAnyAcceptEffect]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 					datacontext = "[CharacterInteractionConfirmationWindow.GetEffectsDescription]"
+					# [/TCMA]
 				}
 
 				vbox = {
+					# maximumsize = { 550 240 }
 					visible = "[Not( CharacterInteractionConfirmationWindow.GetEffectsDescription.HasAnyAcceptEffect )]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
@@ -553,24 +570,15 @@ window = {
 
 				vbox = {
 					spacing = 10
-
+					
 					vbox = {
 						name = "tax_levy_opinion_info"
 						layoutpolicy_horizontal = expanding
 						spacing = 15
 						margin_top = 10
 						
-						# hbox = {
-						# 	datacontext = "[ModifyVassalContractInteractionWindow.GetContractPreview]" 
-						# 	progressbar_green = {
-						# 		# visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.Var('ticking_authority').GetValue,GetPlayer.MakeScope.ScriptValue('realm_authority'))]"
-	
-						# 		size = { 500 30 }
-						# 		min = -100
-						# 		max = 100
-						# 		value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.ScriptValue('liege_contract_negotiation_acceptance'))]"
-						# 	}
-						# }
+
+
 						hbox = {
 							layoutpolicy_horizontal = expanding
 							spacing = 40
@@ -673,10 +681,45 @@ window = {
 								}
 							}
 						}
+						widget = {
+							progressbar_green = {
+								visible = "[GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('contract_negotiation_acceptance'),'(CFixedPoint)0')]"
+								position = { 0 0 }	
+								size = { 350 30 }
+								min = -100000
+								max = 100000
+								value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.ScriptValue('contract_negotiation_acceptance'))]"
+							}
+							progressbar_red = {
+								visible = "[LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('contract_negotiation_acceptance'),'(CFixedPoint)0')]"
+								position = { 0 0 }	
+								size = { 350 30 }
+								min = -100000
+								max = 100000
+								value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.ScriptValue('contract_negotiation_acceptance'))]"
+							}
+							icon = {
+								position = { 175 0 }
+								parentanchor = top
+								alwaystransparent = yes
+								texture = "gfx/interface/window_factions/faction_progress_threshold.dds"
+							}
+							# progressbar_red = {
+							# 	position = { -250 0 }	
+							# 	size = { 250 30 }
+							# 	min = -100000
+							# 	max = 100000
+							# 	value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.ScriptValue('contract_negotiation_acceptance'))]"
+							# }
+						}
+						
 					}
 				}
 
 				expand = {}
+					spacer = {
+						size = { 30 10 }
+					}
 
 				vbox = {
 					layoutpolicy_horizontal = expanding

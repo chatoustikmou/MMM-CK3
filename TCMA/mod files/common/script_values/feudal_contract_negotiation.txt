@@ -39,6 +39,26 @@ vassal_contract_negotiation_acceptance = {
 	if = { limit = { local_var:title_revocation_rights 	!= vassal_contract_obligation_level:title_revocation_rights 	} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:title_revocation_rights 	var:level = local_var:title_revocation_rights	} add = var:vassal_desire subtract = var:vassal_refusal }}
 }
 
+contract_negotiation_acceptance = {
+	var:contract_negotiation = {
+		if = {
+			limit = { var:vassal = PREV }
+			every_in_list = {
+				variable = negotiated_obligations
+				add = var:ruler_desire
+				subtract = var:ruler_refusal
+			}
+		}
+		else_if = {
+			limit = { var:ruler = PREV }
+			every_in_list = {
+				variable = negotiated_obligations
+				add = var:vassal_desire
+				subtract = var:vassal_refusal
+			}
+		}
+	}
+}
 
 # feudal_government_taxes_0_ruler_desire = { add = 100 add = liege.ai_greed multiply = { add = 0 subtract = vassal_contract_obligation_level:feudal_government_taxes } min = 0 }
 # feudal_government_taxes_0_ruler_refusal = { add = 100 add = liege.ai_greed multiply = { add = vassal_contract_obligation_level:feudal_government_taxes subtract = 0 } min = 0 multiply = { add = 0 subtract = vassal_contract_obligation_level:feudal_government_taxes }}
@@ -90,12 +110,12 @@ vassal_contract_negotiation_acceptance = {
 # feudal_government_levies_4_vassal_desire = { add = 100 add = ai_boldness multiply = { add = vassal_contract_obligation_level:feudal_government_levies subtract = 4 } min = 0 }
 # feudal_government_levies_4_vassal_refusal = { add = 100 add = ai_boldness multiply = { add = 4 subtract = vassal_contract_obligation_level:feudal_government_levies } min = 0 multiply = { add = 4 subtract = vassal_contract_obligation_level:feudal_government_levies }}
 
-ai_boldness_abs = {
+ai_boldness_pos = {
 	if = {
-		limit = { ai_boldness >= 0 }
+		limit = { ai_boldness > 0 }
 		add = ai_boldness
 	}
-	else = { subtract = ai_boldness }
+	else = { add = 0 }
 }
 
 ai_boldness_neg = {
@@ -104,6 +124,14 @@ ai_boldness_neg = {
 		add = ai_boldness
 	}
 	else = { add = 0 }
+}
+
+ai_boldness_abs = {
+	if = {
+		limit = { ai_boldness >= 0 }
+		add = ai_boldness
+	}
+	else = { subtract = ai_boldness }
 }
 
 ai_honor_pos = {
@@ -120,6 +148,14 @@ ai_honor_neg = {
 		add = ai_honor
 	}
 	else = { add = 0 }
+}
+
+ai_honor_abs = {
+	if = {
+		limit = { ai_honor >= 0 }
+		add = ai_honor
+	}
+	else = { subtract = ai_honor }
 }
 
 feudal_government_levies_0_ruler = {
@@ -355,11 +391,11 @@ feudal_government_levies_2_ruler_refusal = { value = 0 subtract = feudal_governm
 feudal_government_levies_3_ruler_refusal = { value = 0 subtract = feudal_government_levies_3_ruler min = 0 }
 feudal_government_levies_4_ruler_refusal = { value = 0 subtract = feudal_government_levies_4_ruler min = 0 }
 
-feudal_government_levies_0_vassal_refusal = { subtract = feudal_government_levies_0_vassal min = 0 }
-feudal_government_levies_1_vassal_refusal = { subtract = feudal_government_levies_1_vassal min = 0 }
-feudal_government_levies_2_vassal_refusal = { subtract = feudal_government_levies_2_vassal min = 0 }
-feudal_government_levies_3_vassal_refusal = { subtract = feudal_government_levies_3_vassal min = 0 }
-feudal_government_levies_4_vassal_refusal = { subtract = feudal_government_levies_4_vassal min = 0 }
+feudal_government_levies_0_vassal_refusal = { value = 0 subtract = feudal_government_levies_0_vassal min = 0 }
+feudal_government_levies_1_vassal_refusal = { value = 0 subtract = feudal_government_levies_1_vassal min = 0 }
+feudal_government_levies_2_vassal_refusal = { value = 0 subtract = feudal_government_levies_2_vassal min = 0 }
+feudal_government_levies_3_vassal_refusal = { value = 0 subtract = feudal_government_levies_3_vassal min = 0 }
+feudal_government_levies_4_vassal_refusal = { value = 0 subtract = feudal_government_levies_4_vassal min = 0 }
 
 feudal_government_taxes_0_ruler = {
 	if = {
@@ -573,29 +609,29 @@ feudal_government_taxes_4_vassal = {
 	else = { add = 0 }
 }
 
-feudal_government_taxes_0_ruler_desire = { add = feudal_government_taxes_0_ruler min = 0 }
-feudal_government_taxes_1_ruler_desire = { add = feudal_government_taxes_1_ruler min = 0 }
-feudal_government_taxes_2_ruler_desire = { add = feudal_government_taxes_2_ruler min = 0 }
-feudal_government_taxes_3_ruler_desire = { add = feudal_government_taxes_3_ruler min = 0 }
-feudal_government_taxes_4_ruler_desire = { add = feudal_government_taxes_4_ruler min = 0 }
+feudal_government_taxes_0_ruler_desire = { value = 0 add = feudal_government_taxes_0_ruler min = 0 }
+feudal_government_taxes_1_ruler_desire = { value = 0 add = feudal_government_taxes_1_ruler min = 0 }
+feudal_government_taxes_2_ruler_desire = { value = 0 add = feudal_government_taxes_2_ruler min = 0 }
+feudal_government_taxes_3_ruler_desire = { value = 0 add = feudal_government_taxes_3_ruler min = 0 }
+feudal_government_taxes_4_ruler_desire = { value = 0 add = feudal_government_taxes_4_ruler min = 0 }
 
-feudal_government_taxes_0_vassal_desire = { add = feudal_government_taxes_0_vassal min = 0 }
-feudal_government_taxes_1_vassal_desire = { add = feudal_government_taxes_1_vassal min = 0 }
-feudal_government_taxes_2_vassal_desire = { add = feudal_government_taxes_2_vassal min = 0 }
-feudal_government_taxes_3_vassal_desire = { add = feudal_government_taxes_3_vassal min = 0 }
-feudal_government_taxes_4_vassal_desire = { add = feudal_government_taxes_4_vassal min = 0 }
+feudal_government_taxes_0_vassal_desire = { value = 0 add = feudal_government_taxes_0_vassal min = 0 }
+feudal_government_taxes_1_vassal_desire = { value = 0 add = feudal_government_taxes_1_vassal min = 0 }
+feudal_government_taxes_2_vassal_desire = { value = 0 add = feudal_government_taxes_2_vassal min = 0 }
+feudal_government_taxes_3_vassal_desire = { value = 0 add = feudal_government_taxes_3_vassal min = 0 }
+feudal_government_taxes_4_vassal_desire = { value = 0 add = feudal_government_taxes_4_vassal min = 0 }
 
-feudal_government_taxes_0_ruler_refusal = { subtract = feudal_government_taxes_0_ruler min = 0 }
-feudal_government_taxes_1_ruler_refusal = { subtract = feudal_government_taxes_1_ruler min = 0 }
-feudal_government_taxes_2_ruler_refusal = { subtract = feudal_government_taxes_2_ruler min = 0 }
-feudal_government_taxes_3_ruler_refusal = { subtract = feudal_government_taxes_3_ruler min = 0 }
-feudal_government_taxes_4_ruler_refusal = { subtract = feudal_government_taxes_4_ruler min = 0 }
+feudal_government_taxes_0_ruler_refusal = { value = 0 subtract = feudal_government_taxes_0_ruler min = 0 }
+feudal_government_taxes_1_ruler_refusal = { value = 0 subtract = feudal_government_taxes_1_ruler min = 0 }
+feudal_government_taxes_2_ruler_refusal = { value = 0 subtract = feudal_government_taxes_2_ruler min = 0 }
+feudal_government_taxes_3_ruler_refusal = { value = 0 subtract = feudal_government_taxes_3_ruler min = 0 }
+feudal_government_taxes_4_ruler_refusal = { value = 0 subtract = feudal_government_taxes_4_ruler min = 0 }
 
-feudal_government_taxes_0_vassal_refusal = { subtract = feudal_government_taxes_0_vassal min = 0 }
-feudal_government_taxes_1_vassal_refusal = { subtract = feudal_government_taxes_1_vassal min = 0 }
-feudal_government_taxes_2_vassal_refusal = { subtract = feudal_government_taxes_2_vassal min = 0 }
-feudal_government_taxes_3_vassal_refusal = { subtract = feudal_government_taxes_3_vassal min = 0 }
-feudal_government_taxes_4_vassal_refusal = { subtract = feudal_government_taxes_4_vassal min = 0 }
+feudal_government_taxes_0_vassal_refusal = { value = 0 subtract = feudal_government_taxes_0_vassal min = 0 }
+feudal_government_taxes_1_vassal_refusal = { value = 0 subtract = feudal_government_taxes_1_vassal min = 0 }
+feudal_government_taxes_2_vassal_refusal = { value = 0 subtract = feudal_government_taxes_2_vassal min = 0 }
+feudal_government_taxes_3_vassal_refusal = { value = 0 subtract = feudal_government_taxes_3_vassal min = 0 }
+feudal_government_taxes_4_vassal_refusal = { value = 0 subtract = feudal_government_taxes_4_vassal min = 0 }
 
 special_contract_0_ruler_desire = 0
 special_contract_0_ruler_refusal = 0
@@ -617,94 +653,111 @@ special_contract_3_ruler_refusal = 0
 special_contract_3_vassal_desire = 0
 special_contract_3_vassal_refusal = 0
 
-religious_rights_ruler_0 = {
-	add = 100
-	add = liege.ai_zeal
-	multiply = { add = 0 add = vassal_contract_obligation_level:religious_rights }
-}
-religious_rights_ruler_1 = {
-	add = 100
-	add = liege.ai_zeal
-	multiply = { add = 1 subtract = vassal_contract_obligation_level:religious_rights }
-}
-religious_rights_0_ruler_desire = { add = religious_rights_ruler_0 min = 0 }
-religious_rights_0_ruler_refusal = { subtract = religious_rights_ruler_0 min = 0 }
-religious_rights_1_ruler_desire = { subtract = religious_rights_ruler_1 min = 0 }
-religious_rights_1_ruler_refusal = { add = religious_rights_ruler_1 min = 0 }
+religious_rights_0_ruler_desire = { add = 100 add = liege.ai_zeal min = 0 }
+religious_rights_0_ruler_refusal = { add = 0 }
+religious_rights_1_ruler_desire = { add = 0 }
+religious_rights_1_ruler_refusal = { add = 100 add = liege.ai_zeal min = 0 }
 
-religious_rights_vassal_0 = {
-	add = 100
-	add = ai_zeal
-	multiply = { add = 0 add = vassal_contract_obligation_level:religious_rights }
-}
-religious_rights_vassal_1 = {
-	add = 100
-	add = ai_zeal
-	multiply = { add = 1 subtract = vassal_contract_obligation_level:religious_rights }
-}
-religious_rights_0_vassal_desire = { subtract = religious_rights_vassal_0 min = 0 }
-religious_rights_0_vassal_refusal = { add = religious_rights_vassal_0 min = 0 }
-religious_rights_1_vassal_desire = { add = religious_rights_vassal_1 min = 0 }
-religious_rights_1_vassal_refusal = { subtract = religious_rights_vassal_1 min = 0 }
+religious_rights_0_vassal_desire = { add = 0 }
+religious_rights_0_vassal_refusal = { add = 100 add = ai_zeal min = 0 }
+religious_rights_1_vassal_desire = { add = 100 add = ai_zeal min = 0 }
+religious_rights_1_vassal_refusal = { add = 0 }
 
 
 fortification_rights_ruler = { 
 	add = 100
 	subtract = liege.ai_greed
 	subtract = liege.ai_compassion
+	min = 0
 }
-fortification_rights_0_ruler_desire = { add = fortification_rights_ruler min = 0 }
-fortification_rights_0_ruler_refusal = { subtract = fortification_rights_ruler min = 0 }
-fortification_rights_1_ruler_desire = { subtract = fortification_rights_ruler min = 0 }
-fortification_rights_1_ruler_refusal = { add = fortification_rights_ruler min = 0 }
+fortification_rights_0_ruler_desire = { add = fortification_rights_ruler }
+fortification_rights_0_ruler_refusal = { add = 0 }
+fortification_rights_1_ruler_desire = { add = 0 }
+fortification_rights_1_ruler_refusal = { add = fortification_rights_ruler }
 
 fortification_rights_vassal = {
 	add = 100
 	add = ai_greed
 	subtract = ai_boldness
+	min = 0
 }
-fortification_rights_0_vassal_desire = { subtract = fortification_rights_vassal min = 0 }
-fortification_rights_0_vassal_refusal = { add = fortification_rights_vassal min = 0 }
-fortification_rights_1_vassal_desire = { add = fortification_rights_vassal min = 0 }
-fortification_rights_1_vassal_refusal = { subtract = fortification_rights_vassal min = 0 }
+fortification_rights_0_vassal_desire = { add = 0 }
+fortification_rights_0_vassal_refusal = { add = fortification_rights_vassal }
+fortification_rights_1_vassal_desire = { add = fortification_rights_vassal }
+fortification_rights_1_vassal_refusal = { add = 0 }
 
 coinage_rights_ruler = {
 	add = 100
 	subtract = liege.ai_compassion
 }
 coinage_rights_0_ruler_desire = { add = coinage_rights_ruler min = 0 }
-coinage_rights_0_ruler_refusal = { subtract = coinage_rights_ruler min = 0 }
-coinage_rights_1_ruler_desire = { subtract = coinage_rights_ruler min = 0 }
+coinage_rights_0_ruler_refusal = { add = 0 }
+coinage_rights_1_ruler_desire = { add min = 0 }
 coinage_rights_1_ruler_refusal = { add = coinage_rights_ruler min = 0 }
 
 coinage_rights_vassal = {
 	add = 100
 	add = ai_compassion
+	min = 0
 }
-coinage_rights_0_vassal_desire = { subtract = coinage_rights_vassal min = 0 }
-coinage_rights_0_vassal_refusal = { add = coinage_rights_vassal min = 0 }
-coinage_rights_1_vassal_desire = { add = coinage_rights_vassal min = 0 }
-coinage_rights_1_vassal_refusal = { subtract = coinage_rights_vassal min = 0 }
+coinage_rights_0_vassal_desire = { add = 0 }
+coinage_rights_0_vassal_refusal = { add = coinage_rights_vassal }
+coinage_rights_1_vassal_desire = { add = coinage_rights_vassal }
+coinage_rights_1_vassal_refusal = { add = 0 }
 
 succession_rights_0_ruler_desire = 0
 succession_rights_0_ruler_refusal = 0
-succession_rights_0_vassal_desire = 0
-succession_rights_0_vassal_refusal = 0
-
 succession_rights_1_ruler_desire = 0
 succession_rights_1_ruler_refusal = 0
+
+succession_rights_0_vassal_desire = 0
+succession_rights_0_vassal_refusal = 0
 succession_rights_1_vassal_desire = 0
 succession_rights_1_vassal_refusal = 0
 
-war_declaration_rights_0_ruler_desire = 0
-war_declaration_rights_0_ruler_refusal = 0
-war_declaration_rights_0_vassal_desire = 0
-war_declaration_rights_0_vassal_refusal = 0
+war_declaration_rights_ruler = {
+	add = 100
+	
+}
+war_declaration_rights_0_ruler_desire = { add = 100 subtract = ai_honor }
+war_declaration_rights_0_ruler_refusal = { add = 0 }
+war_declaration_rights_1_ruler_desire = { add = 0 }
+war_declaration_rights_1_ruler_refusal = { add = 100 add = ai_honor_pos }
 
-war_declaration_rights_1_ruler_desire = 0
-war_declaration_rights_1_ruler_refusal = 0
-war_declaration_rights_1_vassal_desire = 0
-war_declaration_rights_1_vassal_refusal = 0
+war_declaration_rights_0_vassal_desire = { add = 0 }
+war_declaration_rights_0_vassal_refusal = {
+	add = 100
+	add = ai_honor_abs
+	if = {
+		limit = {
+			liege = {
+				OR = {
+					has_realm_law = crown_authority_3
+					has_realm_law = crown_authority_4
+				}
+			}
+		}
+	}
+}
+war_declaration_rights_1_vassal_desire = {
+	if = {
+		limit = {
+			OR = {
+				has_claim_on_fellow_vassal = yes
+				liege = {
+					OR = {
+						has_realm_law = crown_authority_3
+						has_realm_law = crown_authority_4
+					}
+				}
+			}
+		}
+		add = ai_boldness
+		subtract = ai_honor
+	}
+	min = 0
+}
+war_declaration_rights_1_vassal_refusal = { add = 0 }
 
 council_rights_ruler = {
 	add = 100
@@ -715,23 +768,23 @@ council_rights_ruler = {
 	}
 	min = 0
 }
-council_rights_0_ruler_desire = { add = council_rights_ruler min = 0 }
-council_rights_0_ruler_refusal = { subtract = council_rights_ruler min = 0 }
-council_rights_1_ruler_desire = { subtract = council_rights_ruler min = 0 }
+council_rights_0_ruler_desire = { add = council_rights_ruler }
+council_rights_0_ruler_refusal = { add = 0 }
+council_rights_1_ruler_desire = { add = 0 }
 council_rights_1_ruler_refusal = { add = council_rights_ruler min = 0 }
 
 council_rights_vassal = {
-	add = 50
 	add = ai_sociability
 	if = {
 		limit = { is_powerful_vassal = yes }
 		add = 50
 	}
+	min = 0
 }
-council_rights_0_vassal_desire = { subtract = council_rights_vassal min = 0 }
+council_rights_0_vassal_desire = { add = 0 }
 council_rights_0_vassal_refusal = { add = council_rights_vassal min = 0 }
 council_rights_1_vassal_desire = { add = council_rights_vassal min = 0 }
-council_rights_1_vassal_refusal = { subtract = council_rights_vassal min = 0 }
+council_rights_1_vassal_refusal = { add = 0 }
 
 title_revocation_rights_ruler = {
 	add = 100
@@ -740,10 +793,10 @@ title_revocation_rights_ruler = {
 	subtract = ai_honor_neg
 	min = 0
 }
-title_revocation_rights_0_ruler_desire = { add = title_revocation_rights_ruler min = 0 }
-title_revocation_rights_0_ruler_refusal = { subtract = title_revocation_rights_ruler min = 0 }
-title_revocation_rights_1_ruler_desire = { subtract = title_revocation_rights_ruler min = 0 }
-title_revocation_rights_1_ruler_refusal = { add = title_revocation_rights_ruler min = 0 }
+title_revocation_rights_0_ruler_desire = { add = title_revocation_rights_ruler }
+title_revocation_rights_0_ruler_refusal = { add = 0 }
+title_revocation_rights_1_ruler_desire = { add = 0 }
+title_revocation_rights_1_ruler_refusal = { add = title_revocation_rights_ruler }
 
 title_revocation_rights_vassal = {
 	add = 100
@@ -752,18 +805,7 @@ title_revocation_rights_vassal = {
 	add = liege.ai_vengefulness
 	min = 0
 }
-title_revocation_rights_0_vassal_desire = { subtract = title_revocation_rights_vassal min = 0 }
-title_revocation_rights_0_vassal_refusal = { add = title_revocation_rights_vassal min = 0 }
-title_revocation_rights_1_vassal_desire = { add = title_revocation_rights_vassal min = 0 }
-title_revocation_rights_1_vassal_refusal = { subtract = title_revocation_rights_vassal min = 0 }
-
-
-
-# contract_negotiation_acceptance = {
-# 	var:contract_negotiation = {
-# 		every_in_list = {
-# 			name = negotiated_obligaitons
-
-# 		}
-# 	}
-# }
+title_revocation_rights_0_vassal_desire = { add = 0 }
+title_revocation_rights_0_vassal_refusal = { add = title_revocation_rights_vassal }
+title_revocation_rights_1_vassal_desire = { add = title_revocation_rights_vassal }
+title_revocation_rights_1_vassal_refusal = { add = 0 }

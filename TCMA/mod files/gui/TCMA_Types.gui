@@ -4,7 +4,6 @@ types TCMA {
 
 		block "Visible"
 		{
-			visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'feudal_government_taxes' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'feudal_government_taxes' ).GetObligationNameShortNoTooltip('feudal_tax_low' )))]"
 		}	
 		size = { 100 80 }
 
@@ -29,7 +28,6 @@ types TCMA {
 		onclick = "[ModifyVassalContractInteractionWindowObligationLevelOption.Select]"
 		block "OnClick"
 		{
-			onclick = "[GetScriptedGui('custom_sgui').IsShown(GuiScope.SetRoot( Character.MakeScope ).AddScope( 'obligation', ObligationContainerData.GetName ).AddScope( 'level', ModifyVassalContractInteractionWindowObligationLevelOption.GetName ).End)]"
 		}
 		down = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
 		# enabled = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled]"
@@ -51,6 +49,51 @@ types TCMA {
 			visible = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsCurrent]"
 
 			using = Mask_Rough_Edges
+		}
+	}
+
+	type TCMA_contract_radio_button = button_radio_label
+	{
+		block "OnClick"
+		{
+		}
+		
+		onclick = "[ModifyVassalContractInteractionWindowObligationLevelOption.Select]"
+		enabled = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled]"
+
+		blockoverride "radio" 
+		{ 
+			frame = "[BoolTo1And2( ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected )]"
+		}
+		blockoverride "text"
+		{
+			text = "[ModifyVassalContractInteractionWindowObligationLevelOption.GetName]"
+			default_format = "#light_background"
+		}
+
+		tooltip = "[ModifyVassalContractInteractionWindowObligationLevelOption.GetTooltip]"
+	}
+
+	type TCMA_contract_checkbox_button = button_checkbox_label
+	{
+		block "OnClik"
+		{
+		}
+		
+		# Order dependent, first select the unselected level then set it as the new selected one
+		onclick = "[ObligationLevelCheckbox.AccessLevel( ObligationLevelCheckbox.GetUnselectedLevelIndex ).Select]"
+		onclick = "[ObligationLevelCheckbox.ToggleSelection]"
+
+		blockoverride "checkbox"
+		{
+			checked = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
+			enabled = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled]" 
+		}
+
+		blockoverride "text"
+		{
+			text = "[ModifyVassalContractInteractionWindowObligationLevelOption.GetName]"
+			default_format = "#light_background"
 		}
 	}
 }

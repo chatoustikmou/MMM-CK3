@@ -73,3 +73,17 @@ liege_accepts_negotiations = {
 vassal_accepts_negotiations = {
 	vassal_contract_negotiation_acceptance > 0
 }
+
+# Supported scopes : character
+has_claim_on_fellow_vassal = {
+	is_landed = yes
+	exists = liege
+	any_claim = {
+		PREV.liege.primary_title = {
+			is_de_facto_liege_or_above_target = PREV
+		}
+		PREV.primary_title = {
+			NOT = { is_de_facto_liege_or_above_target = PREV }
+		}
+	}
+}
