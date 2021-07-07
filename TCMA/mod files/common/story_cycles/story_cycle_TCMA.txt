@@ -69,71 +69,39 @@
 			if = { limit = { has_variable = obligation } remove_variable = obligation }
 			if = { limit = { has_variable = level } remove_variable = level }
 			if = { limit = { has_variable = ruler_desire } remove_variable = ruler_desire }
-			if = { limit = { has_variable = vassal_desire } remove_variable = vassal_desire }
 			if = { limit = { has_variable = ruler_refusal } remove_variable = ruler_refusal }
+			if = { limit = { has_variable = ruler_refusal_hooked } remove_variable = ruler_refusal_hooked }
+			if = { limit = { has_variable = vassal_desire } remove_variable = vassal_desire }
 			if = { limit = { has_variable = vassal_refusal } remove_variable = vassal_refusal }
+			if = { limit = { has_variable = vassal_refusal_hooked } remove_variable = vassal_refusal_hooked }
 			remove_variable = initiator
 			remove_variable = receiver
 		}
-		set_variable = {
-			name = vassal_max_acceptance
-			value = 0
-		}
-		set_variable = {
-			name = ruler_max_acceptance
-			value = 0
-		}
-		story_owner = {
-			every_owned_story = {
-				limit = { story_type = obligation_level_desire }
-				save_temporary_scope_as = sorting_stories
-				story_owner = {
-					ordered_owned_story = {
-						limit = {
-							story_type = obligation_level_desire
-							var:obligation = scope:sorting_stories.var:obligation
-							var:vassal_desire > 0
-						}
-						order_by = var:vassal_desire
-						if = {
-							limit = { THIS = scope:sorting_stories }
-							scope:story = {
-								change_variable = {
-									name = vassal_max_acceptance
-									add = PREV.var:vassal_desire
-								}
-							}
-						}
-					}
-					ordered_owned_story = {
-						limit = {
-							story_type = obligation_level_desire
-							var:obligation = scope:sorting_stories.var:obligation
-							var:ruler_desire > 0
-						}
-						order_by = var:ruler_desire
-						if = {
-							limit = { THIS = scope:sorting_stories }
-							scope:story = {
-								change_variable = {
-									name = ruler_max_acceptance
-									add = PREV.var:ruler_desire
-								}
-							}
-						}
-					}
+		reset_negotiation_acceptance = yes
+
+		if = {
+			limit = {
+				any_in_list = {
+					variable = negotiable_obligations
+					save_temporary_scope_as = temp_story
+					var:ruler_desire = { compare_value <= scope:temp_story.var:vassal_refusal }
 				}
 			}
+			var:ruler = { add_character_flag = negotiation_hook }
 		}
-		set_variable = {
-			name = ruler_max_balance
-			value = var:ruler_max_acceptance
-		}
-		set_variable = {
-			name = vassal_max_balance
-			value = var:vassal_max_acceptance
+
+		if = {
+			limit = {
+				any_in_list = {
+					variable = negotiable_obligations
+					save_temporary_scope_as = temp_story
+					var:vassal_desire = { compare_value <= scope:temp_story.var:ruler_refusal }
+				}
+			}
+			var:vassal = { add_character_flag = negotiation_hook }
 		}
 	}
+
 	on_end = {
 		story_owner = {
 			every_owned_story = {
@@ -147,6 +115,7 @@
 		}
 		var:ruler = { remove_variable = contract_negotiation }
 	}
+	
 	on_owner_death = {
 		end_story = yes
 	}
@@ -318,6 +287,129 @@
 				}
 			}
 		}
+	}
+}
+
+feudal_contract_negotiation_player = {
+	on_setup = {
+		debug_log = "negotiations on_setup"
+		set_variable = {
+			name = vassal
+			value = story_owner
+		}
+		set_variable = {
+			name = ruler
+			value = story_owner.liege
+		}		
+		set_variable = {
+			name = initiator
+			value = story_owner.var:initiator
+		}
+		set_variable = {
+			name = receiver
+			value = story_owner.var:receiver
+		}
+		var:vassal = {
+			set_variable = {
+				name = contract_negotiation
+				value = scope:story
+			}
+		}
+		var:ruler = {
+			set_variable = {
+				name = contract_negotiation
+				value = scope:story
+			}
+		}
+		set_variable = {
+			name = vassal_acceptance
+			value = 0
+		}
+		set_variable = {
+			name = ruler_acceptance
+			value = 0
+		}
+		story_owner = {
+			set_obligation_level_desire = { OBLIGATION = feudal_government_taxes LEVEL = 0 }
+			set_obligation_level_desire = { OBLIGATION = feudal_government_taxes LEVEL = 1 }
+			set_obligation_level_desire = { OBLIGATION = feudal_government_taxes LEVEL = 2 }
+			set_obligation_level_desire = { OBLIGATION = feudal_government_taxes LEVEL = 3 }
+			set_obligation_level_desire = { OBLIGATION = feudal_government_taxes LEVEL = 4 }
+			set_obligation_level_desire = { OBLIGATION = feudal_government_levies LEVEL = 0 }
+			set_obligation_level_desire = { OBLIGATION = feudal_government_levies LEVEL = 1 }
+			set_obligation_level_desire = { OBLIGATION = feudal_government_levies LEVEL = 2 }
+			set_obligation_level_desire = { OBLIGATION = feudal_government_levies LEVEL = 3 }
+			set_obligation_level_desire = { OBLIGATION = feudal_government_levies LEVEL = 4 }
+			set_obligation_level_desire = { OBLIGATION = special_contract LEVEL = 0 }
+			set_obligation_level_desire = { OBLIGATION = special_contract LEVEL = 1 }
+			set_obligation_level_desire = { OBLIGATION = special_contract LEVEL = 2 }
+			set_obligation_level_desire = { OBLIGATION = special_contract LEVEL = 3 }
+			set_obligation_level_desire = { OBLIGATION = religious_rights LEVEL = 0 }
+			set_obligation_level_desire = { OBLIGATION = religious_rights LEVEL = 1 }
+			set_obligation_level_desire = { OBLIGATION = fortification_rights LEVEL = 0 }
+			set_obligation_level_desire = { OBLIGATION = fortification_rights LEVEL = 1 }
+			set_obligation_level_desire = { OBLIGATION = coinage_rights LEVEL = 0 }
+			set_obligation_level_desire = { OBLIGATION = coinage_rights LEVEL = 1 }
+			set_obligation_level_desire = { OBLIGATION = succession_rights LEVEL = 0 }
+			set_obligation_level_desire = { OBLIGATION = succession_rights LEVEL = 1 }
+			set_obligation_level_desire = { OBLIGATION = war_declaration_rights LEVEL = 0 }
+			set_obligation_level_desire = { OBLIGATION = war_declaration_rights LEVEL = 1 }
+			set_obligation_level_desire = { OBLIGATION = council_rights LEVEL = 0 }
+			set_obligation_level_desire = { OBLIGATION = council_rights LEVEL = 1 }
+			set_obligation_level_desire = { OBLIGATION = title_revocation_rights LEVEL = 0 }
+			set_obligation_level_desire = { OBLIGATION = title_revocation_rights LEVEL = 1 }
+			if = { limit = { has_variable = obligation } remove_variable = obligation }
+			if = { limit = { has_variable = level } remove_variable = level }
+			if = { limit = { has_variable = ruler_desire } remove_variable = ruler_desire }
+			if = { limit = { has_variable = ruler_refusal } remove_variable = ruler_refusal }
+			if = { limit = { has_variable = ruler_refusal_hooked } remove_variable = ruler_refusal_hooked }
+			if = { limit = { has_variable = vassal_desire } remove_variable = vassal_desire }
+			if = { limit = { has_variable = vassal_refusal } remove_variable = vassal_refusal }
+			if = { limit = { has_variable = vassal_refusal_hooked } remove_variable = vassal_refusal_hooked }
+			remove_variable = initiator
+			remove_variable = receiver
+		}
+		reset_negotiation_acceptance = yes
+
+		if = {
+			limit = {
+				any_in_list = {
+					variable = negotiable_obligations
+					save_temporary_scope_as = temp_story
+					var:ruler_desire = { compare_value <= scope:temp_story.var:vassal_refusal }
+				}
+			}
+			var:ruler = { add_character_flag = negotiation_hook }
+		}
+
+		if = {
+			limit = {
+				any_in_list = {
+					variable = negotiable_obligations
+					save_temporary_scope_as = temp_story
+					var:vassal_desire = { compare_value <= scope:temp_story.var:ruler_refusal }
+				}
+			}
+			var:vassal = { add_character_flag = negotiation_hook }
+		}
+	}
+
+	on_end = {
+		story_owner = {
+			every_owned_story = {
+				limit = { story_type = obligation_level_desire }
+				end_story = yes
+			}
+		}
+		var:vassal = {
+			remove_variable = contract_negotiation
+			remove_variable = negotiation_ongoing
+		}
+		var:ruler = { remove_variable = contract_negotiation }
+	}
+	
+	on_owner_death = {
+		end_story = yes
 	}
 }
 

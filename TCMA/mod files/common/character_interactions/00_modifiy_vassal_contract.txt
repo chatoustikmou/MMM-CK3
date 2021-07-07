@@ -17,6 +17,7 @@
 			liege = scope:actor
 			is_ruler = yes
 			vassal_contract_has_modifiable_obligations = yes
+			is_ai = yes
 		}
 	}
 
@@ -40,8 +41,29 @@
 		}
 		trigger_else = {
 			# [TCMA]
-
-			vassal_contract_negotiation_acceptance = yes
+			scope:recipient = {
+				custom_description = {
+					text = "accepts_proposal"
+					subject = scope:recipient
+					vassal_contract_negotiation_acceptance = yes
+				}
+				custom_description = {
+					text = "not_already_in_negotiation"
+					OR = {
+						NOT = { has_variable = contract_negotiation }
+						has_character_flag = gui_contract_negotiation
+					}
+				}
+			}
+			scope:actor = {
+				custom_description = {
+					text = "not_already_in_negotiation"
+					OR = {
+						NOT = { has_variable = contract_negotiation }
+						has_character_flag = gui_contract_negotiation
+					}
+				}
+			}
 			# [/TCMA]
 		}
 	}
@@ -165,9 +187,31 @@ vassal_modify_vassal_contract_interaction = {
 			# }
 			# liege_accepts_negotiations = yes
 			scope:actor = { 
-				liege_contract_negotiation_acceptance > 0
-			# [/TCMA]
+				custom_description = {
+					text = "accepts_proposal"
+					subject = scope:recipient
+					liege_contract_negotiation_acceptance > 0
+				}
 			}
+			scope:recipient = { 
+				custom_description = {
+					text = "not_already_in_negotiation"
+					OR = {
+						NOT = { has_variable = contract_negotiation }
+						has_character_flag = gui_contract_negotiation
+					}
+				}
+			}
+			scope:actor = {
+				custom_description = {
+					text = "not_already_in_negotiation"
+					OR = {
+						NOT = { has_variable = contract_negotiation }
+						has_character_flag = gui_contract_negotiation
+					}
+				}
+			}
+			# [/TCMA]
 		}
 	}
 
@@ -232,6 +276,7 @@ ai_only_liege_modify_vassal_contract_interaction = {
 		scope:actor = {
 			is_ai = yes
 			# has_usable_hook = scope:recipient
+			NOT = { has_variable = contract_negotiation }
 		}
 		scope:recipient = {
 			NOT = { this = scope:actor }
@@ -243,6 +288,7 @@ ai_only_liege_modify_vassal_contract_interaction = {
 			is_ruler = yes
 			vassal_contract_can_be_modified_trigger = yes
 			does_ai_liege_in_vassal_contract_desire_obligation_change = yes
+			NOT = { has_variable = contract_negotiation }
 		}
 		scope:recipient = { is_diplomatically_available = yes } 
 		NOT = { scope:actor = { is_at_war_with = scope:recipient } } 
@@ -272,8 +318,12 @@ ai_only_liege_modify_vassal_contract_interaction = {
 	ai_frequency = 24
 	
 	ai_will_do = {
-		base = 100
+		base = 50
 		
+		modifier = {
+			add = ai_energy
+		}
+
 		modifier = {
 			factor = 0
 			scope:recipient = {
@@ -307,6 +357,7 @@ ai_only_vassal_modify_vassal_contract_interaction = {
 			# has_usable_hook = scope:recipient
 			vassal_contract_can_be_modified_trigger = yes
 			does_ai_vassal_in_vassal_contract_desire_obligation_change = yes
+			NOT = { has_variable = contract_negotiation }
 		}
 		scope:recipient = {
 			NOT = { this = scope:actor }
@@ -314,6 +365,7 @@ ai_only_vassal_modify_vassal_contract_interaction = {
 			NOT = {
 				# has_strong_hook = scope:actor
 			}
+			NOT = { has_variable = contract_negotiation }
 		}
 		scope:recipient = { is_diplomatically_available = yes }
 		NOT = { scope:actor = { is_at_war_with = scope:recipient } }
@@ -336,8 +388,12 @@ ai_only_vassal_modify_vassal_contract_interaction = {
 	ai_frequency = 24
 	
 	ai_will_do = {
-		base = 100
+		base = 50
 		
+		modifier = {
+			add = ai_energy
+		}
+
 		modifier = {
 			factor = 0
 			scope:recipient = {

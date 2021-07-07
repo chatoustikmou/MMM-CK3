@@ -1,4 +1,12 @@
-﻿initiate_contract_negotiation_with_liege = {
+﻿testing = {
+	scope = character
+
+	effect = {
+		add_gold = 1000
+	}
+}
+
+initiate_contract_negotiation = {
 	scope = character
 	
 	is_shown = {
@@ -10,8 +18,17 @@
 	}
 
 	effect = {
-		start_feudal_contract_negotiation = { VASSAL = THIS INITIATOR = this }
-		add_gold = 1000
+		if = {
+			limit = { NOT = { has_variable = contract_negotiation }}
+			add_character_flag = gui_contract_negotiation
+			if = {
+				limit = { scope:recipient = THIS.liege }
+				start_feudal_contract_negotiation = { VASSAL = THIS INITIATOR = THIS }
+			}
+			else = {
+				start_feudal_contract_negotiation = { VASSAL = scope:recipient INITIATOR = THIS }
+			}
+		}
 	}
 }
 
@@ -27,11 +44,10 @@ end_contract_negotiation = {
 	}
 
 	effect = {
-		start_feudal_contract_negotiation = { VASSAL = THIS INITIATOR = THIS }
-		add_gold = 1000
-		trigger_event = {
-			on_action = clean_up_negotiation
-			days = 1
+		if = {
+			limit = { has_character_flag = gui_contract_negotiation }
+			remove_character_flag = gui_contract_negotiation
+			var:contract_negotiation = { end_story = yes }
 		}
 	}
 }
@@ -39,7 +55,6 @@ end_contract_negotiation = {
 update_contract_acceptance = {
 	scope = character
 	effect = {
-		add_gold = 1000
 		var:contract_negotiation = {
 			if = {
 				limit = {
@@ -74,42 +89,6 @@ update_contract_acceptance = {
 				}
 			}
 		}
-		# var:contract_negotiation = {
-		# 	set_variable = {
-		# 		name = contract_acceptance
-		# 		value = 0
-		# 	}
-		# 	if = {
-		# 		limit = { var:vassal = PREV }
-		# 		every_in_list = {
-		# 			variable = negotiated_obligations
-		# 			PREV = {
-		# 				change_variable = {
-		# 					name = contract_acceptance
-		# 					add = {
-		# 						add = PREV.var:ruler_desire
-		# 						subtract = PREV.var:ruler_refusal
-		# 					}
-		# 				}
-		# 			}
-		# 		}
-		# 	}
-		# 	else_if = {
-		# 		limit = { var:ruler = PREV }
-		# 		every_in_list = {
-		# 			variable = negotiated_obligations
-		# 			PREV = {
-		# 				change_variable = {
-		# 					name = contract_acceptance
-		# 					add = {
-		# 						add = PREV.var:vassal_desire
-		# 						subtract = PREV.var:vassal_refusal
-		# 					}
-		# 				}
-		# 			}
-		# 		}
-		# 	}
-		# }
 	}
 }
 

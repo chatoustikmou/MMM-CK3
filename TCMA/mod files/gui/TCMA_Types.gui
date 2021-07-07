@@ -76,13 +76,12 @@ types TCMA {
 
 	type TCMA_contract_checkbox_button = button_checkbox_label
 	{
-		block "OnClik"
-		{
-		}
-		
 		# Order dependent, first select the unselected level then set it as the new selected one
 		onclick = "[ObligationLevelCheckbox.AccessLevel( ObligationLevelCheckbox.GetUnselectedLevelIndex ).Select]"
 		onclick = "[ObligationLevelCheckbox.ToggleSelection]"
+		block "OnClick"
+		{
+		}
 
 		blockoverride "checkbox"
 		{

@@ -1755,7 +1755,7 @@ window = {
 								enabled = "[Character.IsPlayerInteractionValid('vassal_modify_vassal_contract_interaction')]"
 								onclick = "[Character.OpenPlayerInteraction('vassal_modify_vassal_contract_interaction')]"
 								# [TCMA]
-								onclick = "[GetScriptedGui('initiate_contract_negotiation_with_liege').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								# onclick = "[GetScriptedGui('initiate_contract_negotiation_with_liege').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								# [/TCMA]
 								tooltip = "[Character.GetPlayerInteractionTooltip('vassal_modify_vassal_contract_interaction')]"
 							}

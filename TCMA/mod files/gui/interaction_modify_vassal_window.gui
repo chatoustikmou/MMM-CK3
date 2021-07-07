@@ -11,17 +11,19 @@ window = {
 
 	using = Window_Background
 	using = Window_Decoration
-
+	
 	state = {
 		name = _show
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
+		on_start = "[GetScriptedGui('initiate_contract_negotiation').Execute(GuiScope.SetRoot( ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).End)]"
 	}
 
 	state = {
 		name = _hide
 		using = Animation_FadeOut_Quick
 		using = Sound_WindowHide_Standard
+		on_start = "[GetScriptedGui('end_contract_negotiation').Execute(GuiScope.SetRoot( ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope ).End)]"
 	}
 
 	vbox = {
@@ -348,20 +350,155 @@ window = {
 										datacontext = "[ObligationLevelCheckbox.GetLevel( '(int32)1' )]" # First one is always no effect/disabled option
 
 										widget = {
-											
 											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'religious_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)0'))]"
 											TCMA_contract_checkbox_button = {
 												blockoverride "OnClick"
-												{
-													visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'religious_rights' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'religious_rights' ).GetObligationNameShortNoTooltip('religious_rights_none' )))]"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('religious_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+												}
+											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'religious_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)1'))]"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{		
 													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('religious_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 												}
 											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'fortification_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)0'))]"
 											TCMA_contract_checkbox_button = {
 												blockoverride "OnClick"
-												{
-													visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'religious_rights' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'religious_rights' ).GetObligationNameShortNoTooltip('religious_rights_protected' )))]"
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('religious_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('fortification_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+												}
+											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'fortification_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)1'))]"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('fortification_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+												}
+											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'coinage_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)0'))]"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('coinage_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+												}
+											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'coinage_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)1'))]"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('coinage_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+												}
+											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'succession_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)0'))]"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('succession_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+												}
+											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'succession_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)1'))]"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('succession_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+												}
+											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'war_declaration_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)0'))]"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('war_declaration_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+												}
+											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'war_declaration_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)1'))]"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('war_declaration_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+												}
+											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'council_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)0'))]"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('council_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+												}
+											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'council_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)1'))]"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('council_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+												}
+											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'title_revocation_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)0'))]"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('title_revocation_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+												}
+											}
+										}
+
+										widget = {
+											allow_outside = yes
+											visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'title_revocation_rights' ).GetName), EqualTo_int32(ObligationLevelCheckbox.GetSelectedLevelIndex,'(int32)1'))]"
+											TCMA_contract_checkbox_button = {
+												blockoverride "OnClick"
+												{		
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('title_revocation_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 												}
 											}
 										}
@@ -681,21 +818,26 @@ window = {
 								}
 							}
 						}
+
 						widget = {
+							state = {
+								delay = 100
+								using = Animation_FadeIn_Standard
+							}
 							progressbar_green = {
 								visible = "[GreaterThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('contract_negotiation_acceptance'),'(CFixedPoint)0')]"
 								position = { 0 0 }	
 								size = { 350 30 }
-								min = -100000
-								max = 100000
+								min = -50000
+								max = 50000
 								value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.ScriptValue('contract_negotiation_acceptance'))]"
 							}
 							progressbar_red = {
 								visible = "[LessThanOrEqualTo_CFixedPoint(GetPlayer.MakeScope.ScriptValue('contract_negotiation_acceptance'),'(CFixedPoint)0')]"
 								position = { 0 0 }	
 								size = { 350 30 }
-								min = -100000
-								max = 100000
+								min = -50000
+								max = 50000
 								value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.ScriptValue('contract_negotiation_acceptance'))]"
 							}
 							icon = {
@@ -704,15 +846,7 @@ window = {
 								alwaystransparent = yes
 								texture = "gfx/interface/window_factions/faction_progress_threshold.dds"
 							}
-							# progressbar_red = {
-							# 	position = { -250 0 }	
-							# 	size = { 250 30 }
-							# 	min = -100000
-							# 	max = 100000
-							# 	value = "[FixedPointToProgressbarValue(GetPlayer.MakeScope.ScriptValue('contract_negotiation_acceptance'))]"
-							# }
-						}
-						
+						}						
 					}
 				}
 
