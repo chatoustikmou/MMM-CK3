@@ -72,27 +72,12 @@ start_feudal_contract_negotiation = {
 			name = receiver
 			value = scope:receiver
 		}
-		if = {
-			limit = {
-				OR = {
-					scope:vassal = { is_ai = no }
-					scope:vassal.liege = { is_ai = no }
-				}
-			}
-			create_story = {
-				type = feudal_contract_negotiation_player
-				save_temporary_scope_as = contract_negotiation
-			}
-		}
-		else = {
-			create_story = {
-				type = feudal_contract_negotiation
-				save_temporary_scope_as = contract_negotiation
-			}
+		create_story = {
+			type = feudal_contract_negotiation
+			save_temporary_scope_as = contract_negotiation
 		}
 	}
 }
-
 
 set_obligation_level_desire = {
 	# debug_log = "set_obligation_level_desire"
@@ -197,15 +182,6 @@ set_obligation_level_desire = {
 		}
 	}
 }
-
-# set_story_as_variable_obligation_level = {
-# 	set_variable = {
-# 		name = $OBLIGATION$_$LEVEL$
-# 		value = scope:story
-# 	}
-# }
-
-
 
 move_negotiation_along = {
 	ordered_in_list = {

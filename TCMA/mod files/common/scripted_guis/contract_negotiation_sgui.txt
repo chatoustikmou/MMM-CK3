@@ -19,10 +19,19 @@ initiate_contract_negotiation = {
 
 	effect = {
 		if = {
-			limit = { NOT = { has_variable = contract_negotiation }}
-			add_character_flag = gui_contract_negotiation
+			limit = {
+				NOR = {
+					has_variable = contract_negotiation
+					scope:recipient = { has_variable = contract_negotiation }
+				}
+			}
+			set_variable = gui_contract_negotiation
+			scope:recipient = { set_variable = gui_contract_negotiation }
 			if = {
-				limit = { scope:recipient = THIS.liege }
+				limit = {
+					exists = liege
+					liege = scope:recipient
+				}
 				start_feudal_contract_negotiation = { VASSAL = THIS INITIATOR = THIS }
 			}
 			else = {
@@ -45,8 +54,12 @@ end_contract_negotiation = {
 
 	effect = {
 		if = {
-			limit = { has_character_flag = gui_contract_negotiation }
-			remove_character_flag = gui_contract_negotiation
+			limit = {
+				has_variable = gui_contract_negotiation
+				NOT = { has_variable = PvP_negotiation }
+			}
+			remove_variable = gui_contract_negotiation
+			scope:recipient = { remove_variable = gui_contract_negotiation }
 			var:contract_negotiation = { end_story = yes }
 		}
 	}
@@ -92,4 +105,222 @@ update_contract_acceptance = {
 	}
 }
 
+send_proposal = {
+	scope = character
+	is_valid = {
+		scope:actor = {
+			is_ai = no
+			has_variable = gui_contract_negotiation
+		}
+		scope:recipient = {
+			is_ai = no
+			has_variable = gui_contract_negotiation
+		}
+		scope:actor.var:contract_negotiation = scope:recipient.var:contract_negotiation
+		scope:actor.var:contract_negotiation = {
+			OR = {
+				AND = {
+					NOT = { has_variable_list = agreed_upon_obligations }
+					has_variable_list = negotiated_obligations
+					variable_list_size = {
+						name = negotiated_obligations
+						value > 0
+					}
+				}
+				AND = {
+					variable_list_size = {
+						name = negotiated_obligations
+						value > 0
+					}
+					variable_list_size = {
+						name = agreed_upon_obligations
+						value > 0
+					}
+					any_in_list = {
+						variable = negotiated_obligations
+						PREV = {
+							NOT = {
+								is_target_in_variable_list = {
+									name = agreed_upon_obligations
+									target = PREV
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	effect = {
+		if = {
+			limit = { scope:recipient = { is_ai = no }}
+			set_variable = PvP_negotiation
+			scope:recipient = { set_variable = PvP_negotiation }
+		}
+		scope:actor.var:contract_negotiation = {
+			every_in_list = {
+				variable = negotiated_obligations
+				limit = {
+					PREV = {
+						NOT = {
+							is_target_in_variable_list = {
+								name = agreed_upon_obligations
+								target = PREV
+							}
+						}
+					}
+				}
+				PREV = {
+					add_to_variable_list = {
+						name = agreed_upon_obligations
+						target = PREV
+					}
+				}
+			}
+		}
+		scope:actor = { 
+			if = {
+				limit = { has_variable = pending_proposal }
+				remove_variable = pending_proposal
+			}
+		}
+		if = {
+			limit = { scope:recipient = scope:actor.liege }
+			scope:recipient = {
+				set_variable = pending_proposal
+				open_interaction_window = {
+					interaction = liege_modify_vassal_contract_interaction
+					actor = scope:recipient
+					recipient = scope:actor
+				}
+			}	
+		}
+		else = {
+			scope:recipient = {
+				set_variable = pending_proposal
+				open_interaction_window = {
+					interaction = vassal_modify_vassal_contract_interaction
+					actor = scope:recipient
+					recipient = scope:actor
+				}
+			}
+		}
+	}
+}
 
+agreed_upon_obligations = {
+	scope = character
+	is_shown = {
+		trigger_if = {
+			limit = {
+				has_variable = gui_contract_negotiation
+				var:contract_negotiation = {
+					any_in_list = {
+						variable = negotiated_obligations
+						var:obligation = scope:obligation
+					}
+				}
+			}
+			var:contract_negotiation = {
+				any_in_list = {
+					variable = negotiated_obligations
+					var:obligation = scope:obligation
+					var:level = scope:level
+				}
+			}
+		}
+		trigger_else = {
+			trigger_if = {
+				limit = {
+					exists = liege
+					liege = scope:recipient
+				}	
+				switch = {
+					trigger = scope:obligation
+					flag:feudal_government_taxes = { vassal_contract_obligation_level:feudal_government_taxes = scope:level }
+					flag:feudal_government_levies = { vassal_contract_obligation_level:feudal_government_levies = scope:level }
+					flag:special_contract = { vassal_contract_obligation_level:special_contract = scope:level }
+					flag:religious_rights = { vassal_contract_obligation_level:religious_rights = scope:level }
+					flag:fortification_rights = { vassal_contract_obligation_level:fortification_rights = scope:level }
+					flag:coinage_rights = { vassal_contract_obligation_level:coinage_rights = scope:level }
+					flag:succession_rights = { vassal_contract_obligation_level:succession_rights = scope:level }
+					flag:war_declaration_rights = { vassal_contract_obligation_level:war_declaration_rights = scope:level }
+					flag:council_rights = { vassal_contract_obligation_level:council_rights = scope:level }
+					flag:title_revocation_rights = { vassal_contract_obligation_level:title_revocation_rights = scope:level }
+				}
+			}
+			trigger_else = {
+				scope:recipient = {
+					switch = {
+						trigger = scope:obligation
+						flag:feudal_government_taxes = { vassal_contract_obligation_level:feudal_government_taxes = scope:level }
+						flag:feudal_government_levies = { vassal_contract_obligation_level:feudal_government_levies = scope:level }
+						flag:special_contract = { vassal_contract_obligation_level:special_contract = scope:level }
+						flag:religious_rights = { vassal_contract_obligation_level:religious_rights = scope:level }
+						flag:fortification_rights = { vassal_contract_obligation_level:fortification_rights = scope:level }
+						flag:coinage_rights = { vassal_contract_obligation_level:coinage_rights = scope:level }
+						flag:succession_rights = { vassal_contract_obligation_level:succession_rights = scope:level }
+						flag:war_declaration_rights = { vassal_contract_obligation_level:war_declaration_rights = scope:level }
+						flag:council_rights = { vassal_contract_obligation_level:council_rights = scope:level }
+						flag:title_revocation_rights = { vassal_contract_obligation_level:title_revocation_rights = scope:level }
+					}
+				}
+			}
+		}
+	}
+	is_valid = {
+		trigger_if = {
+			limit = { scope:recipient = { is_ai = yes }}
+			always = yes
+		}
+		trigger_else_if = {
+			limit = {
+				scope:recipient = { is_ai = no }
+				scope:actor = { has_variable = pending_proposal }
+			}
+			always = no
+		}
+		trigger_else = {
+			limit = { scope:recipient = { is_ai = no }}
+			var:contract_negotiation = {
+				any_in_list = {
+					variable = agreed_upon_obligations
+					var:obligation = scope:obligation
+					count = 0
+				}
+			}
+		}
+	}
+}
+
+reset_contract = {
+	scope = character
+	effect = {
+		if = {
+			limit = { exists = var:contract_negotiation }
+			var:contract_negotiation = {
+				every_in_list = {
+					variable = negotiated_obligations
+					if = {
+						limit = {
+							PREV = {
+								NOT = {
+									is_target_in_variable_list = {
+										name = agreed_upon_obligations
+										target = PREV
+									}
+								}
+							}
+						}
+						PREV = {
+							remove_list_variable = {
+								name = negotiated_obligations
+								target = PREV
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

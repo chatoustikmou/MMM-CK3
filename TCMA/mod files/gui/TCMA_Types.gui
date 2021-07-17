@@ -29,7 +29,7 @@ types TCMA {
 		block "OnClick"
 		{
 		}
-		down = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
+		# down = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
 		# enabled = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled]"
 		using = tooltip_above
 
@@ -59,7 +59,7 @@ types TCMA {
 		}
 		
 		onclick = "[ModifyVassalContractInteractionWindowObligationLevelOption.Select]"
-		enabled = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled]"
+		# enabled = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled]"
 
 		blockoverride "radio" 
 		{ 
@@ -82,13 +82,13 @@ types TCMA {
 		block "OnClick"
 		{
 		}
-
-		blockoverride "checkbox"
-		{
-			checked = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
-			enabled = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled]" 
-		}
-
+			
+		# blockoverride "checkbox"
+		# {
+		# 	checked = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
+		# 	enabled = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled]" 
+		# }
+		
 		blockoverride "text"
 		{
 			text = "[ModifyVassalContractInteractionWindowObligationLevelOption.GetName]"
