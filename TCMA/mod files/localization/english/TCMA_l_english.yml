@@ -28,3 +28,7 @@
   pending_contract_negotiation_with_vassal_active_desc: "#help Your vassal is waiting on you to send a counter-proposal#!"
   # pending_contract_negotiation_with_vassal_active_label: "pending_contract_negotiation_with_vassal_passive_label"
   pending_contract_negotiation_with_vassal_active_click: "#I Click to open the contract negotiation window#!"
+
+  ACCEPT_PROPOSAL: "Accept Proposal"
+  SEND_PROPOSAL: "Send Proposal"
+  REJECT_PROPOSAL: "Reject Proposal"

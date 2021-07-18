@@ -285,7 +285,7 @@ agreed_upon_obligations = {
 					has_variable = contract_negotiation
 					has_variable = PvP_negotiation
 					var:contract_negotiation = PREV.var:contract_negotiation
-					NOT = { has_variable = pending_proposal }
+					has_variable = pending_proposal
 				}
 			}
 			always = no
