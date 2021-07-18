@@ -192,6 +192,7 @@ send_proposal = {
 		if = {
 			limit = { scope:recipient = scope:actor.liege }
 			scope:recipient = {
+				set_variable = pending_proposal
 				open_interaction_window = {
 					interaction = liege_modify_vassal_contract_interaction
 					actor = scope:recipient
@@ -201,6 +202,7 @@ send_proposal = {
 		}
 		else = {
 			scope:recipient = {
+				set_variable = pending_proposal
 				open_interaction_window = {
 					interaction = vassal_modify_vassal_contract_interaction
 					actor = scope:recipient
@@ -281,14 +283,14 @@ agreed_upon_obligations = {
 				scope:recipient = {
 					is_ai = no
 					has_variable = contract_negotiation
+					has_variable = PvP_negotiation
 					var:contract_negotiation = PREV.var:contract_negotiation
-					has_variable = pending_proposal
+					NOT = { has_variable = pending_proposal }
 				}
 			}
 			always = no
 		}
 		trigger_else = {
-			limit = { scope:recipient = { is_ai = no }}
 			var:contract_negotiation = {
 				any_in_list = {
 					variable = agreed_upon_obligations
