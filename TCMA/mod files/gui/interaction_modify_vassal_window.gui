@@ -141,6 +141,10 @@ window = {
 														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+														background = {
+															using = Background_Area_Dark
+															visible = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+														}
 													}
 												}
 												TCMA_contract_tree_button = {
@@ -153,6 +157,10 @@ window = {
 														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+														background = {
+															using = Background_Area_Dark
+															visible = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+														}
 													}
 												}
 												TCMA_contract_tree_button = {
@@ -165,6 +173,10 @@ window = {
 														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
+														background = {
+															using = Background_Area_Dark
+															visible = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
+														}
 													}
 												}
 												TCMA_contract_tree_button = {
@@ -177,6 +189,10 @@ window = {
 														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
+														background = {
+															using = Background_Area_Dark
+															visible = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
+														}
 													}
 												}
 												TCMA_contract_tree_button = {
@@ -189,6 +205,10 @@ window = {
 														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)4')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)4')).End)]"
+														background = {
+															using = Background_Area_Dark
+															visible = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)4')).End)]"
+														}
 													}
 												}
 												TCMA_contract_tree_button = {
@@ -201,6 +221,10 @@ window = {
 														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+														background = {
+															using = Background_Area_Dark
+															visible = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+														}
 													}
 												}
 												TCMA_contract_tree_button = {
@@ -213,6 +237,10 @@ window = {
 														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+														background = {
+															using = Background_Area_Dark
+															visible = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+														}
 													}
 												}
 												TCMA_contract_tree_button = {
@@ -225,6 +253,10 @@ window = {
 														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
+														background = {
+															using = Background_Area_Dark
+															visible = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
+														}
 													}
 												}
 												TCMA_contract_tree_button = {
@@ -237,6 +269,10 @@ window = {
 														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
+														background = {
+															using = Background_Area_Dark
+															visible = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
+														}
 													}
 												}
 												TCMA_contract_tree_button = {
@@ -249,6 +285,10 @@ window = {
 														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)4')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)4')).End)]"
+														background = {
+															using = Background_Area_Dark
+															visible = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)4')).End)]"
+														}
 													}
 												}
 												# [/TCMA]

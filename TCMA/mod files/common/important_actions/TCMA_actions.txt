@@ -51,7 +51,7 @@ pending_contract_negotiation_with_vassal_passive = {
 
 	effect = {
 		open_interaction_window = {
-			interaction = vassal_modify_vassal_contract_interaction
+			interaction = liege_modify_vassal_contract_interaction
 			actor = scope:actor
 			recipient = scope:recipient
 		}
@@ -96,10 +96,10 @@ pending_contract_negotiation_with_vassal_active = {
 		if = {
 			limit = {
 				has_variable = contract_negotiation
-				# has_variable = gui_contract_negotiation
-				# has_variable = PvP_negotiation
-				# has_variable = pending_proposal
-				# THIS = var:contract_negotiation.var:ruler
+				has_variable = gui_contract_negotiation
+				has_variable = PvP_negotiation
+				has_variable = pending_proposal
+				THIS = var:contract_negotiation.var:ruler
 			}
 
 			try_create_important_action = {
@@ -112,7 +112,7 @@ pending_contract_negotiation_with_vassal_active = {
 
 	effect = {
 		open_interaction_window = {
-			interaction = vassal_modify_vassal_contract_interaction
+			interaction = liege_modify_vassal_contract_interaction
 			actor = scope:actor
 			recipient = scope:recipient
 		}

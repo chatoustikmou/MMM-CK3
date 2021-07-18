@@ -29,14 +29,13 @@ types TCMA {
 		block "OnClick"
 		{
 		}
-		# down = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
-		# enabled = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled]"
+		
 		using = tooltip_above
 
-		background = {
-			using = Background_Area_Dark
-			visible = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
-		}
+		# background = {
+		# 	using = Background_Area_Dark
+		# 	visible = "[ModifyVassalContractInteractionWindowObligationLevelOption.IsSelected]"
+		# }
 
 		icon = {
 			parentanchor = top|hcenter
