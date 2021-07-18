@@ -153,9 +153,14 @@ send_proposal = {
 	}
 	effect = {
 		if = {
-			limit = { scope:recipient = { is_ai = no }}
+			limit = { NOT = { has_variable = PvP_negotiation }}
 			set_variable = PvP_negotiation
-			scope:recipient = { set_variable = PvP_negotiation }
+		}
+		scope:recipient = {
+			if = {
+				limit = { NOT = { has_variable = PvP_negotiation }}
+				set_variable = PvP_negotiation
+			}
 		}
 		scope:actor.var:contract_negotiation = {
 			every_in_list = {
@@ -187,7 +192,6 @@ send_proposal = {
 		if = {
 			limit = { scope:recipient = scope:actor.liege }
 			scope:recipient = {
-				set_variable = pending_proposal
 				open_interaction_window = {
 					interaction = liege_modify_vassal_contract_interaction
 					actor = scope:recipient
@@ -197,7 +201,6 @@ send_proposal = {
 		}
 		else = {
 			scope:recipient = {
-				set_variable = pending_proposal
 				open_interaction_window = {
 					interaction = vassal_modify_vassal_contract_interaction
 					actor = scope:recipient
@@ -275,8 +278,12 @@ agreed_upon_obligations = {
 		}
 		trigger_else_if = {
 			limit = {
-				scope:recipient = { is_ai = no }
-				scope:actor = { has_variable = pending_proposal }
+				scope:recipient = {
+					is_ai = no
+					has_variable = contract_negotiation
+					var:contract_negotiation = PREV.var:contract_negotiation
+					has_variable = pending_proposal
+				}
 			}
 			always = no
 		}
@@ -321,6 +328,16 @@ reset_contract = {
 					}
 				}
 			}
+		}
+	}
+}
+
+reject_proposal = {
+	scope = character
+	effect = {
+		if = {
+			limit = { exists = var:contract_negotiation }
+			var:contract_negotiation = { end_story = yes }
 		}
 	}
 }

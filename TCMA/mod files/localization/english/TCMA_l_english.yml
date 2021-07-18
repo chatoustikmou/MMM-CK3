@@ -8,3 +8,23 @@
   CONTRACT_NEGOTIATION_POSITIVE_RULER_TITLE: "Successful contract negotiations"
   CONTRACT_NEGOTIATION_POSITIVE_RULER_DESC: "CONTRACT_NEGOTIATION_POSITIVE_RULER_DESC"
   
+
+  pending_contract_negotiation_with_liege_passive: "Ongoing contract negotiation with your liege"
+  pending_contract_negotiation_with_liege_passive_desc: "#help Waiting on your liege to send a counter-proposal#!"
+  # pending_contract_negotiation_with_liege_passive_label: "pending_contract_negotiation_with_liege_passive_label"
+  pending_contract_negotiation_with_liege_passive_click: "#I Click to open the contract negotiation window#!"
+
+  pending_contract_negotiation_with_liege_active: "Ongoing contract negotiation with your liege"
+  pending_contract_negotiation_with_liege_active_desc: "#help Your liege is waiting on you to send a counter-proposal#!"
+  # pending_contract_negotiation_with_liege_active_label: "pending_contract_negotiation_with_liege_active_label"
+  pending_contract_negotiation_with_liege_active_click: "#I Click to open the contract negotiation window#!"
+
+  pending_contract_negotiation_with_vassal_passive: "Ongoing contract negotiation with your vassal [GetPlayer.MakeScope.Var('contract_negotiation').Var('vassal').Char.GetName]"
+  pending_contract_negotiation_with_vassal_passive_desc: "#help Waiting on your vassal to send a counter-proposal#!"
+  # pending_contract_negotiation_with_vassal_passive_label: "pending_contract_negotiation_with_vassal_passive_label"
+  pending_contract_negotiation_with_vassal_passive_click: "#I Click to open the contract negotiation window#!"
+
+  pending_contract_negotiation_with_vassal_active: "Ongoing contract negotiation with your vassal [GetPlayer.MakeScope.Var('contract_negotiation').Var('vassal').Char.GetName]"
+  pending_contract_negotiation_with_vassal_active_desc: "#help Your vassal is waiting on you to send a counter-proposal#!"
+  # pending_contract_negotiation_with_vassal_active_label: "pending_contract_negotiation_with_vassal_passive_label"
+  pending_contract_negotiation_with_vassal_active_click: "#I Click to open the contract negotiation window#!"

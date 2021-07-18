@@ -1079,7 +1079,7 @@ window = {
 
 						text = "ACCEPT_PROPOSAL"
 						default_format = "#high"
-						# enabled = ""
+						enabled = "[CharacterInteractionConfirmationWindow.CanSend]"
 						onclick = "[ModifyVassalContractInteractionWindow.Send]"
 						tooltip = "[CharacterInteractionConfirmationWindow.GetCanSendDescription]"
 						clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_advance"
@@ -1091,8 +1091,9 @@ window = {
 
 						text = "REJECT_PROPOSAL"
 						default_format = "#high"
-						# enabled = ""
-						# onclick = ""
+						enabled = "[CharacterInteractionConfirmationWindow.CanSend]"
+						onclick = "[GetScriptedGui('reject_proposal').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+						onclick = "[ModifyVassalContractInteractionWindow.Close]"
 						tooltip = "[CharacterInteractionConfirmationWindow.GetCanSendDescription]"
 						clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_advance"
 					}
