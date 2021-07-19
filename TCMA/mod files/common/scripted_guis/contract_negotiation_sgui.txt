@@ -94,6 +94,10 @@ update_contract_acceptance = {
 						story_type = obligation_level_desire
 						var:obligation = scope:obligation
 						var:level = scope:level
+						NAND = {
+							var:ruler_desire = 0
+							var:vassal_desire = 0
+						}
 					}
 					PREV.var:contract_negotiation = {
 						add_to_variable_list = {
