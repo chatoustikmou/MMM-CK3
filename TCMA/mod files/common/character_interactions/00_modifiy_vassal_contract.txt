@@ -29,8 +29,8 @@
 
 	can_send = {
 		trigger_if = { #If you're blocked we don't want to show anything else
-			limit = { scope:actor = { vassal_contract_is_blocked_from_modification = yes }}
-			scope:actor = {	vassal_contract_is_blocked_from_modification = no }
+			limit = { scope:recipient = { vassal_contract_is_blocked_from_modification = yes }}
+			scope:recipient = {	vassal_contract_is_blocked_from_modification = no }
 		}
 		# [TCMA]
 		trigger_else_if = {

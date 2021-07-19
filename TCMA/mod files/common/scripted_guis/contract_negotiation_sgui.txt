@@ -119,10 +119,10 @@ send_proposal = {
 		}
 		scope:actor.var:contract_negotiation = scope:recipient.var:contract_negotiation
 		scope:actor.var:contract_negotiation = {
+			has_variable_list = negotiated_obligations
 			OR = {
 				AND = {
 					NOT = { has_variable_list = agreed_upon_obligations }
-					has_variable_list = negotiated_obligations
 					variable_list_size = {
 						name = negotiated_obligations
 						value > 0
