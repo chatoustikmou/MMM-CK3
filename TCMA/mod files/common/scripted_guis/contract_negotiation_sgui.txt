@@ -111,6 +111,7 @@ send_proposal = {
 		scope:actor = {
 			is_ai = no
 			has_variable = gui_contract_negotiation
+			NOT = { has_variable = pending_proposal }
 		}
 		scope:recipient = {
 			is_ai = no
