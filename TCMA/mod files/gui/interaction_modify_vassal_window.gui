@@ -27,7 +27,7 @@ window = {
 	}
 
 	vbox = {
-		# visible = "[GetPlayer.MakeScope.Var('gui_contract_negotiation').IsSet]"
+		visible = "[Or(GetPlayer.MakeScope.Var('gui_contract_negotiation').IsSet,Not(GetPlayer.MakeScope.Var('contract_negotiation').IsSet)]"
 		name = "window_content"
 		layoutpolicy_vertical = expanding
 		set_parent_size_to_minimum = yes
