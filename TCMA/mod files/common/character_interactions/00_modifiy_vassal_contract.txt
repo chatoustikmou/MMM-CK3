@@ -103,7 +103,7 @@
 		trigger_else_if = {
 			limit = { scope:recipient = { is_ai = no }}
 			scope:actor = {
-				has_variable = pending_proposal
+				NOT = { has_variable = pending_proposal }
 				var:contract_negotiation = {
 					any_in_list = {
 						variable = negotiated_obligations
@@ -251,7 +251,7 @@ vassal_modify_vassal_contract_interaction = {
 		trigger_else_if = {
 			limit = { scope:recipient = { is_ai = no }}
 			scope:actor = {
-				has_variable = pending_proposal
+				NOT = { has_variable = pending_proposal }
 				var:contract_negotiation = {
 					any_in_list = {
 						variable = negotiated_obligations
