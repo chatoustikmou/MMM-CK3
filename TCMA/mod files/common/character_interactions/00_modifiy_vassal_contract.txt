@@ -27,47 +27,6 @@
 		NOT = { scope:actor = { is_at_war_with = scope:recipient } }
 	}
 
-	# can_send = {
-	# 	trigger_if = { #If they're blocked we don't want to show anything else
-	# 		limit = {
-	# 			scope:recipient = {
-	# 				vassal_contract_is_blocked_from_modification = yes
-	# 			}
-	# 		}
-	# 		scope:recipient = {
-	# 			vassal_contract_is_blocked_from_modification = no
-	# 		}
-	# 	}
-	# 	trigger_else = {
-	# 		# [TCMA]
-	# 		scope:recipient = {
-	# 			custom_description = {
-	# 				text = "accepts_proposal"
-	# 				subject = scope:recipient
-	# 				vassal_contract_negotiation_acceptance = yes
-	# 			}
-	# 			custom_description = {
-	# 				text = "not_already_in_negotiation"
-	# 				OR = {
-	# 					NOT = { has_variable = contract_negotiation }
-	# 					var:contract_negotiation.var:vassal = scope:actor
-	# 					var:contract_negotiation.var:vassal = scope:actor
-	# 				}
-	# 			}
-	# 		}
-	# 		scope:actor = {
-	# 			custom_description = {
-	# 				text = "not_already_in_negotiation"
-	# 				OR = {
-	# 					NOT = { has_variable = contract_negotiation }
-	# 					has_variable = gui_contract_negotiation
-	# 				}
-	# 			}
-	# 		}
-	# 		# [/TCMA]
-	# 	}
-	# }
-
 	can_send = {
 		trigger_if = { #If you're blocked we don't want to show anything else
 			limit = { scope:actor = { vassal_contract_is_blocked_from_modification = yes }}
@@ -102,18 +61,21 @@
 		}
 		trigger_else_if = {
 			limit = { scope:recipient = { is_ai = no }}
-			scope:actor = {
-				has_variable = pending_proposal
-				var:contract_negotiation = {
-					any_in_list = {
-						variable = negotiated_obligations
-						PREV = {
-							is_target_in_variable_list = {
-								name = agreed_upon_obligations
-								target = PREV
+			custom_description = {
+				test = "has_selected_obligation_level"
+				scope:actor = {
+					has_variable = pending_proposal
+					var:contract_negotiation = {
+						any_in_list = {
+							variable = negotiated_obligations
+							PREV = {
+								is_target_in_variable_list = {
+									name = agreed_upon_obligations
+									target = PREV
+								}
 							}
+							count = all
 						}
-						count = all
 					}
 				}
 			}
@@ -250,18 +212,21 @@ vassal_modify_vassal_contract_interaction = {
 		}
 		trigger_else_if = {
 			limit = { scope:recipient = { is_ai = no }}
-			scope:actor = {
-				has_variable = pending_proposal
-				var:contract_negotiation = {
-					any_in_list = {
-						variable = negotiated_obligations
-						PREV = {
-							is_target_in_variable_list = {
-								name = agreed_upon_obligations
-								target = PREV
+			custom_description = {
+				test = "has_selected_obligation_level"
+				scope:actor = {
+					has_variable = pending_proposal
+					var:contract_negotiation = {
+						any_in_list = {
+							variable = negotiated_obligations
+							PREV = {
+								is_target_in_variable_list = {
+									name = agreed_upon_obligations
+									target = PREV
+								}
 							}
+							count = all
 						}
-						count = all
 					}
 				}
 			}
