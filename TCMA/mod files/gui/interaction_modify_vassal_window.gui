@@ -138,7 +138,7 @@ window = {
 													}
 													blockoverride "OnClick"
 													{
-														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 														background = {
@@ -154,7 +154,7 @@ window = {
 													}
 													blockoverride "OnClick"
 													{
-														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 														background = {
@@ -170,7 +170,7 @@ window = {
 													}
 													blockoverride "OnClick"
 													{
-														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
+														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
 														background = {
@@ -186,7 +186,7 @@ window = {
 													}
 													blockoverride "OnClick"
 													{
-														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
+														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
 														background = {
@@ -202,7 +202,7 @@ window = {
 													}
 													blockoverride "OnClick"
 													{
-														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)4')).End)]"
+														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)4')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_taxes' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)4')).End)]"
 														background = {
@@ -218,7 +218,7 @@ window = {
 													}
 													blockoverride "OnClick"
 													{
-														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 														background = {
@@ -234,7 +234,7 @@ window = {
 													}
 													blockoverride "OnClick"
 													{
-														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 														background = {
@@ -250,7 +250,7 @@ window = {
 													}
 													blockoverride "OnClick"
 													{
-														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
+														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
 														background = {
@@ -266,7 +266,7 @@ window = {
 													}
 													blockoverride "OnClick"
 													{
-														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
+														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
 														background = {
@@ -282,7 +282,7 @@ window = {
 													}
 													blockoverride "OnClick"
 													{
-														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)4')).End)]"
+														onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)4')).End)]"
 														enabled = "[GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).End)]"
 														down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('feudal_government_levies' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)4')).End)]"
 														background = {
@@ -337,7 +337,7 @@ window = {
 												blockoverride "OnClick"
 												{
 													visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'special_contract' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'special_contract' ).GetObligationNameShortNoTooltip('special_contract_none' )))]"
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 													enabled = "[And(ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled,GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('special_contract' )).End))]"
 													down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 												}
@@ -346,7 +346,7 @@ window = {
 												blockoverride "OnClick"
 												{
 													visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'special_contract' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'special_contract' ).GetObligationNameShortNoTooltip('special_contract_scutage' )))]"
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 													enabled = "[And(ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled,GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('special_contract' )).End))]"
 													down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 												}
@@ -355,7 +355,7 @@ window = {
 												blockoverride "OnClick"
 												{
 													visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'special_contract' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'special_contract' ).GetObligationNameShortNoTooltip('special_contract_march' )))]"
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
 													enabled = "[And(ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled,GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('special_contract' )).End))]"
 													down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)2')).End)]"
 												}
@@ -364,7 +364,7 @@ window = {
 												blockoverride "OnClick"
 												{
 													visible = "[And(EqualTo_string(ObligationContainerData.GetName, GetVassalContractType( 'special_contract' ).GetName), EqualTo_string(ModifyVassalContractInteractionWindowObligationLevelOption.GetName,GetVassalContractType( 'special_contract' ).GetObligationNameShortNoTooltip('special_contract_palatinate' )))]"
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
 													enabled = "[And(ModifyVassalContractInteractionWindowObligationLevelOption.IsEnabled,GetScriptedGui('agreed_upon_obligations').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('special_contract' )).End))]"
 													down = "[GetScriptedGui('agreed_upon_obligations').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('special_contract' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)3')).End)]"
 												}
@@ -424,7 +424,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)1' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('religious_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('religious_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -444,7 +444,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)0' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('religious_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('religious_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -464,7 +464,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)1' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('fortification_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('fortification_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -484,7 +484,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)0' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('fortification_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('fortification_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -504,7 +504,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)1' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('coinage_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('coinage_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -524,7 +524,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)0' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('coinage_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('coinage_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -544,7 +544,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)1' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('succession_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('succession_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -564,7 +564,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)0' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('succession_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('succession_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -584,7 +584,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)1' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('war_declaration_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('war_declaration_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -604,7 +604,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)0' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('war_declaration_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('war_declaration_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -624,7 +624,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)1' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('council_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('council_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -644,7 +644,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)0' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('council_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('council_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -664,7 +664,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)1' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('title_revocation_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('title_revocation_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)1')).End)]"
 
 												blockoverride "checkbox"
 												{
@@ -684,7 +684,7 @@ window = {
 											button_checkbox_label = {
 													onclick = "[ObligationLevelCheckbox.AccessLevel( '(int32)0' ).Select]"
 													# onclick = "[ObligationLevelCheckbox.ToggleSelection]"	
-													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'obligation', MakeScopeFlag('title_revocation_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
+													onclick = "[GetScriptedGui('update_contract_acceptance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).AddScope( 'obligation', MakeScopeFlag('title_revocation_rights' )).AddScope( 'level', MakeScopeValue('(CFixedPoint)0')).End)]"
 
 												blockoverride "checkbox"
 												{
