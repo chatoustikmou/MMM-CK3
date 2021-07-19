@@ -89,16 +89,18 @@ update_contract_acceptance = {
 				}
 			}
 		}
-		every_owned_story = {
-			limit = {
-				story_type = obligation_level_desire
-				var:obligation = scope:obligation
-				var:level = scope:level
-			}
-			PREV.var:contract_negotiation = {
-				add_to_variable_list = {
-					name = negotiated_obligations
-					target = PREV
+		var:vassal = {
+			every_owned_story = {
+				limit = {
+					story_type = obligation_level_desire
+					var:obligation = scope:obligation
+					var:level = scope:level
+				}
+				PREV.var:contract_negotiation = {
+					add_to_variable_list = {
+						name = negotiated_obligations
+						target = PREV
+					}
 				}
 			}
 		}
