@@ -27,8 +27,7 @@ window = {
 	}
 
 	vbox = {
-		visible = "[GetPlayer.MakeScope.Var('gui_contract_negotiation').IsSet]"
-		name = "window_content_PvP"
+		name = "window_content"
 		layoutpolicy_vertical = expanding
 		set_parent_size_to_minimum = yes
 		minimumsize = { 0 700 }
@@ -50,6 +49,7 @@ window = {
 		}
 
 		hbox = {
+			visible = "[GetPlayer.MakeScope.Var('gui_contract_negotiation').IsSet]"
 			layoutpolicy_vertical = expanding
 			margin_bottom = 10
 			margin_top = -5
@@ -1140,32 +1140,10 @@ window = {
 				}
 			}
 		}
-	}
 
-	vbox = {
-		visible = "[Not(GetPlayer.MakeScope.Var('gui_contract_negotiation').IsSet)]"
-		name = "window_content"
-		layoutpolicy_vertical = expanding
-		set_parent_size_to_minimum = yes
-		minimumsize = { 0 700 }
-
-		using = Window_Margins
-
-		header_pattern_interaction = {
-			layoutpolicy_horizontal = expanding
-
-			blockoverride "header_text"
-			{
-				text = "FEUDAL_CONTRACT"
-			}
-
-			blockoverride "button_close"
-			{
-				onclick = "[ModifyVassalContractInteractionWindow.Close]"
-			}
-		}
 
 		hbox = {
+			visible = "[Not(GetPlayer.MakeScope.Var('gui_contract_negotiation').IsSet)]"
 			layoutpolicy_vertical = expanding
 			margin_bottom = 10
 			margin_top = -5
