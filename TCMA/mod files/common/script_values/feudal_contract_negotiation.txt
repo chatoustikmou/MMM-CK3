@@ -645,12 +645,12 @@ succession_rights_0_vassal_refusal = 0
 succession_rights_1_vassal_desire = 0
 succession_rights_1_vassal_refusal = 0
 
-war_declaration_rights_0_ruler_desire = { add = 100 subtract = ai_honor if = { limit = { vassal_contract_obligation_level:war_declaration_rights = 0 } multiply = 0 }}
-war_declaration_rights_0_ruler_refusal = { add = 0 }
-war_declaration_rights_1_ruler_desire = { add = 0 }
-war_declaration_rights_1_ruler_refusal = { add = 100 add = ai_honor_pos if = { limit = { vassal_contract_obligation_level:war_declaration_rights = 1 } multiply = 0 }}
+war_declaration_rights_0_ruler_desire = { add = 100 subtract = ai_honor if = { limit = { vassal_contract_obligation_level:war_declaration_rights = 0 } if = { limit = { is_ai = no } value = 1 } multiply = 0 }}
+war_declaration_rights_0_ruler_refusal = { add = 0 if = { limit = { is_ai = no } value = 1 }}
+war_declaration_rights_1_ruler_desire = { add = 0 if = { limit = { is_ai = no } value = 1 }}
+war_declaration_rights_1_ruler_refusal = { add = 100 add = ai_honor_pos if = { limit = { vassal_contract_obligation_level:war_declaration_rights = 1 } if = { limit = { is_ai = no } value = 1 }multiply = 0 }}
 
-war_declaration_rights_0_vassal_desire = { add = 0 }
+war_declaration_rights_0_vassal_desire = { add = 0 if = { limit = { is_ai = no } value = 1 }}
 war_declaration_rights_0_vassal_refusal = {
 	add = 100
 	add = ai_honor_abs
@@ -664,6 +664,7 @@ war_declaration_rights_0_vassal_refusal = {
 			}
 		}
 	}
+	if = { limit = { is_ai = no } value = 1 }
 	if = { limit = { vassal_contract_obligation_level:war_declaration_rights = 0 } multiply = 0 }
 }
 war_declaration_rights_1_vassal_desire = {
@@ -682,10 +683,11 @@ war_declaration_rights_1_vassal_desire = {
 		add = ai_boldness
 		subtract = ai_honor
 	}
+	if = { limit = { is_ai = no } value = 1 }
 	min = 0
 	if = { limit = { vassal_contract_obligation_level:war_declaration_rights = 1 } multiply = 0 }
 }
-war_declaration_rights_1_vassal_refusal = { add = 0 }
+war_declaration_rights_1_vassal_refusal = { add = 0 if = { limit = { is_ai = no } value = 1 }}
 
 council_rights_ruler = {
 	add = 100
