@@ -218,11 +218,11 @@ liege_modify_vassal_contract_interaction_PvP = {
 	auto_accept = yes
 
 	on_accept = {
-		send_interface_message = {
-			type = msg_vassal_contract_change
-			title = modify_vassal_contract_interaction_notification
-			right_icon = scope:recipient
-			scope:recipient = {
+		scope:recipient = {
+			send_interface_message = {
+				type = msg_vassal_contract_change
+				title = modify_vassal_contract_interaction_notification
+				right_icon = scope:recipient
 				if = {
 					limit = { has_variable = contract_negotiation }
 					var:contract_negotiation = {
