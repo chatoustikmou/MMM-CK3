@@ -32,3 +32,8 @@
   ACCEPT_PROPOSAL: "Accept Proposal"
   SEND_PROPOSAL: "Send Proposal"
   REJECT_PROPOSAL: "Reject Proposal"
+
+  liege_modify_vassal_contract_interaction_PvAI: "$modify_vassal_contract$"
+  liege_modify_vassal_contract_interaction_PvP: "$modify_vassal_contract$"
+  vassal_modify_vassal_contract_interaction_PvAI: "$modify_vassal_contract$"
+  vassal_modify_vassal_contract_interaction_PvP: "$modify_vassal_contract$"

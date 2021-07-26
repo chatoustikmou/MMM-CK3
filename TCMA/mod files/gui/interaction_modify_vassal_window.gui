@@ -30,7 +30,7 @@ window = {
 		name = "window_content"
 		layoutpolicy_vertical = expanding
 		set_parent_size_to_minimum = yes
-		minimumsize = { 0 700 }
+		minimumsize = { 0 750 }
 
 		using = Window_Margins
 
@@ -881,7 +881,6 @@ window = {
 
 				vbox_character_interaction_effects_simple = {
 					# [TCMA]
-					# maximumsize = { 550 240 }
 					visible = "[CharacterInteractionConfirmationWindow.GetEffectsDescription.HasAnyAcceptEffect]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
@@ -890,7 +889,6 @@ window = {
 				}
 
 				vbox = {
-					# maximumsize = { 550 240 }
 					visible = "[Not( CharacterInteractionConfirmationWindow.GetEffectsDescription.HasAnyAcceptEffect )]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
@@ -1083,7 +1081,6 @@ window = {
 				}
 
 				hbox = {
-					# visible = "[And(GetPlayer.MakeScope.Var('gui_contract_negotiation').IsSet,Not(ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.IsOtherPlayer))]"
 					visible = "[And(GetPlayer.MakeScope.Var('gui_contract_negotiation').IsSet,Not(ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.IsOtherPlayer))]"
 					button_primary = {
 						name = "send_offer_button"
@@ -1140,7 +1137,6 @@ window = {
 				}
 			}
 		}
-
 
 		hbox = {
 			visible = "[Not(GetPlayer.MakeScope.Var('gui_contract_negotiation').IsSet)]"

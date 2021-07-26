@@ -94,4 +94,372 @@ types TCMA {
 			default_format = "#light_background"
 		}
 	}
+
+	type widget_vassal_list_item = widget {
+		datacontext = "[CharacterListItem.GetCharacter]"
+		size = { 200 180 }
+
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			margin = { 10 5 }
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				spacing = 10
+
+				background = {
+					using = Background_Area
+				}
+
+				portrait_head_small = {}
+
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					margin_right = 10
+
+					hbox = {
+						layoutpolicy_horizontal = expanding
+
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							spacing = 5
+
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								minimumsize = { 0 30 }
+
+								background = {
+									using = Background_Area_Characterlist
+									margin = { 8 0 }
+									margin_left = 15
+
+									using = Mask_Rough_Edges
+								}
+
+								text_single = {
+									layoutpolicy_horizontal = expanding
+									text = "[Character.GetUINameNoTooltip]"
+									using = Font_Size_Medium
+									autoresize = no
+									fontsize_min = 13
+									align = nobaseline
+								}
+							}
+
+							text_single = {
+								name = "character_relation"
+								visible = "[Character.GetLiege.IsLocalPlayer]"
+								layoutpolicy_horizontal = expanding
+								text = "[Character.GetRelationToString(GetPlayer)] "
+								default_format = "#low"
+								autoresize = no
+								fontsize_min = 13
+								align = nobaseline
+							}
+						}
+
+						block "own_vassal" {
+							vbox = {
+								layoutpolicy_vertical = expanding
+								margin_left = 10
+								visible = "[Character.GetLiege.IsLocalPlayer]"
+
+								hbox = {
+									coa_title_tiny_crown = {
+										name = "allegiance_flag"
+										datacontext = "[VassalContract.GetTitleAllegiance]"
+										visible = "[Title.IsValid]"
+										tooltip = "MRW_TITLE_ALLEGIANCE"
+										blockoverride "coa_tooltip" {}
+									}
+
+									vbox = {
+										layoutpolicy_vertical = expanding
+										margin_top = 5
+
+										hbox = {
+
+											icon = {
+												name = "hook"
+												visible = "[Character.PlayerHasHooksOrHookableSecrets]"
+												size = { 25 25 }
+												framesize = { 40 40 }
+												texture = "gfx/interface/icons/portraits/hook_secret.dds"
+
+												frame = "[Character.GetHookOrHookableSecretsFrame]"
+												tooltip = "[Character.HookTooltip]"
+											}
+
+											icon = {
+												name = "icon_non_dejure"
+												visible = "[Not( VassalContract.IsRightfulLiege )]"
+												size = { 30 30 }
+												texture = "gfx/interface/icons/levy_tax_reduction.dds"
+
+												using = tooltip_ws
+												tooltip = "MRW_TT_NOT_RIGHTFUL_LIEGE"
+											}
+										}
+										expand = {}
+									}
+								}
+								expand = {}
+							}
+						}
+					}
+
+					expand = {}
+
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						spacing = 5
+
+						text_single = {
+							text = "REALM_WINDOW_SIZE"
+							tooltip = "REALM_WINDOW_SIZE_TT"
+							align = nobaseline
+							visible = "[NotEqualTo_int32(Character.GetPrimaryTitle.GetTierFrame, '(int32)2')]" #nonbaron
+
+						}
+
+						hbox = {
+							spacing = 3
+							margin = { 5 0 }
+
+							block "own_vassal"
+							{
+								visible = no
+							}
+
+							icon = {
+								size = { 22 22 }
+								texture = "gfx/interface/icons/icon_soldier.dds"
+							}
+
+							text_single = {
+								layoutpolicy_horizontal = expanding
+								text = "[Character.GetMilitaryStrengthText]"
+								align = nobaseline
+								default_format = "#high"
+							}
+						}
+
+						text_single = {
+							visible = "[Character.IsPowerfulVassal]"
+							text = "MY_REALM_WINDOW_POWERFUL_VASSAL"
+							layoutpolicy_horizontal = expanding
+							align = nobaseline
+							autoresize = no
+						}
+
+						expand = {}
+
+						hbox_skills_grid = {}
+					}
+
+					expand = {}
+				}
+			}
+
+			block "own_vassal"
+			{
+				block "feudal_contract"
+				{
+					vbox = {
+						name = "feudal_info"
+						layoutpolicy_horizontal = expanding
+						margin = { 10 5 }
+						spacing = 10
+
+						background = {
+							using = Background_Area
+						}
+
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							visible = "[And( VassalContract.UsesObligationLevels, Not( Character.GetPrimaryTitle.IsBarony))]"
+							spacing = 10
+
+							button_round = {
+								visible = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvAI')]"
+								enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvAI')]"
+								onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction_PvAI')]"
+								tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
+
+								button_feudal_contract = {
+									alwaystransparent = yes
+									parentanchor = center
+								}
+							}
+
+							button_round = {
+								visible = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvP')]"
+								enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvP')]"
+								onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction_PvP')]"
+								tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
+
+								button_feudal_contract = {
+									alwaystransparent = yes
+									parentanchor = center
+								}
+							}
+
+							text_single = {
+								layoutpolicy_horizontal = expanding
+								text = "MY_REALM_WINDOW_VASSAL_OBLIGATION"
+								default_format = "#low"
+								align = nobaseline
+							}
+
+							expand = {}
+
+							vassal_contract_not_default_icon = {}
+						}
+
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							visible = "[Not(And( VassalContract.UsesObligationLevels, Not( Character.GetPrimaryTitle.IsBarony)))]"
+							spacing = 5
+
+							icon = {
+								size = { 42 42 }
+								texture = "gfx/interface/icons/symbols/icon_cross.dds"
+								tooltip = MY_REALM_WINDOW_NO_FEUDAL_CONTRACT_TT
+								enabled = no
+							}
+
+							text_single = {
+								text = "[Character.GetGovernment.GetName]"
+								align = nobaseline
+							}
+
+							expand = {}
+						}
+
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							spacing = 10
+
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								spacing = 3
+
+								icon = {
+									size = { 25 25 }
+									texture = "gfx/interface/icons/icon_gold.dds"
+								}
+
+								widget = {
+									layoutpolicy_horizontal = expanding
+
+									background = {
+										using = Background_Area
+										margin = { 3 2 }
+									}
+
+									progressbar_standard_transparent = {
+										size = "[MyRealmWindowVassalItem.GetRelativeSizeForTax]"
+										minimumsize = { 10 0 }
+										value = "[FixedPointToProgressbarValue(VassalContract.GetTaxRatioForLiege)]"
+									}
+
+									flowcontainer = {
+										parentanchor = center
+										position = { 0 -2 }
+										spacing = 4
+
+										text_single = {
+											text = "[MyRealmWindowVassalItem.GetCachedTax|=1]"
+										}
+									}
+								}
+
+								tooltipwidget = {
+									my_realm_window_contribution_tooltip = {
+										datacontext = "[MyRealmWindowVassalItem.GetTaxBreakdown]"
+										blockoverride "levy_info_visible" { visible = no }
+										blockoverride "contribution_tooltip_header"
+										{
+											text = "MRW_TT_TAXES_TO_ME"
+										}
+
+										blockoverride "levy_info"
+										{
+											text_single = {
+												multiline = yes
+												maximumsize = { 250 -1 }
+												text = "[MyRealmWindowVassalItem.GetLevyTooltip]"
+											}
+										}
+									}
+								}
+								using = tooltip_ws
+							}
+
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								spacing = 3
+
+								icon = {
+									size = { 25 25 }
+									texture = "gfx/interface/icons/icon_soldier.dds"
+								}
+
+								widget = {
+									layoutpolicy_horizontal = expanding
+									#	size = { 150 22 }
+
+									background = {
+										using = Background_Area
+										margin = { 3 2 }
+									}
+
+									progressbar_standard_transparent = {
+										size = "[MyRealmWindowVassalItem.GetRelativeSizeForLevies]"
+										minimumsize = { 10 0 }
+										value = "[FixedPointToProgressbarValue(VassalContract.GetLevyRatioForLiege)]"
+									}
+
+									flowcontainer = {
+										parentanchor = center
+										position = { 0 -2 }
+										spacing = 4
+
+										text_single = {
+											text =  "[MyRealmWindowVassalItem.GetCachedLeviesFormatted]"
+										}
+									}
+								}
+
+								tooltipwidget = {
+									my_realm_window_contribution_tooltip = {
+										datacontext = "[MyRealmWindowVassalItem.GetLeviesBreakdown]"
+										blockoverride "tax_info_visible" { visible = no }
+										blockoverride "contribution_tooltip_header"
+										{
+											text = "MRW_TT_LEVIES_TO_ME"
+										}
+										blockoverride "tax_info"
+										{
+											text_single = {
+												multiline = yes
+												maximumsize = { 250 -1 }
+												text = "[MyRealmWindowVassalItem.GetTaxTooltip]"
+											}
+										}
+									}
+								}
+								using = tooltip_ws
+							}
+						}
+						expand = {}
+					}
+				}
+			}
+
+			expand = {}
+		}
+	}
 }

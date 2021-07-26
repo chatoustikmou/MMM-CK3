@@ -1744,19 +1744,40 @@ window = {
 						}
 
 						hbox = {
-							name = "vassal_contract"
+							name = "vassal_contract_PvAI"
 							datacontext = "[MyRealmWindow.GetCharacter.GetLiege]"
 							datacontext = "[MyRealmWindow.GetCharacter.GetVassalContract]"
-							visible = "[Character.IsPlayerInteractionShown('vassal_modify_vassal_contract_interaction')]"
+							visible = "[Character.IsPlayerInteractionShown('vassal_modify_vassal_contract_interaction_PvAI')]"
 							margin_left = 3
 							spacing = 10
 
 							button_replace = {
-								enabled = "[Character.IsPlayerInteractionValid('vassal_modify_vassal_contract_interaction')]"
-								onclick = "[Character.OpenPlayerInteraction('vassal_modify_vassal_contract_interaction')]"
-								# [TCMA]
-								# onclick = "[GetScriptedGui('initiate_contract_negotiation_with_liege').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-								# [/TCMA]
+								enabled = "[Character.IsPlayerInteractionValid('vassal_modify_vassal_contract_interaction_PvAI')]"
+								onclick = "[Character.OpenPlayerInteraction('vassal_modify_vassal_contract_interaction_PvAI')]"
+								tooltip = "[Character.GetPlayerInteractionTooltip('vassal_modify_vassal_contract_interaction')]"
+							}
+
+							text_single = {
+								visible = "[VassalContract.UsesObligationLevels]"
+								layoutpolicy_horizontal = expanding
+								align = center
+								text = "MY_REALM_WINDOW_MY_OBLIGATIONS"
+							}
+
+							vassal_contract_not_default_icon = {}
+						}
+
+						hbox = {
+							name = "vassal_contract_PvP"
+							datacontext = "[MyRealmWindow.GetCharacter.GetLiege]"
+							datacontext = "[MyRealmWindow.GetCharacter.GetVassalContract]"
+							visible = "[Character.IsPlayerInteractionShown('vassal_modify_vassal_contract_interaction_PvP')]"
+							margin_left = 3
+							spacing = 10
+
+							button_replace = {
+								enabled = "[Character.IsPlayerInteractionValid('vassal_modify_vassal_contract_interaction_PvP')]"
+								onclick = "[Character.OpenPlayerInteraction('vassal_modify_vassal_contract_interaction_PvP')]"
 								tooltip = "[Character.GetPlayerInteractionTooltip('vassal_modify_vassal_contract_interaction')]"
 							}
 

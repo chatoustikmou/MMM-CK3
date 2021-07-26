@@ -285,36 +285,36 @@ negotiations_end_positive = {
 			}
 		}
 	}
-	var:ruler = {
-		send_interface_message = {
-			type = event_generic_good
-			title = "CONTRACT_NEGOTIATION_POSITIVE_RULER_TITLE"
-			desc = "CONTRACT_NEGOTIATION_POSITIVE_RULER_DESC"
-			show_as_tooltip = {
-				var:contract_negotiation = {
-					every_in_list = {
-						variable = negotiated_obligations
-						save_temporary_scope_as = obligation_set
-						story_owner = {
-							switch = {
-								trigger = scope:obligation_set.var:obligation
-								flag:feudal_government_taxes = { vassal_contract_set_obligation_level = { type = feudal_government_taxes level = scope:obligation_set.var:level }}
-								flag:feudal_government_levies = { vassal_contract_set_obligation_level = { type = feudal_government_levies level = scope:obligation_set.var:level }}
-								flag:special_contract = { vassal_contract_set_obligation_level = { type = special_contract level = scope:obligation_set.var:level }}
-								flag:religious_rights = { vassal_contract_set_obligation_level = { type = religious_rights level = scope:obligation_set.var:level }}
-								flag:fortification_rights = { vassal_contract_set_obligation_level = { type = fortification_rights level = scope:obligation_set.var:level }}
-								flag:coinage_rights = { vassal_contract_set_obligation_level = { type = coinage_rights level = scope:obligation_set.var:level }}
-								flag:succession_rights = { vassal_contract_set_obligation_level = { type = succession_rights level = scope:obligation_set.var:level }}
-								flag:war_declaration_rights = { vassal_contract_set_obligation_level = { type = war_declaration_rights level = scope:obligation_set.var:level }}
-								flag:council_rights = { vassal_contract_set_obligation_level = { type = council_rights level = scope:obligation_set.var:level }}
-								flag:title_revocation_rights = { vassal_contract_set_obligation_level = { type = title_revocation_rights level = scope:obligation_set.var:level }}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+	# var:ruler = {
+	# 	send_interface_message = {
+	# 		type = event_generic_good
+	# 		title = "CONTRACT_NEGOTIATION_POSITIVE_RULER_TITLE"
+	# 		desc = "CONTRACT_NEGOTIATION_POSITIVE_RULER_DESC"
+	# 		show_as_tooltip = {
+	# 			var:contract_negotiation = {
+	# 				every_in_list = {
+	# 					variable = negotiated_obligations
+	# 					save_temporary_scope_as = obligation_set
+	# 					story_owner = {
+	# 						switch = {
+	# 							trigger = scope:obligation_set.var:obligation
+	# 							flag:feudal_government_taxes = { vassal_contract_set_obligation_level = { type = feudal_government_taxes level = scope:obligation_set.var:level }}
+	# 							flag:feudal_government_levies = { vassal_contract_set_obligation_level = { type = feudal_government_levies level = scope:obligation_set.var:level }}
+	# 							flag:special_contract = { vassal_contract_set_obligation_level = { type = special_contract level = scope:obligation_set.var:level }}
+	# 							flag:religious_rights = { vassal_contract_set_obligation_level = { type = religious_rights level = scope:obligation_set.var:level }}
+	# 							flag:fortification_rights = { vassal_contract_set_obligation_level = { type = fortification_rights level = scope:obligation_set.var:level }}
+	# 							flag:coinage_rights = { vassal_contract_set_obligation_level = { type = coinage_rights level = scope:obligation_set.var:level }}
+	# 							flag:succession_rights = { vassal_contract_set_obligation_level = { type = succession_rights level = scope:obligation_set.var:level }}
+	# 							flag:war_declaration_rights = { vassal_contract_set_obligation_level = { type = war_declaration_rights level = scope:obligation_set.var:level }}
+	# 							flag:council_rights = { vassal_contract_set_obligation_level = { type = council_rights level = scope:obligation_set.var:level }}
+	# 							flag:title_revocation_rights = { vassal_contract_set_obligation_level = { type = title_revocation_rights level = scope:obligation_set.var:level }}
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
 	end_story = yes
 }
 

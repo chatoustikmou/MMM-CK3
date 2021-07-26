@@ -26,8 +26,11 @@ initiate_contract_negotiation = {
 				}
 			}
 			set_variable = gui_contract_negotiation
-			set_variable = pending_proposal
 			scope:recipient = { set_variable = gui_contract_negotiation }
+			if = {
+				limit = { scope:recipient = { is_ai = no }}
+				set_variable = pending_proposal
+			}
 			if = {
 				limit = {
 					exists = liege
@@ -61,6 +64,9 @@ end_contract_negotiation = {
 			}
 			remove_variable = gui_contract_negotiation
 			scope:recipient = { remove_variable = gui_contract_negotiation }
+		}
+		if = {
+			limit = { has_variable = contract_negotiation }
 			var:contract_negotiation = { end_story = yes }
 		}
 	}
