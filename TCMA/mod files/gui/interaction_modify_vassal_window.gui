@@ -23,7 +23,7 @@ window = {
 		name = _hide
 		using = Animation_FadeOut_Quick
 		using = Sound_WindowHide_Standard
-		on_start = "[GetScriptedGui('end_contract_negotiation').Execute(GuiScope.SetRoot( ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).End)]"
+		on_start = "[GetScriptedGui('end_contract_negotiation').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).End)]"
 	}
 
 	vbox = {

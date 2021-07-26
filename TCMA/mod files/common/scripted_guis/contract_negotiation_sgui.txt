@@ -64,10 +64,10 @@ end_contract_negotiation = {
 			}
 			remove_variable = gui_contract_negotiation
 			scope:recipient = { remove_variable = gui_contract_negotiation }
-		}
-		if = {
-			limit = { has_variable = contract_negotiation }
-			var:contract_negotiation = { end_story = yes }
+			if = {
+				limit = { has_variable = contract_negotiation }
+				var:contract_negotiation = { end_story = yes }
+			}
 		}
 	}
 }
@@ -209,21 +209,21 @@ send_proposal = {
 			limit = { scope:recipient = scope:actor.liege }
 			scope:recipient = {
 				set_variable = pending_proposal
-				open_interaction_window = {
-					interaction = liege_modify_vassal_contract_interaction
-					actor = scope:recipient
-					recipient = scope:actor
-				}
+				# open_interaction_window = {
+				# 	interaction = liege_modify_vassal_contract_interaction
+				# 	actor = scope:recipient
+				# 	recipient = scope:actor
+				# }
 			}	
 		}
 		else = {
 			scope:recipient = {
 				set_variable = pending_proposal
-				open_interaction_window = {
-					interaction = vassal_modify_vassal_contract_interaction
-					actor = scope:recipient
-					recipient = scope:actor
-				}
+				# open_interaction_window = {
+				# 	interaction = vassal_modify_vassal_contract_interaction
+				# 	actor = scope:recipient
+				# 	recipient = scope:actor
+				# }
 			}
 		}
 	}

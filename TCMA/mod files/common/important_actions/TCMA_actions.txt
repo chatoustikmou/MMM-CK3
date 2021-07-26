@@ -21,7 +21,7 @@
 
 	effect = {
 		open_interaction_window = {
-			interaction = vassal_modify_vassal_contract_interaction
+			interaction = vassal_modify_vassal_contract_interaction_PvP
 			actor = scope:actor
 			recipient = scope:recipient
 		}
@@ -51,7 +51,7 @@ pending_contract_negotiation_with_vassal_passive = {
 
 	effect = {
 		open_interaction_window = {
-			interaction = liege_modify_vassal_contract_interaction
+			interaction = liege_modify_vassal_contract_interaction_PvP
 			actor = scope:actor
 			recipient = scope:recipient
 		}
@@ -82,7 +82,7 @@ pending_contract_negotiation_with_liege_active = {
 
 	effect = {
 		open_interaction_window = {
-			interaction = vassal_modify_vassal_contract_interaction
+			interaction = vassal_modify_vassal_contract_interaction_PvP
 			actor = scope:actor
 			recipient = scope:recipient
 		}
@@ -112,7 +112,7 @@ pending_contract_negotiation_with_vassal_active = {
 
 	effect = {
 		open_interaction_window = {
-			interaction = liege_modify_vassal_contract_interaction
+			interaction = liege_modify_vassal_contract_interaction_PvP
 			actor = scope:actor
 			recipient = scope:recipient
 		}
