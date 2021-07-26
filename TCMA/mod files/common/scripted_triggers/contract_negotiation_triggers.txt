@@ -87,3 +87,19 @@ has_claim_on_fellow_vassal = {
 		}
 	}
 }
+
+current_obligation_level = {
+	switch = {
+		trigger = $OBLIGATION$
+		flag:feudal_government_taxes = { vassal_contract_obligation_level:feudal_government_taxes = $LEVEL$ }
+		flag:feudal_government_levies = { vassal_contract_obligation_level:feudal_government_levies = $LEVEL$ }
+		flag:special_contract = { vassal_contract_obligation_level:special_contract = $LEVEL$ }
+		flag:religious_rights = { vassal_contract_obligation_level:religious_rights = $LEVEL$ }
+		flag:fortification_rights = { vassal_contract_obligation_level:fortification_rights = $LEVEL$ }
+		flag:coinage_rights = { vassal_contract_obligation_level:coinage_rights = $LEVEL$ }
+		flag:succession_rights = { vassal_contract_obligation_level:succession_rights = $LEVEL$ }
+		flag:war_declaration_rights = { vassal_contract_obligation_level:war_declaration_rights = $LEVEL$ }
+		flag:council_rights = { vassal_contract_obligation_level:council_rights = $LEVEL$ }
+		flag:title_revocation_rights = { vassal_contract_obligation_level:title_revocation_rights = $LEVEL$ }
+	}
+}

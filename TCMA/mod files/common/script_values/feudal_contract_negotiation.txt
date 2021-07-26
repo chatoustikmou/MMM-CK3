@@ -120,6 +120,7 @@ feudal_government_levies_0_ruler = {
 		add = {
 			add = @base_levies_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 0 < vassal_contract_obligation_level:feudal_government_levies }
@@ -127,6 +128,7 @@ feudal_government_levies_0_ruler = {
 		add = {
 			add = @base_levies_refusal
 		}
+		min = 0
 	}
 	if = { limit = { liege = { is_ai = no }} value = 1 }
 	multiply = { add = 0 subtract = vassal_contract_obligation_level:feudal_government_levies }
@@ -139,6 +141,7 @@ feudal_government_levies_1_ruler = {
 		add = {
 			add = @base_levies_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 1 < vassal_contract_obligation_level:feudal_government_levies }
@@ -146,6 +149,7 @@ feudal_government_levies_1_ruler = {
 		add = {
 			add = @base_levies_refusal
 		}
+		min = 0
 	}
 	if = { limit = { liege = { is_ai = no }} value = 1 }
 	multiply = { add = 1 subtract = vassal_contract_obligation_level:feudal_government_levies }
@@ -158,6 +162,7 @@ feudal_government_levies_2_ruler = {
 		add = {
 			add = @base_levies_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 2 < vassal_contract_obligation_level:feudal_government_levies }
@@ -165,6 +170,7 @@ feudal_government_levies_2_ruler = {
 		add = {
 			add = @base_levies_refusal
 		}
+		min = 0
 	}
 	if = { limit = { liege = { is_ai = no }} value = 1 }
 	multiply = { add = 2 subtract = vassal_contract_obligation_level:feudal_government_levies }
@@ -177,6 +183,7 @@ feudal_government_levies_3_ruler = {
 		add = {
 			add = @base_levies_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 3 < vassal_contract_obligation_level:feudal_government_levies }
@@ -184,6 +191,7 @@ feudal_government_levies_3_ruler = {
 		add = {
 			add = @base_levies_refusal
 		}
+		min = 0
 	}
 	if = { limit = { liege = { is_ai = no }} value = 1 }
 	multiply = { add = 3 subtract = vassal_contract_obligation_level:feudal_government_levies }
@@ -196,6 +204,7 @@ feudal_government_levies_4_ruler = {
 		add = {
 			add = @base_levies_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 4 < vassal_contract_obligation_level:feudal_government_levies }
@@ -203,6 +212,7 @@ feudal_government_levies_4_ruler = {
 		add = {
 			add = @base_levies_refusal
 		}
+		min = 0
 	}
 	if = { limit = { liege = { is_ai = no }} value = 1 }
 	multiply = { add = 4 subtract = vassal_contract_obligation_level:feudal_government_levies }
@@ -220,6 +230,7 @@ feudal_government_levies_0_vassal = {
 		add = {
 			add = @base_levies_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 0 > vassal_contract_obligation_level:feudal_government_levies }
@@ -227,6 +238,7 @@ feudal_government_levies_0_vassal = {
 		add = {
 			add = @base_levies_refusal
 		}
+		min = 0
 	}
 	if = { limit = { is_ai = no } value = 1 }
 	multiply = { subtract = 0 add = vassal_contract_obligation_level:feudal_government_levies }
@@ -239,6 +251,7 @@ feudal_government_levies_1_vassal = {
 		add = {
 			add = @base_levies_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 1 > vassal_contract_obligation_level:feudal_government_levies }
@@ -246,6 +259,7 @@ feudal_government_levies_1_vassal = {
 		add = {
 			add = @base_levies_refusal
 		}
+		min = 0
 	}
 	if = { limit = { is_ai = no } value = 1 }
 	multiply = { subtract = 1 add = vassal_contract_obligation_level:feudal_government_levies }
@@ -258,6 +272,7 @@ feudal_government_levies_2_vassal = {
 		add = {
 			add = @base_levies_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 2 > vassal_contract_obligation_level:feudal_government_levies }
@@ -265,6 +280,7 @@ feudal_government_levies_2_vassal = {
 		add = {
 			add = @base_levies_refusal
 		}
+		min = 0
 	}
 	if = { limit = { is_ai = no } value = 1 }
 	multiply = { subtract = 2 add = vassal_contract_obligation_level:feudal_government_levies }
@@ -277,6 +293,7 @@ feudal_government_levies_3_vassal = {
 		add = {
 			add = @base_levies_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 3 > vassal_contract_obligation_level:feudal_government_levies }
@@ -284,6 +301,7 @@ feudal_government_levies_3_vassal = {
 		add = {
 			add = @base_levies_refusal
 		}
+		min = 0
 	}
 	if = { limit = { is_ai = no } value = 1 }
 	multiply = { subtract = 3 add = vassal_contract_obligation_level:feudal_government_levies }
@@ -296,6 +314,7 @@ feudal_government_levies_4_vassal = {
 		add = {
 			add = @base_levies_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 4 > vassal_contract_obligation_level:feudal_government_levies }
@@ -303,6 +322,7 @@ feudal_government_levies_4_vassal = {
 		add = {
 			add = @base_levies_refusal
 		}
+		min = 0
 	}
 	if = { limit = { is_ai = no } value = 1 }
 	multiply = { subtract = 4 add = vassal_contract_obligation_level:feudal_government_levies }
@@ -344,6 +364,7 @@ feudal_government_taxes_0_ruler = {
 		add = {
 			add = @base_taxes_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 0 < vassal_contract_obligation_level:feudal_government_taxes }
@@ -351,6 +372,7 @@ feudal_government_taxes_0_ruler = {
 		add = {
 			add = @base_taxes_refusal
 		}
+		min = 0
 	}
 	if = { limit = { liege = { is_ai = no }} value = 1 }
 	multiply = { add = 0 subtract = vassal_contract_obligation_level:feudal_government_taxes }
@@ -363,6 +385,7 @@ feudal_government_taxes_1_ruler = {
 		add = {
 			add = @base_taxes_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 1 < vassal_contract_obligation_level:feudal_government_taxes }
@@ -370,6 +393,7 @@ feudal_government_taxes_1_ruler = {
 		add = {
 			add = @base_taxes_refusal
 		}
+		min = 0
 	}
 	if = { limit = { liege = { is_ai = no }} value = 1 }
 	multiply = { add = 1 subtract = vassal_contract_obligation_level:feudal_government_taxes }
@@ -382,6 +406,7 @@ feudal_government_taxes_2_ruler = {
 		add = {
 			add = @base_taxes_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 2 < vassal_contract_obligation_level:feudal_government_taxes }
@@ -389,6 +414,7 @@ feudal_government_taxes_2_ruler = {
 		add = {
 			add = @base_taxes_refusal
 		}
+		min = 0
 	}
 	if = { limit = { liege = { is_ai = no }} value = 1 }
 	multiply = { add = 2 subtract = vassal_contract_obligation_level:feudal_government_taxes }
@@ -401,6 +427,7 @@ feudal_government_taxes_3_ruler = {
 		add = {
 			add = @base_taxes_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 3 < vassal_contract_obligation_level:feudal_government_taxes }
@@ -408,6 +435,7 @@ feudal_government_taxes_3_ruler = {
 		add = {
 			add = @base_taxes_refusal
 		}
+		min = 0
 	}
 	if = { limit = { liege = { is_ai = no }} value = 1 }
 	multiply = { add = 3 subtract = vassal_contract_obligation_level:feudal_government_taxes }
@@ -420,6 +448,7 @@ feudal_government_taxes_4_ruler = {
 		add = {
 			add = @base_taxes_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 4 < vassal_contract_obligation_level:feudal_government_taxes }
@@ -427,6 +456,7 @@ feudal_government_taxes_4_ruler = {
 		add = {
 			add = @base_taxes_refusal
 		}
+		min = 0
 	}
 	if = { limit = { liege = { is_ai = no }} value = 1 }
 	multiply = { add = 4 subtract = vassal_contract_obligation_level:feudal_government_taxes }
@@ -448,6 +478,7 @@ feudal_government_taxes_0_vassal = {
 		add = {
 			add = @base_taxes_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 0 > vassal_contract_obligation_level:feudal_government_taxes }
@@ -455,6 +486,7 @@ feudal_government_taxes_0_vassal = {
 		add = {
 			add = @base_taxes_refusal
 		}
+		min = 0
 	}
 	if = { limit = { is_ai = no } value = 1 }
 	multiply = { subtract = 0 add = vassal_contract_obligation_level:feudal_government_taxes }
@@ -467,6 +499,7 @@ feudal_government_taxes_1_vassal = {
 		add = {
 			add = @base_taxes_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 1 > vassal_contract_obligation_level:feudal_government_taxes }
@@ -474,6 +507,7 @@ feudal_government_taxes_1_vassal = {
 		add = {
 			add = @base_taxes_refusal
 		}
+		min = 0
 	}
 	if = { limit = { is_ai = no } value = 1 }
 	multiply = { subtract = 1 add = vassal_contract_obligation_level:feudal_government_taxes }
@@ -486,6 +520,7 @@ feudal_government_taxes_2_vassal = {
 		add = {
 			add = @base_taxes_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 2 > vassal_contract_obligation_level:feudal_government_taxes }
@@ -493,6 +528,7 @@ feudal_government_taxes_2_vassal = {
 		add = {
 			add = @base_taxes_refusal
 		}
+		min = 0
 	}
 	if = { limit = { is_ai = no } value = 1 }
 	multiply = { subtract = 2 add = vassal_contract_obligation_level:feudal_government_taxes }
@@ -505,6 +541,7 @@ feudal_government_taxes_3_vassal = {
 		add = {
 			add = @base_taxes_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 3 > vassal_contract_obligation_level:feudal_government_taxes }
@@ -512,6 +549,7 @@ feudal_government_taxes_3_vassal = {
 		add = {
 			add = @base_taxes_refusal
 		}
+		min = 0
 	}
 	if = { limit = { is_ai = no } value = 1 }
 	multiply = { subtract = 3 add = vassal_contract_obligation_level:feudal_government_taxes }
@@ -524,6 +562,7 @@ feudal_government_taxes_4_vassal = {
 		add = {
 			add = @base_taxes_desire
 		}
+		min = 0
 	}
 	else_if = {
 		limit = { 4 > vassal_contract_obligation_level:feudal_government_taxes }
@@ -531,6 +570,7 @@ feudal_government_taxes_4_vassal = {
 		add = {
 			add = @base_taxes_refusal
 		}
+		min = 0
 	}
 	if = { limit = { is_ai = no } value = 1 }
 	multiply = { subtract = 4 add = vassal_contract_obligation_level:feudal_government_taxes }
