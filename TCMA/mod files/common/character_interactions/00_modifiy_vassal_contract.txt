@@ -218,30 +218,35 @@ liege_modify_vassal_contract_interaction_PvP = {
 	auto_accept = yes
 
 	on_accept = {
-		scope:actor = {
-			if = {
-				limit = { has_variable = contract_negotiation }
-				var:contract_negotiation = {
-					every_in_list = {
-						variable = agreed_upon_obligations
-						save_temporary_scope_as = obligation_set
-						PREV.var:vassal = {
-							switch = {
-								trigger = scope:obligation_set.var:obligation
-								flag:feudal_government_taxes = { vassal_contract_set_obligation_level = { type = feudal_government_taxes level = scope:obligation_set.var:level }}
-								flag:feudal_government_levies = { vassal_contract_set_obligation_level = { type = feudal_government_levies level = scope:obligation_set.var:level }}
-								flag:special_contract = { vassal_contract_set_obligation_level = { type = special_contract level = scope:obligation_set.var:level }}
-								flag:religious_rights = { vassal_contract_set_obligation_level = { type = religious_rights level = scope:obligation_set.var:level }}
-								flag:fortification_rights = { vassal_contract_set_obligation_level = { type = fortification_rights level = scope:obligation_set.var:level }}
-								flag:coinage_rights = { vassal_contract_set_obligation_level = { type = coinage_rights level = scope:obligation_set.var:level }}
-								flag:succession_rights = { vassal_contract_set_obligation_level = { type = succession_rights level = scope:obligation_set.var:level }}
-								flag:war_declaration_rights = { vassal_contract_set_obligation_level = { type = war_declaration_rights level = scope:obligation_set.var:level }}
-								flag:council_rights = { vassal_contract_set_obligation_level = { type = council_rights level = scope:obligation_set.var:level }}
-								flag:title_revocation_rights = { vassal_contract_set_obligation_level = { type = title_revocation_rights level = scope:obligation_set.var:level }}
+		send_interface_message = {
+			type = msg_vassal_contract_change
+			title = modify_vassal_contract_interaction_notification
+			right_icon = scope:recipient
+			scope:recipient = {
+				if = {
+					limit = { has_variable = contract_negotiation }
+					var:contract_negotiation = {
+						every_in_list = {
+							variable = agreed_upon_obligations
+							save_temporary_scope_as = obligation_set
+							PREV.var:vassal = {
+								switch = {
+									trigger = scope:obligation_set.var:obligation
+									flag:feudal_government_taxes = { vassal_contract_set_obligation_level = { type = feudal_government_taxes level = scope:obligation_set.var:level }}
+									flag:feudal_government_levies = { vassal_contract_set_obligation_level = { type = feudal_government_levies level = scope:obligation_set.var:level }}
+									flag:special_contract = { vassal_contract_set_obligation_level = { type = special_contract level = scope:obligation_set.var:level }}
+									flag:religious_rights = { vassal_contract_set_obligation_level = { type = religious_rights level = scope:obligation_set.var:level }}
+									flag:fortification_rights = { vassal_contract_set_obligation_level = { type = fortification_rights level = scope:obligation_set.var:level }}
+									flag:coinage_rights = { vassal_contract_set_obligation_level = { type = coinage_rights level = scope:obligation_set.var:level }}
+									flag:succession_rights = { vassal_contract_set_obligation_level = { type = succession_rights level = scope:obligation_set.var:level }}
+									flag:war_declaration_rights = { vassal_contract_set_obligation_level = { type = war_declaration_rights level = scope:obligation_set.var:level }}
+									flag:council_rights = { vassal_contract_set_obligation_level = { type = council_rights level = scope:obligation_set.var:level }}
+									flag:title_revocation_rights = { vassal_contract_set_obligation_level = { type = title_revocation_rights level = scope:obligation_set.var:level }}
+								}
 							}
 						}
+						hidden_effect = { end_story = yes }
 					}
-					hidden_effect = { end_story = yes }
 				}
 			}
 		}
@@ -478,30 +483,35 @@ vassal_modify_vassal_contract_interaction_PvP = {
 	auto_accept = yes
 
 	on_accept = {
-		scope:actor = {
-			if = {
-				limit = { has_variable = contract_negotiation }
-				var:contract_negotiation = {
-					every_in_list = {
-						variable = agreed_upon_obligations
-						save_temporary_scope_as = obligation_set
-						PREV.var:vassal = {
-							switch = {
-								trigger = scope:obligation_set.var:obligation
-								flag:feudal_government_taxes = { vassal_contract_set_obligation_level = { type = feudal_government_taxes level = scope:obligation_set.var:level }}
-								flag:feudal_government_levies = { vassal_contract_set_obligation_level = { type = feudal_government_levies level = scope:obligation_set.var:level }}
-								flag:special_contract = { vassal_contract_set_obligation_level = { type = special_contract level = scope:obligation_set.var:level }}
-								flag:religious_rights = { vassal_contract_set_obligation_level = { type = religious_rights level = scope:obligation_set.var:level }}
-								flag:fortification_rights = { vassal_contract_set_obligation_level = { type = fortification_rights level = scope:obligation_set.var:level }}
-								flag:coinage_rights = { vassal_contract_set_obligation_level = { type = coinage_rights level = scope:obligation_set.var:level }}
-								flag:succession_rights = { vassal_contract_set_obligation_level = { type = succession_rights level = scope:obligation_set.var:level }}
-								flag:war_declaration_rights = { vassal_contract_set_obligation_level = { type = war_declaration_rights level = scope:obligation_set.var:level }}
-								flag:council_rights = { vassal_contract_set_obligation_level = { type = council_rights level = scope:obligation_set.var:level }}
-								flag:title_revocation_rights = { vassal_contract_set_obligation_level = { type = title_revocation_rights level = scope:obligation_set.var:level }}
+		scope:recipient = {
+			send_interface_message = {
+				type = msg_vassal_contract_change
+				title = modify_vassal_contract_interaction_notification
+				right_icon = scope:recipient
+				if = {
+					limit = { has_variable = contract_negotiation }
+					var:contract_negotiation = {
+						every_in_list = {
+							variable = agreed_upon_obligations
+							save_temporary_scope_as = obligation_set
+							PREV.var:vassal = {
+								switch = {
+									trigger = scope:obligation_set.var:obligation
+									flag:feudal_government_taxes = { vassal_contract_set_obligation_level = { type = feudal_government_taxes level = scope:obligation_set.var:level }}
+									flag:feudal_government_levies = { vassal_contract_set_obligation_level = { type = feudal_government_levies level = scope:obligation_set.var:level }}
+									flag:special_contract = { vassal_contract_set_obligation_level = { type = special_contract level = scope:obligation_set.var:level }}
+									flag:religious_rights = { vassal_contract_set_obligation_level = { type = religious_rights level = scope:obligation_set.var:level }}
+									flag:fortification_rights = { vassal_contract_set_obligation_level = { type = fortification_rights level = scope:obligation_set.var:level }}
+									flag:coinage_rights = { vassal_contract_set_obligation_level = { type = coinage_rights level = scope:obligation_set.var:level }}
+									flag:succession_rights = { vassal_contract_set_obligation_level = { type = succession_rights level = scope:obligation_set.var:level }}
+									flag:war_declaration_rights = { vassal_contract_set_obligation_level = { type = war_declaration_rights level = scope:obligation_set.var:level }}
+									flag:council_rights = { vassal_contract_set_obligation_level = { type = council_rights level = scope:obligation_set.var:level }}
+									flag:title_revocation_rights = { vassal_contract_set_obligation_level = { type = title_revocation_rights level = scope:obligation_set.var:level }}
+								}
 							}
 						}
+						hidden_effect = { end_story = yes }
 					}
-					hidden_effect = { end_story = yes }
 				}
 			}
 		}
