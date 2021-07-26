@@ -1090,6 +1090,7 @@ window = {
 						default_format = "#high"
 						enabled = "[CharacterInteractionConfirmationWindow.CanSend]"
 						onclick = "[ModifyVassalContractInteractionWindow.Send]"
+						onclick = "[ModifyVassalContractInteractionWindow.Close]"
 						tooltip = "[CharacterInteractionConfirmationWindow.GetCanSendDescription]"
 						clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_advance"
 					}
@@ -1118,6 +1119,7 @@ window = {
 						default_format = "#high"
 						enabled = "[CharacterInteractionConfirmationWindow.CanSend]"
 						onclick = "[ModifyVassalContractInteractionWindow.Send]"
+						onclick = "[ModifyVassalContractInteractionWindow.Close]"
 						tooltip = "[CharacterInteractionConfirmationWindow.GetCanSendDescription]"
 						clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_advance"
 					}
