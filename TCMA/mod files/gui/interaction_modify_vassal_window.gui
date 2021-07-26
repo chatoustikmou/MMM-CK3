@@ -1107,6 +1107,7 @@ window = {
 						default_format = "#high"
 						enabled = "[GetScriptedGui('send_proposal').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).End)]"
 						onclick = "[GetScriptedGui('send_proposal').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('actor',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetActor.MakeScope).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).End)]"
+						onclick = "[ModifyVassalContractInteractionWindow.Close]"
 						tooltip = "[CharacterInteractionConfirmationWindow.GetCanSendDescription]"
 						clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_advance"
 					}
