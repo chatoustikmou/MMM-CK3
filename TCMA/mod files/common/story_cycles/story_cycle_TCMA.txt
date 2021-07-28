@@ -135,7 +135,16 @@
 		
 		trigger = {
 			var:vassal = { is_ai = yes }
-			var:ruler = { is_ai = yes }
+			var:ruler = {
+				OR = {
+					is_ai = yes
+					AND = {
+						is_ai = no
+						exists = cp:councillor_chancellor
+						cp:councillor_chancellor = { is_performing_council_task = task_domestic_affairs }
+					}
+				}
+			}
 		}
 
 		first_valid = {
@@ -156,8 +165,33 @@
 				}
 
 				effect = {
-					debug_log = "negotiations cannot start"
-					end_story = yes
+					var:vassal = {
+						send_interface_message = {
+							icon = "icon_contract_modification.dds"
+							type = event_generic_bad
+							title = CONTRACT_NEGOTIATION_CANNOT_START
+							right_icon = PREV.var:ruler
+							custom_description = {
+								text = negotiations_cannot_start
+								subject = PREV.var:vassal
+								object = PREV.var:ruler
+							}
+						}
+					}
+					var:ruler = {
+						send_interface_message = {
+							icon = "icon_contract_modification.dds"
+							type = event_generic_bad
+							title = CONTRACT_NEGOTIATION_CANNOT_START
+							right_icon = PREV.var:vassal
+							custom_description = {
+								text = negotiations_cannot_start
+								subject = PREV.var:vassal
+								object = PREV.var:ruler
+							}
+						}
+					}
+					hidden_effect = { end_story = yes }
 				}
 			}
 
@@ -212,11 +246,6 @@
 
 			triggered_effect = {
 				trigger = {
-					# NOR = {
-					# 	negotiation_can_advance = { SENDER = ruler RECEIVER = vassal }
-					# 	negotiation_can_advance = { SENDER = vassal RECEIVER = ruler }
-					# }
-					# has_variable_list = negotiated_obligations
 					var:ruler_acceptance > 0
 					var:vassal_acceptance > 0
 				}
@@ -225,42 +254,6 @@
 					negotiations_end_positive = yes
 				}
 			}
-
-			# triggered_effect = {
-			# 	trigger = {
-			# 		OR = {
-			# 			negotiation_can_advance = { SENDER = ruler RECEIVER = vassal }
-			# 			negotiation_can_advance = { SENDER = vassal RECEIVER = ruler }
-			# 		}
-			# 		has_variable_list = negotiated_obligations
-			# 		var:ruler_acceptance >= 0
-			# 		var:vassal_acceptance >= 0
-			# 	}
-			# 	effect = {
-			# 		if = {
-			# 			limit = { var:ruler_acceptance < var:vassal_acceptance }
-			# 			if = {
-			# 				limit = { negotiation_can_advance = { SENDER = ruler RECEIVER = vassal }}
-			# 				debug_log = "ruler moves along negotiations"
-			# 				move_negotiation_along = { SENDER = ruler RECEIVER = vassal }
-			# 			}
-			# 			else = {
-			# 				debug_log = "vassal moves along negotiations"
-			# 				move_negotiation_along = { SENDER = vassal RECEIVER = ruler }}
-			# 		}
-			# 		else = {
-			# 			if = {
-			# 				limit = { negotiation_can_advance = { SENDER = vassal RECEIVER = ruler }}
- 			# 				debug_log = "vassal moves along negotiations"
-			# 				move_negotiation_along = { SENDER = vassal RECEIVER = ruler }
-			# 			}
-			# 			else = {
-			# 				debug_log = "ruler moves along negotiations"
-			# 				move_negotiation_along = { SENDER = ruler RECEIVER = vassal }
-			# 			}
-			# 		}
-			# 	}
-			# }
 
 			triggered_effect = {
 				trigger = {
@@ -273,7 +266,35 @@
 				}
 				effect = {
 					debug_log = "negotiations_end_negative"
-					negotiations_end_negative = yes
+					var:vassal = {
+						send_interface_message = {
+							icon = "icon_contract_modification.dds"
+							type = event_generic_bad
+							title = CONTRACT_NEGOTIATION_NEGATIVE
+							right_icon = PREV.var:ruler
+							show_as_tooltip = {
+								custom_description = {
+									text = negotiations_end_negative
+									subject = PREV.var:vassal
+									object = PREV.var:ruler
+								}
+							}
+						}
+					}
+					var:ruler = {
+						send_interface_message = {
+							icon = "icon_contract_modification.dds"
+							type = event_generic_bad
+							title = CONTRACT_NEGOTIATION_NEGATIVE
+							right_icon = PREV.var:vassal
+							custom_description = {
+								text = negotiations_end_negative
+								subject = PREV.var:vassal
+								object = PREV.var:ruler
+							}
+						}
+					}
+					end_story = yes
 				}
 			}
 
@@ -285,7 +306,33 @@
 				}
 				effect = {
 					debug_log = "negotiations_end_negative_vassal_walks_out"
-					negotiations_end_negative_vassal_walks_out = yes
+					var:vassal = {
+						send_interface_message = {
+							icon = "icon_contract_modification.dds"
+							type = event_generic_bad
+							title = CONTRACT_NEGOTIATION_NEGATIVE
+							right_icon = PREV.var:ruler
+							custom_description = {
+								text = negotiations_end_negative_vassal_walks_out
+								subject = PREV.var:vassal
+								object = PREV.var:ruler
+							}
+						}
+					}
+					var:ruler = {
+						send_interface_message = {
+							icon = "icon_contract_modification.dds"
+							type = event_generic_bad
+							title = CONTRACT_NEGOTIATION_NEGATIVE
+							right_icon = PREV.var:vassal
+							custom_description = {
+								text = negotiations_end_negative_vassal_walks_out
+								subject = PREV.var:vassal
+								object = PREV.var:ruler
+							}
+						}
+					}
+					end_story = yes
 				}
 			}
 
@@ -297,8 +344,72 @@
 				}
 				effect = {
 					debug_log = "negotiations_end_negative_ruler_walks_out"
-					negotiations_end_negative_ruler_walks_out = yes
+					var:vassal = {
+						send_interface_message = {
+							icon = "icon_contract_modification.dds"
+							type = event_generic_bad
+							title = CONTRACT_NEGOTIATION_NEGATIVE
+							right_icon = PREV.var:ruler
+							custom_description = {
+								text = negotiations_end_negative_ruler_walks_out
+								subject = PREV.var:vassal
+								object = PREV.var:ruler
+							}
+						}
+					}
+					var:ruler = {
+						send_interface_message = {
+							icon = "icon_contract_modification.dds"
+							type = event_generic_bad
+							title = CONTRACT_NEGOTIATION_NEGATIVE
+							right_icon = PREV.var:vassal
+							custom_description = {
+								text = negotiations_end_negative_ruler_walks_out
+								subject = PREV.var:vassal
+								object = PREV.var:ruler
+							}
+						}
+					}
+					end_story = yes
 				}
+			}
+		}
+	}
+
+	effect_group = {
+		days = 180
+		chance = 100
+
+		triggered_effect = {
+			trigger = { always = yes }
+			effect = {
+				var:vassal = {
+					send_interface_message = {
+						icon = "icon_contract_modification.dds"
+						type = event_generic_bad
+						title = CONTRACT_NEGOTIATION_EXPIRED
+						right_icon = PREV.var:ruler
+						custom_description = {
+							text = negotiations_expired
+							subject = PREV.var:vassal
+							object = PREV.var:ruler
+						}
+					}
+				}
+				var:ruler = {
+					send_interface_message = {
+						icon = "icon_contract_modification.dds"
+						type = event_generic_bad
+						title = CONTRACT_NEGOTIATION_EXPIRED
+						right_icon = PREV.var:vassal
+						custom_description = {
+							text = negotiations_expired
+							subject = PREV.var:vassal
+							object = PREV.var:ruler
+						}
+					}
+				}
+				hidden_effect = { end_story = yes }
 			}
 		}
 	}

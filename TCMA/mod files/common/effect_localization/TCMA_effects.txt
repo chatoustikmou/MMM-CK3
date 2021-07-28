@@ -1,0 +1,24 @@
+﻿negotiations_end_negative = {
+	first_past = CONTRACT_NEGOTIATION_NEGATIVE_FIRST
+	third_past = CONTRACT_NEGOTIATION_NEGATIVE_THIRD
+}
+
+negotiations_end_negative_vassal_walks_out = {
+	first_past = CONTRACT_NEGOTIATION_NEGATIVE_VASSAL_WALKS_FIRST
+	third_past = CONTRACT_NEGOTIATION_NEGATIVE_VASSAL_WALKS_THIRD
+}
+
+negotiations_end_negative_ruler_walks_out = {
+	first_past = CONTRACT_NEGOTIATION_NEGATIVE_RULER_WALKS_FIRST
+	third_past = CONTRACT_NEGOTIATION_NEGATIVE_RULER_WALKS_THIRD
+}
+
+negotiations_cannot_start = {
+	first_past = CONTRACT_NEGOTIATION_CANNOT_START_FIRST_PAST
+	third_past = CONTRACT_NEGOTIATION_CANNOT_START_THIRD_PAST
+}
+
+negotiations_expired = {
+	first_past = CONTRACT_NEGOTIATION_EXPIRED_FIRST_PAST
+	third_past = CONTRACT_NEGOTIATION_EXPIRED_THIRD_PAST
+}

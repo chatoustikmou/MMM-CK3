@@ -102,11 +102,6 @@ update_contract_acceptance = {
 						var:obligation = scope:obligation
 						var:level = scope:level
 						PREV = { NOT = { current_obligation_level = { OBLIGATION = scope:obligation LEVEL = scope:level }}}
-						
-						# NAND = {
-						# 	var:ruler_desire = 0
-						# 	var:vassal_desire = 0
-						# }
 					}
 					PREV.var:contract_negotiation = {
 						add_to_variable_list = {
@@ -357,13 +352,13 @@ reject_proposal = {
 			limit = { exists = var:contract_negotiation }
 			var:contract_negotiation = { end_story = yes }
 		}
-	}
-	scope:recipient = {
-		send_interface_message = {
-			type = event_generic_bad
-			title = proposal_rejected
-			right_icon = scope:actor
-			desc = proposal_rejected_desc
+		scope:recipient = {
+			send_interface_message = {
+				type = event_generic_bad
+				title = CONTRACT_NEGOTIATION_REJECTED_PROPOSAL
+				right_icon = scope:actor
+				desc = CONTRACT_NEGOTIATION_REJECTED_PROPOSAL_DESC
+			}
 		}
 	}
 }

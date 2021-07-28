@@ -547,6 +547,7 @@ ai_only_liege_modify_vassal_contract_interaction = {
 			NOT = { has_variable = contract_negotiation }
 		}
 		scope:recipient = {
+			is_ai = yes
 			NOT = { this = scope:actor }
 			NOT = {
 				# has_strong_hook = scope:actor
@@ -628,11 +629,17 @@ ai_only_vassal_modify_vassal_contract_interaction = {
 			NOT = { has_variable = contract_negotiation }
 		}
 		scope:recipient = {
+			OR = {
+				is_ai = yes
+				AND = {
+					is_ai = no
+					exists = cp:councillor_chancellor
+					cp:councillor_chancellor = { is_performing_council_task = task_domestic_affairs }
+					scope:actor = { is_powerful_vassal = no }
+				}
+			}
 			NOT = { this = scope:actor }
 			is_ruler = yes
-			NOT = {
-				# has_strong_hook = scope:actor
-			}
 			NOT = { has_variable = contract_negotiation }
 		}
 		scope:recipient = { is_diplomatically_available = yes }
