@@ -1,0 +1,60 @@
+﻿l_english:
+
+  ACCEPTS_NEGOTIATION_THIRD_NOT: "[CHARACTER.GetShortUIName] does not accept the current proposal"
+  ALREADY_IN_NEGOTIATION_FIRST: "You are already negotiating a contract"
+  ALREADY_IN_NEGOTIATION_THIRD: "[CHARACTER.GetShortUIName] is already negotiating a contract"
+
+  CONTRACT_NEGOTIATION_POSITIVE_VASSAL_TITLE: "Successful contract negotiations"
+  CONTRACT_NEGOTIATION_POSITIVE_RULER_TITLE: "Successful contract negotiations"
+  CONTRACT_NEGOTIATION_REJECTED_PROPOSAL: "Rejected Proposal"
+  CONTRACT_NEGOTIATION_REJECTED_DESC: "[recipient.GetName] rejected your proposal and ended the contract negotiation"
+
+  # CONTRACT_NEGOTIATION_CANNOT_START_LIEGE: "Contract negotiation aborted"
+  # CONTRACT_NEGOTIATION_NEGATIVE_VASSAL_WALKS_VASSAL: "You ended contract negotiation"
+  # CONTRACT_NEGOTIATION_NEGATIVE_VASSAL_WALKS_RULER_DESC: "[TARGET_CHARACTER.GetShortUIName] refused your proposal and walked out of the room"
+  # CONTRACT_NEGOTIATION_NEGATIVE_VASSAL_WALKS_RULER: "Vassal ends contract negotiation"
+  # CONTRACT_NEGOTIATION_NEGATIVE_RULER_WALKS_VASSAL: "Your liege ends contract negotiation"
+  # CONTRACT_NEGOTIATION_NEGATIVE_RULER_WALKS_VASSAL_DESC: "[GetPlayer.MakeScope.Var('contract_negotiation').Var('ruler').Char.GetName] refused your proposal and walked out of the room"
+  # CONTRACT_NEGOTIATION_NEGATIVE_RULER_WALKS_RULER: "You ended contract negotiation"
+  # CONTRACT_NEGOTIATION_NEGATIVE_RULER_WALKS_RULER_DESC: "You refused [GetPlayer.MakeScope.Var('contract_negotiation').Var('vassal').Char.GetName]'s proposal and walked out of the room"
+
+
+  CONTRACT_NEGOTIATION_CANNOT_START: "Contract Negotiation Aborted"
+  CONTRACT_NEGOTIATION_CANNOT_START_FIRST_PAST: "No agreement could be found with [TARGET_CHARACTER.GetShortUIName]"
+  CONTRACT_NEGOTIATION_CANNOT_START_THIRD_PAST: "No agreement could be found with [CHARACTER.GetShortUIName]"
+  CONTRACT_NEGOTIATION_NEGATIVE: "Contract negotiation ended inconclusively"
+  CONTRACT_NEGOTIATION_NEGATIVE_FIRST: "No agreement could be found with [TARGET_CHARACTER.GetShortUIName]"
+  CONTRACT_NEGOTIATION_NEGATIVE_THIRD: "No agreement could be found with [CHARACTER.GetShortUIName]"
+  CONTRACT_NEGOTIATION_NEGATIVE: "Contract Negotiation Failed"
+  CONTRACT_NEGOTIATION_NEGATIVE_VASSAL_WALKS_FIRST: "You refused [TARGET_CHARACTER.GetShortUIName]'s proposal and walked out of the room"
+  CONTRACT_NEGOTIATION_NEGATIVE_VASSAL_WALKS_THIRD: "[CHARACTER.GetShortUIName] refused your proposal and walked out of the room"
+  CONTRACT_NEGOTIATION_NEGATIVE_RULER_WALKS_FIRST: "[TARGET_CHARACTER.GetShortUIName] refused your proposal and walked out of the room"  
+  CONTRACT_NEGOTIATION_NEGATIVE_RULER_WALKS_THIRD: "You refused [CHARACTER.GetShortUIName]'s proposal and walked out of the room"
+  CONTRACT_NEGOTIATION_EXPIRED: "Contract Negotiation Expired"
+  CONTRACT_NEGOTIATION_EXPIRED_FIRST_PAST: "After 6 months without reaching an agreement, the contract negotiation with [TARGET_CHARACTER.GetShortUIName] were abandonned"
+  CONTRACT_NEGOTIATION_EXPIRED_THIRD_PAST: "After 6 months without reaching an agreement, the contract negotiation with [CHARACTER.GetShortUIName] were abandonned"
+
+  pending_contract_negotiation_with_liege_passive: "Ongoing contract negotiation with your liege"
+  pending_contract_negotiation_with_liege_passive_desc: "#help Waiting on your liege to send a counter-proposal#!"
+  pending_contract_negotiation_with_liege_passive_click: "#I Click to open the contract negotiation window#!"
+
+  pending_contract_negotiation_with_liege_active: "Ongoing contract negotiation with your liege"
+  pending_contract_negotiation_with_liege_active_desc: "#help Your liege is waiting on you to send a counter-proposal#!"
+  pending_contract_negotiation_with_liege_active_click: "#I Click to open the contract negotiation window#!"
+
+  pending_contract_negotiation_with_vassal_passive: "Ongoing contract negotiation with your vassal [GetPlayer.MakeScope.Var('contract_negotiation').Var('vassal').Char.GetName]"
+  pending_contract_negotiation_with_vassal_passive_desc: "#help Waiting on your vassal to send a counter-proposal#!"
+  pending_contract_negotiation_with_vassal_passive_click: "#I Click to open the contract negotiation window#!"
+
+  pending_contract_negotiation_with_vassal_active: "Ongoing contract negotiation with your vassal [GetPlayer.MakeScope.Var('contract_negotiation').Var('vassal').Char.GetName]"
+  pending_contract_negotiation_with_vassal_active_desc: "#help Your vassal is waiting on you to send a counter-proposal#!"
+  pending_contract_negotiation_with_vassal_active_click: "#I Click to open the contract negotiation window#!"
+
+  ACCEPT_PROPOSAL: "Accept Proposal"
+  SEND_PROPOSAL: "Send Proposal"
+  REJECT_PROPOSAL: "Reject Proposal"
+
+  liege_modify_vassal_contract_interaction_PvAI: "$modify_vassal_contract$"
+  liege_modify_vassal_contract_interaction_PvP: "$modify_vassal_contract$"
+  vassal_modify_vassal_contract_interaction_PvAI: "$modify_vassal_contract$"
+  vassal_modify_vassal_contract_interaction_PvP: "$modify_vassal_contract$"

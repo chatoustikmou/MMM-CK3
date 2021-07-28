@@ -1,0 +1,389 @@
+﻿testing = {
+	 set_local_variable = {
+		 name = test
+		 value = 999
+	}
+	 add_gold = local_var:test
+	 add_prestige = localtest
+}
+
+testing2 = {
+	set_variable = {
+		 name = test2
+		 value = 999
+	}
+	add_gold = var:test2
+	add_prestige = localtest2
+}
+
+testing3 = {
+	add_gold = var:test2
+	add_prestige = localtest2
+}
+
+global_test = {
+	every_ruler = {
+		limit = {
+			is_independent_ruler = no
+			is_landed = yes
+			has_government = feudal_government
+			highest_held_title_tier >= tier_county
+		}
+		start_feudal_contract_negotiation = { VASSAL = THIS INITIATOR = THIS }
+	}
+}
+
+global_wipe = {
+	every_ruler = {
+		limit = { owns_story_of_type = feudal_contract_negotiation }
+		every_owned_story = {
+			limit = { story_type = feudal_contract_negotiation }
+			end_story = yes
+		}
+	}
+}
+
+ongoing_negotiations = {
+	every_ruler = {
+		limit = { owns_story_of_type = feudal_contract_negotiation }
+		debug_log = "[Scope.Char.GetNameNoTooltip] [Scope.Char.GetLiege.GetNameNoTooltip]"
+	}
+}
+
+test = { 
+	start_feudal_contract_negotiation = { VASSAL = THIS INITIATOR = THIS }
+}
+
+start_feudal_contract_negotiation = {
+	$VASSAL$ = { save_scope_as = vassal }
+	if = {
+		limit = { $VASSAL$ = $INITIATOR$ }
+		scope:vassal.liege = { save_scope_as = receiver }
+	}
+	else = {
+		scope:vassal = { save_scope_as = receiver }
+	}
+	scope:vassal = {
+		set_variable = {
+			name = initiator
+			value = $INITIATOR$
+		}
+		set_variable = {
+			name = receiver
+			value = scope:receiver
+		}
+		create_story = {
+			type = feudal_contract_negotiation
+			save_temporary_scope_as = contract_negotiation
+		}
+	}
+}
+
+set_obligation_level_desire = {
+	# debug_log = "set_obligation_level_desire"
+	set_variable = {
+		name = obligation
+		value = flag:$OBLIGATION$
+	}
+	set_variable = {
+		name = level
+		value = $LEVEL$
+	}
+	set_variable = {
+		name = ruler_desire
+		value = $OBLIGATION$_$LEVEL$_ruler_desire
+	}
+	set_variable = {
+		name = ruler_refusal
+		value = $OBLIGATION$_$LEVEL$_ruler_refusal
+	}
+	set_variable = {
+		name = ruler_refusal_hooked
+		value = $OBLIGATION$_$LEVEL$_ruler_refusal
+	}
+	set_variable = {
+		name = vassal_desire
+		value = $OBLIGATION$_$LEVEL$_vassal_desire
+	}
+	set_variable = {
+		name = vassal_refusal
+		value = $OBLIGATION$_$LEVEL$_vassal_refusal
+	}
+	set_variable = {
+		name = vassal_refusal_hooked
+		value = $OBLIGATION$_$LEVEL$_vassal_refusal
+	}
+	create_story = {
+		type = obligation_level_desire
+		save_temporary_scope_as = negotiable_obligation_level
+	}
+	if = {
+		limit = { scope:story.var:ruler = { has_strong_usable_hook = scope:story.var:vassal }}
+		change_variable = {
+			name = vassal_refusal_hooked
+			subtract = 100
+		}
+	}
+	else_if = {
+		limit = { scope:story.var:ruler = { has_hook = scope:story.var:vassal }}
+		change_variable = {
+			name = vassal_refusal_hooked
+			subtract = 50
+		}
+	}
+	if = {
+		limit = { scope:story.var:vassal = { has_strong_usable_hook = scope:story.var:ruler }}
+		change_variable = {
+			name = ruler_refusal_hooked
+			subtract = 100
+		}
+	}
+	else_if = {
+		limit = { scope:story.var:vassal = { has_hook = scope:story.var:ruler }}
+		change_variable = {
+			name = ruler_refusal_hooked
+			subtract = 50
+		}
+	}
+
+	if = {
+		limit = {
+			OR = {
+				# scope:story.var:ruler = { is_ai = no }
+				# scope:story.var:vassal = { is_ai = no }
+				AND = {
+					obligation_$OBLIGATION$_$LEVEL$_can_be_negotiated = yes
+					NOT = { vassal_contract_obligation_level:$OBLIGATION$ = $LEVEL$ }
+					OR = {
+						AND = {
+							var:ruler_desire > 0
+							var:ruler_desire = { compare_value > scope:story.story_owner.var:vassal_refusal_hooked }
+						}
+						AND = {
+							var:vassal_desire > 0
+							var:vassal_desire = { compare_value > scope:story.story_owner.var:ruler_refusal_hooked }
+						}
+					}
+				}
+			}
+		}
+		scope:story = {
+			add_to_variable_list = {
+				name = negotiable_obligations
+				target = scope:negotiable_obligation_level
+			}
+		}
+	}
+}
+
+move_negotiation_along = {
+	ordered_in_list = {
+		variable = negotiable_obligations
+		limit = {
+			var:$SENDER$_desire > 0
+			var:$RECEIVER$_refusal > 0
+			var:$RECEIVER$_refusal = { compare_value < scope:story.var:$RECEIVER$_max_balance }
+		}
+		order_by = var:$SENDER$_desire
+		save_scope_as = negotiated_obligation_level
+	}
+	scope:negotiated_obligation_level = {
+		# debug_log = "[Scope.Var('obligation').GetFlagName] [Scope.Var('level').GetValue]"
+	}
+	add_to_variable_list = {
+		name = negotiated_obligations
+		target = scope:negotiated_obligation_level
+	}
+
+	every_in_list = {
+		variable = negotiable_obligations
+		limit = { var:obligation = scope:negotiated_obligation_level.var:obligation }
+		scope:story = {
+			remove_list_variable = {
+				name = negotiable_obligations
+				target = PREV
+			}
+		}
+	}
+	
+	if = {
+		limit = {
+			var:$SENDER$ = { has_character_flag = negotiation_hook }
+			scope:negotiated_obligation_level.var:$RECEIVER$_refusal = { compare_value > scope:negotiated_obligation_level.var:$SENDER$_desire }
+		}
+		save_temporary_scope_value_as = {
+			name = acceptance_hook_check
+			value = {
+				add = scope:negotiated_obligation_level.var:$RECEIVER$_refusal
+				subtract = scope:negotiated_obligation_level.var:$SENDER$_desire
+			}
+		}
+		if = { 
+			limit = { scope:acceptance_hook_check > 50 }
+			var:$SENDER$ = { add_character_flag = strong_hook_used }
+		}
+		else = {
+			var:$SENDER$ = { add_character_flag = weak_hook_used }
+		}
+		var:$SENDER$ = { remove_character_flag = negotiation_hook }
+		every_in_list = {
+			variable = negotiable_obligations
+			limit = { var:$RECEIVER$_refusal = { compare_value > PREV.var:$SENDER$_desire }}
+			scope:story = {
+				remove_list_variable = {
+					name = negotiable_obligations
+					target = PREV
+				}
+			}
+		}
+	}
+
+	change_variable = {
+		name = $SENDER$_acceptance
+		add = scope:negotiated_obligation_level.var:$SENDER$_desire
+	}
+	change_variable = {
+		name = $RECEIVER$_acceptance
+		subtract = scope:negotiated_obligation_level.var:$RECEIVER$_refusal
+	}
+	reset_negotiation_acceptance = yes
+}
+
+negotiations_end_positive = {
+	var:vassal = {
+		send_interface_message = {
+			type = event_generic_good
+			title = "CONTRACT_NEGOTIATION_POSITIVE_VASSAL_TITLE"
+			desc = "CONTRACT_NEGOTIATION_POSITIVE_VASSAL_DESC"
+			var:contract_negotiation = {
+				every_in_list = {
+					variable = negotiated_obligations
+					save_temporary_scope_as = obligation_set
+					story_owner = {
+						switch = {
+							trigger = scope:obligation_set.var:obligation
+							flag:feudal_government_taxes = { vassal_contract_set_obligation_level = { type = feudal_government_taxes level = scope:obligation_set.var:level }}
+							flag:feudal_government_levies = { vassal_contract_set_obligation_level = { type = feudal_government_levies level = scope:obligation_set.var:level }}
+							flag:special_contract = { vassal_contract_set_obligation_level = { type = special_contract level = scope:obligation_set.var:level }}
+							flag:religious_rights = { vassal_contract_set_obligation_level = { type = religious_rights level = scope:obligation_set.var:level }}
+							flag:fortification_rights = { vassal_contract_set_obligation_level = { type = fortification_rights level = scope:obligation_set.var:level }}
+							flag:coinage_rights = { vassal_contract_set_obligation_level = { type = coinage_rights level = scope:obligation_set.var:level }}
+							flag:succession_rights = { vassal_contract_set_obligation_level = { type = succession_rights level = scope:obligation_set.var:level }}
+							flag:war_declaration_rights = { vassal_contract_set_obligation_level = { type = war_declaration_rights level = scope:obligation_set.var:level }}
+							flag:council_rights = { vassal_contract_set_obligation_level = { type = council_rights level = scope:obligation_set.var:level }}
+							flag:title_revocation_rights = { vassal_contract_set_obligation_level = { type = title_revocation_rights level = scope:obligation_set.var:level }}
+						}
+					}
+				}
+			}
+		}
+	}
+	var:ruler = {
+		send_interface_message = {
+			type = event_generic_good
+			title = "CONTRACT_NEGOTIATION_POSITIVE_RULER_TITLE"
+			desc = "CONTRACT_NEGOTIATION_POSITIVE_RULER_DESC"
+			show_as_tooltip = {
+				var:contract_negotiation = {
+					every_in_list = {
+						variable = negotiated_obligations
+						save_temporary_scope_as = obligation_set
+						story_owner = {
+							switch = {
+								trigger = scope:obligation_set.var:obligation
+								flag:feudal_government_taxes = { vassal_contract_set_obligation_level = { type = feudal_government_taxes level = scope:obligation_set.var:level }}
+								flag:feudal_government_levies = { vassal_contract_set_obligation_level = { type = feudal_government_levies level = scope:obligation_set.var:level }}
+								flag:special_contract = { vassal_contract_set_obligation_level = { type = special_contract level = scope:obligation_set.var:level }}
+								flag:religious_rights = { vassal_contract_set_obligation_level = { type = religious_rights level = scope:obligation_set.var:level }}
+								flag:fortification_rights = { vassal_contract_set_obligation_level = { type = fortification_rights level = scope:obligation_set.var:level }}
+								flag:coinage_rights = { vassal_contract_set_obligation_level = { type = coinage_rights level = scope:obligation_set.var:level }}
+								flag:succession_rights = { vassal_contract_set_obligation_level = { type = succession_rights level = scope:obligation_set.var:level }}
+								flag:war_declaration_rights = { vassal_contract_set_obligation_level = { type = war_declaration_rights level = scope:obligation_set.var:level }}
+								flag:council_rights = { vassal_contract_set_obligation_level = { type = council_rights level = scope:obligation_set.var:level }}
+								flag:title_revocation_rights = { vassal_contract_set_obligation_level = { type = title_revocation_rights level = scope:obligation_set.var:level }}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	end_story = yes
+}
+
+negotiations_end_negative = {
+	hidden_effect = { var:contract_negotiation = { end_story = yes }}
+}
+
+negotiations_end_negative_vassal_walks_out = {
+	hidden_effect = { var:contract_negotiation = { end_story = yes }}
+}
+
+negotiations_end_negative_ruler_walks_out = {
+	hidden_effect = { var:contract_negotiation = { end_story = yes }}
+}
+
+reset_negotiation_acceptance = {
+	set_variable = {
+		name = vassal_max_acceptance
+		value = 0
+	}
+	set_variable = {
+		name = ruler_max_acceptance
+		value = 0
+	}
+	every_in_list = {
+		variable = negotiable_obligations
+		save_temporary_scope_as = sorting_stories
+		scope:story = {
+			ordered_in_list = {
+				variable = negotiable_obligations
+				limit = {
+					var:obligation = scope:sorting_stories.var:obligation
+					var:vassal_desire > 0
+				}
+				order_by = var:vassal_desire
+				if = {
+					limit = { THIS = scope:sorting_stories }
+					scope:story = {
+						change_variable = {
+							name = vassal_max_acceptance
+							add = PREV.var:vassal_desire
+						}
+					}
+				}
+			}
+			ordered_in_list = {
+				variable = negotiable_obligations
+				limit = {
+					var:obligation = scope:sorting_stories.var:obligation
+					var:ruler_desire > 0
+				}
+				order_by = var:ruler_desire
+				if = {
+					limit = { THIS = scope:sorting_stories }
+					scope:story = {
+						change_variable = {
+							name = ruler_max_acceptance
+							add = PREV.var:ruler_desire
+						}
+					}
+				}
+			}
+		}
+	}
+	set_variable = {
+		name = ruler_max_balance
+		value = {
+			add = var:ruler_max_acceptance
+			add = var:ruler_acceptance
+		}
+	}
+	set_variable = {
+		name = vassal_max_balance
+		value = {
+			add = var:vassal_max_acceptance
+			add = var:vassal_acceptance
+		}
+	}
+}

@@ -1,1 +1,0 @@
-﻿test = { random_army = { location = { spawn_activity = { owner = PREV.army_owner type = activity_feast days = 100 }}}}
