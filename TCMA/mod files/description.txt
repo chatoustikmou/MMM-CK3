@@ -1,0 +1,72 @@
+With [b]Terms & Conditions May Apply[/b], AI Rulers will now negotiate their vassal contracts depending on their personality, for a more dynamic system.
+Players can also delegate vassal contract negotiation to their Chancellor to cut down on micro-management!
+Also introduces a proper PvP negotiation system for multiplayer!
+
+[b]Terms & Conditions May Apply[/b] is a [b]Mostly Mechanical Mod[/b] that overhauls the vassal contract negotiation system.
+Updated for 1.4.4. [i]The mod is not Ironman compatible[/i], but it is savegame compatible.
+Compatible with Submission to Authority, must be loaded first.
+
+Please join us on [url=https://steamcommunity.com/linkfilter/?url=https://discord.gg/sSpp9wKDSd][b]our discord ![/b][/url] to keep up with news, updates & teasers, or to submit bug reports!
+
+[hr]
+[h1]Different personalities? Different objectives![/h1][/hr]
+[hr][/hr]
+Rulers and vassals now have different objectives when negotiating their contracts, and those objectives will vary depending on their personalities.
+A greedy ruler might be willing to give up two levels of Levies, in order to get one more level of Taxes,
+a dishonorable vassal will pursue lower obligation levels more aggressively,
+a cowardly vassal will seek Title Revocation Protection rights - especially if the liege is both vengeful and dishonorable!
+
+Feudal power dynamics are now much more fluid, as vassal contracts reflect the priorities of both parties involved, and no two negotiations are really the same anymore!
+
+[hr]
+[h1]More flexible negotiations - without incurring Tyranny[/h1][/hr]
+[hr][/hr]
+Now that the AI properly knows how to negotiate, two limitations have been lifted from the system:
+- you can now negotiate any Tax or Lavies obligation level, and are not limited to just the next higher or lower level
+- you can now make as many changes to the contract as you like, as long as the other party is willing to trade for them
+
+By negotiating according to the other party's personnality, you can now make drastic changes to a vassal contract without incurring Tyranny for it!
+When negotiating against the AI, a new Acceptance bar will show whether the other party accepts the current contract, or whether you have to give something up to get what you really want.
+
+[hr]
+[h1]Don't like the micro? Delegate![/h1][/hr]
+[hr][/hr]
+Don't want to bother handling contract negotiation with your 78 vassals?
+When you assign your Chancellor to the Domestic Affairs councillor task, he will take care of that for you, and will handle the negotiations just like your character would if he was handled by the AI - except for Powerful Vassals, who will still need to be handled by the player, as they are too important to be brushed aside.
+
+Message notifications will alert you whenever a negotiation fails or succeeds, so you can still keep an eye on what's going on, even if you weren't really in the room where it happened!
+
+[hr]
+[h1]Proper PvP negotiation system[/h1][/hr]
+[hr][/hr]
+When starting a negotiation against another player, a back-and-forth will begin, wherein each player proposes one or more changes to the contract.
+Once a proposal has been sent, the terms changed in that proposal are set, and the other player can either:
+- accept the proposal, and the new contract is set
+- reject the proposal, the negotiation ends, and the old contract is kept unchanged
+- send a counter-proposal with more changes
+
+[h1]Changelog[/h1]
+
+
+Version 0.1
+
+Hotfixe 0.1.2
+
+# Bug
+- Fixed hooks not making a difference when negotiating against the AI
+- Took away hooks entirely in PvP, until a suitable solution is found
+
+# Localization
+- Added french localization
+
+Hotfixe 0.1.1
+
+# Interface
+- Fixed GUI compatibility with Submission to Authority. Load order now should not matter
+
+Version 0.1
+
+# Features
+- New contract negotiation system for the AI, according to their AI Personality values
+- Chancellor task Domestic Affairs now makes AI handle vassal contract negotiation for all non-powerful vassals
+- New PvP contract negotiation system, with a back and forth until both parties are in agreement on a new contract

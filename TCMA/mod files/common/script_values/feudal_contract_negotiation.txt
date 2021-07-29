@@ -22,7 +22,9 @@ liege_contract_negotiation_acceptance = {
 	if = { limit = { local_var:succession_rights 		!= vassal_contract_obligation_level:succession_rights 			} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:succession_rights 			var:level = local_var:succession_rights 		} add = var:ruler_desire subtract = var:ruler_refusal }}
 	if = { limit = { local_var:war_declaration_rights 	!= vassal_contract_obligation_level:war_declaration_rights 		} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:war_declaration_rights 	var:level = local_var:war_declaration_rights 	} add = var:ruler_desire subtract = var:ruler_refusal }}
 	if = { limit = { local_var:council_rights 			!= vassal_contract_obligation_level:council_rights 				} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:council_rights 			var:level = local_var:council_rights 			} add = var:ruler_desire subtract = var:ruler_refusal }}
-	if = { limit = { local_var:title_revocation_rights 	!= vassal_contract_obligation_level:title_revocation_rights 	} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:title_revocation_rights 	var:level = local_var:title_revocation_rights 	} add = var:ruler_desire subtract = var:ruler_refusal }}	
+	if = { limit = { local_var:title_revocation_rights 	!= vassal_contract_obligation_level:title_revocation_rights 	} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:title_revocation_rights 	var:level = local_var:title_revocation_rights 	} add = var:ruler_desire subtract = var:ruler_refusal }}
+	if = { limit = { var:contract_negotiation.var:vassal = { has_variable = contract_negotiation_used_strong_hook }} add = 100 }
+	if = { limit = { var:contract_negotiation.var:vassal = { has_variable = contract_negotiation_used_weak_hook }} add = 50 }
 }
 
 vassal_contract_negotiation_acceptance = {
@@ -37,6 +39,8 @@ vassal_contract_negotiation_acceptance = {
 	if = { limit = { local_var:war_declaration_rights 	!= vassal_contract_obligation_level:war_declaration_rights 		} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:war_declaration_rights 	var:level = local_var:war_declaration_rights	} add = var:vassal_desire subtract = var:vassal_refusal }}
 	if = { limit = { local_var:council_rights 			!= vassal_contract_obligation_level:council_rights 				} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:council_rights 			var:level = local_var:council_rights			} add = var:vassal_desire subtract = var:vassal_refusal }}
 	if = { limit = { local_var:title_revocation_rights 	!= vassal_contract_obligation_level:title_revocation_rights 	} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:title_revocation_rights 	var:level = local_var:title_revocation_rights	} add = var:vassal_desire subtract = var:vassal_refusal }}
+	if = { limit = { var:contract_negotiation.var:ruler = { has_variable = contract_negotiation_used_strong_hook }} add = 100 }
+	if = { limit = { var:contract_negotiation.var:ruler = { has_variable = contract_negotiation_used_weak_hook }} add = 50 }
 }
 
 contract_negotiation_acceptance = {
@@ -48,6 +52,14 @@ contract_negotiation_acceptance = {
 				add = var:ruler_desire
 				subtract = var:ruler_refusal
 			}
+			if = {
+				limit = { var:vassal = { has_variable = contract_negotiation_used_strong_hook }}
+				add = 100
+			}
+			if = {
+				limit = { var:vassal = { has_variable = contract_negotiation_used_weak_hook }}
+				add = 50
+			}
 		}
 		else_if = {
 			limit = { var:ruler = PREV }
@@ -55,6 +67,14 @@ contract_negotiation_acceptance = {
 				variable = negotiated_obligations
 				add = var:vassal_desire
 				subtract = var:vassal_refusal
+			}
+			if = {
+				limit = { var:ruler = { has_variable = contract_negotiation_used_strong_hook }}
+				add = 100
+			}
+			if = {
+				limit = { var:ruler = { has_variable = contract_negotiation_used_weak_hook }}
+				add = 50
 			}
 		}
 	}

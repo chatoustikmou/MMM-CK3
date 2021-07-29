@@ -362,3 +362,25 @@ reject_proposal = {
 		}
 	}
 }
+
+contract_negotiation_use_hook = {
+	scope = character
+	effect = {
+		if = {
+			limit = { has_variable = contract_negotiation_used_strong_hook }
+			remove_variable = contract_negotiation_used_strong_hook
+		}
+		else_if = {
+			limit = { has_variable = contract_negotiation_used_weak_hook }
+			remove_variable = contract_negotiation_used_weak_hook
+		}
+		else_if = {
+			limit = { has_strong_hook = scope:recipient }
+			set_variable = contract_negotiation_used_strong_hook
+		}
+		else_if = {
+			limit = { has_usable_hook = scope:recipient }
+			set_variable = contract_negotiation_used_weak_hook
+		}
+	}
+}

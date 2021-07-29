@@ -1072,7 +1072,7 @@ window = {
 						layoutpolicy_horizontal = expanding
 						text_label_center = {
 							visible = "[GetScriptedGui('sgui_StA_active').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-							text = "Submission impact : [Subtract_int32(Subtract_int32('(int32)45',VassalContract.GetVassalOpinionModification),FixedPointToInt(GuiScope.SetRoot(VassalContract.GetVassal.MakeScope ).ScriptValue('feudal_submission')))|+=]"
+							text = "SUBMISSION_IMPACT : [Subtract_int32(Subtract_int32('(int32)45',VassalContract.GetVassalOpinionModification),FixedPointToInt(GuiScope.SetRoot(VassalContract.GetVassal.MakeScope ).ScriptValue('feudal_submission')))|+=]"
 							using = Font_Size_Medium
 							
 							tooltip_enabled = "[ValueBreakdown.HasTooltip]"
@@ -1088,6 +1088,10 @@ window = {
 					vbox_interaction_options = {
 						name = "tutorial_highlight_modify_contract_hook_button"
 						visible = "[CharacterInteractionConfirmationWindow.HasOptions]"
+						blockoverride OnClick
+						{
+							onclick = "[GetScriptedGui('contract_negotiation_use_hook').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).End)]"
+						}
 					}
 
 					hbox = {
@@ -1749,7 +1753,7 @@ window = {
 						layoutpolicy_horizontal = expanding
 						text_label_center = {
 							visible = "[GetScriptedGui('sgui_StA_active').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-							text = "Submission impact : [Subtract_int32(Subtract_int32('(int32)45',VassalContract.GetVassalOpinionModification),FixedPointToInt(GuiScope.SetRoot(VassalContract.GetVassal.MakeScope ).ScriptValue('feudal_submission')))|+=]"
+							text = "SUBMISSION_IMPACT : [Subtract_int32(Subtract_int32('(int32)45',VassalContract.GetVassalOpinionModification),FixedPointToInt(GuiScope.SetRoot(VassalContract.GetVassal.MakeScope ).ScriptValue('feudal_submission')))|+=]"
 							using = Font_Size_Medium
 							
 							tooltip_enabled = "[ValueBreakdown.HasTooltip]"

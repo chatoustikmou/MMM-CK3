@@ -462,4 +462,81 @@ types TCMA {
 			expand = {}
 		}
 	}
+
+	type vbox_interaction_options = vbox {
+		name = "options_grid"
+		visible = "[CharacterInteractionConfirmationWindow.HasOptions]"
+		datamodel = "[CharacterInteractionConfirmationWindow.GetOptionItems]"
+		spacing = 4
+
+		block "margin"
+		{
+			margin = { 0 10 }
+		}
+
+		text_label_center = {
+			visible = "[Not( StringIsEmpty(CharacterInteractionConfirmationWindow.GetOptionsHeading) )]"
+			layoutpolicy_horizontal = expanding
+			text = "[CharacterInteractionConfirmationWindow.GetOptionsHeading]"
+			align = center|nobaseline
+		}
+
+		item = {
+			widget = {
+				visible = "[OptionItem.IsShown]"
+				layoutpolicy_horizontal = expanding
+				size = { 480 40 }
+
+				background = {
+					using = Background_Area_Border
+				}
+
+				hbox = {
+					visible = "[Or( GreaterThan_int32( CharacterInteractionConfirmationWindow.GetVisibleOptionsCount, '(int32)1' ), Not( CharacterInteractionConfirmationWindow.HasExclusiveOptions ) )]"
+					margin = { 16 0 }
+					spacing = 8
+					tooltip = "[OptionItem.GetTooltip]"
+
+					button_checkbox = {
+						size = { 30 30 }
+						checked = "[OptionItem.HasOption]"
+						onclick = "[OptionItem.OnClick]"
+						block OnClick
+						{
+						}
+						visible = "[Not(OptionItem.IsExclusive)]"
+						enabled = "[And(OptionItem.IsValid, OptionItem.CanBeChanged)]"
+					}
+
+					button_radio = {
+						size = { 30 30 }
+						frame = "[BoolTo1And2( OptionItem.HasOption )]"
+						onclick = "[OptionItem.OnClick]"
+						block OnClick
+						{
+						}
+						visible = "[OptionItem.IsExclusive]"
+						enabled = "[And(OptionItem.IsValid, OptionItem.CanBeChanged)]"
+					}
+
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						text = "[OptionItem.GetName]"
+						align = nobaseline
+					}
+				}
+
+				hbox = {
+					margin = { 10 0 }
+					spacing = 5
+					tooltip = "[OptionItem.GetTooltip]"
+					visible = "[And( CharacterInteractionConfirmationWindow.HasExclusiveOptions, EqualTo_int32( CharacterInteractionConfirmationWindow.GetVisibleOptionsCount, '(int32)1' ) )]"
+
+					text_single = {
+						text = "[OptionItem.GetName]"
+					}
+				}
+			}
+		}
+	}
 }

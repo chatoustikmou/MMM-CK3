@@ -90,6 +90,8 @@
 
   SUBMISSION_TITLE: "Submission breakdown"
 
+  SUBMISSION_IMPACT: "Submission Impact"
+
   submissiveness_TITLE: "submissiveness breakdown"
   game_concept_submissiveness_honor: "Honor"
   game_concept_submissiveness_honor_desc: "If the liege's Tyranny is greater than the vassal's sense of Honor, the vassal will push back"

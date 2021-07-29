@@ -112,16 +112,20 @@
 			}
 		}
 		var:vassal = {
-			if = { limit = { has_variable = contract_negotiation	} remove_variable = contract_negotiation }
-			if = { limit = { has_variable = negotiation_hook		} remove_variable = negotiation_hook }
-			if = { limit = { has_variable = PvP_negotiation			} remove_variable = PvP_negotiation }
-			if = { limit = { has_variable = pending_proposal		} remove_variable = pending_proposal }
+			if = { limit = { has_variable = contract_negotiation					} remove_variable = contract_negotiation }
+			if = { limit = { has_variable = negotiation_hook						} remove_variable = negotiation_hook }
+			if = { limit = { has_variable = PvP_negotiation							} remove_variable = PvP_negotiation }
+			if = { limit = { has_variable = pending_proposal						} remove_variable = pending_proposal }
+			if = { limit = { has_variable = contract_negotiation_used_strong_hook	} remove_variable = contract_negotiation_used_strong_hook }
+			if = { limit = { has_variable = contract_negotiation_used_weak_hook		} remove_variable = contract_negotiation_used_weak_hook }
 		}
 		var:ruler = {
-			if = { limit = { has_variable = contract_negotiation	} remove_variable = contract_negotiation }
-			if = { limit = { has_variable = negotiation_hook		} remove_variable = negotiation_hook }
-			if = { limit = { has_variable = PvP_negotiation			} remove_variable = PvP_negotiation }
-			if = { limit = { has_variable = pending_proposal		} remove_variable = pending_proposal }
+			if = { limit = { has_variable = contract_negotiation					} remove_variable = contract_negotiation }
+			if = { limit = { has_variable = negotiation_hook						} remove_variable = negotiation_hook }
+			if = { limit = { has_variable = PvP_negotiation							} remove_variable = PvP_negotiation }
+			if = { limit = { has_variable = pending_proposal						} remove_variable = pending_proposal }
+			if = { limit = { has_variable = contract_negotiation_used_strong_hook	} remove_variable = contract_negotiation_used_strong_hook }
+			if = { limit = { has_variable = contract_negotiation_used_weak_hook		} remove_variable = contract_negotiation_used_weak_hook }
 		}
 	}
 	

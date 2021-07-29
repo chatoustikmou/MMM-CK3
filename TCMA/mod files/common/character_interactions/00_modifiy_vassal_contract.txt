@@ -253,21 +253,21 @@ liege_modify_vassal_contract_interaction_PvP = {
 	}
 
 
-	send_option = {
-		is_valid = {
-			scope:actor = {
-				has_usable_hook = scope:recipient
-			}
-		}
-		flag = hook
-		localization = SCHEME_HOOK
-	}
-	should_use_extra_icon = {
-		scope:actor = { has_usable_hook = scope:recipient }
-	}
-	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+	# send_option = {
+	# 	is_valid = {
+	# 		scope:actor = {
+	# 			has_usable_hook = scope:recipient
+	# 		}
+	# 	}
+	# 	flag = hook
+	# 	localization = SCHEME_HOOK
+	# }
+	# should_use_extra_icon = {
+	# 	scope:actor = { has_usable_hook = scope:recipient }
+	# }
+	# extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
 
-	send_options_exclusive = no
+	# send_options_exclusive = no
 }
 
 vassal_modify_vassal_contract_interaction_PvAI = {
@@ -517,20 +517,20 @@ vassal_modify_vassal_contract_interaction_PvP = {
 		}
 	}
 
-	send_option = {
-		is_valid = {
-			scope:actor = {
-				has_usable_hook = scope:recipient
-			}
-		}
-		flag = hook
-		localization = SCHEME_HOOK
-	}
-	should_use_extra_icon = {
-		scope:actor = { has_usable_hook = scope:recipient }
-	}
-	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
-	send_options_exclusive = no
+	# send_option = {
+	# 	is_valid = {
+	# 		scope:actor = {
+	# 			has_usable_hook = scope:recipient
+	# 		}
+	# 	}
+	# 	flag = hook
+	# 	localization = SCHEME_HOOK
+	# }
+	# should_use_extra_icon = {
+	# 	scope:actor = { has_usable_hook = scope:recipient }
+	# }
+	# extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+	# send_options_exclusive = no
 }
 
 ai_only_liege_modify_vassal_contract_interaction = {
@@ -924,6 +924,7 @@ vassal_modify_vassal_contract_interaction = {
 		flag = hook
 		localization = SCHEME_HOOK
 	}
+	
 	should_use_extra_icon = {
 		scope:actor = { has_usable_hook = scope:recipient }
 	}

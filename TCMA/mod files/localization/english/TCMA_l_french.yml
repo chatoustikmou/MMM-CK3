@@ -1,0 +1,50 @@
+﻿l_french:
+
+  ACCEPTS_NEGOTIATION_THIRD_NOT: "[CHARACTER.GetShortUIName] n'accepte pas la proposition"
+  ALREADY_IN_NEGOTIATION_FIRST: "Vous êtes déjà en négociation"
+  ALREADY_IN_NEGOTIATION_THIRD: "[CHARACTER.GetShortUIName] est déjà en négociation"
+
+  CONTRACT_NEGOTIATION_POSITIVE_VASSAL_TITLE: "Négociation Réussie"
+  CONTRACT_NEGOTIATION_POSITIVE_RULER_TITLE: "Négociation Réussie"
+  CONTRACT_NEGOTIATION_REJECTED_PROPOSAL: "Proposition Rejetée"
+  CONTRACT_NEGOTIATION_REJECTED_DESC: "[recipient.GetName] a refusé votre proposition et mis fin à la négociation"
+
+  CONTRACT_NEGOTIATION_CANNOT_START: "Négociation Abandonnée"
+  CONTRACT_NEGOTIATION_CANNOT_START_FIRST_PAST: "Aucun accord ne pouvait être trouvé avec [TARGET_CHARACTER.GetShortUIName]"
+  CONTRACT_NEGOTIATION_CANNOT_START_THIRD_PAST: "Aucun accord ne pouvait être trouvé avec [CHARACTER.GetShortUIName]"
+  CONTRACT_NEGOTIATION_NEGATIVE: "Négociation Non-Aboutie"
+  CONTRACT_NEGOTIATION_NEGATIVE_FIRST: "Aucun accord ne pouvait être trouvé avec [TARGET_CHARACTER.GetShortUIName]"
+  CONTRACT_NEGOTIATION_NEGATIVE_THIRD: "Aucun accord ne pouvait être trouvé avec [CHARACTER.GetShortUIName]"
+  CONTRACT_NEGOTIATION_NEGATIVE: "Négociation Non-Aboutie
+  CONTRACT_NEGOTIATION_NEGATIVE_VASSAL_WALKS_FIRST: "Vous avez refusé la proposition de [TARGET_CHARACTER.GetShortUIName] et quitté la table de négociation"
+  CONTRACT_NEGOTIATION_NEGATIVE_VASSAL_WALKS_THIRD: "[CHARACTER.GetShortUIName] a refusé votre proposition et quitté la table de négociation"
+  CONTRACT_NEGOTIATION_NEGATIVE_RULER_WALKS_FIRST: "[TARGET_CHARACTER.GetShortUIName] a refusé votre proposition et quitté la table de négociation"  
+  CONTRACT_NEGOTIATION_NEGATIVE_RULER_WALKS_THIRD: "Vous avez refusé la proposition de [CHARACTER.GetShortUIName] et quitté la table de négociation"
+  CONTRACT_NEGOTIATION_EXPIRED: "Négociation Expirée"
+  CONTRACT_NEGOTIATION_EXPIRED_FIRST_PAST: "Après 6 mois sans trouver d'accord, la négociation avec [TARGET_CHARACTER.GetShortUIName] a été abandonnée"
+  CONTRACT_NEGOTIATION_EXPIRED_THIRD_PAST: "Après 6 mois sans trouver d'accord, la négociation avec [CHARACTER.GetShortUIName] a été abandonnée"
+
+  pending_contract_negotiation_with_liege_passive: "Négotiation en cours avec votre seigneur"
+  pending_contract_negotiation_with_liege_passive_desc: "#help En attente d'une contre-proposition de la part de votre seigneur#!"
+  pending_contract_negotiation_with_liege_passive_click: "#I Cliquer pour ouvrir la fenêtre de négociation#!"
+
+  pending_contract_negotiation_with_liege_active: "Négotiation en cours avec votre seigneur"
+  pending_contract_negotiation_with_liege_active_desc: "#help Votre seigneur attend une contre-proposition#!"
+  pending_contract_negotiation_with_liege_active_click: "#I Cliquer pour ouvrir la fenêtre de négociation#!"
+
+  pending_contract_negotiation_with_vassal_passive: "Négotiation en cours avec votre vassal [GetPlayer.MakeScope.Var('contract_negotiation').Var('vassal').Char.GetName]"
+  pending_contract_negotiation_with_vassal_passive_desc: "#help En attente d'une contre-proposition de la part de votre vassal#!"
+  pending_contract_negotiation_with_vassal_passive_click: "#I Cliquer pour ouvrir la fenêtre de négociation#!"
+
+  pending_contract_negotiation_with_vassal_active: "Négotiation en cours avec votre vassal [GetPlayer.MakeScope.Var('contract_negotiation').Var('vassal').Char.GetName]"
+  pending_contract_negotiation_with_vassal_active_desc: "#help Votre vassal attend une contre-proposition#!"
+  pending_contract_negotiation_with_vassal_active_click: "#I Cliquer pour ouvrir la fenêtre de négociation#!"
+
+  ACCEPT_PROPOSAL: "Accepter"
+  SEND_PROPOSAL: "Contre-Proposition"
+  REJECT_PROPOSAL: "Refuser"
+
+  liege_modify_vassal_contract_interaction_PvAI: "$modify_vassal_contract$"
+  liege_modify_vassal_contract_interaction_PvP: "$modify_vassal_contract$"
+  vassal_modify_vassal_contract_interaction_PvAI: "$modify_vassal_contract$"
+  vassal_modify_vassal_contract_interaction_PvP: "$modify_vassal_contract$"
