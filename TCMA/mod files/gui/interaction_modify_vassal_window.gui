@@ -30,7 +30,7 @@ window = {
 		name = "window_content"
 		layoutpolicy_vertical = expanding
 		set_parent_size_to_minimum = yes
-		minimumsize = { 0 750 }
+		minimumsize = { 0 770 }
 
 		using = Window_Margins
 
@@ -1050,19 +1050,39 @@ window = {
 				vbox = {
 					layoutpolicy_horizontal = expanding
 
-					text_single = {
-						datacontext = "[ModifyVassalContractInteractionWindow.GetContractPreviewOpinionBreakdown]"
+					# [StA]
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						text_single = {
+							datacontext = "[ModifyVassalContractInteractionWindow.GetContractPreviewOpinionBreakdown]"
 
-						visible = "[Not(VassalContract.GetVassal.IsLocalPlayer)]"
-						text = "VASSAL_CONTRACT_OPINION_MODIFICATION"
-						using = Font_Size_Medium
+							visible = "[Not(VassalContract.GetVassal.IsLocalPlayer)]"
+							text = "VASSAL_CONTRACT_OPINION_MODIFICATION"
+							using = Font_Size_Medium
 
-						tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+							tooltip_enabled = "[ValueBreakdown.HasTooltip]"
 
-						tooltipwidget = {
-							widget_value_breakdown_tooltip = {}
+							tooltipwidget = {
+								widget_value_breakdown_tooltip = {}
+							}
 						}
 					}
+					expand = {}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						text_label_center = {
+							visible = "[GetScriptedGui('sgui_StA_active').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+							text = "Submission impact : [Subtract_int32(Subtract_int32('(int32)45',VassalContract.GetVassalOpinionModification),FixedPointToInt(GuiScope.SetRoot(VassalContract.GetVassal.MakeScope ).ScriptValue('feudal_submission')))|+=]"
+							using = Font_Size_Medium
+							
+							tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+							
+							tooltipwidget = {
+								widget_value_breakdown_tooltip = {}
+							}
+						}
+					}
+					# [/StA]
 
 					## Options
 					vbox_interaction_options = {
@@ -1707,20 +1727,40 @@ window = {
 				vbox = {
 					layoutpolicy_horizontal = expanding
 
-					text_single = {
-						datacontext = "[ModifyVassalContractInteractionWindow.GetContractPreviewOpinionBreakdown]"
+					# [StA]
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						text_single = {
+							datacontext = "[ModifyVassalContractInteractionWindow.GetContractPreviewOpinionBreakdown]"
 
-						visible = "[Not(VassalContract.GetVassal.IsLocalPlayer)]"
-						text = "VASSAL_CONTRACT_OPINION_MODIFICATION"
-						using = Font_Size_Medium
+							visible = "[Not(VassalContract.GetVassal.IsLocalPlayer)]"
+							text = "VASSAL_CONTRACT_OPINION_MODIFICATION"
+							using = Font_Size_Medium
 
-						tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+							tooltip_enabled = "[ValueBreakdown.HasTooltip]"
 
-						tooltipwidget = {
-							widget_value_breakdown_tooltip = {}
+							tooltipwidget = {
+								widget_value_breakdown_tooltip = {}
+							}
 						}
 					}
-
+					expand = {}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						text_label_center = {
+							visible = "[GetScriptedGui('sgui_StA_active').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+							text = "Submission impact : [Subtract_int32(Subtract_int32('(int32)45',VassalContract.GetVassalOpinionModification),FixedPointToInt(GuiScope.SetRoot(VassalContract.GetVassal.MakeScope ).ScriptValue('feudal_submission')))|+=]"
+							using = Font_Size_Medium
+							
+							tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+							
+							tooltipwidget = {
+								widget_value_breakdown_tooltip = {}
+							}
+						}
+					}
+					# [/StA]
+						
 					## Options
 					vbox_interaction_options = {
 						name = "tutorial_highlight_modify_contract_hook_button"

@@ -334,19 +334,53 @@ types StA {
 							visible = "[Not( Character.GetPrimaryTitle.IsBarony))]"
 							# [/StA]
 							spacing = 10
-							button_round = {
-								# [StA]
-								visible = "[Character.GetGovernment.IsType('feudal_government')]"
-								# [/StA]
-								enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction')]"
-								onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction')]"
-								tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
 
-								button_feudal_contract = {
-									alwaystransparent = yes
-									parentanchor = center
+							vbox = {
+								datacontext = "[GetScriptedGui('sgui_TCMA_active')]"
+								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								button_round = {
+									visible = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvAI')]"
+									enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvAI')]"
+									onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction_PvAI')]"
+									tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
+
+									button_feudal_contract = {
+										alwaystransparent = yes
+										parentanchor = center
+									}
+								}
+
+								button_round = {
+									visible = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvP')]"
+									enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvP')]"
+									onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction_PvP')]"
+									tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
+
+									button_feudal_contract = {
+										alwaystransparent = yes
+										parentanchor = center
+									}
 								}
 							}
+
+							vbox = {
+								datacontext = "[GetScriptedGui('sgui_TCMA_active')]"
+								visible = "[Not(ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
+								button_round = {
+									# [StA]
+									visible = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction')]"
+									# [/StA]
+									enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction')]"
+									onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction')]"
+									tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
+
+									button_feudal_contract = {
+										alwaystransparent = yes
+										parentanchor = center
+									}
+								}
+							}
+
 							text_single = {
 								# [StA]
 								visible = "[Character.GetGovernment.IsType('feudal_government')]"

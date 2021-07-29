@@ -1,4 +1,8 @@
-﻿#Updated custom dec, doesn't need to change for Tribal rulers anymore
+﻿mod_StA_active = {
+	always = yes
+}
+
+#Updated custom dec, doesn't need to change for Tribal rulers anymore
 can_change_succession_law_trigger = {
 	custom_description = {
 		text = "has_law_allowing_succession_law_change"

@@ -1,0 +1,13 @@
+﻿l_german:
+
+ StA_councillor_task.0001.t:
+ StA_councillor_task.0001.desc: "EZvent desc"
+ StA_councillor_task.0001.a: "Schlechte Arbeit, Herr Kanzler!"
+ StA_councillor_task.0001.title_message:
+ StA_councillor_task.0001.message:
+
+ StA_councillor_task.0002.t:
+ StA_councillor_task.0002.desc: "Event description"
+ StA_councillor_task.0002.a: "Gute Arbeit, Herr Kanzler!"
+ StA_councillor_task.0002.title_message:
+ StA_councillor_task.0002.message:

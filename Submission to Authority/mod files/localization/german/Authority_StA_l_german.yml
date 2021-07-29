@@ -1,0 +1,107 @@
+﻿l_german:
+
+  game_concept_realm_authority:"Autorität"
+  game_concept_realm_authority_desc:"$game_concept_realm_authority$ repräsentiert den Einfluss, den ein [ruler|El] auf seine [vassals|El]. ausübt. Es gibt 4 Stufen von $game_concept_realm_authority$ : Abwesend, Begrenzt, Hoch und Absolut.\n\n$game_concept_realm_authority$ Level wird jedes Vierteljahr aktualisiert, abhängig von dem $game_concept_realm_authority$ Wert, der von 0 bis 100 reicht, entsprechend der [submission|E] der Vasallen in Abhängigkeit von ihrem jeweiligen [Landanteil|E]"
+  game_concept_authority: "Autorität"
+  game_concept_authority_desc: "$game_concept_authority$ stellt den Einfluss dar, den ein [ruler|El] auf seine [vassals|El]. ausübt. Es gibt 4 Stufen von $game_concept_authority$ : Abwesend, Begrenzt, Hoch und Absolut.\n\n$game_concept_realm_authority$ level wird jedes Vierteljahr aktualisiert, abhängig vom $game_concept_authority$ Wert, der von 0 bis 100 reicht, entsprechend der [submission|E] der Vasallen, abgewogen durch ihren jeweiligen [Landanteil|E]"
+  
+  
+  game_concept_submission: "Untertänigkeit"
+  game_concept_submission_desc: "$game_concept_submission$ spiegelt wider, inwieweit sich der [vassal|El] der Macht seines [liege|El]unterwirft.\n\nFür [feudal|E] Herrscher wird $game_concept_submission$ durch ihren [feudal_contract|E] bestimmt: je vorteilhafter er für den Herrscher ist, desto unterwürfiger ist der Vasallenherrscher.\n\nFür [clan|E] -Herrscher sind gute Beziehungen der Schlüssel, und sie werden dem Lehnsherrn natürlich nachgeben, wenn sie ihn schätzen.\n\n[tribal|E] Stammes-Herrscher respektieren Ruhm, erwarten aber von Herrschern mit viel Macht, dass sie ihn teilen, und schätzen es nicht, wenn ihr Lehnsherr Titel hortet.\n\n"
+
+  game_concept_tribal_submission: "Stammes untertänigkeit"
+  game_concept_tribal_submission_desc: "$game_concept_submission$ spiegelt wider, inwieweit sich der [vassal|El] der Macht seines [liege|El]unterwirft.\n\n[tribal|E] Vasallen respektieren Herrscher, die mehr Ruhm und Ansehen haben als sie, erwarten aber von Herrschern mit viel Macht, dass sie diese teilen, und schätzen es nicht, wenn ihr Lehnsherr Titel hortet."
+
+  game_concept_clan_submission: "Clan-untertänigkeit"
+  game_concept_clan_submission_desc: "$game_concept_submission$ spiegelt wider, inwieweit sich der [vassal|El] der Macht seines [liege|El]unterwirft.\n\nFür [clan|E] Herrschern sind gute Beziehungen wichtig, und sie werden dem Lehnsherrn natürlich nachgeben, wenn sie ihn schätzen."
+
+  game_concept_feudal_submission: "Feudale untertänigkeit"
+  game_concept_feudal_submission_desc: "$game_concept_submission$ spiegelt wider, inwieweit sich der [vassal|El] der Macht seines [liege|El]unterwirft.\n\nFür [feudal|E] Herrscher, $game_concept_submission$ wird durch ihren [feudal_contract|E] bestimmt: je vorteilhafter er für den Herrscher ist, desto unterwürfiger ist der Vasallenherrscher. Feudalverträge sollten für alle beteiligten Parteien aggressiv verhandelt werden."
+
+  game_concept_theocracy_submission: "Theokratie untertänigkeit"
+  game_concept_theocracy_submission_desc: "$game_concept_submission$ spiegelt wider, inwieweit sich der [vassal|El] der Macht seines [liege|El]unterwirft.\n\n Für [theocracy|E] Herrscher, $game_concept_submission$ wird durch die Meinung ihres Glaubensoberhaupts über ihren Lehnsherrn bestimmt, wenn ein solches Glaubensoberhaupt existiert. Andernfalls wird stattdessen die eigene Meinung herangezogen. Wenn der Vasall außerdem einem anderen Glauben als der Herrscher angehört, senkt die Glaubensfeindlichkeit des Ersteren gegenüber dem Letzteren ebenfalls die Unterwerfung."
+
+  game_concept_republic_submission: "Republik untertänigkeit"
+  game_concept_republic_submission_desc: "$game_concept_submission$ spiegelt wider, inwieweit sich der [vassal|El] der Macht seines [liege|El]unterwirft.\n\n Für [republic|E] Herrscher, $game_concept_submission$ wird durch das monatliche Einkommen ihres Lehnsherrn bestimmt, verglichen mit dem durchschnittlichen Monatseinkommen aller Herrscher desselben Ranges."
+
+  game_concept_land_share: "Landanteil"
+  game_concept_land_share_desc: "$game_concept_land_share$ ist, wie viel vom Reich des Herrschers von diesem bestimmten [vassal|El] gehalten wird. $Submission$ von Vasallen mit einem höheren $game_concept_land_share$ wird mehr in der Gesamt- [authority|E] des Herrschers wiegen."
+  
+  realm_authority: "Autorität"
+  land_share: "Landanteil"
+  submission: "Untertänigkeit"
+  clan_submission: "Untertänigkeit"
+
+  game_concept_clan_liege_opinion: "Meinung des Lehnsherrn"
+  game_concept_clan_liege_opinion_desc: "Die Meinung des Lehnsherrn, die von -100 bis +100 reicht, wird einfach neu kalibriert, um einer Skala von 0 bis 100 zu entsprechen."
+
+  game_concept_submissiveness: "Unterwürfigkeit"
+  game_concept_submissiveness_desc: "Unterwürfigkeit ist die natürliche Tendenz des Charakters zur Unterwerfung, die von seinen Charaktereigenschaften und seiner allgemeinen Persönlichkeit abhängt und nicht von seiner speziellen aktuellen Situation und Beziehung zu seinem Lehnsherrn.\n\Sie reicht von 0 bis 100%."
+
+  game_concept_feudal_contract: "Feudalvertragswert"
+  game_concept_feudal_contract_desc: "Der Feudalvertragswert, auf einer Skala von 0 bis 100, repräsentiert das Gleichgewicht des Feudalvertrags zwischen dem Vasallen und seinem Lehnsherrn. Höhere Verpflichtungen erhöhen den Wert, während jedes Recht, das dem Vasallen gewährt wird, ihn um den gleichen Betrag senkt, den es die Meinung des Vasallen über seinen Lehnsherrn beeinflusst."
+
+#GUI
+  MY_REALM_WINDOW_VASSAL_SUBMISSION: "$submission$: [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]\n$land_share$: [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('land_share')|0]%"
+  MY_REALM_WINDOW_VASSAL_OBLIGATION: "$VASSAL_CONTRACT_OBLIGATIONS_TITLE$: [VassalContract.GetShortObligationLevelNameWithHighlightFor( 'feudal_government_taxes' )]\n$VASSAL_CONTRACT_OBLIGATIONS_TITLE_LEVIES$: [VassalContract.GetShortObligationLevelNameWithHighlightFor( 'feudal_government_levies' )]"
+  
+  AUTHORITY_TICK: "Monatliche Autoritätsänderung"
+  AUTHORITY_TICK_UP: "[realm_authority|E] steigt jeden Monat um [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|1] auf [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('monthly_auth_var_increase')|+2]"
+  AUTHORITY_TICK_DOWN: "[realm_authority|E] verringert sich jeden Monat in Richtung [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('realm_authority')|1] um [GuiScope.SetRoot( GetPlayer.MakeScope ).ScriptValue('monthly_auth_var_decrease')|+2]"
+  AUTHORITY_TICK_BASE: "Basis"
+  AUTHORITY_TICK_DOWN_PENALTY: "Strafe bei Zielüberschreitung"
+  
+  MY_REALM_WINDOW_TEST:"Test\n\nTest"
+  CLAN_SUBMISSION_TITLE: "Clan-Vasall Unterwerfung Aufschlüsselung"
+  CLAN_SUBMISSION_BD_LIBERTY: "Von der Freiheitsfraktion durchgesetzte Forderungen"
+  CLAN_SUBMISSION_BD_OPINION: "From [clan_liege_opinion|E]"
+
+  TRIBAL_SUBMISSION_TITLE: "Stammes-Vasall Aufschlüsselung der Unterwerfung"
+  TRIBAL_SUBMISSION_VALUE: "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|0]""
+  TRIBAL_SUBMISSION_BD_LIEGE_TRIBAL_POWER: "Von Lehnsrang, Ruhm und Ansehen"
+  TRIBAL_SUBMISSION_BD_TRIBAL_POWER: "Von Vasallenrang, Ruhm und Ansehen"
+  TRIBAL_SUBMISSION_BD_LIEGE_HOARDING: "Von Herzogtumstiteln, die der Lehnsherr gehortet hat"
+
+  TRIBAL_SUBMISSION_LIEGE_POWER: "Lehnsherr Rang, Ruhm & Ansehen Aufschlüsselung"
+  TRIBAL_SUBMISSION_BD_LIEGE_RANK: "Lehnsherrschaft Titelrang"
+  TRIBAL_SUBMISSION_BD_LIEGE_FAME: "Lehnsherr Ruhmesstufe"
+  TRIBAL_SUBMISSION_BD_LIEGE_RENOWN: "Lehnsherr Dynastie Bekanntheitsgrad"
+  TRIBAL_SUBMISSION_BD_LIEGE_MULT: "Lehnsherr-Multiplikator für Balance"
+
+  TRIBAL_SUBMISSION_POWER: "Aufschlüsselung von Vasallenrang, Ruhm und Ansehen"
+  TRIBAL_SUBMISSION_BD_RANK: "Vasall Titel Rang"
+  TRIBAL_SUBMISSION_BD_FAME: "Vasallen-Ruhmesstufe"
+  TRIBAL_SUBMISSION_BD_RENOWN: "Vasallen-Dynastie-Ruhmesstufe"
+
+  FEUDAL_SUBMISSION_TITLE: "Feudaler Vasall Aufschlüsselung der Unterwerfung"
+  FEUDAL_SUBMISSION_BD_CONTRACT: "Feudalvertrag"
+
+  THEOCRACY_SUBMISSION_TITLE: "Theokratie Vasall Unterwerfung Aufschlüsselung"
+  THEOCRACY_SUBMISSION_BD: "THEOCRACY_SUBMISSION_BD"
+  THEOCRACY_SUBMISSION_BD_HOF_OPINION: "Oberhaupt des Glaubens Meinung von Lehnsherr"
+  THEOCRACY_SUBMISSION_BD_VASSAL_OPINION: "Vasallenmeinung von Lehnsherr"
+  THEOCRACY_SUBMISSION_BD_FAITH_HOSTILITY: "Glaubensfeindlichkeit des Vasallen gegenüber dem Glauben des Lehnsherrn"
+
+  REPUBLIC_SUBMISSION_TITLE: "Republik Vasall Unterwerfung Aufschlüsselung"
+  REPUBLIC_SUBMISSION_BD: "REPUBLIC_SUBMISSION_BD"
+  REPUBLIC_SUBMISSION_BD_LIEGE_INCOME: "Lehnsherr Monatseinkommen"
+  REPUBLIC_SUBMISSION_BD_LIEGE_RANK_AVG_INCOME: "Durchschnittliches Einkommen aller [Character.GetLiege.GetTitleTierName]-Rang-Herrscher"
+  REPUBLIC_SUBMISSION_BD_OFFSET: ""
+
+  SUBMISSION_TITLE: "Aufschlüsselung der Untertänigkeit"
+
+  submissiveness_TITLE: "Unterwürfigkeit Aufschlüsselung"
+  game_concept_submissiveness_honor: "Ehre"
+  game_concept_submissiveness_honor_desc: "Wenn die Tyrannei des Lehnsherrn größer ist als das Ehrgefühl des Vasallen, wird der Vasall zurückschlagen"
+  game_concept_submissiveness_vengefulness: "Rache"
+  game_concept_submissiveness_vengefulness_desc: "Wenn die Meinung des Vasallen über seinen Lehnsherrn niedriger ist als seine Neigung zur Rache, wird der Vasall zurückstoßen"
+  game_concept_submissiveness_dread: "Reaktion auf Furcht"
+  game_concept_submissiveness_dread_desc: "Lehnsherr Schrecken erhöht die Unterwerfung des Vasallen, es sei denn, der Vasall ist mutig genug, um zu widerstehen. Und wenn der Vasall entweder durch Ehre oder Rache motiviert ist, und der Vasall mutig genug ist, könnte das Lehnsherr-Grauen auch auf ihn zurückschlagen..."
+
+#Notification
+
+  authority_gain_title: "Ihre Autorität erhöht"
+  authority_loss_title: "Ihre Autorität hat abgenommen"
+
+  liege_authority_gain_title: "Die Autorität Ihres Lehnsherrn wurde erhöht"
+  liege_authority_loss_title: "Die Autorität Ihres Lehnsherrn ist gesunken"

@@ -1,4 +1,8 @@
-﻿# from scope:army
+﻿mod_PoW_active = {
+	always = yes
+}
+
+# from scope:army
 is_enemy_army_nearby = {
 	save_temporary_scope_as = local_army
 	is_at_sea = no

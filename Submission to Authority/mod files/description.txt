@@ -43,6 +43,15 @@ All remaining bugs are my own.
 
 [h1]Changelog[/h1]
 
+Version 1.1.2
+
+# Localization
+- Updated Chinese localization, courtesy of Juijote !
+- Now available in German thanks to Wotan von Edelsburg !
+
+# Interface
+- Handled compatibility with Terms & Conditions May Apply
+
 Hotfix 1.1.1
 
 # Interface
