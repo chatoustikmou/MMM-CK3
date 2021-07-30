@@ -8,9 +8,6 @@
 @base_taxes_desire = 100
 @base_taxes_refusal = 100
 
-localtest = { value = local_var:test }
-localtest2 = { value = var:test2 }
-
 liege_contract_negotiation_acceptance = {
 	add = 0	
 	if = { limit = { local_var:feudal_government_taxes 	!= vassal_contract_obligation_level:feudal_government_taxes  	} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:feudal_government_taxes 	var:level = local_var:feudal_government_taxes	} add = var:ruler_desire subtract = var:ruler_refusal }}

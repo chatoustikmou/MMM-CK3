@@ -1,27 +1,4 @@
-﻿testing = {
-	 set_local_variable = {
-		 name = test
-		 value = 999
-	}
-	 add_gold = local_var:test
-	 add_prestige = localtest
-}
-
-testing2 = {
-	set_variable = {
-		 name = test2
-		 value = 999
-	}
-	add_gold = var:test2
-	add_prestige = localtest2
-}
-
-testing3 = {
-	add_gold = var:test2
-	add_prestige = localtest2
-}
-
-global_test = {
+﻿global_test = {
 	every_ruler = {
 		limit = {
 			is_independent_ruler = no
@@ -252,9 +229,8 @@ move_negotiation_along = {
 negotiations_end_positive = {
 	var:vassal = {
 		send_interface_message = {
-			type = event_generic_good
+			type = contract_negotiation_positive
 			title = "CONTRACT_NEGOTIATION_POSITIVE_VASSAL_TITLE"
-			desc = "CONTRACT_NEGOTIATION_POSITIVE_VASSAL_DESC"
 			var:contract_negotiation = {
 				every_in_list = {
 					variable = negotiated_obligations
@@ -276,13 +252,21 @@ negotiations_end_positive = {
 					}
 				}
 			}
+			if = {
+				limit = {
+					OR = {
+						has_character_flag = strong_hook_used
+						has_character_flag = weak_hook_used
+					}
+				}
+				remove_hook = var:contract_negotiation.var:ruler
+			}
 		}
 	}
 	var:ruler = {
 		send_interface_message = {
-			type = event_generic_good
+			type = contract_negotiation_positive
 			title = "CONTRACT_NEGOTIATION_POSITIVE_RULER_TITLE"
-			desc = "CONTRACT_NEGOTIATION_POSITIVE_RULER_DESC"
 			show_as_tooltip = {
 				var:contract_negotiation = {
 					every_in_list = {
@@ -305,6 +289,15 @@ negotiations_end_positive = {
 						}
 					}
 				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_character_flag = strong_hook_used
+						has_character_flag = weak_hook_used
+					}
+				}
+				remove_hook = var:contract_negotiation.var:vassal
 			}
 		}
 	}

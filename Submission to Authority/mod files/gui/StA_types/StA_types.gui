@@ -1,5 +1,29 @@
-﻿
-types StA {
+﻿types StA_window_my_realm {
+
+	type window_my_realm_authority_header_StA = vbox {
+
+		datacontext = "[GuiLawGroup.GetLawGroup]"
+		visible = "[And( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law' ), GuiLawGroup.IsAvailable )]"
+		ignoreinvisible = yes
+		
+		margin_bottom = 5
+
+		vbox = {
+			spacing = 7
+			margin_bottom = 15
+
+			text_label_center = {
+				text = "[authority|E]: [GetPlayer.MakeScope.Var('ticking_authority').GetValue|#V1]"
+				tooltipwidget = { authority_ticking_tooltip = {} }
+			}
+
+			text_label_center = {
+				text = "[tyranny|E]: [GetPlayer.MakeScope.ScriptValue('character_tyranny')|0]"
+			}
+		}
+		
+		authority_progressbar = {}
+	}
 
 	type authority_progressbar = widget {
 		name = "authority"
@@ -93,31 +117,163 @@ types StA {
 		}
 	}
 
-	type authority_header = vbox {
-		datacontext = "[GuiLawGroup.GetLawGroup]"
-		visible = "[And( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law' ), GuiLawGroup.IsAvailable )]"
-		ignoreinvisible = yes
-		
-		margin_bottom = 5
-
+	type authority_ticking_tooltip = widget {
+		size = { 450 250 }
+		using = Background_Tooltip
+		alwaystransparent = no
 		vbox = {
-			spacing = 7
-			margin_bottom = 15
-
-			text_label_center = {
-				text = "[authority|E]: [GetPlayer.MakeScope.Var('ticking_authority').GetValue|#V1]"
-				tooltipwidget = { authority_ticking_tooltip = {} }
+			margin_top = 20
+			margin_left = 15
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				text = "AUTHORITY_TICK"
+				align = top
 			}
-
-			text_label_center = {
-				text = "[tyranny|E]: [GetPlayer.MakeScope.ScriptValue('character_tyranny')|0]"
+			hbox = {
+				margin_top = 10
+				layoutpolicy_horizontal = expanding
+				ignoreinvisible = yes
+				vbox = {
+					hbox = {
+						datacontext = "[GetScriptedGui('sgui_authority_ticks_up')]"
+						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "AUTHORITY_TICK_UP"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						datacontext = "[GetScriptedGui('sgui_authority_ticks_down')]"
+						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "AUTHORITY_TICK_DOWN"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "AUTHORITY_TICK_BASE"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('monthly_auth_var_base')|2]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						datacontext = "[GetScriptedGui('sgui_authority_ticks_down')]"
+						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "AUTHORITY_TICK_DOWN_PENALTY"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('monthly_auth_var_down')|+%0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						datacontext = "[GetScriptedGui('sgui_has_all_things_innovation')]"
+						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "innovation_all_things"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('monthly_auth_var_all_things_mult')|+%0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						datacontext = "[GetScriptedGui('sgui_has_august_perk')]"
+						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "august_perk_name"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('monthly_auth_var_perk_mult')|+%0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						datacontext = "[GetScriptedGui('sgui_has_overseer_perk')]"
+						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "overseer_perk_name"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('monthly_auth_var_perk_mult')|+%0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}				
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						datacontext = "[GetScriptedGui('sgui_has_administrator_perk')]"
+						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "administrator_perk_name"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+						text_single = {
+							layoutpolicy_horizontal = fixed
+							align = right
+							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('monthly_auth_var_perk_mult')|+%0]"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+						}
+					}
+					expand = {}
+				}
+				expand = {}
 			}
+			expand = {}
 		}
-		
-		# [StA]
-		authority_progressbar = {}
-		# [/StA]
 	}
+}
+
+types StA_widget_vassal_list {
 
 	type widget_vassal_list_item = widget {
 		datacontext = "[CharacterListItem.GetCharacter]"
@@ -1387,161 +1543,6 @@ types StA {
 							layoutpolicy_horizontal = expanding
 							align = right
 							text = "= [GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submissiveness')|=+1]"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-					}
-					expand = {}
-				}
-				expand = {}
-			}
-			expand = {}
-		}
-	}
-
-	type authority_ticking_tooltip = widget {
-		size = { 450 250 }
-		using = Background_Tooltip
-		alwaystransparent = no
-		vbox = {
-			margin_top = 20
-			margin_left = 15
-			text_single = {
-				layoutpolicy_horizontal = expanding
-				text = "AUTHORITY_TICK"
-				align = top
-			}
-			hbox = {
-				margin_top = 10
-				layoutpolicy_horizontal = expanding
-				ignoreinvisible = yes
-				vbox = {
-					hbox = {
-						datacontext = "[GetScriptedGui('sgui_authority_ticks_up')]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						layoutpolicy_horizontal = expanding
-						minimumsize = {350}
-						text_single = {
-							layoutpolicy_horizontal = fixed
-							align = right
-							text = "AUTHORITY_TICK_UP"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-					}
-					hbox = {
-						datacontext = "[GetScriptedGui('sgui_authority_ticks_down')]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						layoutpolicy_horizontal = expanding
-						minimumsize = {350}
-						text_single = {
-							layoutpolicy_horizontal = fixed
-							align = right
-							text = "AUTHORITY_TICK_DOWN"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-					}
-					hbox = {
-						layoutpolicy_horizontal = expanding
-						minimumsize = {350}
-						text_single = {
-							layoutpolicy_horizontal = expanding
-							align = left
-							text = "AUTHORITY_TICK_BASE"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-						text_single = {
-							layoutpolicy_horizontal = fixed
-							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('monthly_auth_var_base')|2]"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-					}
-					hbox = {
-						layoutpolicy_horizontal = expanding
-						minimumsize = {350}
-						datacontext = "[GetScriptedGui('sgui_authority_ticks_down')]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						text_single = {
-							layoutpolicy_horizontal = expanding
-							align = left
-							text = "AUTHORITY_TICK_DOWN_PENALTY"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-						text_single = {
-							layoutpolicy_horizontal = fixed
-							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('monthly_auth_var_down')|+%0]"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-					}
-					hbox = {
-						layoutpolicy_horizontal = expanding
-						minimumsize = {350}
-						datacontext = "[GetScriptedGui('sgui_has_all_things_innovation')]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						text_single = {
-							layoutpolicy_horizontal = expanding
-							align = left
-							text = "innovation_all_things"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-						text_single = {
-							layoutpolicy_horizontal = fixed
-							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('monthly_auth_var_all_things_mult')|+%0]"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-					}
-					hbox = {
-						layoutpolicy_horizontal = expanding
-						minimumsize = {350}
-						datacontext = "[GetScriptedGui('sgui_has_august_perk')]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						text_single = {
-							layoutpolicy_horizontal = expanding
-							align = left
-							text = "august_perk_name"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-						text_single = {
-							layoutpolicy_horizontal = fixed
-							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('monthly_auth_var_perk_mult')|+%0]"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-					}
-					hbox = {
-						layoutpolicy_horizontal = expanding
-						minimumsize = {350}
-						datacontext = "[GetScriptedGui('sgui_has_overseer_perk')]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						text_single = {
-							layoutpolicy_horizontal = expanding
-							align = left
-							text = "overseer_perk_name"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-						text_single = {
-							layoutpolicy_horizontal = fixed
-							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('monthly_auth_var_perk_mult')|+%0]"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-					}				
-					hbox = {
-						layoutpolicy_horizontal = expanding
-						minimumsize = {350}
-						datacontext = "[GetScriptedGui('sgui_has_administrator_perk')]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						text_single = {
-							layoutpolicy_horizontal = expanding
-							align = left
-							text = "administrator_perk_name"
-							fonttintcolor = "[TooltipInfo.GetTintColor]"
-						}
-						text_single = {
-							layoutpolicy_horizontal = fixed
-							align = right
-							text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('monthly_auth_var_perk_mult')|+%0]"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
 					}

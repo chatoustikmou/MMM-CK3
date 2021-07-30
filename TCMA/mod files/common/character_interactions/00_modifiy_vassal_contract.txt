@@ -75,8 +75,9 @@
 	on_accept = {
 		scope:actor = {
 			send_interface_message = {
-				type = msg_vassal_contract_change
+				type = contract_negotiation_positive
 				title = modify_vassal_contract_interaction_notification
+				desc = event_message_effect
 				right_icon = scope:recipient
 				# # Add tyranny for each level increased. Can spend one hook to avoid one level of tyranny hit.
 				# add_tyranny = vassal_obligation_increase_tyranny_gain
@@ -220,8 +221,9 @@ liege_modify_vassal_contract_interaction_PvP = {
 	on_accept = {
 		scope:recipient = {
 			send_interface_message = {
-				type = msg_vassal_contract_change
+				type = contract_negotiation_positive
 				title = modify_vassal_contract_interaction_notification
+				desc = event_message_effect
 				right_icon = scope:recipient
 				if = {
 					limit = { has_variable = contract_negotiation }
@@ -351,8 +353,9 @@ vassal_modify_vassal_contract_interaction_PvAI = {
 	on_accept = {
 		scope:actor = {
 			send_interface_message = {
-				type = msg_vassal_contract_change
+				type = contract_negotiation_positive
 				title = modify_vassal_contract_interaction_notification
+				desc = event_message_effect
 				right_icon = scope:recipient
 				if = {
 					limit = { always = scope:hook }
@@ -485,8 +488,9 @@ vassal_modify_vassal_contract_interaction_PvP = {
 	on_accept = {
 		scope:recipient = {
 			send_interface_message = {
-				type = msg_vassal_contract_change
+				type = contract_negotiation_positive
 				title = modify_vassal_contract_interaction_notification
+				desc = event_message_effect
 				right_icon = scope:recipient
 				if = {
 					limit = { has_variable = contract_negotiation }
@@ -773,8 +777,9 @@ liege_modify_vassal_contract_interaction = {
 	on_accept = {
 		scope:actor = {
 			send_interface_message = {
-				type = msg_vassal_contract_change
+				type = contract_negotiation_positive
 				title = modify_vassal_contract_interaction_notification
+				desc = event_message_effect
 				right_icon = scope:recipient
 				# Add tyranny for each level increased. Can spend one hook to avoid one level of tyranny hit.
 				add_tyranny = vassal_obligation_increase_tyranny_gain
@@ -890,8 +895,9 @@ vassal_modify_vassal_contract_interaction = {
 	on_accept = {
 		scope:actor = {
 			send_interface_message = {
-				type = msg_vassal_contract_change
+				type = contract_negotiation_positive
 				title = modify_vassal_contract_interaction_notification
+				desc = event_message_effect
 				right_icon = scope:recipient
 				if = {
 					limit = { always = scope:hook }

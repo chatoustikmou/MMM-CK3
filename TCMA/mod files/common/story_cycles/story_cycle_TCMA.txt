@@ -171,8 +171,7 @@
 				effect = {
 					var:vassal = {
 						send_interface_message = {
-							icon = "icon_contract_modification.dds"
-							type = event_generic_bad
+							type = contract_negotiation_negative
 							title = CONTRACT_NEGOTIATION_CANNOT_START
 							right_icon = PREV.var:ruler
 							custom_description = {
@@ -184,8 +183,7 @@
 					}
 					var:ruler = {
 						send_interface_message = {
-							icon = "icon_contract_modification.dds"
-							type = event_generic_bad
+							type = contract_negotiation_negative
 							title = CONTRACT_NEGOTIATION_CANNOT_START
 							right_icon = PREV.var:vassal
 							custom_description = {
@@ -272,8 +270,7 @@
 					debug_log = "negotiations_end_negative"
 					var:vassal = {
 						send_interface_message = {
-							icon = "icon_contract_modification.dds"
-							type = event_generic_bad
+							type = contract_negotiation_negative
 							title = CONTRACT_NEGOTIATION_NEGATIVE
 							right_icon = PREV.var:ruler
 							show_as_tooltip = {
@@ -287,8 +284,7 @@
 					}
 					var:ruler = {
 						send_interface_message = {
-							icon = "icon_contract_modification.dds"
-							type = event_generic_bad
+							type = contract_negotiation_negative
 							title = CONTRACT_NEGOTIATION_NEGATIVE
 							right_icon = PREV.var:vassal
 							custom_description = {
@@ -312,8 +308,7 @@
 					debug_log = "negotiations_end_negative_vassal_walks_out"
 					var:vassal = {
 						send_interface_message = {
-							icon = "icon_contract_modification.dds"
-							type = event_generic_bad
+							type = contract_negotiation_negative
 							title = CONTRACT_NEGOTIATION_NEGATIVE
 							right_icon = PREV.var:ruler
 							custom_description = {
@@ -325,8 +320,7 @@
 					}
 					var:ruler = {
 						send_interface_message = {
-							icon = "icon_contract_modification.dds"
-							type = event_generic_bad
+							type = contract_negotiation_negative
 							title = CONTRACT_NEGOTIATION_NEGATIVE
 							right_icon = PREV.var:vassal
 							custom_description = {
@@ -350,8 +344,7 @@
 					debug_log = "negotiations_end_negative_ruler_walks_out"
 					var:vassal = {
 						send_interface_message = {
-							icon = "icon_contract_modification.dds"
-							type = event_generic_bad
+							type = contract_negotiation_negative
 							title = CONTRACT_NEGOTIATION_NEGATIVE
 							right_icon = PREV.var:ruler
 							custom_description = {
@@ -363,8 +356,7 @@
 					}
 					var:ruler = {
 						send_interface_message = {
-							icon = "icon_contract_modification.dds"
-							type = event_generic_bad
+							type = contract_negotiation_negative
 							title = CONTRACT_NEGOTIATION_NEGATIVE
 							right_icon = PREV.var:vassal
 							custom_description = {
@@ -389,8 +381,7 @@
 			effect = {
 				var:vassal = {
 					send_interface_message = {
-						icon = "icon_contract_modification.dds"
-						type = event_generic_bad
+						type = contract_negotiation_negative
 						title = CONTRACT_NEGOTIATION_EXPIRED
 						right_icon = PREV.var:ruler
 						custom_description = {
@@ -402,8 +393,7 @@
 				}
 				var:ruler = {
 					send_interface_message = {
-						icon = "icon_contract_modification.dds"
-						type = event_generic_bad
+						type = contract_negotiation_negative
 						title = CONTRACT_NEGOTIATION_EXPIRED
 						right_icon = PREV.var:vassal
 						custom_description = {
