@@ -1,5 +1,5 @@
 ﻿StA_reset_feudal_contract = {
-	debug_log = "dbg_log reset_feudal_contract"
+	# debug_log = "dbg_log reset_feudal_contract"
 	debug_log_scopes = no
 	liege = { debug_log_scopes = no }
 	if = {

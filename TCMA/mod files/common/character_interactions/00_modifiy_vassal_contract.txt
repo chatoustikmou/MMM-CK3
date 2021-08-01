@@ -24,6 +24,16 @@
 	is_valid_showing_failures_only = {
 		scope:recipient = { is_diplomatically_available = yes }
 		NOT = { scope:actor = { is_at_war_with = scope:recipient }}
+		custom_description = {
+			text = "not_already_in_negotiation"
+			subject = scope:actor
+			scope:actor = { NOT = { has_variable = contract_negotiation }}
+		}
+		custom_description = {
+			text = "not_already_in_negotiation"
+			subject = scope:recipient
+			scope:recipient = { NOT = { has_variable = contract_negotiation }}
+		}
 	}
 
 	can_send = {
@@ -159,6 +169,16 @@ liege_modify_vassal_contract_interaction_PvP = {
 	is_valid_showing_failures_only = {
 		scope:recipient = { is_diplomatically_available = yes }
 		NOT = { scope:actor = { is_at_war_with = scope:recipient }}
+		custom_description = {
+			text = "not_already_in_negotiation"
+			subject = scope:actor
+			scope:actor = { NOT = { has_variable = contract_negotiation }}
+		}
+		custom_description = {
+			text = "not_already_in_negotiation"
+			subject = scope:recipient
+			scope:recipient = { NOT = { has_variable = contract_negotiation }}
+		}
 	}
 
 	can_send = {
@@ -297,7 +317,17 @@ vassal_modify_vassal_contract_interaction_PvAI = {
 
 	is_valid_showing_failures_only = {
 		scope:recipient = { is_diplomatically_available = yes }
-		NOT = { scope:actor = { is_at_war_with = scope:recipient }} 
+		NOT = { scope:actor = { is_at_war_with = scope:recipient }}
+		custom_description = {
+			text = "not_already_in_negotiation"
+			subject = scope:actor
+			scope:actor = { NOT = { has_variable = contract_negotiation }}
+		}
+		custom_description = {
+			text = "not_already_in_negotiation"
+			subject = scope:recipient
+			scope:recipient = { NOT = { has_variable = contract_negotiation }}
+		}
 	}
 
 	can_send = {
@@ -421,7 +451,17 @@ vassal_modify_vassal_contract_interaction_PvP = {
 
 	is_valid_showing_failures_only = {
 		scope:recipient = { is_diplomatically_available = yes }
-		NOT = { scope:actor = { is_at_war_with = scope:recipient }} 
+		NOT = { scope:actor = { is_at_war_with = scope:recipient }}
+		custom_description = {
+			text = "not_already_in_negotiation"
+			subject = scope:actor
+			scope:actor = { NOT = { has_variable = contract_negotiation }}
+		}
+		custom_description = {
+			text = "not_already_in_negotiation"
+			subject = scope:recipient
+			scope:recipient = { NOT = { has_variable = contract_negotiation }}
+		}
 	}
 
 	can_send = {
@@ -563,8 +603,12 @@ ai_only_liege_modify_vassal_contract_interaction = {
 			does_ai_liege_in_vassal_contract_desire_obligation_change = yes
 			NOT = { has_variable = contract_negotiation }
 		}
-		scope:recipient = { is_diplomatically_available = yes } 
-		NOT = { scope:actor = { is_at_war_with = scope:recipient } } 
+		scope:recipient = { is_diplomatically_available = yes }
+		NOR = {
+			scope:actor = { is_at_war_with = scope:recipient }
+			scope:actor = { has_variable = contract_negotiation }
+			scope:recipient = { has_variable = contract_negotiation }
+		}
 	}
 		
 	on_accept = {
@@ -594,7 +638,10 @@ ai_only_liege_modify_vassal_contract_interaction = {
 		base = 50
 		
 		modifier = {
-			add = ai_energy
+			add = {
+				add = ai_energy
+				divide = 2
+			}
 		}
 
 		modifier = {
@@ -647,7 +694,11 @@ ai_only_vassal_modify_vassal_contract_interaction = {
 			NOT = { has_variable = contract_negotiation }
 		}
 		scope:recipient = { is_diplomatically_available = yes }
-		NOT = { scope:actor = { is_at_war_with = scope:recipient } }
+		NOR = {
+			scope:actor = { is_at_war_with = scope:recipient }
+			scope:actor = { has_variable = contract_negotiation }
+			scope:recipient = { has_variable = contract_negotiation }
+		}
 	}
 		
 	on_accept = {
@@ -670,7 +721,10 @@ ai_only_vassal_modify_vassal_contract_interaction = {
 		base = 50
 		
 		modifier = {
-			add = ai_energy
+			add = {
+				add = ai_energy
+				divide = 2
+			}
 		}
 
 		modifier = {

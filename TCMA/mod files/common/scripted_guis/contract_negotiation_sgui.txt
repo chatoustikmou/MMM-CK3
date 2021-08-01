@@ -8,7 +8,9 @@
 
 initiate_contract_negotiation = {
 	scope = character
-	
+	saved_scopes = {
+		recipient
+	}
 	is_shown = {
 		
 	}
@@ -74,6 +76,10 @@ end_contract_negotiation = {
 
 update_contract_acceptance = {
 	scope = character
+	saved_scopes = {
+		obligation
+		level
+	}
 	effect = {
 		var:contract_negotiation = {
 			if = {
@@ -117,6 +123,10 @@ update_contract_acceptance = {
 
 send_proposal = {
 	scope = character
+	saved_scopes = {
+		actor
+		recipient
+	}
 	is_valid = {
 		scope:actor = {
 			is_ai = no
@@ -226,6 +236,11 @@ send_proposal = {
 
 agreed_upon_obligations = {
 	scope = character
+	saved_scopes = {
+		recipient
+		obligation
+		level
+	}
 	is_shown = {
 		trigger_if = {
 			limit = {
@@ -347,6 +362,10 @@ reset_contract = {
 
 reject_proposal = {
 	scope = character
+	saved_scopes = {
+		actor
+		recipient
+	}
 	effect = {
 		if = {
 			limit = { exists = var:contract_negotiation }
@@ -374,6 +393,9 @@ reject_proposal = {
 
 contract_negotiation_use_hook = {
 	scope = character
+	saved_scopes = {
+		recipient
+	}
 	effect = {
 		if = {
 			limit = { has_variable = contract_negotiation_used_strong_hook }

@@ -283,7 +283,7 @@ types TCMA {
 							spacing = 10
 
 							button_round = {
-								visible = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvAI')]"
+								visible = "[Character.IsPlayerInteractionShown('liege_modify_vassal_contract_interaction_PvAI')]"
 								enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvAI')]"
 								onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction_PvAI')]"
 								tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
@@ -295,7 +295,7 @@ types TCMA {
 							}
 
 							button_round = {
-								visible = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvP')]"
+								visible = "[Character.IsPlayerInteractionShown('liege_modify_vassal_contract_interaction_PvP')]"
 								enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvP')]"
 								onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction_PvP')]"
 								tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"

@@ -15,12 +15,16 @@
 
 contract_negotiation_positive = {
 	icon = "icon_contract_modification"
+	title = event_message_title
+	desc = event_message_effect
 	style = good
 	soundeffect = @msg_good_soundeffect
 }
 
 contract_negotiation_negative = {
 	icon = "icon_contract_modification"
+	title = event_message_title
+	desc = event_message_effect
 	style = bad
 	soundeffect = @msg_bad_soundeffect
 }

@@ -104,7 +104,7 @@ contract_reset_on_vassal_gained = {
 		}
 	}
 	effect = {
-		debug_log = "dbg_log contract reset vassal gained"
+		# debug_log = "dbg_log contract reset vassal gained"
 		debug_log_scopes = no
 		liege = { debug_log_scopes = no }
 		scope:transfer_type = { debug_log_scopes = no }
@@ -126,7 +126,7 @@ contract_reset_rank_up = {
 				NOT = { exists = scope:title }
 				is_independent_ruler = no
 			}
-			debug_log = "dbg_log contract reset rank up"
+			# debug_log = "dbg_log contract reset rank up"
 			debug_log_scopes = no
 			liege = { debug_log_scopes = no }
 			trigger_event = {

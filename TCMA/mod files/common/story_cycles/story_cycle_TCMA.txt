@@ -155,6 +155,44 @@
 
 			triggered_effect = {
 				trigger = {
+					OR = {
+						var:vassal = { is_alive = no }
+						var:ruler = { is_alive = no }
+						NOT =  { var:vassal.liege = var:ruler }
+					}
+				}
+				effect = {
+					debug_log = "negotiations invalidated"
+					var:vassal = {
+						send_interface_message = {
+							type = contract_negotiation_negative
+							title = CONTRACT_NEGOTIATION_ABORTED
+							right_icon = scope:story.var:ruler
+							custom_description = {
+								text = negotiations_cannot_start
+								subject = scope:story.var:vassal
+								object = scope:story.var:ruler
+							}
+						}
+					}
+					var:ruler = {
+						send_interface_message = {
+							type = contract_negotiation_negative
+							title = CONTRACT_NEGOTIATION_ABORTED
+							right_icon = scope:story.var:vassal
+							custom_description = {
+								text = negotiations_cannot_start
+								subject = scope:story.var:vassal
+								object = scope:story.var:ruler
+							}
+						}
+					}
+					hidden_effect = { end_story = yes }
+				}
+			}
+
+			triggered_effect = {
+				trigger = {
 					NOT = { has_variable = negotiation_ongoing }
 					OR = {
 						AND = {
@@ -169,6 +207,7 @@
 				}
 
 				effect = {
+					debug_log = "negotiations cannot start"
 					var:vassal = {
 						send_interface_message = {
 							type = contract_negotiation_negative
@@ -254,6 +293,7 @@
 				effect = {
 					debug_log = "negotiations_end_positive"
 					negotiations_end_positive = yes
+					end_story = yes
 				}
 			}
 
@@ -379,6 +419,7 @@
 		triggered_effect = {
 			trigger = { always = yes }
 			effect = {
+				debug_log = "negotiations time out"
 				var:vassal = {
 					send_interface_message = {
 						type = contract_negotiation_negative
