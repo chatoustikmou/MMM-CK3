@@ -43,6 +43,10 @@ All remaining bugs are my own.
 
 [h1]Changelog[/h1]
 
+Version 1.1.3
+# Compatibility
+- Improved GUI compatibility accross the board, loading order with TCMA now irrelevant
+
 Version 1.1.2
 
 # Localization

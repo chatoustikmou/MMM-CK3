@@ -107,3 +107,56 @@ current_obligation_level = {
 		flag:title_revocation_rights = { vassal_contract_obligation_level:title_revocation_rights = $LEVEL$ }
 	}
 }
+
+negotiation_interaction_is_valid = {
+	custom_description = {
+		text = "not_already_in_negotiation"
+		subject = $ACTOR$
+		$ACTOR$ = {
+			trigger_if = {
+				limit = { has_variable = contract_negotiation }
+				trigger_if = {
+					limit = { has_variable = gui_contract_negotiation }
+					trigger_if = {
+						limit = { $RECIPIENT$ = { has_variable = gui_contract_negotiation }}
+						$ACTOR$.var:contract_negotiation = $RECIPIENT$.var:contract_negotiation
+					}
+					trigger_else = {
+						always = no
+					}
+				}
+				trigger_else = {
+					always = no
+				}
+			}
+			trigger_else = {
+				always = yes
+			}
+		}
+	}
+	custom_description = {
+		text = "not_already_in_negotiation"
+		subject = $RECIPIENT$
+		$RECIPIENT$ = {
+			trigger_if = {
+				limit = { has_variable = contract_negotiation }
+				trigger_if = {
+					limit = { has_variable = gui_contract_negotiation }
+					trigger_if = {
+						limit = { $ACTOR$ = { has_variable = gui_contract_negotiation }}
+						$ACTOR$.var:contract_negotiation = $RECIPIENT$.var:contract_negotiation
+					}
+					trigger_else = {
+						always = no
+					}
+				}
+				trigger_else = {
+					always = no
+				}
+			}
+			trigger_else = {
+				always = yes
+			}
+		}
+	}
+}
