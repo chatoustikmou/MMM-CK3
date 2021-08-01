@@ -50,7 +50,23 @@ Once a proposal has been sent, the terms changed in that proposal are set, and t
 
 Version 0.1
 
-Hotfixe 0.1.2
+Hotfix 0.1.3
+
+# Localization
+- Now available in Chinese thanks to Juijote!
+
+# Interface
+- Improved GUI compatibility accross the board, loading order with StA now irrelevant
+- Changed the icon of the notifications related to contract negotiation
+
+# Bug
+- Modify Vassal Interaction is now not valid when there is an on-going negotiation, to prevent the game from confusing who's who
+
+# Balance
+- liege and vassal AI now less likely to accept changing levy/tax obligations by more than one level, to avoid liege AI giving up a lot of rights at the same time, in an attempt to make it trade away Title Revocation Protection less often
+
+
+Hotfix 0.1.2
 
 # Bug
 - Fixed hooks not making a difference when negotiating against the AI

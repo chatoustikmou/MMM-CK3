@@ -4,9 +4,9 @@
 @per_level_add = 25
 @per_level_neg_mult = -2
 @base_levies_desire = 100
-@base_levies_refusal = 100
+@base_levies_refusal = 150
 @base_taxes_desire = 100
-@base_taxes_refusal = 100
+@base_taxes_refusal = 150
 
 liege_contract_negotiation_acceptance = {
 	add = 0	
