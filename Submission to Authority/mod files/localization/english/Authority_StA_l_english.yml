@@ -90,7 +90,7 @@
 
   SUBMISSION_TITLE: "Submission breakdown"
 
-  SUBMISSION_IMPACT: "Submission Impact"
+  SUBMISSION_IMPACT: "Submission Impact : [Subtract_int32(Subtract_int32('(int32)45',VassalContract.GetVassalOpinionModification),FixedPointToInt(GuiScope.SetRoot(VassalContract.GetVassal.MakeScope ).ScriptValue('feudal_submission')))|+=]"
 
   submissiveness_TITLE: "submissiveness breakdown"
   game_concept_submissiveness_honor: "Honor"
