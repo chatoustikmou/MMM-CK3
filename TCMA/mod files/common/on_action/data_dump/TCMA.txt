@@ -2,6 +2,7 @@
 yearly_global_pulse = { on_actions = { TCMA_datadump }}
 
 TCMA_datadump_start = {
+	trigger = { debug_only = yes }
 	effect = {
 		debug_log = "data_dump;Year;Character_ID;Character_Rank;Liege_ID;Liege_Rank;Feudal_Submission;contract_taxes;contract_levies;contract_religious_protection;contract_succession_rights;contract_war_declaration_rights;contract_council_rights;contract_title_recovation_protection_rights;contract_coinage_rights;contract_fortification_rights"
 		every_ruler = {
@@ -18,6 +19,7 @@ TCMA_datadump_start = {
 }
 
 TCMA_datadump = {
+	trigger = { debug_only = yes }
 	effect = {
 		debug_log = "data_dump;Year;Character_ID;Character_Rank;Liege_ID;Liege_Rank;Feudal_Submission;contract_taxes;contract_levies;contract_religious_protection;contract_succession_rights;contract_war_declaration_rights;contract_council_rights;contract_title_recovation_protection_rights;contract_coinage_rights;contract_fortification_rights"
 		every_ruler = {

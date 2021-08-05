@@ -1072,7 +1072,7 @@ window = {
 						layoutpolicy_horizontal = expanding
 						text_label_center = {
 							visible = "[GetScriptedGui('sgui_StA_active').IsShown(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-							text = "SUBMISSION_IMPACT : [Subtract_int32(Subtract_int32('(int32)45',VassalContract.GetVassalOpinionModification),FixedPointToInt(GuiScope.SetRoot(VassalContract.GetVassal.MakeScope ).ScriptValue('feudal_submission')))|+=]"
+							text = "SUBMISSION_IMPACT"
 							using = Font_Size_Medium
 							
 							tooltip_enabled = "[ValueBreakdown.HasTooltip]"

@@ -1675,15 +1675,13 @@ window = {
 						}
 
 						# [MMM]
-						vbox = {
+						window_my_realm_modify_contract_liege_vanilla = {
 							datacontext = "[GetScriptedGui('sgui_TCMA_active')]"
 							visible = "[Not(ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
-							window_my_realm_modify_contract_liege_vanilla = {}
 						}
-						vbox = {
+						window_my_realm_modify_contract_liege_TCMA = {
 							datacontext = "[GetScriptedGui('sgui_TCMA_active')]"
 							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							window_my_realm_modify_contract_liege_TCMA = {}
 						}
 						# [/MMM]
 					}

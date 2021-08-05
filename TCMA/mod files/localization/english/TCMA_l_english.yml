@@ -48,3 +48,5 @@
   liege_modify_vassal_contract_interaction_PvP: "$modify_vassal_contract$"
   vassal_modify_vassal_contract_interaction_PvAI: "$modify_vassal_contract$"
   vassal_modify_vassal_contract_interaction_PvP: "$modify_vassal_contract$"
+
+  SUBMISSION_IMPACT: "Submission Impact : [Subtract_int32(Subtract_int32('(int32)45',VassalContract.GetVassalOpinionModification),FixedPointToInt(GuiScope.SetRoot(VassalContract.GetVassal.MakeScope ).ScriptValue('feudal_submission')))|+=]"

@@ -1,4 +1,4 @@
-types TCMA {
+types TCMA_contract_buttons {
 	type TCMA_contract_tree_button = button_letter
 	{
 
@@ -93,8 +93,10 @@ types TCMA {
 			text = "[ModifyVassalContractInteractionWindowObligationLevelOption.GetName]"
 			default_format = "#light_background"
 		}
-	}
+	}	
+}
 
+types TCMA_widget_vassal_list {
 	type widget_vassal_list_item = widget {
 		datacontext = "[CharacterListItem.GetCharacter]"
 		size = { 200 180 }
@@ -276,67 +278,16 @@ types TCMA {
 						background = {
 							using = Background_Area
 						}
-
-						hbox = {
-							layoutpolicy_horizontal = expanding
-							visible = "[And( VassalContract.UsesObligationLevels, Not( Character.GetPrimaryTitle.IsBarony))]"
-							spacing = 10
-
-							button_round = {
-								visible = "[Character.IsPlayerInteractionShown('liege_modify_vassal_contract_interaction_PvAI')]"
-								enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvAI')]"
-								onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction_PvAI')]"
-								tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
-
-								button_feudal_contract = {
-									alwaystransparent = yes
-									parentanchor = center
-								}
-							}
-
-							button_round = {
-								visible = "[Character.IsPlayerInteractionShown('liege_modify_vassal_contract_interaction_PvP')]"
-								enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvP')]"
-								onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction_PvP')]"
-								tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
-
-								button_feudal_contract = {
-									alwaystransparent = yes
-									parentanchor = center
-								}
-							}
-
-							text_single = {
-								layoutpolicy_horizontal = expanding
-								text = "MY_REALM_WINDOW_VASSAL_OBLIGATION"
-								default_format = "#low"
-								align = nobaseline
-							}
-
-							expand = {}
-
-							vassal_contract_not_default_icon = {}
+						# [TCMA]
+						widget_vassal_list_modify_contract_vassal_vanilla = {
+							datacontext = "[GetScriptedGui('sgui_TCMA_active')]"
+							visible = "[Not(ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
 						}
-
-						hbox = {
-							layoutpolicy_horizontal = expanding
-							visible = "[Not(And( VassalContract.UsesObligationLevels, Not( Character.GetPrimaryTitle.IsBarony)))]"
-							spacing = 5
-
-							icon = {
-								size = { 42 42 }
-								texture = "gfx/interface/icons/symbols/icon_cross.dds"
-								tooltip = MY_REALM_WINDOW_NO_FEUDAL_CONTRACT_TT
-								enabled = no
-							}
-
-							text_single = {
-								text = "[Character.GetGovernment.GetName]"
-								align = nobaseline
-							}
-
-							expand = {}
+						widget_vassal_list_modify_contract_vassal_MMM = {
+							datacontext = "[GetScriptedGui('sgui_TCMA_active')]"
+							visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 						}
+						# [/TCMA]
 
 						hbox = {
 							layoutpolicy_horizontal = expanding
@@ -537,6 +488,120 @@ types TCMA {
 					}
 				}
 			}
+		}
+	}
+
+	type widget_vassal_list_modify_contract_vassal_MMM = hbox {
+		layoutpolicy_horizontal = expanding
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			visible = "[And( VassalContract.UsesObligationLevels, Not( Character.GetPrimaryTitle.IsBarony))]"
+			spacing = 10
+
+			widget_vassal_list_modify_contract_vassal_button_vanilla = {
+				datacontext = "[GetScriptedGui('sgui_TCMA_active')]"
+				visible = "[Not(ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
+			}
+			widget_vassal_list_modify_contract_vassal_button_TCMA = {
+				datacontext = "[GetScriptedGui('sgui_TCMA_active')]"
+				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			}
+
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				text = "MY_REALM_WINDOW_VASSAL_OBLIGATION"
+				default_format = "#low"
+				align = nobaseline
+			}
+
+			expand = {}
+
+			vassal_contract_not_default_icon = {}
+
+			widget_vassal_list_modify_contract_vassal_submission_StA = {
+				datacontext = "[GetScriptedGui('sgui_StA_active')]"
+				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			}
+		}
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			visible = "[Not(And( VassalContract.UsesObligationLevels, Not( Character.GetPrimaryTitle.IsBarony)))]"
+			spacing = 5
+
+			icon = {
+				size = { 42 42 }
+				texture = "gfx/interface/icons/symbols/icon_cross.dds"
+				tooltip = MY_REALM_WINDOW_NO_FEUDAL_CONTRACT_TT
+				enabled = no
+			}
+
+			text_single = {
+				text = "[Character.GetGovernment.GetName]"
+				align = nobaseline
+			}
+
+			expand = {}
+		}
+		expand = {}
+	}
+
+	type widget_vassal_list_modify_contract_vassal_button_TCMA = hbox {
+		button_round = {
+			visible = "[Character.IsPlayerInteractionShown('liege_modify_vassal_contract_interaction_PvAI')]"
+			enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvAI')]"
+			onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction_PvAI')]"
+			tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
+
+			button_feudal_contract = {
+				alwaystransparent = yes
+				parentanchor = center
+			}
+		}
+
+		button_round = {
+			visible = "[Character.IsPlayerInteractionShown('liege_modify_vassal_contract_interaction_PvP')]"
+			enabled = "[Character.IsPlayerInteractionValid('liege_modify_vassal_contract_interaction_PvP')]"
+			onclick = "[Character.OpenPlayerInteraction('liege_modify_vassal_contract_interaction_PvP')]"
+			tooltip = "[Character.GetPlayerInteractionTooltip('liege_modify_vassal_contract_interaction')]"
+
+			button_feudal_contract = {
+				alwaystransparent = yes
+				parentanchor = center
+			}
+		}
+	}
+}
+
+types TCMA_window_my_realm {
+	type window_my_realm_modify_contract_liege_TCMA = vbox {
+		hbox = {
+			name = "vassal_contract"
+			datacontext = "[MyRealmWindow.GetCharacter.GetLiege]"
+			datacontext = "[MyRealmWindow.GetCharacter.GetVassalContract]"
+			margin_left = 3
+			spacing = 10
+		
+			button_replace = {
+				visible = "[Not(GetPlayer.GetLiege.IsOtherPlayer)]"
+				enabled = "[Character.IsPlayerInteractionValid('vassal_modify_vassal_contract_interaction_PvAI')]"
+				onclick = "[Character.OpenPlayerInteraction('vassal_modify_vassal_contract_interaction_PvAI')]"
+				tooltip = "[Character.GetPlayerInteractionTooltip('vassal_modify_vassal_contract_interaction_PvAI')]"
+			}
+			button_replace = {
+				visible = "[GetPlayer.GetLiege.IsOtherPlayer]"
+				enabled = "[Character.IsPlayerInteractionValid('vassal_modify_vassal_contract_interaction_PvP')]"
+				onclick = "[Character.OpenPlayerInteraction('vassal_modify_vassal_contract_interaction_PvP')]"
+				tooltip = "[Character.GetPlayerInteractionTooltip('vassal_modify_vassal_contract_interaction_PvP')]"
+			}
+			
+			text_single = {
+				visible = "[VassalContract.UsesObligationLevels]"
+				layoutpolicy_horizontal = expanding
+				align = center
+				text = "MY_REALM_WINDOW_MY_OBLIGATIONS"
+			}
+
+			vassal_contract_not_default_icon = {}
 		}
 	}
 }
