@@ -1,0 +1,6 @@
+﻿sgui_inherichance = {
+	scope = character
+	effect = {
+		set_player_character = var:heir
+	}
+}
