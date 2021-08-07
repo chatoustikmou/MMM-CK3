@@ -760,7 +760,7 @@ window = {
 
 										item = {
 											vbox_legacy_item = {
-												# visible = "[Not(ObjectsEqual(LegacyItem.GetEndDate.Self,LegacyItem.GetStartDate.Self))]"
+												visible = "[Not(EqualTo_string(LegacyItem.GetEndDate.GetString,LegacyItem.GetStartDate.GetString))]"
 											}
 										}
 									}
