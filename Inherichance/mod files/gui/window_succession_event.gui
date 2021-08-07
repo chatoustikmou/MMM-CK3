@@ -759,7 +759,9 @@ window = {
 										spacing = 60
 
 										item = {
-											vbox_legacy_item = {}
+											vbox_legacy_item = {
+												# visible = "[Not(ObjectsEqual(LegacyItem.GetEndDate.Self,LegacyItem.GetStartDate.Self))]"
+											}
 										}
 									}
 
@@ -922,7 +924,7 @@ types Legacy
 	}
 
 	type vbox_current_lineage = vbox {
-		datacontext = "[SuccessionEventWindow.GetPlayerHeir]"
+		datacontext = "[GetPlayer]"
 
 		portrait_body = {
 			blockoverride "status_icons" {}
@@ -938,10 +940,10 @@ types Legacy
 			blockoverride "portrait_glow" {}
 		}
 
-		hbox_legacy_status = {}
+		hbox_legacy_status_inherichance = {}
 
 		text_single = {
-			text = "LEGACY_NAME"
+			text = "INHERICHANCE_NAME"
 			default_Format = "#high"
 		}
 

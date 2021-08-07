@@ -85,7 +85,9 @@ window = {
 								spacing = 60
 
 								item = {
-									vbox_legacy_item = {}
+									vbox_legacy_item = {
+										visible = "[Not(EqualTo_string(LegacyItem.GetEndDate.GetString,LegacyItem.GetStartDate.GetString))]"
+									}
 								}
 							}
 
