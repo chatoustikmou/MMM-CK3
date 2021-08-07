@@ -14,6 +14,7 @@ window = {
 		#trigger_on_create = yes
 		on_finish = "[PdxGuiTriggerAllAnimations('ruler_transition_appear')]"
 		on_start = "[GetVariableSystem.Clear( 'ruler_transition_remove_fade')]"
+		on_start = "[GetScriptedGui('sgui_inherichance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 	}
 
 	state = {
@@ -892,7 +893,7 @@ window = {
 						name = "close_button"
 						visible = "[SuccessionEventWindow.GetPlayerHeir.IsValid]"
 						onclick = "[PdxGuiTriggerAllAnimations('ruler_transition_reset')]"
-						onclick = "[GetScriptedGui('sgui_inherichance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+						# onclick = "[GetScriptedGui('sgui_inherichance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 						text = "INHERICHANCE_EVENT_WINDOW_CLOSE"
 						min_width = 330
 					}
