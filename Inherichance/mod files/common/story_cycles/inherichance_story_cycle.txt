@@ -1,0 +1,102 @@
+﻿inherichance_heirs_story = { 
+
+	on_setup = {
+		set_variable = {
+			name = story_owner
+			value = story_owner
+		}
+		story_owner = {
+			set_variable = {
+				name = primary_heir
+				value = THIS
+			}
+			random_player_heir = {
+				scope:story = {
+					set_variable = {
+						name = random_heir
+						value = PREV
+					}
+				}
+			}
+
+			every_player_heir = {
+				limit = { NOT = { THIS = scope:story.var:random_heir }}
+				scope:story = {
+					add_to_variable_list = {
+						name = other_heirs
+						target = PREV
+					}
+				}
+			}
+
+			every_player_heir = {
+				set_variable = {
+					name = dead_character
+					value = scope:story.story_owner
+				}
+				set_variable = {
+					name = inherichance_heirs_story
+					value = scope:story
+				}
+				create_story = {
+					type = inherichance_titles_story
+					save_temporary_scope_as = inherichance_titles_story
+				}
+				if = {
+					limit = {
+						NOT = { THIS = scope:story.var:random_heir }
+					}
+					scope:story = {
+						add_to_variable_list = {
+							name = inherichance_titles_stories
+							target = scope:inherichance_titles_story
+						}
+					}
+				}
+			}
+		}
+		make_story_owner = var:random_heir
+	}
+
+	on_end = {
+		every_in_list = {
+			variable = inherichance_titles_stories
+			end_story = yes
+		}
+	}
+
+	on_owner_death = {
+		
+	}
+}
+
+inherichance_titles_story = {
+	on_setup = {
+		set_variable = {
+			name = heir
+			value = story_owner
+		}
+		story_owner = {
+			set_variable = {
+				name = inherichance_titles_story
+				value = scope:story
+			}
+			every_heir_to_title = {
+				limit = { holder = scope:story.story_owner.var:dead_character }
+				scope:story = {
+					add_to_variable_list = {
+						name = inherited_titles
+						target = PREV
+					}
+				}
+			}
+		}
+	}
+
+	on_end = {
+		story_owner = {
+			if = { limit = { has_variable = inherichance_heirs_story } remove_variable = inherichance_heirs_story }
+			if = { limit = { has_variable = dead_character } remove_variable = dead_character }
+		}
+	}
+}

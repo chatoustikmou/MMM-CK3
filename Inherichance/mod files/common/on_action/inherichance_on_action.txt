@@ -1,0 +1,43 @@
+﻿on_death = { on_actions = { on_death_inherichance }}
+on_war_won_attacker = { on_actions = { on_war_lost_inherichance }}
+
+# character just about to die in root scope
+on_death_inherichance = {
+	trigger = {
+		is_ai = no
+		OR = {
+			has_realm_law = confederate_partition_succession_law
+			has_realm_law = partition_succession_law
+			has_realm_law = high_partition_succession_law
+		}
+	}
+	effect = {
+		create_story = {
+			type = inherichance_heirs_story
+			save_temporary_scope_as = inherichance_titles_story
+		}
+	}
+}
+
+# same scopes are available in these events as in the CBs themselves, this just fires for all CBs instead of a specific CB.
+on_war_lost_inherichance = {
+	trigger = {
+		scope:defender = {
+			is_ai = no
+			OR = {
+				has_realm_law = confederate_partition_succession_law
+				has_realm_law = partition_succession_law
+				has_realm_law = high_partition_succession_law
+			}
+		}
+		using_cb = depose_war
+	}
+	effect = {
+		scope:defender = {
+			create_story = {
+				type = inherichance_heirs_story
+				save_temporary_scope_as = inherichance_titles_story
+			}
+		}
+	}
+}

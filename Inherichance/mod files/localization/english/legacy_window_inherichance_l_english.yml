@@ -1,0 +1,30 @@
+﻿l_english:
+  INHERICHANCE_NAME:1 "[GetPlayer.GetShortUINameNotMeNoTooltip], [GetPlayer.GetAge]"
+  INHERICHANCE_EVENT_WINDOW_CLOSE:1 "Continue as [GetPlayer.GetShortUINameNotMeNoTooltip]"
+  INHERICHANCE_HEIR_DESC:"[SuccessionEventWindow.GetPlayerHeir.GetShortUINameNotMeNoTooltip] inherited [SuccessionEventWindow.GetDeadCharacter.GetPrimaryTitle.GetName] from [SuccessionEventWindow.GetDeadCharacter.GetShortUINameNotMeNoTooltip]. Will you press your claim, or will you try to keep the peace with [GetPlayer.GetSuccessionRelation( SuccessionEventWindow.GetPlayerHeir)|l]?"
+
+  INHERICHANCE_FOUNDED_HOUSE:0 "#T Founded a [house|E]\n#!Is the founder of House [GetPlayer.GetHouse.GetName]"
+  INHERICHANCE_FOUNDED_FAITH:0 "#T Founded a [faith|E]\n#!Is the founder of [GetPlayer.GetFaith.GetName]"
+  INHERICHANCE_CULTURAL_HEAD:0 "#T [cultural_head|E]\n#!Is the Cultural Head of the [GetPlayer.GetCulture.GetCollectiveNoun]."
+  INHERICHANCE_RENOWNED:0 "#T [prestige_level|E]: [GetPrestigeLevelName(GetPlayer.GetPrestigeLevel)]#!"
+  INHERICHANCE_PIOUS:0 "#T [piety_level|E]: [GetPietyLevelName(GetPlayer.GetPietyLevel)]#!"
+
+#  INHERICHANCE_DYNASTY_PRESTIGE:0 "[dynasty|E] became [GetDynastyPrestigeLevelName(LegacyItem.GetDynastyPrestige)]"
+
+
+
+
+
+
+#  INHERICHANCE_LIFESTYLE:0 "#T [lifestyle|E] [LegacyItem.GetLifestyle.GetName]\n#![LegacyItem.GetFinisherPerksList]"
+#  INHERICHANCE_FINISHER_PERKS_LIST:0 "Finisher [perks|E]:\n$LIST$"
+
+#  INHERICHANCE_WARS:0 "#T Has fought in [LegacyItem.GetTotalNumberOfWars] [wars|E]\n#![LegacyItem.GetWarBreakdown]"
+
+#  SUCCESSION_RELATION:0 "Your $RELATION$"
+#  INHERICHANCE_OFFENSIVE_WARS:0 "- $COUNT$ offensive Wars"
+#  INHERICHANCE_DEFENSIVE_WARS:0 "- $COUNT$ defensive Wars"
+#  INHERICHANCE_OFFENSIVEGH_WARS:0 "- $COUNT$ offensive Great Holy Wars"
+#  INHERICHANCE_DEFENSIVEGH_WARS:0 "- $COUNT$ defensive Great Holy Wars"
+#  INHERICHANCE_LINEAGE_YOU:0 "This is you"
+ 
