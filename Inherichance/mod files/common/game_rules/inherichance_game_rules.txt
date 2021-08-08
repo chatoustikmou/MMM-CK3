@@ -1,0 +1,14 @@
+﻿inherichance = {
+	default = inherichance_random
+	
+	inherichance_random = {}
+	inherichance_underdog = {
+		flag = inherichance_underdog
+	}
+	inherichance_topdog = {
+		flag = inherichance_topdog
+	}
+	inherichance_vanilla = {
+		flag = inherichance_vanilla
+	}
+}

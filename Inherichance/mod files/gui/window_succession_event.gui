@@ -635,7 +635,7 @@ window = {
 											layoutpolicy_horizontal = expanding
 
 											text_single = {
-												text = "SUCCESSION_LOST_TITLES"
+												text = "INHERICHANCE_LOST_TITLES"
 											}
 
 											button_expand = {
@@ -664,6 +664,7 @@ window = {
 												layoutpolicy_horizontal = expanding
 												spacing = 8
 
+												
 												item = {
 													vbox = {
 														layoutpolicy_horizontal = expanding
@@ -671,7 +672,7 @@ window = {
 
 														text_single = {
 															layoutpolicy_horizontal = expanding
-															text = "SUCCESSION_LOST_TITLE_SHARE"
+															text = "INHERICHANCE_LOST_TITLE_SHARE"
 															margin_left = 5
 														}
 
@@ -897,7 +898,7 @@ types Legacy
 		text_single = {
 			layoutpolicy_horizontal = expanding
 			autoresize = no
-			text = "LEGACY_NAME"
+			text = "INHERICHANCE_NAME"
 			default_format = "#high"
 			align = center
 		}

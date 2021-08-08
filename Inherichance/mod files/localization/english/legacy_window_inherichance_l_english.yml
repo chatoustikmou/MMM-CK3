@@ -1,7 +1,7 @@
 ﻿l_english:
   INHERICHANCE_NAME:1 "[GetPlayer.GetShortUINameNotMeNoTooltip], [GetPlayer.GetAge]"
   INHERICHANCE_EVENT_WINDOW_CLOSE:1 "Continue as [GetPlayer.GetShortUINameNotMeNoTooltip]"
-  INHERICHANCE_HEIR_DESC:"[SuccessionEventWindow.GetPlayerHeir.GetShortUINameNotMeNoTooltip] inherited [SuccessionEventWindow.GetDeadCharacter.GetPrimaryTitle.GetName] from [SuccessionEventWindow.GetDeadCharacter.GetShortUINameNotMeNoTooltip]. Will you press your claim, or will you try to keep the peace with [GetPlayer.GetSuccessionRelation( SuccessionEventWindow.GetPlayerHeir)|l]?"
+  INHERICHANCE_HEIR_DESC:"[SuccessionEventWindow.GetPlayerHeir.GetShortUINameNotMeNoTooltip] inherited [SuccessionEventWindow.GetDeadCharacter.GetPrimaryTitle.GetName] from [SuccessionEventWindow.GetDeadCharacter.GetShortUINameNotMeNoTooltip]. Will you press your claim, or will you try to keep the peace with [SuccessionEventWindow.GetPlayerHeir.GetSuccessionRelation( GetPlayer)|l]?"
 
   INHERICHANCE_FOUNDED_HOUSE:0 "#T Founded a [house|E]\n#!Is the founder of House [GetPlayer.GetHouse.GetName]"
   INHERICHANCE_FOUNDED_FAITH:0 "#T Founded a [faith|E]\n#!Is the founder of [GetPlayer.GetFaith.GetName]"
@@ -9,22 +9,17 @@
   INHERICHANCE_RENOWNED:0 "#T [prestige_level|E]: [GetPrestigeLevelName(GetPlayer.GetPrestigeLevel)]#!"
   INHERICHANCE_PIOUS:0 "#T [piety_level|E]: [GetPietyLevelName(GetPlayer.GetPietyLevel)]#!"
 
-#  INHERICHANCE_DYNASTY_PRESTIGE:0 "[dynasty|E] became [GetDynastyPrestigeLevelName(LegacyItem.GetDynastyPrestige)]"
+  INHERICHANCE_LOST_TITLE_SHARE:0 "[Scope.GetCharacter.GetUINameNoTooltip]"
+  INHERICHANCE_LOST_TITLES:0 "[Select_CString( EqualTo_CFixedPoint( GetPlayer.MakeScope.Var('inherichance_heirs_story').Var('inherichance_lost_titles_number').GetValue, '(CFixedPoint)0' ), '', '@warning_icon!')] Titles lost on Succession: [GetPlayer.MakeScope.Var('inherichance_heirs_story').Var('inherichance_lost_titles_number').GetValue|0]"
 
+# Game rules
 
-
-
-
-
-#  INHERICHANCE_LIFESTYLE:0 "#T [lifestyle|E] [LegacyItem.GetLifestyle.GetName]\n#![LegacyItem.GetFinisherPerksList]"
-#  INHERICHANCE_FINISHER_PERKS_LIST:0 "Finisher [perks|E]:\n$LIST$"
-
-#  INHERICHANCE_WARS:0 "#T Has fought in [LegacyItem.GetTotalNumberOfWars] [wars|E]\n#![LegacyItem.GetWarBreakdown]"
-
-#  SUCCESSION_RELATION:0 "Your $RELATION$"
-#  INHERICHANCE_OFFENSIVE_WARS:0 "- $COUNT$ offensive Wars"
-#  INHERICHANCE_DEFENSIVE_WARS:0 "- $COUNT$ defensive Wars"
-#  INHERICHANCE_OFFENSIVEGH_WARS:0 "- $COUNT$ offensive Great Holy Wars"
-#  INHERICHANCE_DEFENSIVEGH_WARS:0 "- $COUNT$ defensive Great Holy Wars"
-#  INHERICHANCE_LINEAGE_YOU:0 "This is you"
- 
+  rule_inherichance: "Partition inheritance"
+  setting_inherichance_random: "Alea Jacta Est"
+  setting_inherichance_random_desc: "Play as a random heir"
+  setting_inherichance_underdog: "Underdog challenge"
+  setting_inherichance_underdog_desc: "Always play the heir that inherits the fewer holdings\nHoldings handed out before death count"
+  setting_inherichance_topdog: "Partition is broken"
+  setting_inherichance_topdog_desc: "Always play the heir that inherits the most holdings\nHoldings handed out before death count"
+  setting_inherichance_vanilla: "Vanilla"
+  setting_inherichance_vanilla_desc: "So you don't have to deactivate Inherichance ever again, even if you don't want to use any of its custom settings"

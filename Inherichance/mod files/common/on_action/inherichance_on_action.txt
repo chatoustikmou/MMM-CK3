@@ -5,6 +5,7 @@ on_war_won_attacker = { on_actions = { on_war_lost_inherichance }}
 on_death_inherichance = {
 	trigger = {
 		is_ai = no
+		NOT = { has_game_rule = inherichance_vanilla }
 		OR = {
 			has_realm_law = confederate_partition_succession_law
 			has_realm_law = partition_succession_law
@@ -24,6 +25,7 @@ on_war_lost_inherichance = {
 	trigger = {
 		scope:defender = {
 			is_ai = no
+			NOT = { has_game_rule = inherichance_vanilla }
 			OR = {
 				has_realm_law = confederate_partition_succession_law
 				has_realm_law = partition_succession_law
