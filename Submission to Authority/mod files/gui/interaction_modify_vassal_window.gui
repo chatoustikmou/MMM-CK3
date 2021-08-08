@@ -1085,7 +1085,7 @@ window = {
 					# [/StA]
 
 					## Options
-					vbox_interaction_options = {
+					vbox_interaction_options_TCMA = {
 						name = "tutorial_highlight_modify_contract_hook_button"
 						visible = "[CharacterInteractionConfirmationWindow.HasOptions]"
 						blockoverride OnClick
