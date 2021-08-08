@@ -2,10 +2,6 @@
 	default = off_authority_crutch
 	
 	off_authority_crutch = {}
-	AI_authority_crutch = {
-		flag = AI_authority_crutch_on
-	}
-	full_authority_crutch = {
-		flag = full_authority_crutch_on
-	}
+	AI_authority_crutch = {}
+	full_authority_crutch = {}
 }
