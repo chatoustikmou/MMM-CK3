@@ -70,14 +70,6 @@ obligation_council_rights_1_can_be_negotiated = { always = yes }
 obligation_title_revocation_rights_0_can_be_negotiated = { always = yes }
 obligation_title_revocation_rights_1_can_be_negotiated = { always = yes }
 
-liege_accepts_negotiations = {
-	liege_contract_negotiation_acceptance > 0
-}
-
-vassal_accepts_negotiations = {
-	vassal_contract_negotiation_acceptance > 0
-}
-
 # Supported scopes : character
 has_claim_on_fellow_vassal = {
 	is_landed = yes

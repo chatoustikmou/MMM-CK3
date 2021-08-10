@@ -8,38 +8,6 @@
 @base_taxes_desire = 100
 @base_taxes_refusal = 150
 
-liege_contract_negotiation_acceptance = {
-	add = 0	
-	if = { limit = { local_var:feudal_government_taxes 	!= vassal_contract_obligation_level:feudal_government_taxes  	} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:feudal_government_taxes 	var:level = local_var:feudal_government_taxes	} add = var:ruler_desire subtract = var:ruler_refusal }}
-	if = { limit = { local_var:feudal_government_levies != vassal_contract_obligation_level:feudal_government_levies 	} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:feudal_government_levies 	var:level = local_var:feudal_government_levies 	} add = var:ruler_desire subtract = var:ruler_refusal }}
-	if = { limit = { local_var:special_contract 		!= vassal_contract_obligation_level:special_contract 			} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:special_contract			var:level = local_var:special_contract 			} add = var:ruler_desire subtract = var:ruler_refusal }}
-	if = { limit = { local_var:religious_rights 		!= vassal_contract_obligation_level:religious_rights 			} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:religious_rights 			var:level = local_var:religious_rights 			} add = var:ruler_desire subtract = var:ruler_refusal }}
-	if = { limit = { local_var:fortification_rights 	!= vassal_contract_obligation_level:fortification_rights 		} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:fortification_rights 		var:level = local_var:fortification_rights 		} add = var:ruler_desire subtract = var:ruler_refusal }}
-	if = { limit = { local_var:coinage_rights 			!= vassal_contract_obligation_level:coinage_rights 				} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:coinage_rights 			var:level = local_var:coinage_rights 			} add = var:ruler_desire subtract = var:ruler_refusal }}
-	if = { limit = { local_var:succession_rights 		!= vassal_contract_obligation_level:succession_rights 			} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:succession_rights 			var:level = local_var:succession_rights 		} add = var:ruler_desire subtract = var:ruler_refusal }}
-	if = { limit = { local_var:war_declaration_rights 	!= vassal_contract_obligation_level:war_declaration_rights 		} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:war_declaration_rights 	var:level = local_var:war_declaration_rights 	} add = var:ruler_desire subtract = var:ruler_refusal }}
-	if = { limit = { local_var:council_rights 			!= vassal_contract_obligation_level:council_rights 				} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:council_rights 			var:level = local_var:council_rights 			} add = var:ruler_desire subtract = var:ruler_refusal }}
-	if = { limit = { local_var:title_revocation_rights 	!= vassal_contract_obligation_level:title_revocation_rights 	} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:title_revocation_rights 	var:level = local_var:title_revocation_rights 	} add = var:ruler_desire subtract = var:ruler_refusal }}
-	if = { limit = { var:contract_negotiation.var:vassal = { has_variable = contract_negotiation_used_strong_hook }} add = 100 }
-	if = { limit = { var:contract_negotiation.var:vassal = { has_variable = contract_negotiation_used_weak_hook }} add = 50 }
-}
-
-vassal_contract_negotiation_acceptance = {
-	add = 0
-	if = { limit = { local_var:feudal_government_taxes 	!= vassal_contract_obligation_level:feudal_government_taxes  	} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:feudal_government_taxes 	var:level = local_var:feudal_government_taxes	} add = var:vassal_desire subtract = var:vassal_refusal }}
-	if = { limit = { local_var:feudal_government_levies != vassal_contract_obligation_level:feudal_government_levies 	} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:feudal_government_levies	var:level = local_var:feudal_government_levies 	} add = var:vassal_desire subtract = var:vassal_refusal }}
-	if = { limit = { local_var:special_contract 		!= vassal_contract_obligation_level:special_contract 			} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:special_contract			var:level = local_var:special_contract 			} add = var:vassal_desire subtract = var:vassal_refusal }}
-	if = { limit = { local_var:religious_rights 		!= vassal_contract_obligation_level:religious_rights 			} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:religious_rights 			var:level = local_var:religious_rights 			} add = var:vassal_desire subtract = var:vassal_refusal }}
-	if = { limit = { local_var:fortification_rights 	!= vassal_contract_obligation_level:fortification_rights 		} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:fortification_rights 		var:level = local_var:fortification_rights		} add = var:vassal_desire subtract = var:vassal_refusal }}
-	if = { limit = { local_var:coinage_rights 			!= vassal_contract_obligation_level:coinage_rights 				} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:coinage_rights 			var:level = local_var:coinage_rights			} add = var:vassal_desire subtract = var:vassal_refusal }}
-	if = { limit = { local_var:succession_rights 		!= vassal_contract_obligation_level:succession_rights 			} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:succession_rights 			var:level = local_var:succession_rights			} add = var:vassal_desire subtract = var:vassal_refusal }}
-	if = { limit = { local_var:war_declaration_rights 	!= vassal_contract_obligation_level:war_declaration_rights 		} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:war_declaration_rights 	var:level = local_var:war_declaration_rights	} add = var:vassal_desire subtract = var:vassal_refusal }}
-	if = { limit = { local_var:council_rights 			!= vassal_contract_obligation_level:council_rights 				} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:council_rights 			var:level = local_var:council_rights			} add = var:vassal_desire subtract = var:vassal_refusal }}
-	if = { limit = { local_var:title_revocation_rights 	!= vassal_contract_obligation_level:title_revocation_rights 	} every_owned_story = { limit = { story_type = obligation_level_desire var:obligation = flag:title_revocation_rights 	var:level = local_var:title_revocation_rights	} add = var:vassal_desire subtract = var:vassal_refusal }}
-	if = { limit = { var:contract_negotiation.var:ruler = { has_variable = contract_negotiation_used_strong_hook }} add = 100 }
-	if = { limit = { var:contract_negotiation.var:ruler = { has_variable = contract_negotiation_used_weak_hook }} add = 50 }
-}
-
 contract_negotiation_acceptance = {
 	var:contract_negotiation = {
 		if = {
@@ -136,6 +104,7 @@ feudal_government_levies_0_ruler = {
 		add = feudal_government_levies_ruler
 		add = {
 			add = @base_levies_desire
+			multiply = { add = 0 subtract = vassal_contract_obligation_level:feudal_government_levies }
 		}
 		min = 0
 	}
@@ -144,11 +113,10 @@ feudal_government_levies_0_ruler = {
 		subtract = feudal_government_levies_ruler
 		add = {
 			add = @base_levies_refusal
+			multiply = { add = 0 subtract = vassal_contract_obligation_level:feudal_government_levies }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { add = 0 subtract = vassal_contract_obligation_level:feudal_government_levies }
 }
 feudal_government_levies_1_ruler = {
 	value = 0
@@ -157,6 +125,7 @@ feudal_government_levies_1_ruler = {
 		add = feudal_government_levies_ruler
 		add = {
 			add = @base_levies_desire
+			multiply = { add = 1 subtract = vassal_contract_obligation_level:feudal_government_levies }
 		}
 		min = 0
 	}
@@ -165,11 +134,10 @@ feudal_government_levies_1_ruler = {
 		subtract = feudal_government_levies_ruler
 		add = {
 			add = @base_levies_refusal
+			multiply = { add = 1 subtract = vassal_contract_obligation_level:feudal_government_levies }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { add = 1 subtract = vassal_contract_obligation_level:feudal_government_levies }
 }
 feudal_government_levies_2_ruler = {
 	value = 0
@@ -177,7 +145,8 @@ feudal_government_levies_2_ruler = {
 		limit = { 2 > vassal_contract_obligation_level:feudal_government_levies }
 		add = feudal_government_levies_ruler
 		add = {
-			add = @base_levies_desire
+			add = @base_levies_refusal
+			multiply = { add = 2 subtract = vassal_contract_obligation_level:feudal_government_levies }
 		}
 		min = 0
 	}
@@ -186,11 +155,10 @@ feudal_government_levies_2_ruler = {
 		subtract = feudal_government_levies_ruler
 		add = {
 			add = @base_levies_refusal
+			multiply = { add = 2 subtract = vassal_contract_obligation_level:feudal_government_levies }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { add = 2 subtract = vassal_contract_obligation_level:feudal_government_levies }
 }
 feudal_government_levies_3_ruler = {
 	value = 0
@@ -199,6 +167,7 @@ feudal_government_levies_3_ruler = {
 		add = feudal_government_levies_ruler
 		add = {
 			add = @base_levies_desire
+			multiply = { add = 3 subtract = vassal_contract_obligation_level:feudal_government_levies }
 		}
 		min = 0
 	}
@@ -207,11 +176,10 @@ feudal_government_levies_3_ruler = {
 		subtract = feudal_government_levies_ruler
 		add = {
 			add = @base_levies_refusal
+			multiply = { add = 3 subtract = vassal_contract_obligation_level:feudal_government_levies }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { add = 3 subtract = vassal_contract_obligation_level:feudal_government_levies }
 }
 feudal_government_levies_4_ruler = {
 	value = 0
@@ -220,6 +188,7 @@ feudal_government_levies_4_ruler = {
 		add = feudal_government_levies_ruler
 		add = {
 			add = @base_levies_desire
+			multiply = { add = 4 subtract = vassal_contract_obligation_level:feudal_government_levies }
 		}
 		min = 0
 	}
@@ -228,11 +197,10 @@ feudal_government_levies_4_ruler = {
 		subtract = feudal_government_levies_ruler
 		add = {
 			add = @base_levies_refusal
+			multiply = { add = 4 subtract = vassal_contract_obligation_level:feudal_government_levies }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { add = 4 subtract = vassal_contract_obligation_level:feudal_government_levies }
 }
 
 feudal_government_levies_vassal = {
@@ -246,6 +214,7 @@ feudal_government_levies_0_vassal = {
 		add = feudal_government_levies_vassal
 		add = {
 			add = @base_levies_desire
+			multiply = { subtract = 0 add = vassal_contract_obligation_level:feudal_government_levies }
 		}
 		min = 0
 	}
@@ -254,11 +223,10 @@ feudal_government_levies_0_vassal = {
 		subtract = feudal_government_levies_vassal
 		add = {
 			add = @base_levies_refusal
+			multiply = { subtract = 0 add = vassal_contract_obligation_level:feudal_government_levies }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { subtract = 0 add = vassal_contract_obligation_level:feudal_government_levies }
 }
 feudal_government_levies_1_vassal = {
 	value = 0
@@ -267,6 +235,7 @@ feudal_government_levies_1_vassal = {
 		add = feudal_government_levies_vassal
 		add = {
 			add = @base_levies_desire
+			multiply = { subtract = 1 add = vassal_contract_obligation_level:feudal_government_levies }
 		}
 		min = 0
 	}
@@ -275,11 +244,10 @@ feudal_government_levies_1_vassal = {
 		subtract = feudal_government_levies_vassal
 		add = {
 			add = @base_levies_refusal
+			multiply = { subtract = 1 add = vassal_contract_obligation_level:feudal_government_levies }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { subtract = 1 add = vassal_contract_obligation_level:feudal_government_levies }
 }
 feudal_government_levies_2_vassal = {
 	value = 0
@@ -288,6 +256,7 @@ feudal_government_levies_2_vassal = {
 		add = feudal_government_levies_vassal
 		add = {
 			add = @base_levies_desire
+			multiply = { subtract = 2 add = vassal_contract_obligation_level:feudal_government_levies }
 		}
 		min = 0
 	}
@@ -296,11 +265,10 @@ feudal_government_levies_2_vassal = {
 		subtract = feudal_government_levies_vassal
 		add = {
 			add = @base_levies_refusal
+			multiply = { subtract = 2 add = vassal_contract_obligation_level:feudal_government_levies }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { subtract = 2 add = vassal_contract_obligation_level:feudal_government_levies }
 }
 feudal_government_levies_3_vassal = {
 	value = 0
@@ -309,6 +277,7 @@ feudal_government_levies_3_vassal = {
 		add = feudal_government_levies_vassal
 		add = {
 			add = @base_levies_desire
+			multiply = { subtract = 3 add = vassal_contract_obligation_level:feudal_government_levies }
 		}
 		min = 0
 	}
@@ -317,11 +286,10 @@ feudal_government_levies_3_vassal = {
 		subtract = feudal_government_levies_vassal
 		add = {
 			add = @base_levies_refusal
+			multiply = { subtract = 3 add = vassal_contract_obligation_level:feudal_government_levies }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { subtract = 3 add = vassal_contract_obligation_level:feudal_government_levies }
 }
 feudal_government_levies_4_vassal = {
 	value = 0
@@ -330,6 +298,7 @@ feudal_government_levies_4_vassal = {
 		add = feudal_government_levies_vassal
 		add = {
 			add = @base_levies_desire
+			multiply = { subtract = 4 add = vassal_contract_obligation_level:feudal_government_levies }
 		}
 		min = 0
 	}
@@ -338,11 +307,10 @@ feudal_government_levies_4_vassal = {
 		subtract = feudal_government_levies_vassal
 		add = {
 			add = @base_levies_refusal
+			multiply = { subtract = 4 add = vassal_contract_obligation_level:feudal_government_levies }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { subtract = 4 add = vassal_contract_obligation_level:feudal_government_levies }
 }
 
 feudal_government_levies_0_ruler_desire = { value = 0 add = feudal_government_levies_0_ruler min = 0 }
@@ -380,6 +348,7 @@ feudal_government_taxes_0_ruler = {
 		add = feudal_government_taxes_ruler
 		add = {
 			add = @base_taxes_desire
+			multiply = { add = 0 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 		}
 		min = 0
 	}
@@ -388,11 +357,10 @@ feudal_government_taxes_0_ruler = {
 		subtract = feudal_government_taxes_ruler
 		add = {
 			add = @base_taxes_refusal
+			multiply = { add = 0 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { add = 0 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 }
 feudal_government_taxes_1_ruler = {
 	value = 0
@@ -401,6 +369,7 @@ feudal_government_taxes_1_ruler = {
 		add = feudal_government_taxes_ruler
 		add = {
 			add = @base_taxes_desire
+			multiply = { add = 1 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 		}
 		min = 0
 	}
@@ -409,11 +378,10 @@ feudal_government_taxes_1_ruler = {
 		subtract = feudal_government_taxes_ruler
 		add = {
 			add = @base_taxes_refusal
+			multiply = { add = 1 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { add = 1 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 }
 feudal_government_taxes_2_ruler = {
 	value = 0
@@ -422,6 +390,7 @@ feudal_government_taxes_2_ruler = {
 		add = feudal_government_taxes_ruler
 		add = {
 			add = @base_taxes_desire
+			multiply = { add = 2 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 		}
 		min = 0
 	}
@@ -430,11 +399,10 @@ feudal_government_taxes_2_ruler = {
 		subtract = feudal_government_taxes_ruler
 		add = {
 			add = @base_taxes_refusal
+			multiply = { add = 2 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { add = 2 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 }
 feudal_government_taxes_3_ruler = {
 	value = 0
@@ -443,6 +411,7 @@ feudal_government_taxes_3_ruler = {
 		add = feudal_government_taxes_ruler
 		add = {
 			add = @base_taxes_desire
+			multiply = { add = 3 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 		}
 		min = 0
 	}
@@ -451,11 +420,10 @@ feudal_government_taxes_3_ruler = {
 		subtract = feudal_government_taxes_ruler
 		add = {
 			add = @base_taxes_refusal
+			multiply = { add = 3 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { add = 3 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 }
 feudal_government_taxes_4_ruler = {
 	value = 0
@@ -464,6 +432,7 @@ feudal_government_taxes_4_ruler = {
 		add = feudal_government_taxes_ruler
 		add = {
 			add = @base_taxes_desire
+			multiply = { add = 4 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 		}
 		min = 0
 	}
@@ -472,11 +441,10 @@ feudal_government_taxes_4_ruler = {
 		subtract = feudal_government_taxes_ruler
 		add = {
 			add = @base_taxes_refusal
+			multiply = { add = 4 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { add = 4 subtract = vassal_contract_obligation_level:feudal_government_taxes }
 }
 
 feudal_government_taxes_vassal_pos = {
@@ -494,19 +462,19 @@ feudal_government_taxes_0_vassal = {
 		add = feudal_government_taxes_vassal_pos
 		add = {
 			add = @base_taxes_desire
+			multiply = { subtract = 0 add = vassal_contract_obligation_level:feudal_government_taxes }
 		}
 		min = 0
 	}
 	else_if = {
 		limit = { 0 > vassal_contract_obligation_level:feudal_government_taxes }
-		add = feudal_government_taxes_vassal_neg
+		subtract = feudal_government_taxes_vassal_neg
 		add = {
 			add = @base_taxes_refusal
+			multiply = { subtract = 0 add = vassal_contract_obligation_level:feudal_government_taxes }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { subtract = 0 add = vassal_contract_obligation_level:feudal_government_taxes }
 }
 feudal_government_taxes_1_vassal = {
 	value = 0
@@ -515,19 +483,19 @@ feudal_government_taxes_1_vassal = {
 		add = feudal_government_taxes_vassal_pos
 		add = {
 			add = @base_taxes_desire
+			multiply = { subtract = 1 add = vassal_contract_obligation_level:feudal_government_taxes }
 		}
 		min = 0
 	}
 	else_if = {
 		limit = { 1 > vassal_contract_obligation_level:feudal_government_taxes }
-		add = feudal_government_taxes_vassal_neg
+		subtract = feudal_government_taxes_vassal_neg
 		add = {
 			add = @base_taxes_refusal
+			multiply = { subtract = 1 add = vassal_contract_obligation_level:feudal_government_taxes }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { subtract = 1 add = vassal_contract_obligation_level:feudal_government_taxes }
 }
 feudal_government_taxes_2_vassal = {
 	value = 0
@@ -536,19 +504,19 @@ feudal_government_taxes_2_vassal = {
 		add = feudal_government_taxes_vassal_pos
 		add = {
 			add = @base_taxes_desire
+			multiply = { subtract = 2 add = vassal_contract_obligation_level:feudal_government_taxes }
 		}
 		min = 0
 	}
 	else_if = {
 		limit = { 2 > vassal_contract_obligation_level:feudal_government_taxes }
-		add = feudal_government_taxes_vassal_neg
+		subtract = feudal_government_taxes_vassal_neg
 		add = {
 			add = @base_taxes_refusal
+			multiply = { subtract = 2 add = vassal_contract_obligation_level:feudal_government_taxes }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { subtract = 2 add = vassal_contract_obligation_level:feudal_government_taxes }
 }
 feudal_government_taxes_3_vassal = {
 	value = 0
@@ -557,19 +525,19 @@ feudal_government_taxes_3_vassal = {
 		add = feudal_government_taxes_vassal_pos
 		add = {
 			add = @base_taxes_desire
+			multiply = { subtract = 3 add = vassal_contract_obligation_level:feudal_government_taxes }
 		}
 		min = 0
 	}
 	else_if = {
 		limit = { 3 > vassal_contract_obligation_level:feudal_government_taxes }
-		add = feudal_government_taxes_vassal_neg
+		subtract = feudal_government_taxes_vassal_neg
 		add = {
 			add = @base_taxes_refusal
+			multiply = { subtract = 3 add = vassal_contract_obligation_level:feudal_government_taxes }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { subtract = 3 add = vassal_contract_obligation_level:feudal_government_taxes }
 }
 feudal_government_taxes_4_vassal = {
 	value = 0
@@ -578,19 +546,19 @@ feudal_government_taxes_4_vassal = {
 		add = feudal_government_taxes_vassal_pos
 		add = {
 			add = @base_taxes_desire
+			multiply = { subtract = 4 add = vassal_contract_obligation_level:feudal_government_taxes }
 		}
 		min = 0
 	}
 	else_if = {
 		limit = { 4 > vassal_contract_obligation_level:feudal_government_taxes }
-		add = feudal_government_taxes_vassal_neg
+		subtract = feudal_government_taxes_vassal_neg
 		add = {
 			add = @base_taxes_refusal
+			multiply = { subtract = 4 add = vassal_contract_obligation_level:feudal_government_taxes }
 		}
-		min = 0
+		max = 0
 	}
-	
-	multiply = { subtract = 4 add = vassal_contract_obligation_level:feudal_government_taxes }
 }
 
 feudal_government_taxes_0_ruler_desire = { value = 0 add = feudal_government_taxes_0_ruler min = 0 }
