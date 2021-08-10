@@ -60,11 +60,11 @@
 			}
 		}
 		trigger_else = {
-			scope:recipient = { 
+			scope:actor = { 
 				custom_description = {
 					text = "accepts_proposal"
 					subject = scope:recipient
-					vassal_contract_negotiation_acceptance > 0
+					contract_negotiation_acceptance > 0
 				}
 			}
 		}
@@ -340,7 +340,7 @@ vassal_modify_vassal_contract_interaction_PvAI = {
 				custom_description = {
 					text = "accepts_proposal"
 					subject = scope:recipient
-					liege_contract_negotiation_acceptance > 0
+					contract_negotiation_acceptance > 0
 				}
 			}
 		}
