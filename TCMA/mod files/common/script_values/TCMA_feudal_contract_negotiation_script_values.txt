@@ -739,7 +739,7 @@ council_rights_1_vassal_desire = { add = council_rights_vassal min = 0  if = { l
 council_rights_1_vassal_refusal = { add = 0 }
 
 title_revocation_rights_ruler = {
-	add = 100
+	add = 150
 	subtract = liege.ai_boldness
 	add = liege.ai_vengefulness
 	subtract = ai_honor_neg
