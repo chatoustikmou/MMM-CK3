@@ -10,3 +10,10 @@
 		}
 	}
 }
+
+sgui_end_inherichance = {
+	scope = character
+	effect = {
+		var:inherichance_heirs_story = { end_story = yes }
+	}
+}

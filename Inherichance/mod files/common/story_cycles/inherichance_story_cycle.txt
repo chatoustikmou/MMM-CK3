@@ -1,83 +1,18 @@
 ﻿inherichance_heirs_story = { 
 
 	on_setup = {
-		set_variable = {
-			name = story_owner
-			value = story_owner
+		story_owner = { inherichance_set_player_heir = yes }
+
+		if = {
+			limit = {
+				has_game_rule = inherichance_gold_spoliation
+				story_owner.gold > 0
+			}
+			var:random_heir = { add_gold = scope:story.story_owner.gold }
+			story_owner = { remove_long_term_gold = gold }
 		}
+
 		story_owner = {
-			set_variable = {
-				name = primary_heir
-				value = THIS
-			}
-			if = {
-				limit = { has_game_rule = inherichance_random }
-				random_player_heir = {
-					scope:story = {
-						set_variable = {
-							name = random_heir
-							value = PREV
-						}
-					}
-				}
-			}
-			else_if = {
-				limit = { has_game_rule = inherichance_underdog }
-				ordered_player_heir = {
-					order_by = {
-						every_heir_to_title = {
-							limit = {
-								holder = scope:story.story_owner.var:dead_character
-								is_leased_out = no
-								tier = tier_barony
-							}
-							subtract = 1
-						}
-						every_held_title = {
-							limit = {
-								is_leased_out = no
-								tier = tier_barony
-								previous_holder = scope:story.story_owner.var:dead_character
-							}
-							subtract = 1
-						}
-					}
-					scope:story = {
-						set_variable = {
-							name = random_heir
-							value = PREV
-						}
-					}
-				}
-			}
-			else_if = {
-				limit = { has_game_rule = inherichance_topdog }
-				ordered_player_heir = {
-					order_by = {
-						every_heir_to_title = {
-							limit = {
-								holder = scope:story.story_owner.var:dead_character
-								is_leased_out = no
-							}
-							add = 1
-						}
-						every_held_title = {
-							limit = {
-								is_leased_out = no
-								tier = tier_barony
-								previous_holder = scope:story.story_owner.var:dead_character
-							}
-							add = 1
-						}
-					}
-					scope:story = {
-						set_variable = {
-							name = random_heir
-							value = PREV
-						}
-					}
-				}
-			}
 			every_player_heir = {
 				limit = { NOT = { THIS = scope:story.var:random_heir }}
 				scope:story = {
@@ -136,6 +71,7 @@
 				}
 			}
 		}
+		
 		make_story_owner = var:random_heir
 	}
 

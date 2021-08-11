@@ -801,6 +801,7 @@ window = {
 						name = "close_button"
 						visible = "[SuccessionEventWindow.GetPlayerHeir.IsValid]"
 						onclick = "[PdxGuiTriggerAllAnimations('ruler_transition_reset')]"
+						onclick = "[GetScriptedGui('sgui_end_inherichance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 						text = "INHERICHANCE_EVENT_WINDOW_CLOSE"
 						min_width = 330
 					}
@@ -810,6 +811,7 @@ window = {
 						visible = "[And( Not(SuccessionEventWindow.GetPlayerHeir.IsValid), SuccessionEventWindow.CanChangeCharacter)]"
 						text = "SUCCESSION_EVENT_WINDOW_OBSERVER"
 						onclick = "[SuccessionEventWindow.GoToObserver]"
+						onclick = "[GetScriptedGui('sgui_end_inherichance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 						default_format = "#high"
 					}
 
@@ -818,6 +820,7 @@ window = {
 						visible = "[And( Not(SuccessionEventWindow.GetPlayerHeir.IsValid), SuccessionEventWindow.CanChangeCharacter)]"
 						text = "SUCCESSION_EVENT_WINDOW_CHANGE_CHARACTER"
 						onclick = "[SuccessionEventWindow.ChooseNewCharacter]"
+						onclick = "[GetScriptedGui('sgui_end_inherichance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 						default_format = "#high"
 					}
 
@@ -827,6 +830,7 @@ window = {
 						text = "[SuccessionEventWindow.GetExitName]"
 						tooltip = "[SuccessionEventWindow.GetExitTooltip]"
 						onclick = "[SuccessionEventWindow.GoToMenu]"
+						onclick = "[GetScriptedGui('sgui_end_inherichance').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 						default_format = "#high"
 					}
 				}
