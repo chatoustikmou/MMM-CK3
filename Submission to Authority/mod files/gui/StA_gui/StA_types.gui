@@ -116,10 +116,18 @@
 			}
 		}
 	}
+
+	type window_my_realm_liege_header_StA = text_single {
+		layoutpolicy_horizontal = expanding
+		align = center
+		text = "SUBMISSION_TO_LIEGE"
+		autoresize = no
+	}
 }
 
 types StA_window_my_realm_tooltips {
 	type authority_ticking_tooltip = widget {
+		
 		size = { 450 250 }
 		using = Background_Tooltip
 		alwaystransparent = no
@@ -136,6 +144,8 @@ types StA_window_my_realm_tooltips {
 				layoutpolicy_horizontal = expanding
 				ignoreinvisible = yes
 				vbox = {
+					datacontext = "[GetScriptedGui('sgui_authority_not_ticking')]"
+					visible = "[Not(ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
 					hbox = {
 						datacontext = "[GetScriptedGui('sgui_authority_ticks_up')]"
 						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -155,7 +165,7 @@ types StA_window_my_realm_tooltips {
 						minimumsize = {350}
 						text_single = {
 							layoutpolicy_horizontal = fixed
-							align = right
+							align = left
 							text = "AUTHORITY_TICK_DOWN"
 							fonttintcolor = "[TooltipInfo.GetTintColor]"
 						}
@@ -267,6 +277,24 @@ types StA_window_my_realm_tooltips {
 						}
 					}
 					expand = {}
+				}
+				vbox = {
+					datacontext = "[GetScriptedGui('sgui_authority_not_ticking')]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					hbox = {
+						datacontext = "[GetScriptedGui('sgui_authority_not_ticking')]"
+						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						layoutpolicy_horizontal = expanding
+						minimumsize = {350}
+						text_multi = {
+							multiline = yes
+							layoutpolicy_horizontal = expanding
+							align = left
+							text = "AUTHORITY_NOT_TICKING"
+							fonttintcolor = "[TooltipInfo.GetTintColor]"
+							
+						}
+					}
 				}
 				expand = {}
 			}
@@ -595,7 +623,7 @@ types StA_widget_vassal_list {
 	}
 
 	type widget_vassal_list_modify_contract_vassal_submission_StA = hbox {
-		layoutpolicy_horizontal = expanding
+		layoutpolicy_horizontal = growing
 		hbox = {
 			datacontext = "[GetScriptedGui('sgui_has_submission_value')]"
 			visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -615,7 +643,7 @@ types StA_widget_vassal_list {
 				}
 			}
 			vbox = {
-				minimumsize = {25}
+				minimumsize = {40}
 				text_single = {
 					layoutpolicy_horizontal = expanding
 					text = "[GuiScope.SetRoot(Character.MakeScope ).ScriptValue('submission')|#V0]"
@@ -638,37 +666,7 @@ types StA_widget_vassal_list {
 		layoutpolicy_horizontal = expanding
 		hbox = {
 			layoutpolicy_horizontal = expanding
-			visible = "[And( VassalContract.UsesObligationLevels, Not( Character.GetPrimaryTitle.IsBarony))]"
-			spacing = 10
-
-			widget_vassal_list_modify_contract_vassal_button_vanilla = {
-				datacontext = "[GetScriptedGui('sgui_TCMA_active')]"
-				visible = "[Not(ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
-			}
-			widget_vassal_list_modify_contract_vassal_button_TCMA = {
-				datacontext = "[GetScriptedGui('sgui_TCMA_active')]"
-				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-			}
-
-			text_single = {
-				layoutpolicy_horizontal = expanding
-				text = "MY_REALM_WINDOW_VASSAL_OBLIGATION"
-				default_format = "#low"
-				align = nobaseline
-			}
-
-			expand = {}
-
-			vassal_contract_not_default_icon = {}
-
-			widget_vassal_list_modify_contract_vassal_submission_StA = {
-				datacontext = "[GetScriptedGui('sgui_StA_active')]"
-				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-			}
-		}
-		hbox = {
-			layoutpolicy_horizontal = expanding
-			visible = "[Not(And( VassalContract.UsesObligationLevels, Not( Character.GetPrimaryTitle.IsBarony)))]"
+			visible = "[Not(VassalContract.UsesObligationLevels)]"
 			spacing = 5
 
 			icon = {
@@ -685,7 +683,41 @@ types StA_widget_vassal_list {
 
 			expand = {}
 		}
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			visible = "[Not( Character.GetPrimaryTitle.IsBarony)]"
+			spacing = 10
+
+			widget_vassal_list_modify_contract_vassal_button_vanilla = {
+				datacontext = "[GetScriptedGui('sgui_TCMA_active')]"
+				visible = "[Not(ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
+			}
+			widget_vassal_list_modify_contract_vassal_button_TCMA = {
+				datacontext = "[GetScriptedGui('sgui_TCMA_active')]"
+				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			}
+
+			text_single = {
+				visible = "[VassalContract.UsesObligationLevels]"
+				layoutpolicy_horizontal = expanding
+				text = "MY_REALM_WINDOW_VASSAL_OBLIGATION"
+				default_format = "#low"
+				align = nobaseline
+			}
+
+			vassal_contract_not_default_icon = {}
+
+			expand = {}
+
+		}
 		expand = {}
+		hbox = {
+			visible = "[Not( Character.GetPrimaryTitle.IsBarony)]"
+			widget_vassal_list_modify_contract_vassal_submission_StA = {
+				datacontext = "[GetScriptedGui('sgui_StA_active')]"
+				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			}
+		}
 	}
 }
 

@@ -16,20 +16,65 @@ sgui_authority_ticks_up = {
 			AND = {
 				realm_law_use_crown_authority = yes
 				OR = {
-					AND = {							
-						NOT = { culture = { has_innovation = innovation_plenary_assemblies }}
-						var:ticking_authority <= ticking_cap_plenary_assemblies
+					OR = {
+						sw_is_loaded = no
+						AND = {
+							NOT = { culture = { has_innovation = innovation_plenary_assemblies }}
+							var:ticking_authority <= ticking_cap_plenary_assemblies
+						}
+						AND = {
+							culture = { has_innovation = innovation_plenary_assemblies }
+							NOT = { culture = { has_innovation = innovation_royal_prerogative }}
+							var:ticking_authority <= ticking_cap_royal_prerogative
+						}
+						AND = {
+							culture = { has_innovation = innovation_royal_prerogative }
+							culture = { has_innovation = innovation_plenary_assemblies }
+						}
 					}
-					AND = {
-						culture = { has_innovation = innovation_plenary_assemblies }
-						NOT = { culture = { has_innovation = innovation_royal_prerogative }}
-						var:ticking_authority <= ticking_cap_royal_prerogative
-					}
-					AND = {
-						culture = { has_innovation = innovation_royal_prerogative }
-						culture = { has_innovation = innovation_plenary_assemblies }
+					OR = {
+						sw_is_loaded = yes
+						AND = {
+							NOT = { culture = { has_innovation = innovation_gavelkind }}
+							var:ticking_authority <= ticking_cap_gavelkind
+						}
+						AND = {
+							culture = { has_innovation = innovation_gavelkind }
+							NOT = { culture = { has_innovation = innovation_hereditary_rule }}
+							var:ticking_authority <= ticking_cap_hereditary_rule
+						}
+						AND = {
+							culture = { has_innovation = innovation_gavelkind }
+							culture = { has_innovation = innovation_hereditary_rule }
+							NOT = { culture = { has_innovation = innovation_heraldry }}
+							var:ticking_authority <= ticking_cap_heraldry
+						}
+						AND = {
+							culture = { has_innovation = innovation_gavelkind }
+							culture = { has_innovation = innovation_hereditary_rule }
+							culture = { has_innovation = innovation_heraldry }
+						}
 					}
 				}
+			}
+		}
+	}
+}
+
+sgui_authority_not_ticking = {
+	scope = character
+	is_shown = {
+		var:ticking_authority <= ticking_cap_under_authority
+		realm_law_use_crown_authority = yes
+		OR = {
+			AND = {							
+				NOT = { culture = { has_innovation = innovation_plenary_assemblies }}
+				var:ticking_authority > ticking_cap_plenary_assemblies
+			}
+			AND = {
+				culture = { has_innovation = innovation_plenary_assemblies }
+				NOT = { culture = { has_innovation = innovation_royal_prerogative }}
+				var:ticking_authority > ticking_cap_royal_prerogative
 			}
 		}
 	}

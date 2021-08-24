@@ -1088,7 +1088,7 @@ window = {
 					vbox_interaction_options_TCMA = {
 						name = "tutorial_highlight_modify_contract_hook_button"
 						visible = "[CharacterInteractionConfirmationWindow.HasOptions]"
-						blockoverride OnClick
+						blockoverride checkbox_onclick
 						{
 							onclick = "[GetScriptedGui('contract_negotiation_use_hook').Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('recipient',ModifyVassalContractInteractionWindow.GetCharacterInteractionConfirmationWindow.GetRecipient.MakeScope).End)]"
 						}

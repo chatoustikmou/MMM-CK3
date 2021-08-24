@@ -46,7 +46,50 @@ monthly_tick_authority = {
 				name = ticking_authority
 				value = {
 					add = realm_authority
-					divide = 4
+					if = {
+						limit = { sw_is_loaded = no }
+						if = {
+							limit = {
+								realm_law_use_crown_authority = yes
+								culture = { NOT = { has_innovation = innovation_plenary_assemblies }}
+							}
+							max = 25
+						}
+						else_if = {
+							limit = {
+								realm_law_use_crown_authority = yes
+								culture = { NOT = { has_innovation = innovation_royal_prerogative }}
+							}
+							max = 50
+						}
+						else = {}
+					}
+					else_if = {
+						limit = { sw_is_loaded = yes }
+						if = {
+							limit = {
+								realm_law_use_crown_authority = yes
+								culture = { NOT = { has_innovation = innovation_gavelkind }}
+							}
+							max = 25
+						}
+						else_if = {
+							limit = {
+								realm_law_use_crown_authority = yes
+								culture = { NOT = { has_innovation = innovation_hereditary_rule }}
+							}
+							max = 50
+						}
+						else_if = {
+							limit = {
+								realm_law_use_crown_authority = yes
+								culture = { NOT = { has_innovation = innovation_heraldry }}
+							}
+							max = 75
+						}
+						else = {}
+					}
+					else = {}
 				}
 			}
 		}

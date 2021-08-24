@@ -179,6 +179,10 @@ window = {
 										expand = {}
 
 									}
+									window_my_realm_liege_header_StA = {
+										datacontext = "[GetScriptedGui('sgui_StA_active')]"
+										visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+									}
 								}
 
 								expand = {}
