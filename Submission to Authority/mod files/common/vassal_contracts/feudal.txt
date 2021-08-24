@@ -9,6 +9,7 @@ feudal_government_taxes = {
 			position = { 0 0 }
 
 			tax = exempt_feudal_tax
+			flag = exempt_feudal_food # [SoW]
 			vassal_opinion = 10
 
 			ai_liege_desire = 1
@@ -19,6 +20,7 @@ feudal_government_taxes = {
 			position = { 1 0 }
 
 			tax = low_feudal_tax
+			flag = low_feudal_food # [SoW]
 			vassal_opinion = 5
 
 			ai_liege_desire = 2
@@ -30,6 +32,7 @@ feudal_government_taxes = {
 			position = { 2 0 }
 
 			tax = normal_feudal_tax
+			flag = normal_feudal_food # [SoW]
 
 			ai_liege_desire = 3
 			ai_vassal_desire = 3
@@ -39,6 +42,7 @@ feudal_government_taxes = {
 			position = { 3 0 }
 			
 			tax = high_feudal_tax
+			flag = high_feudal_food # [SoW]
 			vassal_opinion = -15
 
 			ai_liege_desire = 4
@@ -49,6 +53,7 @@ feudal_government_taxes = {
 			position = { 4 0 }
 			
 			tax = extortionate_feudal_tax
+			flag = extortionate_feudal_food # [SoW]
 			vassal_opinion = -25
 
 			ai_liege_desire = 5
@@ -282,6 +287,7 @@ special_contract = {
 	}
 }
 
+
 religious_rights = {
 	display_mode = checkbox
 	is_shown = {
@@ -445,7 +451,7 @@ war_declaration_rights = {
 	display_mode = checkbox
 	obligation_levels = {
 		war_declaration_rights_default = {
-
+			default = yes
 			position = { 0 0 }
 			
 			ai_liege_desire = @ai_standard_liege_desire
@@ -454,8 +460,6 @@ war_declaration_rights = {
 		war_declaration_rights_allowed = {
 			parent = war_declaration_rights_default
 			position = { 1 0 }
-
-			default = yes
 
 			vassal_opinion = 5
 			
@@ -499,7 +503,7 @@ title_revocation_rights = {
 	display_mode = checkbox
 	obligation_levels = {
 		title_revocation_rights_default = {
-
+			default = yes
 			position = { 0 0 }
 			
 			ai_liege_desire = @ai_standard_liege_desire
@@ -509,8 +513,6 @@ title_revocation_rights = {
 			parent = title_revocation_rights_default
 			position = { 1 0 }
 			
-			default = yes
-
 			vassal_opinion = 5
 			
 			flag = vassal_contract_cannot_revoke_titles

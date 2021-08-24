@@ -43,6 +43,20 @@ All remaining bugs are my own.
 
 [h1]Changelog[/h1]
 
+Version 1.2.0
+
+# Compatibility
+- Now compatible with Sinews of War, must be loaded last
+
+# Interface
+- Added a version of the Authority tooltip that specifies when it's not ticking up because the player's culture is lacking an innovation to get any higher
+
+# Balance
+- Domain Authority is not longer capped by the ruler rank
+- To make up for it, vassal Authority is now impacted by their Submission to their Liege. As a result, accross the board, top liege Authority should be higher, and vassal Authority should be lower
+- Feudal vassal contracts no longer have Title Revocation protection and War declaraction rights on game start, to avoid balance problems when playing with Terms & Conditions May Apply
+- Authority now starts on target on game start
+
 Hotfix 1.1.4
 
 # Bug

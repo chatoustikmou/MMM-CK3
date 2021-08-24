@@ -11,23 +11,7 @@ realm_authority = {
 		every_held_title = {
 			limit = { tier = tier_county }
 			add = {
-				add = county_control
-				if = {
-					limit = { prev.highest_held_title_tier = tier_empire }
-					max = 100
-				}
-				else_if = {
-					limit = { prev.highest_held_title_tier = tier_kingdom }
-					max = 75
-				}
-				else_if = {
-					limit = { prev.highest_held_title_tier = tier_duchy }
-					max = 50
-				}
-				else_if = {
-					limit = { prev.highest_held_title_tier = tier_county }
-					max = 25
-				}					
+				add = county_control					
 				add = {
 					add = county_opinion
 					max = 0
@@ -36,10 +20,16 @@ realm_authority = {
 			}
 		}
 		if = {
-			limit = {
-				NOT = { sub_realm_size = 0 }
-			}
+			limit = { sub_realm_size > 0 }
 			divide = sub_realm_size
+		}
+	}
+	if = {
+		limit = { is_independent_ruler = no }
+		multiply = {
+			add = 100
+			subtract = submission
+			divide = 100
 		}
 	}
 	if = {
@@ -608,6 +598,22 @@ ticking_cap_royal_prerogative = {
 	value = 50
 	subtract = monthly_auth_var_increase
 }
+
+ticking_cap_gavelkind = {
+	value = 25
+	subtract = monthly_auth_var_increase
+}
+
+ticking_cap_hereditary_rule = {
+	value = 50
+	subtract = monthly_auth_var_increase
+}
+
+ticking_cap_heraldry = {
+	value = 75
+	subtract = monthly_auth_var_increase
+}
+
 
 # Calculated ahead for GUI + simpler clamping
 monthly_auth_var_increase = {

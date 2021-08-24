@@ -29,7 +29,14 @@
 
 		can_pass = {
 			has_realm_law = crown_authority_1
-			root.culture = { has_innovation = innovation_plenary_assemblies }
+			trigger_if = {
+				limit = { sw_is_loaded = no }
+				culture = { has_innovation = innovation_plenary_assemblies }
+			}
+			trigger_if = {
+				limit = { sw_is_loaded = yes }
+				culture = { has_innovation = innovation_gavelkind }
+			}
 		}
 	}
 	
@@ -48,7 +55,14 @@
 
 		can_pass = {
 			has_realm_law = crown_authority_2
-			root.culture = { has_innovation = innovation_royal_prerogative }
+			trigger_if = {
+				limit = { sw_is_loaded = no }
+				culture = { has_innovation = innovation_royal_prerogative }
+			}
+			trigger_if = {
+				limit = { sw_is_loaded = yes }
+				culture = { has_innovation = innovation_hereditary_rule }
+			}
 		}
 	}
 	
@@ -65,7 +79,14 @@
 
 		can_pass = {
 			has_realm_law = crown_authority_3
-			root.culture = { has_innovation = innovation_royal_prerogative }
+			trigger_if = {
+				limit = { sw_is_loaded = no }
+				culture = { has_innovation = innovation_royal_prerogative }
+			}
+			trigger_if = {
+				limit = { sw_is_loaded = yes }
+				culture = { has_innovation = innovation_heraldry }
+			}
 		}
 	}
 }
