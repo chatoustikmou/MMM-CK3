@@ -50,6 +50,11 @@ Once a proposal has been sent, the terms changed in that proposal are set, and t
 
 Version 0.1
 
+Version 0.1.5
+
+# Bug
+- Hooks now work properly in PvAI negotiation
+
 Hotfix 0.1.4
 
 # Bug
