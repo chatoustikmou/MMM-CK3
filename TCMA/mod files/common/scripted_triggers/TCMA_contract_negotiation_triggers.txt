@@ -1,8 +1,4 @@
-﻿mod_TCMA_active = {
-	always = yes
-}
-
-negotiation_can_advance = {
+﻿negotiation_can_advance = {
 	has_variable_list = negotiable_obligations
 	variable_list_size = {
 		name = negotiable_obligations

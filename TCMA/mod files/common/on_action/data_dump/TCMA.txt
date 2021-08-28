@@ -1,25 +1,28 @@
-﻿on_game_start = { on_actions = { TCMA_datadump_start }}
-yearly_global_pulse = { on_actions = { TCMA_datadump }}
-
-TCMA_datadump_start = {
-	trigger = { debug_only = yes }
-	effect = {
-		debug_log = "data_dump;Year;Character_ID;Character_Rank;Liege_ID;Liege_Rank;Feudal_Submission;contract_taxes;contract_levies;contract_religious_protection;contract_succession_rights;contract_war_declaration_rights;contract_council_rights;contract_title_recovation_protection_rights;contract_coinage_rights;contract_fortification_rights"
-		every_ruler = {
-			limit = {
-				is_landed = yes
-				is_independent_ruler = no
-				has_government = feudal_government
-				highest_held_title_tier >= tier_county
-			}
-			# debug_log = "data_dump;[GetCurrentDate.GetYear];[Scope.Char.GetID];[Scope.Char.GetPrimaryTitle.GetTierAsNameNoTooltip];[Scope.Char.GetLiege.GetID];[Scope.Char.GetLiege.GetPrimaryTitle.GetTierAsNameNoTooltip];[Scope.Char.MakeScope.ScriptValue('feudal_contract_score')];[Scope.ScriptValue('contract_taxes')|0];[Scope.ScriptValue('contract_levies')|0];[Scope.ScriptValue('contract_religious_protection')|0];[Scope.ScriptValue('contract_succession_rights')|0];[Scope.ScriptValue('contract_war_declaration_rights')|0];[Scope.ScriptValue('contract_council_rights')|0];[Scope.ScriptValue('contract_title_recovation_protection_rights')|0];[Scope.ScriptValue('contract_coinage_rights')|0];[Scope.ScriptValue('contract_fortification_rights')|0]"
-			debug_log = "data_dump;[GetCurrentDate.GetYear];[Scope.Char.GetID];[Scope.Char.GetPrimaryTitle.GetTierAsNameNoTooltip];[Scope.Char.GetLiege.GetID];[Scope.Char.GetLiege.GetPrimaryTitle.GetTierAsNameNoTooltip];;[Scope.ScriptValue('contract_taxes')|0];[Scope.ScriptValue('contract_levies')|0];[Scope.ScriptValue('contract_religious_protection')|0];[Scope.ScriptValue('contract_succession_rights')|0];[Scope.ScriptValue('contract_war_declaration_rights')|0];[Scope.ScriptValue('contract_council_rights')|0];[Scope.ScriptValue('contract_title_recovation_protection_rights')|0];[Scope.ScriptValue('contract_coinage_rights')|0];[Scope.ScriptValue('contract_fortification_rights')|0]"
-		}
+﻿on_game_start = {
+	on_actions = {
+		TCMA_datadump
+		TCMA_StA_datadump
+	}
+}
+yearly_global_pulse = {
+	on_actions = {
+		TCMA_datadump
+		TCMA_StA_datadump
 	}
 }
 
 TCMA_datadump = {
-	trigger = { debug_only = yes }
+	trigger = {
+		debug_only = yes
+		mod_StA_active = no
+		trigger_if = {
+			limit = { mod_TCMA_active = no }
+			always = no
+		}
+		trigger_else = {
+			always = yes
+		}
+	}
 	effect = {
 		debug_log = "data_dump;Year;Character_ID;Character_Rank;Liege_ID;Liege_Rank;Feudal_Submission;contract_taxes;contract_levies;contract_religious_protection;contract_succession_rights;contract_war_declaration_rights;contract_council_rights;contract_title_recovation_protection_rights;contract_coinage_rights;contract_fortification_rights"
 		every_ruler = {
@@ -29,8 +32,33 @@ TCMA_datadump = {
 				has_government = feudal_government
 				highest_held_title_tier >= tier_county
 			}
-			# debug_log = "data_dump;[GetCurrentDate.GetYear];[Scope.Char.GetID];[Scope.Char.GetPrimaryTitle.GetTierAsNameNoTooltip];[Scope.Char.GetLiege.GetID];[Scope.Char.GetLiege.GetPrimaryTitle.GetTierAsNameNoTooltip];[Scope.Char.MakeScope.ScriptValue('feudal_contract_score')];[Scope.ScriptValue('contract_taxes')|0];[Scope.ScriptValue('contract_levies')|0];[Scope.ScriptValue('contract_religious_protection')|0];[Scope.ScriptValue('contract_succession_rights')|0];[Scope.ScriptValue('contract_war_declaration_rights')|0];[Scope.ScriptValue('contract_council_rights')|0];[Scope.ScriptValue('contract_title_recovation_protection_rights')|0];[Scope.ScriptValue('contract_coinage_rights')|0];[Scope.ScriptValue('contract_fortification_rights')|0]"
-			debug_log = "data_dump;[GetCurrentDate.GetYear];[Scope.Char.GetID];[Scope.Char.GetPrimaryTitle.GetTierAsNameNoTooltip];[Scope.Char.GetLiege.GetID];[Scope.Char.GetLiege.GetPrimaryTitle.GetTierAsNameNoTooltip];;[Scope.ScriptValue('contract_taxes')|0];[Scope.ScriptValue('contract_levies')|0];[Scope.ScriptValue('contract_religious_protection')|0];[Scope.ScriptValue('contract_succession_rights')|0];[Scope.ScriptValue('contract_war_declaration_rights')|0];[Scope.ScriptValue('contract_council_rights')|0];[Scope.ScriptValue('contract_title_recovation_protection_rights')|0];[Scope.ScriptValue('contract_coinage_rights')|0];[Scope.ScriptValue('contract_fortification_rights')|0]"
+			debug_log = "data_dump;[GetCurrentDate.GetYear];[Scope.Char.GetID];[Scope.Char.GetPrimaryTitle.GetRankConcept];[Scope.Char.GetLiege.GetID];[Scope.Char.GetLiege.GetPrimaryTitle.GetRankConcept];;[Scope.ScriptValue('contract_taxes')|0];[Scope.ScriptValue('contract_levies')|0];[Scope.ScriptValue('contract_religious_protection')|0];[Scope.ScriptValue('contract_succession_rights')|0];[Scope.ScriptValue('contract_war_declaration_rights')|0];[Scope.ScriptValue('contract_council_rights')|0];[Scope.ScriptValue('contract_title_recovation_protection_rights')|0];[Scope.ScriptValue('contract_coinage_rights')|0];[Scope.ScriptValue('contract_fortification_rights')|0]"
+		}
+	}
+}
+
+TCMA_StA_datadump = {
+	trigger = {
+		debug_only = yes
+		mod_StA_active = yes
+		trigger_if = {
+			limit = { mod_TCMA_active = no }
+			always = no
+		}
+		trigger_else = {
+			always = yes
+		}
+	}
+	effect = {
+		debug_log = "data_dump;Year;Character_ID;Character_Rank;Liege_ID;Liege_Rank;Feudal_Submission;contract_taxes;contract_levies;contract_religious_protection;contract_succession_rights;contract_war_declaration_rights;contract_council_rights;contract_title_recovation_protection_rights;contract_coinage_rights;contract_fortification_rights"
+		every_ruler = {
+			limit = {
+				is_landed = yes
+				is_independent_ruler = no
+				has_government = feudal_government
+				highest_held_title_tier >= tier_county
+			}
+			debug_log = "data_dump;[GetCurrentDate.GetYear];[Scope.Char.GetID];[Scope.Char.GetPrimaryTitle.GetRankConcept];[Scope.Char.GetLiege.GetID];[Scope.Char.GetLiege.GetPrimaryTitle.GetRankConcept];[Scope.Char.MakeScope.ScriptValue('feudal_contract_score')];[Scope.ScriptValue('contract_taxes')|0];[Scope.ScriptValue('contract_levies')|0];[Scope.ScriptValue('contract_religious_protection')|0];[Scope.ScriptValue('contract_succession_rights')|0];[Scope.ScriptValue('contract_war_declaration_rights')|0];[Scope.ScriptValue('contract_council_rights')|0];[Scope.ScriptValue('contract_title_recovation_protection_rights')|0];[Scope.ScriptValue('contract_coinage_rights')|0];[Scope.ScriptValue('contract_fortification_rights')|0]"
 		}
 	}
 }
